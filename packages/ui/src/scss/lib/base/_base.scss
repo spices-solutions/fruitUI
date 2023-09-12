@@ -1,0 +1,36 @@
+@if $base {
+  @import url("https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap");
+
+  *,
+  *::after,
+  *::before {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+  }
+
+  html,
+  button,
+  input,
+  select,
+  textarea {
+    font-family: "Almarai", Arial, Helvetica, sans-serif;
+  }
+
+  body {
+    scroll-behavior: smooth;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  hr {
+    border: 1px soild #dadada;
+  }
+
+  img {
+    max-width: 100%;
+  }
+}

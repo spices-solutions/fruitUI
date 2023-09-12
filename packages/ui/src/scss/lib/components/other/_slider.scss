@@ -1,0 +1,59 @@
+@mixin slider {
+  $wdith: 600px;
+  $height: 400px;
+  .slider {
+    --slide-width: #{$wdith};
+    --slide-height: #{$height};
+    max-width: 100%;
+    overflow: hidden;
+    position: relative;
+    border-radius: 15px;
+    width: v(slide-width);
+    height: v(slide-height);
+    border: rgb(204, 204, 204) solid 1px;
+    img {
+      max-width: 100%;
+      width: v(slide-width);
+      height: v(slide-height);
+    }
+    svg {
+      filter: drop-shadow(0 0 2px black);
+    }
+    .next {
+      right: 2rem;
+    }
+    .prev {
+      left: 2rem;
+    }
+    .prev,
+    .next {
+      top: 50%;
+      cursor: pointer;
+      color: #efefef;
+      position: absolute;
+      transform: translateY(-50%);
+      &:active {
+        color: rgb(255, 255, 255);
+      }
+    }
+    .slides {
+      top: 0;
+      display: flex;
+      width: 10000px;
+      position: absolute;
+      .slide {
+        width: v(slide-width);
+        height: v(slide-height);
+      }
+      &.transition {
+        transition: all 0.3s ease-in-out;
+      }
+      &:hover {
+        cursor: grab;
+      }
+      &:active {
+        cursor: grabbing;
+      }
+    }
+  }
+}

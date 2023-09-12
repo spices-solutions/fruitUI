@@ -1,4 +1,0 @@
-@mixin it($ItShould) {
-  $itText: "\a     #{$ItShould}" !global;
-  @content;
-}

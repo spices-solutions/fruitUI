@@ -1,0 +1,15 @@
+/**
+ * under SIL license */
+@use "sass:color";
+@use "sass:math";
+@use "sass:map";
+@use "sass:string";
+@use "sass:selector";
+@use "sass:list";
+@use "sass:meta";
+
+@import "./core@variables";
+@import "./core@maps";
+@import "./core@colors";
+@import "./core@functions";
+@import "./core@mixins";

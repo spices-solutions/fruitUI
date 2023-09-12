@@ -1,0 +1,56 @@
+$grid-columns: 12 !default;
+
+@mixin grid-passer($prop) {
+  $printmedia: #{$prop}#{$separator} !default;
+  @if ($prop == null or $prop == "" or $prop == $xs) {
+    $printmedia: "";
+  }
+
+  .#{$printmedia}grid-cols-auto {
+    grid-template-columns: auto;
+  }
+  .#{$printmedia}grid-rows-auto {
+    grid-template-rows: auto;
+  }
+  .#{$printmedia}col-span-auto {
+    grid-column: auto;
+  }
+  .#{$printmedia}col-span-full {
+    grid-column: 1 / -1;
+  }
+  .#{$printmedia}row-span-auto {
+    grid-row: auto;
+  }
+  .#{$printmedia}row-span-full {
+    grid-row: 1 / -1;
+  }
+  // * grid columns and rows span class generator
+  @for $i from 1 through $grid-columns {
+    // * grid columns and rows auto class generator
+    .#{$printmedia}grid-cols-#{$i} {
+      grid-template-columns: repeat($i, minmax(0px, 1fr));
+    }
+    .#{$printmedia}grid-rows-#{$i} {
+      grid-template-rows: repeat($i, minmax(0px, 1fr));
+    }
+    .#{$printmedia}col-span-#{$i} {
+      grid-column: span $i / span $i;
+    }
+    .#{$printmedia}row-span-#{$i} {
+      grid-row: span $i / span $i;
+    }
+    // * grid columns and rows start and end class generator
+    .#{$printmedia}col-start-#{$i + 1} {
+      grid-column-start: #{$i + 1};
+    }
+    .#{$printmedia}col-end-#{$i + 1} {
+      grid-column-end: #{$i + 1};
+    }
+    .#{$printmedia}row-start-#{$i + 1} {
+      grid-row-start: #{$i + 1};
+    }
+    .#{$printmedia}row-end-#{$i + 1} {
+      grid-row-end: #{$i + 1};
+    }
+  }
+}

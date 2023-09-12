@@ -1,0 +1,32 @@
+{
+  "name": "spices-fruitui",
+  "version": "0.2.0",
+  "description": "a moduler styling framework",
+  "type": "module",
+  "files": ["dist"],
+  "main": "./dist/js/fruit.umd.cjs",
+  "module": "./dist/js/fruit.js",
+  "types": "./dist/js/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/js/fruit.umd.cjs",
+      "import": "./dist/js/fruit.js"
+    }
+  },
+  "keywords": [
+    "spices",
+    "UI",
+    "fruitUI"
+  ],
+  "homepage": "http://fruit-ui.vercel.app",
+  "license": "SIL",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/blackPeppper/fruitUI"
+  },
+  "bugs": {
+    "url": "https://github.com/blackPeppper/fruitUI/issues"
+  }
+}
+
+

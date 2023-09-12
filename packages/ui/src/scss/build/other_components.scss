@@ -1,0 +1,3 @@
+@use "../lib/import/basket" as * with (
+  $other-components: true,
+);

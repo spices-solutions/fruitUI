@@ -1,0 +1,30 @@
+---
+import Layout from "../layouts/Layout.astro";
+import "../../../packages/ui/src/scss/lib/docs.scss"
+---
+<Layout>
+  <main>
+    <div class="stage">
+      <br >
+      <div class="flex gap-5">
+      <button class="btn">defuilt</button>
+      <br/>
+      <button class="btn primary">primary</button>
+      <button class="btn secondary">secondary</button>
+      <button class="btn success">success</button>
+      <button class="btn info">info</button>
+      <button class="btn orange">orange</button>
+      <button class="btn error">error</button>
+      <button class="btn gray">gray</button>
+      <button class="btn black">black</button>
+      <button class="btn white">white</button>
+      </div>
+
+    </div>
+  </main>
+<script>
+  import {Navbar} from "../../../packages/ui/dist/js/fruit.js"
+  Navbar()
+</script>
+</Layout>
+

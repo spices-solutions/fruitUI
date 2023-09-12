@@ -1,0 +1,11 @@
+@import "./core/vars";
+@import "./core/functions";
+@import "./core/mixins";
+
+@import "./logic/anim@keyframe";
+
+@if $animPlugin {
+  $utilities: map-merge(
+    $anim , $utilities
+  );
+}

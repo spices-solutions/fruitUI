@@ -1,0 +1,13 @@
+// @mixin useTheme($theme: dark, $type: "class") {
+//   @if $useTheme {
+//     @if $type == "class" {
+//       .#{$theme} {
+//         @content;
+//       }
+//     } @else {
+//       [data-theme="#{$theme}"] {
+//         @content;
+//       }
+//     }
+//   }
+// }

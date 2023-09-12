@@ -1,0 +1,23 @@
+@mixin renderFrame($name) {
+  @keyframes #{$name} {
+    @each $position, $change in map-get($animations, $name) {
+      #{$position} {
+        @each $prop, $val in $change {
+          #{$prop}: #{$val};
+        }
+      }
+    }
+  }
+}
+
+
+@mixin anim($name, $duration: 2s, $timing: ease-in, $args...) {
+  $exists: index($included-animations, "#{$name}");
+  @if not $exists {
+    @at-root {
+      @include renderFrame($name);
+    }
+    $included-animations: append($included-animations, "#{$name}") !global;
+  }
+  animation: $name $duration $timing $args;
+}

@@ -1,0 +1,15 @@
+@use "../lib/import/basket" as * with (
+  $typography-util: true,
+  $spacing-util: true,
+  $align-util: true,
+  $other-util: true,
+  $size-util: true,
+  $media-alignments: true,
+  $media-flex-dir: true,
+  $media-padding: true,
+  $media-display: true,
+  $media-margin: true,
+  $media-font: true,
+);
+
+@include useShades(900,50);

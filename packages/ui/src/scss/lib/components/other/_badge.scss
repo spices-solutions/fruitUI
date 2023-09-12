@@ -1,0 +1,10 @@
+@mixin badge {
+  .badge {
+    color: white;
+    font-size: $font-xs;
+    display: inline-block;
+    background-color: $primary;
+    border-radius: $border-radius;
+    padding: $spacing-3 $spacing-6;
+  }
+}

@@ -1,0 +1,23 @@
+@use "sass:math";
+
+$columns: 12 !default;
+
+@mixin percentage-passer($prop) {
+  $printmedia: #{$prop}#{$separator} !default;
+
+  @if ($prop == null or $prop == "" or $prop == $xs) {
+    $printmedia: "";
+  }
+
+  @for $i from 1 through $columns {
+    .#{$printmedia}w-#{$i}\/#{$columns} {
+      width: math.div($i * 100%, $columns);
+    }
+    @if $pct-row {
+      .#{$printmedia}h-#{$i}\/#{$columns} {
+        height: math.div($i * 100%, $columns);
+      }
+    }
+  }
+}
+

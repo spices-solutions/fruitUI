@@ -1,0 +1,189 @@
+ <CH.Scrollycoding>
+
+  there is three types of components : base , other , awesome
+  
+  ```scss main.scss focus=4:21
+  ⠀
+  ⠀
+  @use "basket" as * with (
+    $components: (
+      base: (
+        button: ture,
+        navbar: ture,
+        card: ture,
+        forms: ture,
+        checkers: ture,
+      ),
+      other: (
+        badge: true,
+        table: true,
+        alert: true,
+        slider: true,
+      ),
+      awesome: (
+        prototype: ture,
+      ),
+    ),
+  );
+  ⠀
+  ⠀
+  ```
+  ---
+  
+  every component has value true it will be rendered
+  
+  ```scss main.scss focus=4:8,11:14,17
+  @use "basket" as * with (
+    $components: (
+      base: (
+        button: ture,
+        navbar: ture,
+        card: ture,
+        forms: ture,
+        checkers: ture,
+      ),
+      other: (
+        badge: true,
+        table: true,
+        alert: true,
+        slider: true,
+      ),
+      awesome: (
+        prototype: ture,
+      ),
+    ),
+  );
+  ```
+  ---
+  
+  or you can enable the holl catgory 
+  
+  ```scss main.scss focus=2:4
+  @use "basket" as * with (
+    $base-components: true,
+    $other-components: true,
+    $awesome-components: true,
+  );
+  ```
+
+  ---
+  
+  or include the component mixin 
+  
+  ```scss main.scss focus=5:16
+  @use "basket" as * with (
+    $a-var: "",
+  );
+
+  @include buttonBase();
+  @include navbarBase();
+  @include cardBase();
+  @include forms();
+  @include checkers();
+
+  @include badge();
+  @include table();
+  @include slider();
+  @include alert();
+
+  @include prototype();
+
+  ```
+
+</CH.Scrollycoding>
+<br />
+<h2 class="h2 text-center">theming</h2>
+<br />
+<CH.Scrollycoding>
+
+  
+  theming or color system is a dilemma
+  
+  ```html index.html
+  <!-- ... -->
+  ```
+
+  ---
+  
+  we could make every component have its own color system, but that would be more complicated in the future,
+  and that a preformace issues becuse every component has its own color system meaning when we have more components more load and space ( preformace issues ) but it's the easiest why
+  
+  
+  ```html index.html
+  <button class="btn-primary"></button>
+  <span class="badge-primary"></span>
+  <div class="navbar-primary"></div>
+  <div class="alert-primary"></div>
+  ```
+
+  ---
+  
+  it could be like this better for preformace but not that much and still generating  color system for every component 
+
+  ```html index.html
+  <button class="btn btn-primary"></button>
+  <span class="badge badge-primary"></span>
+  <div class="navbar navbar-primary"></div>
+  <div class="alert alert-primary"></div>
+  ```
+  ---
+  
+  it could be like this better for preformace but is not easy at all
+
+  ```html index.html
+  <button class="btn bg-purple-600 text-white"></button>
+  <span class="badge bg-purple-600 text-white"></span>
+  <div class="navbar bg-purple-600 text-white"></div>
+  <div class="alert bg-purple-600 text-white"></div>
+  ```
+
+  ---
+  
+  or it could be like this much better
+
+  ```html index.html
+  <button class="btn primary"></button>
+  <span class="badge primary"></span>
+  <div class="navbar primary"></div>
+  <div class="alert primary"></div>
+  ```
+
+  ---
+
+  theme works with this component 
+
+  ```html index.html
+
+  ```
+  ---
+
+  but one theme is not enough? okay
+
+  ```html index.html
+  <button class="btn primary"></button>
+  <button class="btn primary-flat"></button>
+  <button class="btn outlined e:primary"></button>
+  ```
+  ---
+
+  event color when the effect is not text and background, but hovering or a changing frame ( border , shadow ), for example
+
+  ```html index.html
+  <button class="btn outlined e:secondary"></button>
+  <input class="switch e:secondary" type="checkbox" />
+  <input class="radio e:secondary" type="radio" />
+  <input class="checkbox e:secondary" type="checkbox" />
+  <input class="form e:secondary" type="email" />
+  ```
+  ---
+
+  for theming
+
+  ```scss main.scss
+  @use "basket" as * with (
+    $ui-colors: true,
+  );
+  ```
+
+  
+</CH.Scrollycoding>

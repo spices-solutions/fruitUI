@@ -1,0 +1,270 @@
+$pink-50: hsl(327, 73%, 97%) !default;
+$pink-100: hsl(326, 78%, 95%) !default;
+$pink-200: hsl(326, 85%, 90%) !default;
+$pink-300: hsl(327, 87%, 82%) !default;
+$pink-400: hsl(329, 86%, 70%) !default;
+$pink-500: hsl(330, 81%, 60%) !default;
+$pink-600: hsl(333, 71%, 51%) !default;
+$pink-700: hsl(335, 78%, 42%) !default;
+$pink-800: hsl(336, 74%, 35%) !default;
+$pink-900: hsl(336, 69%, 30%) !default;
+
+$purple-50: hsl(270, 100%, 98%) !default;
+$purple-100: hsl(269, 100%, 95%) !default;
+$purple-200: hsl(269, 100%, 92%) !default;
+$purple-300: hsl(269, 97%, 85%) !default;
+$purple-400: hsl(270, 95%, 75%) !default;
+$purple-500: hsl(271, 91%, 65%) !default;
+$purple-600: hsl(271, 81%, 56%) !default;
+$purple-700: hsl(272, 72%, 47%) !default;
+$purple-800: hsl(273, 67%, 39%) !default;
+$purple-900: hsl(274, 66%, 32%) !default;
+
+$blue-50: hsl(214, 100%, 97%) !default;
+$blue-100: hsl(214, 95%, 93%) !default;
+$blue-200: hsl(213, 97%, 87%) !default;
+$blue-300: hsl(212, 96%, 78%) !default;
+$blue-400: hsl(213, 94%, 68%) !default;
+$blue-500: hsl(217, 91%, 60%) !default;
+$blue-600: hsl(221, 83%, 53%) !default;
+$blue-700: hsl(224, 76%, 48%) !default;
+$blue-800: hsl(226, 71%, 40%) !default;
+$blue-900: hsl(224, 64%, 33%) !default;
+
+$light-blue-50: hsl(204, 100%, 97%) !default;
+$light-blue-100: hsl(204, 94%, 94%) !default;
+$light-blue-200: hsl(201, 94%, 86%) !default;
+$light-blue-300: hsl(199, 95%, 74%) !default;
+$light-blue-400: hsl(198, 93%, 60%) !default;
+$light-blue-500: hsl(199, 89%, 48%) !default;
+$light-blue-600: hsl(200, 98%, 39%) !default;
+$light-blue-700: hsl(201, 96%, 32%) !default;
+$light-blue-800: hsl(201, 90%, 27%) !default;
+$light-blue-900: hsl(202, 80%, 24%) !default;
+
+$green-50: hsl(138, 76%, 97%) !default;
+$green-100: hsl(141, 84%, 93%) !default;
+$green-200: hsl(141, 79%, 85%) !default;
+$green-300: hsl(142, 77%, 73%) !default;
+$green-400: hsl(142, 69%, 58%) !default;
+$green-500: hsl(142, 71%, 45%) !default;
+$green-600: hsl(142, 76%, 36%) !default;
+$green-700: hsl(142, 72%, 29%) !default;
+$green-800: hsl(143, 64%, 24%) !default;
+$green-900: hsl(144, 61%, 20%) !default;
+
+$yellow-50: hsl(55, 92%, 95%) !default;
+$yellow-100: hsl(55, 97%, 88%) !default;
+$yellow-200: hsl(53, 98%, 77%) !default;
+$yellow-300: hsl(50, 98%, 64%) !default;
+$yellow-400: hsl(48, 100%, 54%) !default;
+$yellow-500: hsl(45, 93%, 47%) !default;
+$yellow-600: hsl(41, 96%, 40%) !default;
+$yellow-700: hsl(35, 92%, 33%) !default;
+$yellow-800: hsl(32, 81%, 29%) !default;
+$yellow-900: hsl(28, 73%, 26%) !default;
+
+$orange-50: hsl(33, 100%, 96%) !default;
+$orange-100: hsl(34, 100%, 92%) !default;
+$orange-200: hsl(32, 98%, 83%) !default;
+$orange-300: hsl(31, 97%, 72%) !default;
+$orange-400: hsl(27, 96%, 61%) !default;
+$orange-500: hsl(25, 95%, 53%) !default;
+$orange-600: hsl(21, 90%, 48%) !default;
+$orange-700: hsl(17, 88%, 40%) !default;
+$orange-800: hsl(15, 79%, 34%) !default;
+$orange-900: hsl(15, 75%, 28%) !default;
+
+$red-50: hsl(0, 86%, 97%) !default;
+$red-100: hsl(0, 93%, 94%) !default;
+$red-200: hsl(0, 96%, 89%) !default;
+$red-300: hsl(0, 94%, 82%) !default;
+$red-400: hsl(0, 91%, 71%) !default;
+$red-500: hsl(0, 84%, 60%) !default;
+$red-600: hsl(0, 72%, 51%) !default;
+$red-700: hsl(0, 74%, 42%) !default;
+$red-800: hsl(0, 70%, 35%) !default;
+$red-900: hsl(0, 63%, 31%) !default;
+
+$gray-50: hsl(210, 20%, 98%) !default;
+$gray-100: hsl(220, 14%, 96%) !default;
+$gray-200: hsl(220, 13%, 91%) !default;
+$gray-300: hsl(216, 12%, 84%) !default;
+$gray-400: hsl(218, 11%, 65%) !default;
+$gray-500: hsl(220, 9%, 46%) !default;
+$gray-600: hsl(215, 14%, 34%) !default;
+$gray-700: hsl(217, 19%, 27%) !default;
+$gray-800: hsl(215, 28%, 17%) !default;
+$gray-900: hsl(221, 39%, 11%) !default;
+
+// theme colors
+$primary: $purple-600 !default;
+$secondary: $blue-600 !default;
+$success: $green-500 !default;
+$error: $red-500 !default;
+$info: $yellow-400 !default;
+$orange: $orange-500 !default;
+$gray: $gray-500 !default;
+$black: $gray-900 !default;
+$white: $gray-200 !default;
+
+%white {
+  color: #fff;
+}
+
+$theme-colors: 
+  "primary" $primary #fff, 
+  "secondary" $secondary #fff,
+  "success" $success #fff, 
+  "error" $error #fff, 
+  "info" $info #fff,
+  "orange" $orange #fff, 
+  "gray" $gray #fff, 
+  "black" $black #fff,
+  "white" $white $gray-800 !default;
+
+$flat-colors: 
+  "error" $red-100 $red-600,
+  "secondary" $blue-100 $blue-600,
+  "success" $green-100 $green-600,
+  "info" $yellow-100 $yellow-600,
+  "orange" $orange-100 $orange-600,
+  "primary" $purple-200 $purple-600 !default;
+
+
+
+$colors: map-merge(
+  (
+    pink: (
+      50: $pink-50,
+      100: $pink-100,
+      200: $pink-200,
+      300: $pink-300,
+      400: $pink-400,
+      500: $pink-500,
+      600: $pink-600,
+      700: $pink-700,
+      800: $pink-800,
+      900: $pink-900,
+    ),
+    purple: (
+      50: $purple-50,
+      100: $purple-100,
+      200: $purple-200,
+      300: $purple-300,
+      400: $purple-400,
+      500: $purple-500,
+      600: $purple-600,
+      700: $purple-700,
+      800: $purple-800,
+      900: $purple-900,
+    ),
+    blue: (
+      50: $blue-50,
+      100: $blue-100,
+      200: $blue-200,
+      300: $blue-300,
+      400: $blue-400,
+      500: $blue-500,
+      600: $blue-600,
+      700: $blue-700,
+      800: $blue-800,
+      900: $blue-900,
+    ),
+    sky: (
+      50: $light-blue-50,
+      100: $light-blue-100,
+      200: $light-blue-200,
+      300: $light-blue-300,
+      400: $light-blue-400,
+      500: $light-blue-500,
+      600: $light-blue-600,
+      700: $light-blue-700,
+      800: $light-blue-800,
+      900: $light-blue-900,
+    ),
+    green: (
+      50: $green-50,
+      100: $green-100,
+      200: $green-200,
+      300: $green-300,
+      400: $green-400,
+      500: $green-500,
+      600: $green-600,
+      700: $green-700,
+      800: $green-800,
+      900: $green-900,
+    ),
+    yellow: (
+      50: $yellow-50,
+      100: $yellow-100,
+      200: $yellow-200,
+      300: $yellow-300,
+      400: $yellow-400,
+      500: $yellow-500,
+      600: $yellow-600,
+      700: $yellow-700,
+      800: $yellow-800,
+      900: $yellow-900,
+    ),
+    orange: (
+      50: $orange-50,
+      100: $orange-100,
+      200: $orange-200,
+      300: $orange-300,
+      400: $orange-400,
+      500: $orange-500,
+      600: $orange-600,
+      700: $orange-700,
+      800: $orange-800,
+      900: $orange-900,
+    ),
+    red: (
+      50: $red-50,
+      100: $red-100,
+      200: $red-200,
+      300: $red-300,
+      400: $red-400,
+      500: $red-500,
+      600: $red-600,
+      700: $red-700,
+      800: $red-800,
+      900: $red-900,
+    ),
+    gray: (
+      50: $gray-50,
+      100: $gray-100,
+      200: $gray-200,
+      300: $gray-300,
+      400: $gray-400,
+      500: $gray-500,
+      600: $gray-600,
+      700: $gray-700,
+      800: $gray-800,
+      900: $gray-900,
+    ),
+  ),
+  $colors
+);
+
+@mixin sync-color($color) {
+  background-color: #{$color};
+  color: text-color($color);
+}
+
+@mixin useShades($shade-end: 600, $shade-start: 100) {
+  @each $color, $shades in $colors {
+    @each $shade, $val in $shades {
+      @if ($shade >= $shade-start and $shade <= $shade-end) {
+        .text-#{"" + $color}-#{$shade} {
+          $opacity: 1;
+          color: #{rgba($val, $opacity)};
+        }
+        .bg-#{"" + $color}-#{$shade} {
+          $opacity: 1;
+          background-color: #{rgba($val, $opacity)};
+        }
+      }
+    }
+  }
+}

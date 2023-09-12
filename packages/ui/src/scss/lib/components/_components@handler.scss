@@ -1,0 +1,108 @@
+@use "sass:math";
+
+@import "./base/button";
+@import "./base/navbar";
+@import "./base/card";
+@import "./base/forms";
+@import "./base/checkers";
+
+@import "./other/badge";
+@import "./other/table";
+@import "./other/slider";
+@import "./other/alert";
+
+@import "./awesome/prototype";
+
+$base-components: false !default;
+$other-components: false !default;
+$awesome-components: false !default;
+
+$button: false !default;
+$navbar: false !default;
+$card: false !default;
+$forms: false !default;
+$checkers: false !default;
+
+$badge: false !default;
+$table: false !default;
+$alert: false !default;
+$slider: false !default;
+
+$prototype: false !default;
+
+$components: () !default;
+
+$components: map-merge(
+  (
+    base: (
+      button: false,
+      navbar: false,
+      card: false,
+      forms: false,
+      checkers: false,
+    ),
+    other: (
+      badge: false,
+      table: false,
+      alert: false,
+      slider: false,
+    ),
+    awesome: (
+      prototype: false,
+    ),
+  ),
+  $components
+);
+
+@if ($base-components or $button or map-get(map-get($components, "base"), "button")) {
+  @include buttonBase();
+}
+@if ($base-components or $navbar or map-get(map-get($components, "base"), "navbar")) {
+  @include navbarBase();
+}
+@if ($base-components or $card or map-get(map-get($components, "base"), "card")) {
+  @include cardBase();
+}
+@if ($base-components or $forms or map-get(map-get($components, "base"), "forms")) {
+  @include forms();
+}
+@if ($base-components or $checkers or map-get(map-get($components, "base"), "checkers")) {
+  @include checkers();
+}
+@if ($other-components or $badge or map-get(map-get($components, "other"), "badge")) {
+  @include badge();
+}
+@if ($other-components or $table or map-get(map-get($components, "other"), "table")) {
+  @include table();
+}
+@if ($other-components or $slider or map-get(map-get($components, "other"), "slider")) {
+  @include slider();
+}
+@if ($other-components or $alert or map-get(map-get($components, "other"), "alert")) {
+  @include alert();
+}
+@if ($awesome-components or $prototype or map-get(map-get($components, "awesome"), "prototype")) {
+  @include prototype();
+}
+
+@if $ui-colors {
+  // * looping through theme-colors to generate color variants
+  @each $key, $colors-bg, $colors-fg in $theme-colors {
+    // * colors like ( primary, secondary, success)
+    .#{$key} {
+      color: $colors-fg !important;
+      background-color: $colors-bg !important;
+    }
+    .e\:#{$key} {
+      --event-color: #{$colors-bg} !important;
+    }
+  }
+
+  @each $key, $colors-bg, $colors-fg in $flat-colors {
+    // * colors like ( primary, secondary, success)
+    .#{$key}-flat {
+      color: $colors-fg !important;
+      background-color: $colors-bg !important;
+    }
+  }
+}

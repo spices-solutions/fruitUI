@@ -1,7 +1,0 @@
-@mixin Debug($print) {
-  @debug '\a #{$separatorTow + "\a     >>   "+ $print + "\a" + $separatorTow}';
-}
-
-@mixin log($print) {
-  @include Debug($print);
-}

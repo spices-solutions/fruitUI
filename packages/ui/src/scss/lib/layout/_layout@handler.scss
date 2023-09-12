@@ -1,0 +1,94 @@
+$breakpoints: (
+  $xs: 0,
+  sm: 480px,
+  md: 720px,
+  lg: 960px,
+  xl: 1200px,
+) !default;
+
+@mixin breakpoint($bp: 0) {
+  @media (min-width: $bp) {
+    @content;
+  }
+}
+
+@import "../layout/layout@percentage";
+@import "../layout/layout@flex";
+@import "../layout/layout@grid";
+
+$flex: false !default;
+$grid: false !default;
+$pct: false !default;
+
+@if ($flex or $grid or $pct) {
+  .container,
+  .stage,
+  .cont,
+  .🧳 {
+    width: 100%;
+    margin: auto;
+    padding: 0 10px;
+    max-width: 1200px;
+  }
+  @if $flex {
+    .flex {
+      display: flex;
+    }
+
+    .flex-none {
+      flex: none;
+    }
+
+    .shrink {
+      flex-shrink: 1;
+    }
+
+    .row {
+      display: flex;
+      flex-flow: row wrap;
+    }
+
+    $utilities: map-merge(
+      (
+        "flex-flow": (
+          class: "flex-flow",
+          property: flex-direction,
+          media: $media-flex-dir,
+          values: (
+            "row": row,
+            "col": column,
+            "row-rev": row-reverse,
+            "col-rev": column-reverse,
+          ),
+        ),
+      ),
+      $utilities
+    );
+  }
+  @if $grid {
+    .grid {
+      display: grid;
+    }
+  }
+
+  @each $key, $val in $breakpoints {
+    @if $val == null {
+      $val: 0;
+    }
+    @if $flex {
+      @media screen and (min-width: #{$val}) {
+        @include flex-passer($key);
+      }
+    }
+    @if $grid {
+      @media screen and (min-width: #{$val}) {
+        @include grid-passer($key);
+      }
+    }
+    @if $pct {
+      @media screen and (min-width: #{$val}) {
+        @include percentage-passer($key);
+      }
+    }
+  }
+}

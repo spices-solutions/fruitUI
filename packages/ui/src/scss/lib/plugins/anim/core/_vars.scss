@@ -1,0 +1,228 @@
+$animations: () !default;
+$included-animations: ();
+
+$animations: map-merge(
+  (
+    "fadeIn": (
+      0%: (
+        opacity: 0,
+      ),
+      100%: (
+        opacity: 1,
+      ),
+    ),
+    "fadeOut": (
+      0%: (
+        opacity: 1,
+      ),
+      100%: (
+        opacity: 0,
+      ),
+    ),
+    "slideLeft": (
+      0%: (
+        transform: translateX(-100%),
+      ),
+      100%: (
+        transform: translateX(0%),
+      ),
+    ),
+    "slideRight": (
+      0%: (
+        transform: translateX(100%),
+      ),
+      100%: (
+        transform: translateX(0%),
+      ),
+    ),
+    "slideTop": (
+      0%: (
+        transform: translateY(-100%),
+      ),
+      100%: (
+        transform: translateY(0%),
+      ),
+    ),
+    "slideBottom": (
+      0%: (
+        transform: translateY(100%),
+      ),
+      100%: (
+        transform: translateY(0%),
+      ),
+    ),
+    "showUp": (
+      0%: (
+        transform: scale(0),
+        filter: blur(10px),
+        opacity: 0,
+      ),
+      80%: (
+        opacity: 0.6,
+      ),
+      100%: (
+        transform: scale(1),
+        filter: blur(0),
+        opacity: 1,
+      ),
+      ),
+      "bounce": (
+        0%
+          (
+            transform: translateY(-45px),
+          ),
+        25%
+          (
+            transform: translateY(0px),
+          ),
+        40%
+          (
+            transform: translateY(-24px),
+          ),
+        55%
+          (
+            transform: translateY(0px),
+          ),
+        65%
+          (
+            transform: translateY(-12px),
+          ),
+        75%
+          (
+            transform: translateY(0px),
+          ),
+        82%
+          (
+            transform: translateY(-6px),
+          ),
+        87%
+          (
+            transform: translateY(0px),
+          ),
+        93%
+          (
+            transform: translateY(-4px),
+          ),
+        100%
+          (
+            transform: translateY(0px),
+          ),
+      ),
+    
+  ),
+  $animations
+);
+
+$anim: map-merge(
+  (
+    easing: (
+      class: "easing",
+      important: $important,
+      property: transition-timing-function,
+      values: (
+        "smooth": ease,
+        "in": ease-in,
+        "out": ease-out,
+        "in-out": ease-in-out,
+        "break": $tran-break,
+        "wavy": $tran-wavy,
+        "tran-in": $tran-in,
+      ),
+    ),
+  ),
+  $anim
+);
+
+$anim: map-merge(
+  (
+    animation: (
+      class: "anim",
+      important: $important,
+      property: animation,
+      values: (
+        "show-up": showUp 0.7s,
+        "fade-in": fadeIn 0.7s,
+        "fade-out": fadeOut 0.7s,
+        "slide-top": slideTop 0.7s,
+        "slide-left": slideLeft 0.7s,
+        "bounce": bounce 0.9s ease-in,
+        "slide-right": slideRight 0.7s,
+        "slide-bottom": slideBottom 0.7s,
+      ),
+    ),
+    animation-timing-function: (
+      class: "anim",
+      important: $important,
+      property: animation-timing-function,
+      values: (
+        "break": $tran-break,
+        "wavy": $tran-wavy,
+        "in": $tran-in,
+      ),
+    ),
+    animation-duration: (
+      class: "anim-time",
+      important: $important,
+      property: animation-duration,
+      values: (
+        "300ms": 300ms,
+        "1000ms": 1000ms,
+        "1300ms": 1300ms,
+        "1600ms": 1600ms,
+        "2000ms": 1000ms,
+        "2500ms": 2500ms,
+        "3000ms": 3000ms,
+        "5000ms": 5000ms,
+      ),
+    ),
+    animation-delay: (
+      class: "anim-delay",
+      important: $important,
+      property: animation-delay,
+      values: (
+        "300ms": 300ms,
+        "600ms": 600ms,
+        "1000ms": 1000ms,
+        "1300ms": 1300ms,
+        "1600ms": 1600ms,
+        "2000ms": 1000ms,
+        "2500ms": 2500ms,
+        "3000ms": 3000ms,
+        "5000ms": 5000ms,
+      ),
+    ),
+    animation-count: (
+      class: "anim",
+      important: $important,
+      property: animation-iteration-count,
+      values: (
+        "2": 2,
+        "3": 3,
+        "4": 4,
+        "infinite": infinite,
+      ),
+    ),
+    animation-mode: (
+      class: "anim-mode",
+      important: $important,
+      property: animation-fill-mode,
+      values: (
+        "forwards": forwards,
+        "backwards": backwards,
+        "both": both,
+      ),
+    ),
+    animation-direction: (
+      class: "anim",
+      important: $important,
+      property: animation-direction,
+      values: (
+        "normal": normal,
+        "reverse": reverse,
+        "alternate": alternate,
+        "alternate-reverse": alternate-reverse,
+      ),
+    ),
+  ),
+  $anim
+);

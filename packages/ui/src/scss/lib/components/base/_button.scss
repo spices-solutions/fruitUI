@@ -1,0 +1,68 @@
+@mixin buttonBase() {
+  // * to be inherited form (btn,btn-flat,btn-outlined)
+  // * default button
+  .btn {
+    border: 0;
+    color: white;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    font-size: $font-xs;
+    display: inline-block;
+    text-decoration: none;
+    background-color: $primary;
+    transition: all 0.1s ease-in;
+    border-radius: $border-radius;
+    padding: $spacing-5 $spacing-10;
+    &:hover {
+      filter: brightness(1.07);
+    }
+    &:active {
+      transform: scale(0.9);
+    }
+  }
+  .outlined {
+    background-color: transparent;
+    padding: $spacing-4 $spacing-9;
+    color: var(--event-color, $primary);
+    border: $border-thickness * 2 solid var(--event-color, $primary);
+    &:hover {
+      color: $white;
+      background-color: var(--event-color, $primary);
+    }
+  }
+
+  // * overrideing white button
+  .btn.outlined.e\:white {
+    color: #61617c;
+    border-color: #61617c;
+    &:hover {
+      border-color: $white;
+    }
+  }
+
+  @if $ripple {
+    span.ripple-container {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      background-color: #fff;
+      transform: translate(-50%, -50%);
+      animation: ripple-effect 1s ease infinite;
+    }
+
+    @keyframes ripple-effect {
+      0% {
+        width: 0px;
+        height: 0px;
+        opacity: 0.5;
+      }
+      100% {
+        opacity: 0;
+        width: 150px;
+        height: 150px;
+      }
+    }
+  }
+}

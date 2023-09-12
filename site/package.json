@@ -1,0 +1,22 @@
+{
+  "name": "docs",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^1.0.3",
+    "@astrojs/partytown": "^2.0.0",
+    "@astrojs/prefetch": "^0.4.0",
+    "@astrojs/sitemap": "^3.0.0",
+    "astro": "^3.0.12",
+    "rehype-pretty-code": "^0.10.1",
+    "sass": "^1.66.1",
+    "shiki": "^0.14.4"
+  }
+}

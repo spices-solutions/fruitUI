@@ -1,0 +1,57 @@
+$utilities: () !default;
+$anim: () !default;
+$colors: () !default;
+
+$font: (
+  xxs: $font-xxs,
+  xs: $font-xs,
+  sm: $font-sm,
+  md: $font-md,
+  lg: $font-lg,
+  xl: $font-xl,
+  xxl: $font-xxl,
+  xxxl: $font-xxxl,
+) !default;
+
+$alignments: (
+  "start":   flex-start,
+  "end":     flex-end,
+  "center":  center,
+  "between": space-between,
+  "around":  space-around,
+  "evenly":  space-evenly,
+  "stretch": stretch,
+) !default;
+
+
+$spacing-0: 0 !default;
+$spacing-1: 2px !default;
+$spacing-2: 4px !default;
+$spacing-3: 6px !default;
+$spacing-4: 8px !default;
+$spacing-5: 10px !default;
+$spacing-6: 12px !default;
+$spacing-7: 14px !default;
+$spacing-8: 16px !default;
+$spacing-9: 20px !default;
+$spacing-10: 24px !default;
+$spacing-11: 28px !default;
+$spacing-12: 35px !default;
+$spacing-13: 45px !default;
+$spacing-14: 56px !default;
+
+
+$sizes: (
+    "full": 100%,
+    "auto": auto,
+    1: toRem(10px),
+    2: toRem(30px),
+    3: toRem(50px),
+    4: toRem(80px),
+    5: toRem(130px),
+    6: toRem(180px),
+    7: toRem(240px),
+    8: toRem(270px),
+    9: toRem(350px),
+    10: toRem(420px)
+) !default;

@@ -1,0 +1,39 @@
+@mixin forms() {
+  .form-group {
+    padding: $spacing-6;
+    .form,
+    .form-control,
+    .input {
+      width: 100%;
+      outline: none;
+      margin:  $spacing-6 0;
+      padding: $spacing-6;
+      border-radius: $border-radius;
+      transition: all .3s $tran-break;
+      border: solid $border-thickness $gray-300;
+      &::placeholder {
+        font-size: $font-xs;
+      }
+      &:focus {
+        transform: scale(0.99);
+        border: 1px solid var(--event-color, $primary);
+      }
+    }
+    .part,
+    .section {
+      align-items: center; 
+      padding: $spacing-1;
+      .link {
+        color: $blue-500;
+        &:hover {
+          color: $blue-400;
+          text-decoration: underline;
+        }
+      }
+      .label {
+        line-height: 2;
+        cursor: pointer;
+      }
+    }
+  }
+}

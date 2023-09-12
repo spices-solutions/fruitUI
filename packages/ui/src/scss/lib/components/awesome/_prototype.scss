@@ -1,0 +1,40 @@
+@mixin prototype {
+  .prototype {
+    background-color:rgba(38, 99, 130, 0.095);
+    background-image: linear-gradient(rgba(255, 255, 255, 0.6) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.6) 2px, transparent 2px),
+    linear-gradient(rgba(255, 255, 255, 0.6) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.6) 2px, transparent 2px);
+    background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+    background-position:-2px -2px, -2px -2px, -1px -1px, -1px -1px;
+    .prototype-gap {
+      background-size: 5px 5px;
+      background-color: #c084fc17;
+      background-image: linear-gradient(
+        135deg,
+        #a855f780 30%,
+        transparent 0,
+        transparent 40%,
+        #a855f780 0,
+        #a855f780 40%,
+        transparent 0,
+        transparent
+      );
+    }
+    .prototype-gap-white {
+      background-size: 5px 5px;
+      background-color: #e1dde543;
+      background-image: linear-gradient(
+        135deg,
+        #f5f1f8cb 30%,
+        transparent 0,
+        transparent 40%,
+        #f5f1f8cb 0,
+        #f5f1f8cb 40%,
+        transparent 0,
+        transparent
+      );
+    }
+  }
+}
+
