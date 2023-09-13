@@ -1,6 +1,9 @@
 ---
 title: buttons
+category: components
+path: buttons
 ---
+
 
 # button
 

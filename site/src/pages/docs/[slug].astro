@@ -3,33 +3,55 @@ import Layout from "../../layouts/Layout.astro";
 import { CollectionEntry, getCollection } from "astro:content";
 
 export async function getStaticPaths() {
-  const docs = await getCollection("docs");
+  let docs = await getCollection("docs");
+
+  // sorting the docs array by `order` field
+  docs.sort((a, b) => {
+    // handle the case when order is a string and equals to 'abc'
+    if(a.order === 'abc' || b.order === 'abc') {
+      return a.order === 'abc' ? -1 : 1;  // put 'abc' always to the start
+    }
+    // handle the common case when order is a number
+    return a.order - b.order;
+  });
+
   return docs.map((page) => ({
-    params: { slug: page.slug },
-    props: { page },
+    params: { slug: page.data.path },
+    props: { page, docs },
   }));
 }
 
 interface Props {
   page: CollectionEntry<"docs">;
+  docs: CollectionEntry<"docs">[];
 }
-
-const { page } = Astro.props;
+const categorys:string[] = []
+const { page, docs } = Astro.props;
 
 const { Content } = await page.render();
 ---
 
 <Layout>
   <div class="flex ">
-    <div class="sidebar flex bg-gray-100 flex-flow-col p-5 gap-2 ">
-      <p>Why fruitUI ?</p>
-      <p>installation</p>
-      <p>fdaf</p>
-      <p>fdaf</p>
+    <div class="sidebar flex bg-gray-100 flex-flow-col px-8 py-5 gap-2 h-screen overflow-scroll">
+      {
+        docs.map((doc) => {
+          return (
+            
+            <>
+            
+            {categorys.includes(doc.data.category) ? null : (categorys.push(doc.data.category), <h3 class="text-gray-700">{doc.data.category}</h3>)}
+
+              <a href={`${doc.data.path}`}>
+                <p class="text-gray-700">{doc.data.title}</p>
+              </a>
+            </>
+          )
+        })
+      }
     </div>
     <div class="container">
-    <Content />
+      <Content /> 
     </div>
-
   </div>
 </Layout>
