@@ -6,8 +6,14 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "lint": "tsc",
     "sass": "sass -w fruitUI/src/scss/lib:css",
-    "prod": "sass --style=compressed fruitUI/src/scss/build:fruitUI/dist/css"
+    "prod": "sass --style=compressed fruitUI/src/scss/build:fruitUI/dist/css",
+    "turbo:prod": "+ turbo run lint build && changeset version && changeset publish"
+  },
+  "workspaces": {
+    "packages": ["packages/ui/package.json"],
+    "docs": ["docs/package.json"]
   },
   "devDependencies": {
     "typescript": "latest",
