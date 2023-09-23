@@ -1,6 +1,9 @@
+[![Built with Astro](https://astro.badg.es/v2/built-with-astro/tiny.svg)](https://astro.build)
+
 <div align="center">
   <img src="./public/fruitUI.png"/>
 </div>
+
 
 
 # FruitUI a moduler styling framework 
@@ -19,10 +22,6 @@ docs https://fruit-ui.vercel.app
 
 ```bash
 npm i spices-fruitui 
-# or 
-yarn add spices-fruitui
-# or 
-pnpm add spices-fruitui
 ```
 
 fruitUI still on development step there is a lot of stuff to do 
