@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "": "vite",
     "build": "tsc && vite build",
     "lint": "tsc",
     "sass": "sass -w fruitUI/src/scss/lib:css",
@@ -12,8 +12,8 @@
     "turbo:prod": "+ turbo run lint build && changeset version && changeset publish"
   },
   "workspaces": {
-    "packages": ["packages/ui/package.json"],
-    "docs": ["docs/package.json"]
+    "packages": ["packages/*"],
+    "apps": ["apps/*"]
   },
   "devDependencies": {
     "typescript": "latest",

@@ -5,7 +5,7 @@
       "cache": true
     },
     "build": {
-      "dependsOn": ["lint","^build"],
+      "dependsOn": ["lint","^build"]
       // "outputs": ["dist/**"]
     },
     "deploy": {
