@@ -9,7 +9,7 @@ export default defineConfig({
     outDir: './packages/ui/dist/js',
     lib: {
       entry: resolve(__dirname, './packages/ui/src/index.ts'),
-      name: 'fruitUI',
+      // name: 'fruitUI',
       fileName: 'fruit',
       formats: ["es","cjs","umd"],
     },

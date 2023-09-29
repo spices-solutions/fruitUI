@@ -4,25 +4,18 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "": "vite",
+    "dev": "turbo run dev",
     "build": "tsc && vite build",
     "lint": "tsc",
     "sass": "sass -w fruitUI/src/scss/lib:css",
     "prod": "sass --style=compressed fruitUI/src/scss/build:fruitUI/dist/css",
-    "turbo:prod": "+ turbo run lint build && changeset version && changeset publish"
-  },
-  "workspaces": {
-    "packages": ["packages/*"],
-    "apps": ["apps/*"]
+    "turbo:prod": "turbo run lint build && changeset version && changeset publish"
   },
   "devDependencies": {
     "typescript": "latest",
     "vite": "^4.4.5",
-    "vite-plugin-dts": "^3.5.1"
-  },
-  "dependencies": {
+    "vite-plugin-dts": "^3.5.1",
     "@changesets/cli": "^2.26.2",
-    "prettier": "^3.0.3",
-    "prettier-plugin-astro": "^0.12.0"
+    "prettier": "^3.0.3"
   }
 }
