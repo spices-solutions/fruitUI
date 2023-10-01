@@ -9,7 +9,7 @@
     "lint": "tsc",
     "sass": "sass -w fruitUI/src/scss/lib:css",
     "prod": "sass --style=compressed fruitUI/src/scss/build:fruitUI/dist/css",
-    "turbo:prod": "turbo run lint build && changeset version && changeset publish"
+    "turbo:prod": "turbo run build"
   },
   "devDependencies": {
     "typescript": "latest",

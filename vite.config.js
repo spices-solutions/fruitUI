@@ -10,8 +10,8 @@ export default defineConfig({
     lib: {
       entry: resolve(__dirname, './packages/ui/src/index.ts'),
       // name: 'fruitUI',
-      fileName: 'fruit',
-      formats: ["es","cjs","umd"],
+      fileName: (fromat) => `index.${fromat}.js`,
+      formats: ["es","umd"],
     },
   },
   plugins: [dts({
