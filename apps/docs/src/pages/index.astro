@@ -6,14 +6,11 @@ import Code from "../components/Code.astro";
 <Layout>
   <main>
     <div class="stage">
-      <br />
-      <Code  code="console.log('hello')" lang="js" theme="dark-plus" />
-      <br>
-      <Code  code="console.log('hello world!')" lang="js" theme="dark-plus" />
+
     </div>
   </main>
   <script>
-    import { Navbar } from "../../../../packages/ui/dist/js/fruit.js";
+    import { Navbar } from "../../../../packages/ui/src/index.ts";
     Navbar();
   </script>
 </Layout>
