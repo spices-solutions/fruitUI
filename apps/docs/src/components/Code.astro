@@ -97,7 +97,7 @@ const codeOutput = renderToHtml(tokens, {
     display: flex;
     flex-direction: column;
     border-radius: 10px;
-    background-color: ;
+    background-color: #32333a;
     .header {
       display: flex;
       gap: 10px;
@@ -123,6 +123,11 @@ const codeOutput = renderToHtml(tokens, {
     }
   }
 </style>
+
+<script type="module">
+  import autoAnimate from '@formkit/auto-animate'
+  autoAnimate(document.querySelector<Element | any>("app"))
+</script>
 
 <!-- <Fragment set:html={html} /> -->
 <div class="app">
