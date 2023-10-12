@@ -1,0 +1,65 @@
+:root {
+  --shiki-color-text: #24292f;
+  --shiki-color-background: #ffffff;
+  --shiki-token-constant: #0550ae;
+  --shiki-token-string: #24292f;
+  --shiki-token-comment: #6e7781;
+  --shiki-token-keyword: #cf222e;
+  --shiki-token-parameter: #24292f;
+  --shiki-token-function: #8250df;
+  --shiki-token-string-expression: #0a3069;
+  --shiki-token-punctuation: #24292f;
+  --shiki-token-link: #000012;
+}
+
+:root :is(.dark) {
+  --shiki-color-text: #c9d1d9;
+  --shiki-color-background: #0d1117;
+  --shiki-token-constant: #79c0ff;
+  --shiki-token-string: #a5d6ff;
+  --shiki-token-comment: #8b949e;
+  --shiki-token-keyword: #ff7b72;
+  --shiki-token-parameter: #c9d1d9;
+  --shiki-token-function: #d2a8ff;
+  --shiki-token-string-expression: #a5d6ff;
+  --shiki-token-punctuation: #c9d1d9;
+  --shiki-token-link: #000012;
+}
+
+.app {
+  margin: 20px 0;
+  filter: drop-shadow(0px 4px 3px rgba(0, 0, 0, 0.2));
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  background-color: var(--shiki-color-background);
+  .header {
+    display: flex;
+    padding: 10px;
+    gap: 10px;
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      &:nth-child(1) {
+        background-color: #ed6b60;
+      }
+      &:nth-child(2) {
+        background-color: #f5be4f;
+      }
+      &:nth-child(3) {
+        background-color: #62c554;
+      }
+    }
+  }
+}
+
+pre {
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.app .header + pre {
+  padding: 10px;
+  border-radius: 10px;
+}

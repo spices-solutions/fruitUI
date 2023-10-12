@@ -11,7 +11,7 @@ export default defineConfig({
     react(),
     mdx({
       optimize: true,
-      shikiConfig: { theme: "material-theme-darker" },
+      shikiConfig: { theme: 'dark-plus' },
     }),
     partytown(),
     prefetch(),
