@@ -1,15 +1,17 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Code from "../../../../packages/wtqcode/src/components/astro/Code.astro";
+import "../../../../packages/wtqcode/src/code.css";
 ---
 
 <Layout>
   <main>
     <div class="stage">
-
+      <Code code="console.log('hello world!')" lang="js" />
     </div>
   </main>
   <script>
     import { Navbar } from "../../../../packages/ui/src/index.ts";
     Navbar();
-  </script> 
+  </script>
 </Layout>
