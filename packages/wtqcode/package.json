@@ -3,19 +3,18 @@
   "version": "0.2.0",
   "description": "a ",
   "type": "module",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "main": "./dist/js/index.umd.cjs",
   "module": "./dist/js/index.js",
   "types": "./dist/js/index.d.ts",
   "exports": {
     ".": {
       "require": "./dist/index.umd.cjs",
-      "import": "./src/components/astro/Code.astro"
+      "import": "./src/index.ts"
     },
-    "./astro": {
-      "require": "./src/components/astro",
-      "import": "./src/components/astro/Code.astro"
-    }
+    "./style": "./src/code.css"
   },
   "keywords": [
     "spices",
@@ -35,5 +34,3 @@
     "url": "https://github.com/spices-solutions/"
   }
 }
-
-

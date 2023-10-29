@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Code from "../../../../packages/wtqcode/src/components/astro/Code.astro";
-import "../../../../packages/wtqcode/src/code.css";
+import { Code } from "wtqcode";
+import "wtqcode/style";
 ---
 
 <Layout>
@@ -11,7 +11,8 @@ import "../../../../packages/wtqcode/src/code.css";
     </div>
   </main>
   <script>
-    import { Navbar } from "../../../../packages/ui/src/index.ts";
+    import { Navbar } from "spices-fruitui";
+
     Navbar();
   </script>
 </Layout>

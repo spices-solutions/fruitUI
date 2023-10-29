@@ -10,7 +10,7 @@
   "exports": {
     ".": {
       "require": "./dist/js/fruit.umd.cjs",
-      "import": "./dist/js/fruit.js"
+      "import": "./src/index"
     }
   },
   "keywords": [
