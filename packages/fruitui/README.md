@@ -17,11 +17,11 @@ So you can import just one component like just the navbar or import just the gri
 docs https://fruit-ui.vercel.app
 
 ```bash
-npm i spices-fruitui 
+npm i fruitui 
 # or 
-yarn add spices-fruitui
+yarn add fruitui
 # or 
-pnpm add spices-fruitui
+pnpm add fruitui
 ```
 
 fruitUI still on development step there is a lot of stuff to do 
