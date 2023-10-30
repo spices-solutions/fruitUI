@@ -4,8 +4,6 @@
   <img src="./public/fruitUI.png"/>
 </div>
 
-
-
 # FruitUI a moduler styling framework 
 
 when you use bootstarp for just the grid system or use the responsive navbar component ,

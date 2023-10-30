@@ -1,11 +1,9 @@
 {
   "name": "wtqcode",
-  "version": "0.2.0",
+  "version": "0.1.0",
   "description": "a ",
   "type": "module",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "main": "./dist/js/index.umd.cjs",
   "module": "./dist/js/index.js",
   "types": "./dist/js/index.d.ts",

@@ -4,13 +4,13 @@
   "description": "a moduler styling framework",
   "type": "module",
   "files": ["dist"],
-  "main": "./dist/js/fruit.umd.cjs",
-  "module": "./dist/js/fruit.js",
+  "main": "./dist/js/index.umd.cjs",
+  "module": "./dist/js/index.js",
   "types": "./dist/js/index.d.ts",
   "exports": {
     ".": {
-      "require": "./dist/js/fruit.umd.cjs",
-      "import": "./src/index"
+      "require": "./dist/js/index.umd.cjs",
+      "import": "./src/ts/index"
     }
   },
   "keywords": [
