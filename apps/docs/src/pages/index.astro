@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { Code } from "wtqcode";
+import { Navbar } from "fruitui";
 import "wtqcode/style";
 ---
 
@@ -8,20 +9,19 @@ import "wtqcode/style";
   <main>
     <div class="stage">
       <Code
-        code=
-{`<!-- js -->
-<script src="https://cdn.jsdelivr.net/npm/fruitui@0.2.0/dist/js/fruitui.html.min.js"></script>
+        code={`<!-- js -->
+<script src="https://cdn.jsdelivr.net/npm/fruitui@0.2.0/dist/js/index.js"></script>
 <!-- css -->
 <!-- main 👇 -->
-<link href="https://cdn.jsdelivr.net/npm/fruitui@0.2.0/dist/css/fruitUI.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/fruitui@0.2.0/dist/css/fruitUI.css" rel="stylesheet">
 <!-- main 👆 -->
-<link href="https://cdn.jsdelivr.net/npm/fruitui@0.2.0/dist/css/base_components.min.css" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/fruitui@0.2.0/dist/css/other_components.min.css" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/fruitui@0.2.0/dist/css/awesome_components.min.css" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/fruitui@0.2.0/dist/css/flex.min.css" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/fruitui@0.2.0/dist/css/grid.min.css" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/fruitui@0.2.0/dist/css/pct.min.css" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/fruitui@0.2.0/dist/css/utilities.min.css" rel="stylesheet">`}
+<link href="https://cdn.jsdelivr.net/npm/fruitui@0.2.0/dist/css/base_components.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/fruitui@0.2.0/dist/css/other_components.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/fruitui@0.2.0/dist/css/awesome_components.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/fruitui@0.2.0/dist/css/flex.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/fruitui@0.2.0/dist/css/grid.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/fruitui@0.2.0/dist/css/pct.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/fruitui@0.2.0/dist/css/utilities.css" rel="stylesheet">`}
         lang="html"
       />
       <Code code="console.log('hello world!')" lang="js" />
@@ -30,6 +30,6 @@ import "wtqcode/style";
   <script>
     // import { Navbar } from "fruitui";
 
-    // Navbar();
+    Navbar();
   </script>
 </Layout>

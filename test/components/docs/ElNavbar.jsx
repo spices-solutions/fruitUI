@@ -12,7 +12,7 @@ const ElNavbar = () => {
     <nav className="navbar">
       <div className="brand">
         <Image alt="logo" width={50} height={50} src="/fruitUI.png" />
-        <p>Brand Name</p> 
+        <p>Brand Name</p>
       </div>
       <div className="toggle">
         <span className="bar"></span>
