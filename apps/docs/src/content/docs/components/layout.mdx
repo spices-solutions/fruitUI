@@ -1,3 +1,14 @@
+---
+title: layout
+category: Layout
+path: layout
+
+---
+
+
+# layout
+
+
 <div class="stage anim-slide-right anim-break">
 <h1 class="h2 text-center mx-8">flex system</h1>
   <div class="prototype p-5">
@@ -62,10 +73,6 @@
 </div>
 ```
 
-<CH.Scrollycoding>
-intializing flexbox
-
-<CH.Code>
 
 ```html app.html focus=1:1
 <div class="flex ... ">
@@ -74,19 +81,12 @@ intializing flexbox
 </div>
 ```
 
----
-
-output
 
 ```css output.css
 .flex {
   display: flex;
 }
 ```
-
-</CH.Code>
-
----
 
 these classes is flex basis based
 
@@ -97,7 +97,6 @@ these classes is flex basis based
 </div>
 
 ```
----
 
 percentage values
 
@@ -112,10 +111,6 @@ percentage values
   flex: 0 0 41.6666666667%;
 }
 ```
-
-
-
-</CH.Scrollycoding>
 
 <h1 class="h2 text-center mx-8">grid system</h1>
 <div class="prototype p-5">
@@ -157,11 +152,6 @@ percentage values
 </div>
 ```
 
-
-<CH.Scrollycoding>
-
-<CH.Code>
-
 ```html app.html focus=1:1
 <div class="grid ...">
   <div class="...">...</div>
@@ -180,7 +170,7 @@ percentage values
 </div>
 ```
 
----
+
 
 
 
@@ -190,9 +180,7 @@ percentage values
 }
 ```
 
-</CH.Code>
 
----
 
 
 ```html app.html focus=1,2,11,14
@@ -212,7 +200,7 @@ percentage values
   <div class="col-start-4 col-end-6 ...">...</div>
 </div>
 ```
----
+
 
 ```css output.css
 .grid {
@@ -236,10 +224,6 @@ percentage values
 }
 ```
 
----
-
-</CH.Scrollycoding>
-
 <h1 class="h2 text-center mx-8">percentage system</h1>
 <p class="text">it's width percentage value based</p>
 
@@ -252,10 +236,11 @@ percentage values
 <div class="w-10/12"></div>
 <div class="w-12/12"></div>
 ```  
-<CH.Scrollycoding>
+
 
   by enabling the the variable to true 
   you will render the content like grid system
+
   ```scss main.scss focus=4:6
   ⠀
   ⠀
@@ -281,8 +266,4 @@ percentage values
   ⠀
   ⠀
   ```
-
-
-</CH.Scrollycoding>
-
 </div>

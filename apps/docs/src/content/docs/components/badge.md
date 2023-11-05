@@ -1,5 +1,15 @@
+---
+title: badge
+category: components
+path: badge
+---
+
+# badge
+
 
 <span class="badge">defuilt</span>
+
+<br />
 
 ```html
 <span class="badge">...</span>
@@ -17,6 +27,8 @@
 <span class="badge gray">gray</span>
 <span class="badge black">black</span>
 <span class="badge white">white</span>
+
+<br />
 
 ```html
 <span class="badge primary">...</span>

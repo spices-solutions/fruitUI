@@ -1,12 +1,21 @@
+---
+title: card
+category: components
+path: card
+---
+
+# card
+
+
 <div class="prototype p-5">
   <div class="prototype-gap my-5">
     <div class="w-7">
       <div class="card">
         <div class="body">
-          <img class="img" src="/img.jpg" />
+          <img class="img" src="/fruitUI.png" />
           <div class="title">Title</div>
           <p class="text">Lorem ipsum <span class="link">dolor</span> sit amet, consectetur adipiscing elit. Nulla meuismod</p>
-          <button class="btn">Read more</button>
+          <button class="btn w-full">Read more</button>
         </div>
       </div>
     </div>

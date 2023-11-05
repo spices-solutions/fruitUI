@@ -6,9 +6,9 @@ import dts from 'vite-plugin-dts'
 export default defineConfig({
   build: {
     sourcemap: true,
-    outDir: './packages/ui/dist/js',
+    outDir: '',
     lib: {
-      entry: resolve(__dirname, './packages/ui/src/index.ts'),
+      entry: resolve(__dirname, ''),
       // name: 'fruitUI',
       fileName: (fromat) => `index.${fromat}.js`,
       formats: ["es","umd"],
