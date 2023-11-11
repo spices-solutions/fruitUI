@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "turbo run dev",
-    "build": "tsc && vite build",
+    "build": "turbo run build",
     "lint": "tsc",
     "sass": "sass -w fruitUI/src/scss/lib:css",
     "prod": "sass --style=compressed fruitUI/src/scss/build:fruitUI/dist/css",
