@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "description": "a ",
   "type": "module",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "main": "./dist/js/index.umd.cjs",
   "module": "./dist/js/index.js",
   "types": "./dist/js/index.d.ts",
@@ -19,8 +21,15 @@
     "code",
     "wathqny"
   ],
-  "dependencies": {
-    "shiki": "0.14.4"
+  "devDependencies": {
+    "vite": "4.5.0",
+    "typescript": "latest",
+    "vite-plugin-dts": "^3.5.1",
+    "shiki": "0.14.4",
+    "shikiji": "0.6.13"
+  },
+  "scripts": {
+    "build": "tsc && vite build --watch"
   },
   "homepage": "http://fruit-ui.vercel.app",
   "license": "SIL",

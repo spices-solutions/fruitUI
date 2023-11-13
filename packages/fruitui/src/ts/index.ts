@@ -3,4 +3,4 @@ import Navbar from "./components/navbar";
 // import Slider from "./ts/components/slider";
 // import Alert from "./ts/components/alert";
 // 
-export default { Navbar };
+export { Navbar };

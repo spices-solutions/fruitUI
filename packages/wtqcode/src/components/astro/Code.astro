@@ -2,7 +2,7 @@
 import type * as shiki from "shiki";
 import { renderToHtml, getHighlighter } from "shiki";
 
-interface Props {
+export interface Props {
   /** The code to highlight. Required. */
   code: string;
   /**
@@ -88,7 +88,6 @@ const codeOutput = renderToHtml(tokens, {
   },
 });
 ---
-
 
 <div class="app dark">
   <div class="header">
