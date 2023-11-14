@@ -1,6 +1,6 @@
 import type * as shiki from "shiki";
 
-export interface Props {
+export interface ShikiType {
   /** The code to highlight. Required. */
   code: string;
   /**

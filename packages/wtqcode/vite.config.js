@@ -9,15 +9,12 @@ export default defineConfig({
     sourcemap: true,
     outDir: "./dist",
     lib: {
-      
-      entry: resolve(__dirname, "./src/index.ts"),
-      name: 'fruitUI',
-      fileName: "index",
-      formats: ["es", "umd","iife"],
+      entry: [
+        resolve(__dirname, "./src/hooks.ts"),
+        resolve(__dirname, "./src/index.ts"),
+      ],
+      formats: ["es"],
     },
-    rollupOptions: {
-      external: ['astro']
-    }
   },
   plugins: [
     dts({
