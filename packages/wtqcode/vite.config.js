@@ -10,8 +10,8 @@ export default defineConfig({
     outDir: "./dist",
     lib: {
       entry: [
-        resolve(__dirname, "./src/hooks.ts"),
         resolve(__dirname, "./src/index.ts"),
+        resolve(__dirname, "./src/hooks.ts"),
       ],
       formats: ["es"],
     },
@@ -19,6 +19,6 @@ export default defineConfig({
   plugins: [
     dts({
       insertTypesEntry: false,
-    }),
+    }), 
   ],
 });

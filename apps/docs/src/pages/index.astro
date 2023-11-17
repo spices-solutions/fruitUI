@@ -1,13 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { Code } from "wtqcode";
-// import { Navbar } from "fruitui";
+import {Code} from "wtqcode";
+// import Code from "../components/Code.astro";
 ---
+
 
 <Layout>
   <main>
-    <div class="stage">
-      <Code lang="js" code={`console.log('hello world')`} ></Code>
+    <div class="stage mt-12">
+      <Code lang="js" theme={"vitesse-dark"} code={`console.log('hello world')`} ></Code>
     </div>
   </main>
 </Layout>
