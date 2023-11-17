@@ -1,14 +1,15 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import {Code} from "wtqcode";
-// import Code from "../components/Code.astro";
----
+import { CodeBlock } from "wtqcode";
 
+// import Code from "../components/Code.astro";
+// import CodeBlock from "wtqcode/astro";
+---
 
 <Layout>
   <main>
     <div class="stage mt-12">
-      <Code lang="js" theme={"vitesse-dark"} code={`console.log('hello world')`} ></Code>
+      <CodeBlock  lang="js" code={`console.log('hello world !!!')`} />
     </div>
   </main>
 </Layout>

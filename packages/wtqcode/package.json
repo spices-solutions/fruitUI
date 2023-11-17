@@ -14,7 +14,7 @@
       "require": "./dist/index.umd.cjs",
       "import": "./src/index"
     },
-    "./astro": "./src/components/astro/Code.astro",
+    "./astro": "./src/components/astro/CodeBlock.astro",
     "./style": "./src/code.css"
   },
   "keywords": [

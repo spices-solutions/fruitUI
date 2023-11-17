@@ -1,13 +1,23 @@
 ---
-const themes = ["primary","secondary","success","info","orange","error","gray","black","white"]
+const themes = [
+  "primary",
+  "secondary",
+  "success",
+  "info",
+  "orange",
+  "error",
+  "gray",
+  "black",
+  "white",
+];
 ---
 
 {
-  themes.map((theme) =>{
+  themes.map((theme) => {
     return (
       <>
-      <button class={`btn ${theme}`}>{theme}</button>
+        <button class={`btn ${theme}`}>{theme}</button>
       </>
-      )
+    );
   })
 }
