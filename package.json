@@ -12,10 +12,10 @@
     "turbo:prod": "turbo run build"
   },
   "devDependencies": {
-    "typescript": "latest",
-    "vite": "^4.4.5",
-    "vite-plugin-dts": "^3.5.1",
     "@changesets/cli": "^2.26.2",
-    "prettier": "^3.0.3"
+    "prettier": "^3.1.0",
+    "typescript": "latest",
+    "vite": "^4.5.0",
+    "vite-plugin-dts": "^3.6.3"
   }
 }

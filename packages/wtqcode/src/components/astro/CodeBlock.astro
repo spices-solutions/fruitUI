@@ -9,7 +9,7 @@ import type {
 } from 'shikiji';
 import { getHighlighter } from "shikiji";
 
-export interface Props {
+interface Props {
 	code: string;
 	lang?: BuiltinLanguage | SpecialLanguage | LanguageRegistration;
 	theme?: BuiltinTheme | ThemeRegistration | ThemeRegistrationRaw ;
@@ -50,5 +50,4 @@ const codeOutput = shiki.codeToHtml(code, {
   const CodeEl = document.querySelector("pre.shiki");
   const CodeApp = document.querySelector(".code.app");
   CodeApp.style.backgroundColor = CodeEl.style.backgroundColor;
-  console.log(CodeEl);
 </script>

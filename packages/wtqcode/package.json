@@ -6,13 +6,11 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/js/index.umd.cjs",
-  "module": "./dist/js/index.js",
+  "module": "./src/index.ts",
   "types": "./dist/js/index.d.ts",
   "exports": {
     ".": {
-      "require": "./dist/index.umd.cjs",
-      "import": "./src/index"
+      "import": "./src/index.ts"
     },
     "./astro": "./src/components/astro/CodeBlock.astro",
     "./style": "./src/code.css"
@@ -23,11 +21,13 @@
     "wathqny"
   ],
   "devDependencies": {
-    "vite": "4.5.0",
-    "typescript": "latest",
-    "vite-plugin-dts": "^3.5.1",
+    "@astrojs/ts-plugin": "^1.3.1",
+    "astro": "^3.5.0",
     "shiki": "0.14.4",
-    "shikiji": "0.6.13"
+    "shikiji": "0.6.13",
+    "typescript": "latest",
+    "vite": "4.5.0",
+    "vite-plugin-dts": "^3.5.1"
   },
   "scripts": {
     "build": "tsc && vite build"

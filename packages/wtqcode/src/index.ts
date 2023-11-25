@@ -3,6 +3,4 @@
 export { default as CodeBlock } from "./components/astro/CodeBlock.astro";
 
 // export type { Props as CodeTypes } from "./components/astro/Code.astro";
-import type { ShikiType } from "./types/shiki.ts";
-
-export { ShikiType };
+// import type { ShikiType } from "./types/shiki.ts";
