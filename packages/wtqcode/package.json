@@ -4,10 +4,11 @@
   "description": "a ",
   "type": "module",
   "files": [
-    "dist"
+    "dist",
+    "./src/**/*",
+    "./src/index.ts"
   ],
   "module": "./src/index.ts",
-  "types": "./dist/js/index.d.ts",
   "exports": {
     ".": {
       "import": "./src/index.ts"
