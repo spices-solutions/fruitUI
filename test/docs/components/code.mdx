@@ -1,0 +1,25 @@
+---
+title: code
+category: components
+path: code
+---
+
+import { CodeBlock } from "wtqcode";
+
+# markdown codeblock
+
+    <br />
+
+here is an exmaple of code blog
+
+    <br />
+
+```js
+console.log("hello");
+```
+
+    <CodeBlock theme="material-theme" lang="js"
+          code={`console.log('hello world')`} />
+
+    {/* <Code code="console.log('hello world!')" lang="js" />
+           <Code code={`console.log('hello world!')`} lang="js"  /> */}

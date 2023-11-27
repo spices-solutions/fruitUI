@@ -27,12 +27,8 @@ const shiki = await getHighlighter({
   langs: [lang],
 });
 
-// optionally, load themes and languages after creation
-await shiki.loadTheme(theme);
-await shiki.loadLanguage("css");
-
 const codeOutput = shiki.codeToHtml(code, {
-  lang: lang,
+  lang:  lang,
   theme: theme,
 });
 ---

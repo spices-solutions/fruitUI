@@ -9,9 +9,10 @@ import react from '@astrojs/react';
 export default defineConfig({
   integrations: [
     react(),
-    mdx({
+    
+    mdx({ 
       optimize: true,
-      shikiConfig: { theme: 'css-variables' },
+      shikiConfig: { theme: 'material-theme' },
     }),
     partytown(),
     prefetch(),
