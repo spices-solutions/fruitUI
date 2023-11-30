@@ -1,10 +1,18 @@
 ---
 import Navbar from "../components/Navbar.astro";
 import Head from "./Head.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  keywords: string;
+}
+
+const { title, description, keywords } = Astro.props;
 ---
 
 <html lang="en">
-  <Head />
+  <Head title={title} description={description} keywords={keywords}/>
   <body>
     <Navbar />
     <slot />

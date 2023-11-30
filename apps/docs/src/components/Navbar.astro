@@ -2,30 +2,28 @@
 
 ---
 
-<!--  -->
-<nav class="navbar">
+<nav class="wtq-navbar">
   <a href="/">
-    <div class="brand">
-      <img alt="logo" width="50" height="50" src="/fruitUI.png" />
+    <div class="wtq-brand">
+      <img alt="logo" width="40" height="40" src="/fruitUI.png" />
       <p>FruitUI</p>
     </div>
   </a>
-  <div class="toggle">
-    <span class="bar"></span>
-    <span class="bar"></span>
-    <span class="bar"></span>
+  <div class="wtq-toggle">
+    <span class="wtq-bar"></span>
+    <span class="wtq-bar"></span>
+    <span class="wtq-bar"></span>
   </div>
-  <ul class="navbar-links">
+  <ul class="wtq-navbar-links">
     <li>
-      <a class="btn" href="/docs/test">docs</a>
-    </li>
-    <li>
-      <a class="btn" href="/layout">blog</a>
+      <a href="/docs/test">docs</a>
     </li>
   </ul>
 </nav>
 
 <script>
-  import { Navbar } from "fruitui";
-  Navbar();
+  const navbar = document.querySelector(".wtq-navbar");
+  document.querySelector(".wtq-toggle")?.addEventListener("click", () => {
+    navbar?.classList.toggle("wtq-active");
+  });
 </script>

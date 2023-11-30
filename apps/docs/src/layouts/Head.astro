@@ -1,17 +1,25 @@
 ---
 import { ViewTransitions } from "astro:transitions";
 import "../docs.scss";
+import "../styles/wathqny.scss";
 import "wtqcode/style";
+
+interface Props {
+  title: string;
+  description: string;
+  keywords: string;
+}
+
+const { title, description, keywords } = Astro.props;
 ---
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <meta name="description" content="Fruit UI" />
-  <meta name="generator" content={Astro.generator} />
   <link rel="shortcut icon" href="/fruitUI.png" type="image/x-icon" />
-  <title>fruit UI a moduler styling framework</title>
-
-  <ViewTransitions />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta name="generator" content={Astro.generator} />
+  <meta name="keywords" content={"fruitUI, fruit, ui, css, html, js, framework, library," + keywords} />
+  <meta name="description" content={description} />
+  <title>{title}</title>
 </head>

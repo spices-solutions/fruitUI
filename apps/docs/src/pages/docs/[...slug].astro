@@ -27,14 +27,16 @@ const authorData = await getEntry("authors", authors?.id);
 const { Content } = await doc.render();
 ---
 
-<Layout>
-  <div class="container">
+<Layout  title={doc.data.title} 
+description={doc.data.description} 
+keywords={doc.data.title}>
+  <div class="wtq-container">
     <h1>{doc.data.title}</h1>
-    <div class="flex gap-3 my-6 itmes-center">
-      <Image class="w-3 h-3 block overflow-hidden br-full" width={48} height={48} src={authorData?.data.profile} alt="user avatar" />
-      <div class="flex flex-flow-col">
-        <h2 style="line-height: 1.4;"  class="font-sm text-gray-900">{authorData?.data.name}</h2>
-        <h3 style="line-height: 1.2;" class="text-gray-700">{authorData?.data.role}</h3>
+    <div class="">
+      <Image width={48} height={48} src={authorData?.data.profile} alt="user avatar" />
+      <div>
+        <h2>{authorData?.data.name}</h2>
+        <h3>{authorData?.data.role}</h3>
       </div>
     </div>
     <Content />
