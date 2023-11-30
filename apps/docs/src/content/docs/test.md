@@ -1,5 +1,5 @@
 ---
-title: title
+title: Buttons
 description: hello description
 category: components
 date: 2023-11-27

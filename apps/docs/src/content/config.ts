@@ -9,13 +9,16 @@ const docs = defineCollection({
         .string()
         .max(160, "it can't be more than 160 charcters")
         .min(10),
-      // image: z.array(
-      //   src: z.string(),
-      //   alt: z.string(),
-      // ),
+      image: z
+        .object({
+          src: z.string(),
+          alt: z.string(),
+        })
+        .default({ src: "./", alt: "this an image" })
+        .optional(),
       category: z.string(),
       // slug: z.string().url(),
-      authors: reference("authors"), 
+      authors: reference("authors").optional().default("felfel"),
       date: z.date(),
       draft: z.boolean().optional().default(false),
       order: z.union([z.string(), z.number()]).default("abc"),
@@ -30,12 +33,12 @@ const authors = defineCollection({
     z
       .object({
         name: z.string(),
-        bio: z.string(),
-        // email: z.string().email(),
-        role: z.string(),
-        profile: z.string(),
+        bio: z.string().optional(),
+        email: z.string().email().optional(),
+        role: z.string().optional(),
+        profile: z.union([image(), z.string().url()]),
       })
       .strict(),
 });
 
-export const collections = { docs,authors };
+export const collections = { docs, authors };

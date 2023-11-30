@@ -1,0 +1,29 @@
+---
+import { getEntry } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import { type CollectionEntry, getCollection } from "astro:content";
+
+interface Props {
+  docs: CollectionEntry<"docs">;
+}
+
+const { docs } = Astro.props
+
+const docsData = await getCollection("docs")
+
+const { authors } = docs.data
+
+const authorData = await getEntry("authors", authors.id)
+
+
+// const { Content } = await docs.render();
+---
+
+<Layout>
+  <div class="container">
+    <h1>{docsData[0].data.title}</h1>
+  </div>
+  <!-- <h2>by {authorData.data.name}</h2> -->
+  <!-- <img src={authorData.data.profile} alt="" srcset="" /> -->
+  <!-- <Content /> -->
+</Layout>
