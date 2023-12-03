@@ -9,15 +9,11 @@
       <p>FruitUI</p>
     </div>
   </a>
-  <div class="wtq-toggle">
-    <span class="wtq-bar"></span>
-    <span class="wtq-bar"></span>
-    <span class="wtq-bar"></span>
-  </div>
-  <ul class="wtq-navbar-links">
-    <li>
-      <a href="/docs/test">docs</a>
-    </li>
+  <span class="wtq-toggle"></span>
+  <ul class="wtq-links">
+    <a href="/docs/test">
+      <li>docs</li>
+    </a>
   </ul>
 </nav>
 
@@ -26,4 +22,14 @@
   document.querySelector(".wtq-toggle")?.addEventListener("click", () => {
     navbar?.classList.toggle("wtq-active");
   });
+  console.log(true);
+  
+  if(navbar?.classList.contains("wtq-active") == true) {
+    console.log(true);
+    document.addEventListener("click", (e) => {
+      if (e.target.classList != "wtq-navbar") {
+        navbar?.classList.remove("wtq-active");
+      }
+    })
+  }
 </script>

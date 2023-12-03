@@ -25,7 +25,7 @@
     "url": "https://github.com/spices-solutions/fruitUI"
   },
   "scripts": {
-    "build": "tsc && vite build --watch"
+    "build": "tsc && vite build"
   },
   "devDependencies": {
     "vite": "4.5.0",
