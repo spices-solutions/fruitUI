@@ -1,10 +1,32 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/500.css";
+import "@fontsource/inter/600.css";
+import { CodeBlock } from "wtqcode";
+import "../styles/custom.scss";
 ---
 
-<Layout title="fruit UI" 
-description="fruit UI a moduler styling framework" >
+<Layout title="fruit UI" description="fruit UI a moduler styling framework">
   <main>
-    <div class="stage mt-12"></div>
+    <div class="hero">
+      <div>
+        <h1 class="title">FruitUI a moduler <br /> styling framework</h1>
+        <h2>
+          use the components you want, styles you need, the performance you
+          deserve
+        </h2>
+      </div>
+
+      <div class="get-started">
+        <button class="button">Get started</button>
+        <button class="button-outline">Read docs</button>
+      </div>
+      <!-- <CodeBlock
+      theme="material-theme"
+      lang="bash"
+      code={`npm install fruiui`}
+      /> -->
+    </div>
   </main>
 </Layout>
