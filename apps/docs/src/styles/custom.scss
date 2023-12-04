@@ -23,22 +23,26 @@ textarea {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  height: calc(100vh - 50px);
   .title {
-    margin-top: 100px;
+    background-image: linear-gradient(45deg, #030712, #1e293b,#4b5563);
+    -webkit-background-clip: text;
+    background-clip: text;
+    // margin-top: 150px;
     line-height: 1;
     font-size: 4rem;
     text-align: center;
     letter-spacing: -0.5pt;
 
     font-weight: 600;
-    color: #111827;
+    color: transparent;
   }
   h2 {
-    font-size: 2rem;
-    margin-top: 10px;
+    font-size: 1.8rem;
+    margin-top: 20px;
     color: #6b7280;
     text-align: center;
-    width: 750px;
+    max-width: 650px;
     font-weight: 400;
   }
   .app .header + pre {
@@ -50,7 +54,7 @@ textarea {
   .get-started {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 40px;
     gap: 20px;
     align-items: center;
     .button {
@@ -72,12 +76,21 @@ textarea {
       background-color: transparent;
       border-radius: 10px;
       font-size: 1rem;
-      padding: 0.65rem 2rem;
+      padding: 0.62rem 2rem;
       font-weight: 500;
       &:hover {
         color: white;
+        border-color: hsl(271, 100%, 56%);
         background-color: hsl(271, 100%, 56%);
       }
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .title {
+      font-size: 3rem;
+    }
+    h2 {
+      font-size: 1.5rem;
     }
   }
 }
