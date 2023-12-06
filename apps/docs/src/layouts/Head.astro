@@ -1,13 +1,13 @@
 ---
 import { ViewTransitions } from "astro:transitions";
-import "../docs.scss";
+// import "../docs.scss";
 import "../styles/wathqny.scss";
 import "wtqcode/style";
 
 interface Props {
   title: string;
   description: string;
-  keywords: string;
+  keywords?: string;
 }
 
 const { title, description, keywords } = Astro.props;

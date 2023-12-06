@@ -1,12 +1,22 @@
 ---
+interface Props {
+  brand: {
+    name?: string;
+    logo?: string;
+  };
+}
+
+const { 
+  brand
+} = Astro.props
 
 ---
 
 <nav class="wtq-navbar">
   <a href="/">
     <div class="wtq-brand">
-      <img alt="logo" width="40" height="40" src="/fruitUI.png" />
-      <p>FruitUI</p>
+      <img alt="logo" width="40" height="40" src={brand.logo} />
+      <p>{brand.name}</p>
     </div>
   </a>
   <span class="wtq-toggle"></span>

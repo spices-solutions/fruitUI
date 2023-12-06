@@ -27,7 +27,8 @@ const authorData = await getEntry("authors", authors?.id);
 const { Content } = await doc.render();
 ---
 
-<Layout  title={doc.data.title} 
+<Layout 
+title={doc.data.title} 
 description={doc.data.description} 
 keywords={doc.data.title}>
   <div class="wtq-container">

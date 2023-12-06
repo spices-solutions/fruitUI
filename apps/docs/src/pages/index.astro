@@ -3,35 +3,49 @@ import Layout from "../layouts/Layout.astro";
 import "@fontsource/inter/400.css";
 import "@fontsource/inter/500.css";
 import "@fontsource/inter/600.css";
-import { CodeBlock } from "wtqcode";
 import "../styles/custom.scss";
+import { CodeBlock } from "wtqcode";
+import CardCell from "../components/CardCell.astro";
 ---
 
 <Layout title="fruit UI" description="fruit UI a moduler styling framework">
   <main>
-    <div class="hero">
-      <div>
-        <h1 class="title">FruitUI 
-          a moduler <br /> <span class="text-blue-600">styling</span>  framework</h1>
-        <h2>
-          use the components you want, styles you need, the <i class="text-yellow-500" style="    font-weight: 500;
-          "> performance</i> you
-          deserve
-        </h2>
-      </div>
-
+    <section class="hero">
+      <h1 class="title">
+        FruitUI a moduler <br />
+        <span class="text-blue-600">styling</span> framework
+      </h1>
+      <h2>
+        use the components you want, styles you need, the
+        <i class="text-yellow-400">performance</i> you deserve
+      </h2>
       <div class="get-started">
-        
         <a href="/docs/overview">
           <button class="button">Get started</button>
         </a>
         <button class="button-outline">5 min's overview</button>
       </div>
-      <!-- <CodeBlock
-      theme="material-theme"
-      lang="bash"
-      code={`npm install fruiui`}
-      /> -->
-    </div>
+    </section>
+    <section class="features">
+      <div class="container flex flex-flow-col">
+        <h1 class="title">batteries everyware</h1>
+        <h2 class="sub-heading mt-3">
+          FruitUI is feature rich batterey included framewok
+        </h2>
+      </div>
+      <legend title="batteries" class="container grid grid-cols-4 gap-3 my-10 py-5" style="border: 1px solid #d1d5db; border-radius: 10px;">
+        <CardCell title="moduler" />
+        <CardCell title="components-rich" />
+        <CardCell title="plugins" />
+        <CardCell title="esay to use" />
+        <CardCell title="sass api" />
+        <CardCell title="plugins" />
+        <CardCell title="beuteful UI" />
+        <div style="pointer-events: none; opacity: .8; user-select: none;">
+
+          <CardCell title="accesabilty 🚧" />
+        </div>
+      </legend>
+    </section>
   </main>
 </Layout>

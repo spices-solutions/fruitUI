@@ -5,16 +5,21 @@ import Head from "./Head.astro";
 interface Props {
   title: string;
   description: string;
-  keywords: string;
+  keywords?: string;
 }
 
 const { title, description, keywords } = Astro.props;
 ---
 
 <html lang="en">
-  <Head title={title} description={description} keywords={keywords}/>
+  <Head title={title} description={description} keywords={keywords} />
   <body>
-    <Navbar />
+    <Navbar
+      brand={{
+        name: "fruitUI",
+        logo: "/fruitUI.png",
+      }}
+    />
     <slot />
   </body>
 </html>
