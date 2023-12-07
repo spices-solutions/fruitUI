@@ -5,14 +5,17 @@
   padding: 5px 1rem;
   height: 50px;
   position: relative;
-  background-color: hsl(271deg 83.47% 52.37%);
-  color: white;
+  background-color: #f3f4f6;
+  color: var(--text-color);
   .#{$prefix}-brand {
     font-size: 1.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
+    span {
+      font-weight: 500;
+    }
   }
   .#{$prefix}-links {
     transition-duration: 500ms;

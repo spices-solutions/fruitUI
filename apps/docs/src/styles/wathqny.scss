@@ -2,3 +2,47 @@ $prefix: "wtq";
 
 @import "./base/base.scss";
 @import "./components/navbar.scss";
+@import "./components/table.scss";
+
+.wtq-avatar-contanier {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 1rem 0px;
+  .wtq-avatar {
+    border-radius: 50%;
+  }
+  .wtq-avatar-name {
+    font-weight: 500;
+    font-size: 20px;
+  }
+  .wtq-avatar-role {
+    font-size: 18px;
+    color: #374151;
+  }
+}
+
+.wtq-breadcrumbs {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: inherit;
+  .wtq-breadcrumb {
+    font-size: 16px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #374151;
+
+    &:hover {
+      background-color: #00000010;
+    }
+  }
+  .wtq-breadcrumb-arrow {
+    cursor: pointer;
+  }
+}
