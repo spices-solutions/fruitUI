@@ -37,7 +37,6 @@ $prefix: "wtq";
     border-radius: 5px;
     cursor: pointer;
     color: #374151;
-
     &:hover {
       background-color: #00000010;
     }
@@ -46,3 +45,34 @@ $prefix: "wtq";
     cursor: pointer;
   }
 }
+.wtq-page {
+  display: flex;
+}
+.wtq-sidebar {
+  display: flex;
+  flex-direction: column;
+  border-right: solid 1px #ccc;
+  width: 300px;
+  padding: 5px;
+  ul {
+    list-style: none;
+    li {
+      color: #4b5563 !important;
+      padding: 5px .600rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-radius: 6px;
+      font-weight: 500;
+      cursor: pointer;
+      font-size: .875rem;
+      svg {
+        transform: rotate(90deg);
+      }
+      &:hover {
+        background-color: rgba(0, 0, 16, 0.050);
+      }
+    }
+  }
+}
+

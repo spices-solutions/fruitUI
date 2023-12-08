@@ -6,10 +6,7 @@ interface Props {
   };
 }
 
-const { 
-  brand
-} = Astro.props
-
+const { brand } = Astro.props;
 ---
 
 <nav class="wtq-navbar">
@@ -21,12 +18,10 @@ const {
   </a>
   <span class="wtq-toggle"></span>
   <ul class="wtq-links">
-    <a href="/docs/overview">
-      <li>docs</li>
-    </a>
-    <a href="/wathqny">
-      <li>wathqny</li>
-    </a>
+    <li><a href="/docs/overview">docs</a></li>
+    <li>
+      <a href="/wathqny">wathqny</a>
+    </li>
   </ul>
 </nav>
 
@@ -36,13 +31,13 @@ const {
     navbar?.classList.toggle("wtq-active");
   });
   console.log(true);
-  
-  if(navbar?.classList.contains("wtq-active") == true) {
+
+  if (navbar?.classList.contains("wtq-active") == true) {
     console.log(true);
     document.addEventListener("click", (e) => {
       if (e.target.classList != "wtq-navbar") {
         navbar?.classList.remove("wtq-active");
       }
-    })
+    });
   }
 </script>

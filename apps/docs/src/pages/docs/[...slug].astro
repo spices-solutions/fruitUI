@@ -31,64 +31,84 @@ const { Content } = await doc.render();
   title={doc.data.title}
   description={doc.data.description}
   keywords={doc.data.title}>
-  <div
-    class="wtq-container">
-    <div class="wtq-breadcrumbs">
-      <a href="/" class="wtq-breadcrumb"
-        ><svg
+  <div class="wtq-page">
+    <aside class="wtq-sidebar">
+      <ul>
+        <li><a href={doc.slug}>overview</a><svg
           xmlns="http://www.w3.org/2000/svg"
-          width="20"
-          height="20"
+          width="16"
+          height="16"
+
           viewBox="0 0 24 24"
-          ><path fill="currentColor" d="M10 20v-6h4v6h5v-8h3L12 3L2 12h3v8h5Z"
-          ></path></svg
-        ></a
-      >
-      <span class="wtq-breadcrumb-arrow"
-        ><svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="10"
-          height="10"
-          viewBox="0 0 24 24"
+          
           ><path
             fill="currentColor"
             d="M8.025 22L6.25 20.225L14.475 12L6.25 3.775L8.025 2l10 10l-10 10Z"
           ></path></svg
-        ></span
-      >
-      <a href="" class="wtq-breadcrumb">docs</a>
-      <span class="wtq-breadcrumb-arrow"
-        ><svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="10"
-          height="10"
-          viewBox="0 0 24 24"
-          ><path
-            fill="currentColor"
-            d="M8.025 22L6.25 20.225L14.475 12L6.25 3.775L8.025 2l10 10l-10 10Z"
-          ></path></svg
-        ></span
-      >
-      <a href="" class="wtq-breadcrumb">overview</a>
-    </div>
-    <h1>{doc.data.title}</h1>
-    <div class="wtq-avatar-contanier">
-      <Image
-        class="wtq-avatar"
-        width={48}
-        height={48}
-        src={authorData?.data.profile}
-        alt="user avatar"
-      />
-      <div>
-        <p class="wtq-avatar-name">{authorData?.data.name}</p>
-        <p class="wtq-avatar-role">{authorData?.data.role}</p>
+        ></li>
+        <li><a>installation</a></li>
+      </ul>
+    </aside>
+
+    <div class="wtq-container">
+      <div class="wtq-breadcrumbs">
+        <a href="/" class="wtq-breadcrumb"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            ><path fill="currentColor" d="M10 20v-6h4v6h5v-8h3L12 3L2 12h3v8h5Z"
+            ></path></svg>
+          </a
+        >
+        <span class="wtq-breadcrumb-arrow"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="10"
+            height="10"
+            viewBox="0 0 24 24"
+            ><path
+              fill="currentColor"
+              d="M8.025 22L6.25 20.225L14.475 12L6.25 3.775L8.025 2l10 10l-10 10Z"
+            ></path></svg
+          ></span
+        >
+        <a href="" class="wtq-breadcrumb">docs</a>
+        <span class="wtq-breadcrumb-arrow"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="10"
+            height="10"
+            viewBox="0 0 24 24"
+            ><path
+              fill="currentColor"
+              d="M8.025 22L6.25 20.225L14.475 12L6.25 3.775L8.025 2l10 10l-10 10Z"
+            ></path></svg
+          ></span
+        >
+        <a href="" class="wtq-breadcrumb">overview</a>
       </div>
+      <h1>{doc.data.title}</h1>
+      <div class="wtq-avatar-contanier">
+        <Image
+          class="wtq-avatar"
+          width={48}
+          height={48}
+          src={authorData?.data.profile}
+          alt="user avatar"
+        />
+        <div>
+          <p class="wtq-avatar-name">{authorData?.data.name}</p>
+          <p class="wtq-avatar-role">{authorData?.data.role}</p>
+        </div>
+      </div>
+
+      <main>
+        <article>
+          <Content />
+        </article>
+      </main>
     </div>
-    <main>
-      <article>
-        <Content />
-      </article>
-    </main>
   </div>
 </Layout>
