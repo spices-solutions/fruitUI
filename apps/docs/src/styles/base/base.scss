@@ -34,10 +34,14 @@ body {
   font-size: 20px;
   height: 100%;
 }
+
 body {
   -webkit-font-smoothing: antialiased;
-  -webkit-text-size-adjust: 0px;
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
 }
+
 img,
 picture,
 video,
@@ -46,10 +50,8 @@ svg {
   display: block;
   max-width: 100%;
 }
-input,
-button,
-textarea,
-select {
+
+input, button, textarea, select {
   font: inherit;
 }
 
@@ -62,6 +64,7 @@ h5,
 h6 {
   overflow-wrap: break-word;
 }
+
 #root,
 #__next {
   isolation: isolate;
@@ -120,6 +123,10 @@ h4 {
 h5,
 h6 {
   font-weight: 400;
+}
+
+ol,ul {
+  margin-inline-start: 20px;
 }
 
 // :focus {
