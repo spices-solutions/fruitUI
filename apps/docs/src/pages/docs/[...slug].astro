@@ -3,7 +3,10 @@ import { getEntry } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import { type CollectionEntry, getCollection } from "astro:content";
 import { Image } from "astro:assets";
-import HomeIcon from "../../components/HomeIcon.astro"
+import HomeIcon from "../../components/HomeIcon.astro";
+import Sidebar from "../../layouts/Sidebar.astro"
+
+const docs = await getCollection("docs");
 
 export async function getStaticPaths() {
   let docs = await getCollection("docs");
@@ -33,23 +36,8 @@ const { Content } = await doc.render();
   description={doc.data.description}
   keywords={doc.data.title}>
   <div class="wtq-page">
-    <aside class="wtq-sidebar">
-      <ul>
-        <li>
-          <a href={doc.slug}>overview</a><svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            ><path
-              fill="currentColor"
-              d="M8.025 22L6.25 20.225L14.475 12L6.25 3.775L8.025 2l10 10l-10 10Z"
-            ></path></svg
-          >
-        </li>
-        <li><a>installation</a></li>
-      </ul>
-    </aside>
+    <Sidebar />
+
 
     <div class="wtq-container">
       <ul class="wtq-breadcrumbs">

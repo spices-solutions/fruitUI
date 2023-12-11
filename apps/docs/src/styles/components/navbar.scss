@@ -6,14 +6,18 @@
   height: 50px;
   position: relative;
   background-color: white;
-  border-bottom: solid 1px #ccc;
-  color: var(--text-color);
+  box-shadow: 0 0 10px 0 rgba($gray-800, 0.15);
+  color: $gray-800;
   .#{$prefix}-brand {
     font-size: 1.2rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 6px;
+    img {
+      width: 30px;
+      height: 30px;
+    }
     span {
       font-weight: 500;
     }
@@ -28,7 +32,7 @@
     gap: 1rem;
     background-color: inherit;
     li {
-      font-size: .875rem;
+      font-size: 0.875rem;
       cursor: pointer;
     }
   }

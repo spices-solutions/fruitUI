@@ -1,0 +1,31 @@
+.wtq-breadcrumbs {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  color: inherit;
+  .wtq-breadcrumb {
+    font-size: 16px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 5px 4px 0;
+    gap: 5px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #374151;
+    &:first-child {
+      padding: 6px 10px;
+      // border-radius: 10px;
+    }
+    &:hover {
+      background-color: #00000010;
+    }
+    &:not(:first-child)::before {
+      position: relative;
+      top: 2.5px;
+      user-select: none;
+      right: 0px;
+      content: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="20" height="20" viewBox="0 0 24 24"%3E%3Cpath stroke="rgb(55%2065%2081)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m10%2017l5-5m0%200l-5-5"%2F%3E%3C%2Fsvg%3E');
+    }
+  }
+}

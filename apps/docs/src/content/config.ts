@@ -17,6 +17,7 @@ const docs = defineCollection({
         .default({ src: "./", alt: "this an image" })
         .optional(),
       category: z.string(),
+      position: z.number(),
       // slug: z.string().url(),
       authors: reference("authors").optional().default("felfel"),
       date: z.date(),
