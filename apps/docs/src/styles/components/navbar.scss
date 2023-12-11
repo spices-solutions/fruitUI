@@ -19,6 +19,7 @@
     }
   }
   .#{$prefix}-links {
+    will-change: transform;
     transition-duration: 500ms;
     transition-timing-function: cubic-bezier(0.47, 0, 0.75, 0.72);
     list-style: none;
@@ -38,6 +39,7 @@
         transform: translateX(0%);
       }
       .#{$prefix}-toggle {
+        will-change: transform;
         top: -3px;
         &::before {
           top: 10px;

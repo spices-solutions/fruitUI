@@ -21,7 +21,8 @@ authors: felfel
 
 <br>
 
-paragraph
+paragraph Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima obcaecati impedit nisi quae repellendus eligendi eos ratione suscipit nihil! Dolor numquam similique porro corporis iusto eligendi obcaecati vel molestiae unde?
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima obcaecati impedit nisi quae repellendus eligendi eos ratione suscipit nihil! Dolor numquam similique porro corporis iusto eligendi obcaecati vel molestiae unde?
 
 <br>
 
@@ -68,12 +69,6 @@ _italicized text_
 }
 ```
 
-
-
-### My Great Heading 
-
-term
-: definition
 
 ~The world is flat.~
 

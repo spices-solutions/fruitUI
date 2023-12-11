@@ -1,7 +1,7 @@
 .wtq-container {
   width: 100%;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
   margin-left: auto;
   margin-right: auto;
   max-width: 1200px;
@@ -26,7 +26,20 @@ button,
 input,
 select,
 textarea {
-  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;   color: var(--text-color);
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
+  color: var(--text-color);
 }
 
 html,
@@ -37,8 +50,8 @@ body {
 
 body {
   -webkit-font-smoothing: antialiased;
-  -moz-text-size-adjust: none;
   -webkit-text-size-adjust: none;
+  -moz-text-size-adjust: none;
   text-size-adjust: none;
 }
 
@@ -51,7 +64,10 @@ svg {
   max-width: 100%;
 }
 
-input, button, textarea, select {
+input,
+button,
+textarea,
+select {
   font: inherit;
 }
 
@@ -85,25 +101,32 @@ img {
 
 // type scaling baesed on 1.333 – Perfect Fourth
 h1 {
+  line-height: 1.1;
   font-size: 2.986rem;
 }
 h2 {
+  line-height: 1.250;
   font-size: 2.488rem;
 }
 h3 {
+  line-height: 1.3;
   font-size: 2.074rem;
 }
 h4 {
+  line-height: 1.4;
   font-size: 1.728rem;
 }
 h5 {
+  line-height: 1.5;
   font-size: 1.44rem;
 }
 h6 {
+  line-height: 1.2;
   font-size: 1.2rem;
 }
 p {
-  font-weight: 300;
+  line-height: 1.3;
+  font-weight: 400;
   font-size: 1rem;
 }
 
@@ -113,20 +136,16 @@ small {
 
 h1,
 h2 {
-  font-weight: 600;
+  font-weight: 700;
 }
 
 h3,
 h4 {
-  font-weight: 500;
+  font-weight: 600;
 }
 h5,
 h6 {
-  font-weight: 400;
-}
-
-ol,ul {
-  margin-inline-start: 20px;
+  font-weight: 500;
 }
 
 // :focus {

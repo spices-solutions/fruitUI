@@ -3,6 +3,7 @@ import { getEntry } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import { type CollectionEntry, getCollection } from "astro:content";
 import { Image } from "astro:assets";
+import HomeIcon from "../../components/HomeIcon.astro"
 
 export async function getStaticPaths() {
   let docs = await getCollection("docs");
@@ -34,61 +35,30 @@ const { Content } = await doc.render();
   <div class="wtq-page">
     <aside class="wtq-sidebar">
       <ul>
-        <li><a href={doc.slug}>overview</a><svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-
-          viewBox="0 0 24 24"
-          
-          ><path
-            fill="currentColor"
-            d="M8.025 22L6.25 20.225L14.475 12L6.25 3.775L8.025 2l10 10l-10 10Z"
-          ></path></svg
-        ></li>
+        <li>
+          <a href={doc.slug}>overview</a><svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            ><path
+              fill="currentColor"
+              d="M8.025 22L6.25 20.225L14.475 12L6.25 3.775L8.025 2l10 10l-10 10Z"
+            ></path></svg
+          >
+        </li>
         <li><a>installation</a></li>
       </ul>
     </aside>
 
     <div class="wtq-container">
-      <div class="wtq-breadcrumbs">
-        <a href="/" class="wtq-breadcrumb"
-          ><svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            ><path fill="currentColor" d="M10 20v-6h4v6h5v-8h3L12 3L2 12h3v8h5Z"
-            ></path></svg>
-          </a
-        >
-        <span class="wtq-breadcrumb-arrow"
-          ><svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="10"
-            height="10"
-            viewBox="0 0 24 24"
-            ><path
-              fill="currentColor"
-              d="M8.025 22L6.25 20.225L14.475 12L6.25 3.775L8.025 2l10 10l-10 10Z"
-            ></path></svg
-          ></span
-        >
+      <ul class="wtq-breadcrumbs">
+        <a href="/" class="wtq-breadcrumb">
+          <HomeIcon />
+        </a>
         <a href="" class="wtq-breadcrumb">docs</a>
-        <span class="wtq-breadcrumb-arrow"
-          ><svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="10"
-            height="10"
-            viewBox="0 0 24 24"
-            ><path
-              fill="currentColor"
-              d="M8.025 22L6.25 20.225L14.475 12L6.25 3.775L8.025 2l10 10l-10 10Z"
-            ></path></svg
-          ></span
-        >
         <a href="" class="wtq-breadcrumb">overview</a>
-      </div>
+      </ul>
       <h1>{doc.data.title}</h1>
       <div class="wtq-avatar-contanier">
         <Image
