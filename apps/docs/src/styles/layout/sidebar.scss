@@ -7,24 +7,28 @@
   .wtq-sidebar-category {
     margin-top: 15px;
     list-style: none;
-    .wtq-sidebar-category-link {
-      color: #4b5563 !important;
-      padding: 5px 0.6rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-radius: 6px;
-      font-weight: 500;
-      cursor: pointer;
-      font-size: 0.875rem;
-      .arrow-icon {
-        transform: rotate(90deg);
-        &.wtq-active {
-          transform: rotate(-90deg);
+    li {
+      .wtq-sidebar-category-link {
+        justify-content: space-between;
+        display: flex;
+        padding: 0px 0.1rem;
+        width: 100%;
+        color: #4b5563;
+        padding: 5px 0.6rem;
+        align-items: center;
+        border-radius: 8px;
+        font-weight: 500;
+        cursor: pointer;
+        font-size: 0.875rem;
+        &:hover {
+          background-color: rgba(0, 0, 16, 0.05);
         }
-      }
-      &:hover {
-        background-color: rgba(0, 0, 16, 0.05);
+        .arrow-icon {
+          transform: rotate(90deg);
+          &.wtq-active {
+            transform: rotate(-90deg);
+          }
+        }
       }
     }
   }

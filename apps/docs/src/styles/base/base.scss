@@ -7,8 +7,6 @@
   max-width: 1200px;
 }
 
-$primary: $green-600;     
-
 :root {
   --text-color: #{$gray-900};
   --focus-ring-color: #{$primary};
@@ -159,6 +157,10 @@ h6 {
   outline-width: 2px;
   outline-offset: 3px;
   outline-style: solid; 
+}
+
+a {
+  border-radius: .3em;
 }
 
 .wtq-page {

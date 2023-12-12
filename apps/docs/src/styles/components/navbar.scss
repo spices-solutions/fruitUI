@@ -9,9 +9,12 @@
   box-shadow: 0 0 10px 0 rgba($gray-800, 0.15);
   color: $gray-800;
   .#{$prefix}-brand {
+    padding: 3px 5px;
+    border-radius: 0.3em;
     font-size: 1.2rem;
     display: flex;
     justify-content: center;
+
     align-items: center;
     gap: 6px;
     img {
@@ -34,6 +37,9 @@
     li {
       font-size: 0.875rem;
       cursor: pointer;
+      a {
+        padding: 3px 5px;
+      }
     }
   }
   @media screen and (max-width: 768px) {

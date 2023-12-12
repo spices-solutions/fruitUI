@@ -4,7 +4,7 @@ import ArrowIcon from "../components/ArrowIcon.astro";
 const docs = await getCollection("docs");
 
 const config = {
-  categorys: ["intro", "compnents","hoss"],
+  categorys: ["intro", "components", "hoss"],
 };
 ---
 
@@ -14,7 +14,7 @@ const config = {
     arr.push(doc.data.position);
     let sortedArr = arr.sort();
     {
-      console.log([doc.data.position].concat([doc.data.position]));
+      console.log(docs);
     }
   })
 }
@@ -24,12 +24,10 @@ const config = {
     {
       config.categorys.map((category) => {
         return (
-          <li
-            class="wtq-sidebar-category-link"
-            aria-labelledby={category}
-            aria-label={category}>
-            <a id={category}>{category}</a>
-            <ArrowIcon />
+          <li role="button" aria-labelledby={category} aria-label={category}>
+            <a href class="wtq-sidebar-category-link" id={category}>
+              {category} <ArrowIcon />
+            </a>
           </li>
         );
       })
@@ -39,10 +37,12 @@ const config = {
 
 <script>
   const categoryItems = document.querySelectorAll(".wtq-sidebar-category-link");
-  const icon = document.querySelector(".wtq-sidebar-category-link .arrow-icon");
 
   categoryItems.forEach((categoryItem) => {
     categoryItem?.addEventListener("click", (e) => {
+      const icon = categoryItem.querySelector(
+        ".wtq-sidebar-category-link .arrow-icon"
+      );
       icon?.classList.toggle("wtq-active");
     });
   });
