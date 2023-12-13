@@ -14,7 +14,14 @@ docs.sort((a, b) => (a.data.position > b.data.position ? 1 : -1));
   <ul class="wtq-sidebar-category">
     {
       config.categorys.map((category) => {
-        let classs = "wtq-active";
+        let classs = ""; //wtq-active
+        let urlll = "/" + Astro.url.pathname.split("/").reverse()[0];
+
+        docs.map((doc) => {
+          if (doc.data.href == urlll && doc.data.category == category) {
+            classs = "wtq-active";
+          }
+        });
         return (
           <li
             class={classs}

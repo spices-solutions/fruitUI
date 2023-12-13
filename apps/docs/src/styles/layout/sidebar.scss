@@ -22,8 +22,11 @@
       flex-direction: column;
       .wtq-doc-list-item {
         padding-inline-start: 10px;
+        display: flex;
+        offset: 1px solid $gray-700;
         .wtq-doc-link {
-          border-radius: 8px;
+
+          // border-radius: 8px;
           font-size: 0.8rem;
           font-weight: 500;
           padding: 5px 0.6rem;
@@ -36,6 +39,7 @@
         }
       }
       .wtq-sidebar-category-link {
+        
         justify-content: space-between;
         display: flex;
         width: 100%;
