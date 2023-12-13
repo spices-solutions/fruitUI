@@ -1,12 +1,14 @@
 ---
 import Navbar from "../components/Navbar.astro";
 import Head from "./Head.astro";
-
+import WathqnyConfig from "../wathqny.config";
 interface Props {
   title: string;
   description: string;
   keywords?: string;
 }
+
+const { navbar } = WathqnyConfig;
 
 const { title, description, keywords } = Astro.props;
 ---
@@ -16,9 +18,10 @@ const { title, description, keywords } = Astro.props;
   <body>
     <Navbar
       brand={{
-        name: "fruitUI",
-        logo: "/fruitUI.png",
+        logo: navbar?.brand.logo,
+        name: navbar?.brand.name,
       }}
+      Items={navbar?.Items}
     />
     <slot />
   </body>

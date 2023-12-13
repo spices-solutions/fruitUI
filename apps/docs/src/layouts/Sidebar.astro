@@ -14,7 +14,7 @@ docs.sort((a, b) => (a.data.position > b.data.position ? 1 : -1));
   <ul class="wtq-sidebar-category">
     {
       config.categorys.map((category) => {
-        let classs = ""; //wtq-active
+        let classs = ""; // wtq-active
         let urlll = "/" + Astro.url.pathname.split("/").reverse()[0];
 
         docs.map((doc) => {
@@ -25,7 +25,7 @@ docs.sort((a, b) => (a.data.position > b.data.position ? 1 : -1));
         return (
           <li
             class={classs}
-            role="button"
+            role="button" 
             aria-labelledby={category}
             aria-label={category}>
             <a class={`wtq-sidebar-category-link ${classs}`} id={category}>
@@ -37,7 +37,7 @@ docs.sort((a, b) => (a.data.position > b.data.position ? 1 : -1));
                   <li class="wtq-doc-list-item">
                     <a
                       class="wtq-doc-link"
-                      href={"/" + category + doc.data.href}>
+                      href={"/docs/" + category + doc.data.href}>
                       {doc.data.title}
                     </a>
                   </li>
