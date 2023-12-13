@@ -1,16 +1,16 @@
 .wtq-container {
-  width: 100%;
   padding-left: 10px;
   padding-right: 10px;
   margin-left: auto;
   margin-right: auto;
+  width: 100%;
   max-width: 1200px;
 }
 
 :root {
   --text-color: #{$gray-900};
   --focus-ring-color: #{$primary};
-  --focus-ring-background-color: #{white};
+  --focus-ring-background-color: white;
 }
 
 *,
@@ -23,11 +23,10 @@
 }
 
 html,
-body,
-button,
-input,
-select,
-textarea {
+body {
+  color: var(--text-color);
+  font-size: 20px;
+  height: 100%;
   font-family:
     "Inter",
     system-ui,
@@ -41,14 +40,6 @@ textarea {
     "Open Sans",
     "Helvetica Neue",
     sans-serif;
-}
-
-html,
-body {
-  color: var(--text-color);
-  font-size: 20px;
-  height: 100%;
-
 }
 
 body {
@@ -99,6 +90,7 @@ hr {
 }
 
 img {
+  display: block;
   max-width: 100%;
 }
 
@@ -127,6 +119,7 @@ h6 {
   line-height: 1.2;
   font-size: 1.2rem;
 }
+
 p {
   line-height: 1.3;
   font-weight: 400;
@@ -149,18 +142,6 @@ h4 {
 h5,
 h6 {
   font-weight: 500;
-}
-
-:focus {
-  transition: none;
-  outline-color: $primary; 
-  outline-width: 2px;
-  outline-offset: 3px;
-  outline-style: solid; 
-}
-
-a {
-  border-radius: .3em;
 }
 
 .wtq-page {

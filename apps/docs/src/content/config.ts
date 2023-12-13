@@ -9,6 +9,7 @@ const docs = defineCollection({
         .string()
         .max(160, "it can't be more than 160 charcters")
         .min(10),
+      href: z.string(),
       image: z
         .object({
           src: z.string(),

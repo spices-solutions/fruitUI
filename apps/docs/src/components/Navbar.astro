@@ -9,34 +9,22 @@ interface Props {
 const { brand } = Astro.props;
 ---
 
-<nav class="wtq-navbar">
-  <a href="/">
+<nav class="wtq-navbar" role="navigation" >
+  <a href="/" aria-label="Go to the homepage">
     <div class="wtq-brand">
       <img alt="logo" width="40" height="40" src={brand.logo} />
       <span>{brand.name}</span>
     </div>
   </a>
-  <span class="wtq-toggle"></span>
+  <span class="wtq-toggle" aria-expanded="false" aria-haspopup="true"></span>
   <ul class="wtq-links">
-    <li><a href="/docs/overview">docs</a></li>
-    <li>
-      <a href="/wathqny">wathqny</a>
-    </li>
+    <li><a href="/intro/overview">docs</a></li>
   </ul>
 </nav>
 
 <script>
   const navbar = document.querySelector(".wtq-navbar");
   document.querySelector(".wtq-toggle")?.addEventListener("click", () => {
-    navbar?.classList.toggle("wtq-active");
+    navbar?.classList.toggle("wtq-active")
   });
-
-  if (navbar?.classList.contains("wtq-active") == true) {
-    console.log(true);
-    document.addEventListener("click", (e) => {
-      if (e.target.classList != "wtq-navbar") {
-        navbar?.classList.remove("wtq-active");
-      }
-    });
-  }
 </script>

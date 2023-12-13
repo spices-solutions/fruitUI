@@ -6,28 +6,37 @@ const docs = await getCollection("docs");
 const config = {
   categorys: ["intro", "components", "hoss"],
 };
----
 
-{
-  docs.map((doc) => {
-    let arr: number[] = [];
-    arr.push(doc.data.position);
-    let sortedArr = arr.sort();
-    {
-      console.log(docs);
-    }
-  })
-}
+docs.sort((a, b) => (a.data.position > b.data.position ? 1 : -1));
+---
 
 <aside class="wtq-sidebar">
   <ul class="wtq-sidebar-category">
     {
       config.categorys.map((category) => {
+        let classs = "wtq-active";
         return (
-          <li role="button" aria-labelledby={category} aria-label={category}>
-            <a href class="wtq-sidebar-category-link" id={category}>
+          <li
+            class={classs}
+            role="button"
+            aria-labelledby={category}
+            aria-label={category}>
+            <a class={`wtq-sidebar-category-link ${classs}`} id={category}>
               {category} <ArrowIcon />
             </a>
+            <ul class="wtq-sidebar-category-collapse">
+              {docs.map((doc) => {
+                return doc.data.category == category ? (
+                  <li class="wtq-doc-list-item">
+                    <a
+                      class="wtq-doc-link"
+                      href={"/" + category + doc.data.href}>
+                      {doc.data.title}
+                    </a>
+                  </li>
+                ) : null;
+              })}
+            </ul>
           </li>
         );
       })
@@ -35,15 +44,28 @@ const config = {
   </ul>
 </aside>
 
-<script>
-  const categoryItems = document.querySelectorAll(".wtq-sidebar-category-link");
+<script lang="ts">
+  const categoryItems = document.querySelectorAll(".wtq-sidebar-category li");
 
   categoryItems.forEach((categoryItem) => {
-    categoryItem?.addEventListener("click", (e) => {
-      const icon = categoryItem.querySelector(
-        ".wtq-sidebar-category-link .arrow-icon"
-      );
-      icon?.classList.toggle("wtq-active");
+    const collapse = categoryItem.querySelector(
+      ".wtq-sidebar-category-collapse"
+    );
+    const icon = categoryItem.querySelector(".wtq-sidebar-category-link");
+    categoryItem?.addEventListener("click", () => {
+      if (categoryItem.classList.contains("wtq-active")) {
+        icon?.classList.remove("wtq-active");
+        categoryItem?.classList.remove("wtq-active");
+        collapse.style.maxHeight = null;
+      } else {
+        collapse.style.maxHeight = collapse.scrollHeight + "px";
+        icon?.classList.add("wtq-active");
+        categoryItem?.classList.add("wtq-active");
+      }
     });
+
+    if (categoryItem.classList.contains("wtq-active")) {
+      collapse.style.maxHeight = collapse.scrollHeight + "px";
+    }
   });
 </script>

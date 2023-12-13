@@ -1,10 +1,15 @@
 ---
 title: badge
+description: hello description
 category: components
-path: badge
+date: 2023-11-27
+authors: felfel
+position: 2
+href: /badge
+
 ---
 
-# badge
+## badge
 
 
 <span class="badge">defuilt</span>

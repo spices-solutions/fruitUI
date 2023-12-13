@@ -1,10 +1,15 @@
 ---
 title: card
+description: hello description
 category: components
-path: card
+date: 2023-11-27
+authors: felfel
+position: 2
+href: /card
+
 ---
 
-# card
+## card
 
 
 <div class="prototype p-5">

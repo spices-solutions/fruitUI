@@ -1,10 +1,14 @@
 ---
-title: alerts
+title: alert
+description: hello description
 category: components
-path: alerts
+date: 2023-11-27
+authors: felfel
+position: 2
+href: /alert
 ---
 
-# alerts
+## alerts
 
 <br />
 <span className="alert primary">primary</span>⠀

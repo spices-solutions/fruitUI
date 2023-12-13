@@ -1,23 +1,19 @@
 table {
   width: 100%;
   border-spacing: 0;
-  // border: 1px solid #e5e7eb;
   border-collapse: collapse;
 }
 
 table thead th {
   background-color: #f7f7f7;
   text-align: left;
-  
   border-bottom-width: 2px;
   font-weight: 600;
-
 }
 
 table td,table th {
   text-align: left;
 }
-
 
 td,th {
   padding: 12px;

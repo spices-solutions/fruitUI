@@ -2,32 +2,61 @@
   display: flex;
   flex-direction: column;
   border-right: solid 1px #ccc;
-  width: 300px;
+  width: 250px;
   padding: 5px;
   .wtq-sidebar-category {
     margin-top: 15px;
     list-style: none;
+    .wtq-sidebar-category-collapse {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height ease 300ms;
+      
+    }
+    & li.wtq-active .wtq-sidebar-category-collapse {
+      transition: max-height linear(0 0%, 0 1.8%, 0.01 3.6%, 0.03 6.35%, 0.07 9.1%, 0.13 11.4%, 0.19 13.4%, 0.27 15%, 0.34 16.1%, 0.54 18.35%, 0.66 20.6%, 0.72 22.4%, 0.77 24.6%, 0.81 27.3%, 0.85 30.4%, 0.88 35.1%, 0.92 40.6%, 0.94 47.2%, 0.96 55%, 0.98 64%, 0.99 74.4%, 1 86.4%, 1 100%) 400ms;
+      // max-height: 100px !important;
+    }
     li {
+      display: flex;
+      flex-direction: column;
+      .wtq-doc-list-item {
+        padding-inline-start: 10px;
+        .wtq-doc-link {
+          border-radius: 8px;
+          font-size: 0.8rem;
+          font-weight: 500;
+          padding: 5px 0.6rem;
+          width: 100%;
+          color: $gray-600;
+          &:hover {
+            color: $gray-700;
+            background-color: rgba(0, 0, 16, 0.05);
+          }
+        }
+      }
       .wtq-sidebar-category-link {
         justify-content: space-between;
         display: flex;
-        padding: 0px 0.1rem;
         width: 100%;
-        color: #4b5563;
+        color: $gray-700;
         padding: 5px 0.6rem;
         align-items: center;
         border-radius: 8px;
-        font-weight: 500;
+        font-weight: 600;
         cursor: pointer;
         font-size: 0.875rem;
+
         &:hover {
           background-color: rgba(0, 0, 16, 0.05);
         }
+
+        &.wtq-active .arrow-icon  {
+          transform: rotate(-90deg);
+        }
+
         .arrow-icon {
           transform: rotate(90deg);
-          &.wtq-active {
-            transform: rotate(-90deg);
-          }
         }
       }
     }

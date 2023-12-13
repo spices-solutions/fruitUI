@@ -1,19 +1,17 @@
 ---
 import { getEntry } from "astro:content";
-import Layout from "../../layouts/Layout.astro";
+import Layout from "../layouts/Layout.astro";
 import { type CollectionEntry, getCollection } from "astro:content";
 import { Image } from "astro:assets";
-import HomeIcon from "../../components/HomeIcon.astro";
-import Sidebar from "../../layouts/Sidebar.astro"
-
-const docs = await getCollection("docs");
+import HomeIcon from "../components/HomeIcon.astro";
+import Sidebar from "../layouts/Sidebar.astro"
 
 export async function getStaticPaths() {
   let docs = await getCollection("docs");
 
   return docs.map((doc) => {
     return {
-      params: { slug: doc.slug },
+      params: { slug:  doc.data.category +  doc.data.href },
       props: { doc },
     };
   });
@@ -36,16 +34,15 @@ const { Content } = await doc.render();
   description={doc.data.description}
   keywords={doc.data.title}>
   <div class="wtq-page">
-    <Sidebar />
-
+  <Sidebar />
 
     <div class="wtq-container">
       <ul class="wtq-breadcrumbs">
         <a href="/" class="wtq-breadcrumb">
           <HomeIcon />
         </a>
-        <a href="" class="wtq-breadcrumb">docs</a>
-        <a href="" class="wtq-breadcrumb">overview</a>
+        <a href="/" class="wtq-breadcrumb">docs</a>
+        <a href="/" class="wtq-breadcrumb">overview</a>
       </ul>
       <h1>{doc.data.title}</h1>
       <div class="wtq-avatar-contanier">
@@ -64,7 +61,7 @@ const { Content } = await doc.render();
 
       <main>
         <article>
-          <Content />
+          <Content  />
         </article>
       </main>
     </div>

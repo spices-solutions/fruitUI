@@ -15,7 +15,7 @@
 # production
 /build
 demo.html
-
+.unlighthouse
 # misc
 .DS_Store
 *.pem
