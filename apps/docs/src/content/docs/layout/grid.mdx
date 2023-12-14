@@ -1,0 +1,127 @@
+---
+title: grid
+description: hello description
+category: layout
+date: 2023-11-27
+authors: felfel
+position: 4
+href: /grid
+---
+
+## layout
+
+
+<div class="stage anim-slide-right anim-break">
+<h1 class="h2 text-center mx-8">grid system</h1>
+<div class="prototype p-5">
+  <div class="prototype-gap my-5 ">
+    <div class="grid gap-3 grid-cols-5 text-center">
+      <div class="row-span-4 px-5 py-3 br-sm text-gray-100 bg-blue-500">⠀</div>
+      <div class="px-5 py-3 br-sm text-gray-100 bg-blue-500">⠀</div>
+      <div class="px-5 py-3 br-sm text-gray-100 bg-blue-500">⠀</div>
+      <div class="px-5 py-3 br-sm text-gray-100 bg-blue-500">⠀</div>
+      <div class="px-5 py-3 br-sm text-gray-100 bg-blue-500">⠀</div>
+      <div class="px-5 py-3 br-sm text-gray-100 bg-blue-500">⠀</div>
+      <div class="px-5 py-3 br-sm text-gray-100 bg-blue-500">⠀</div>
+      <div class="px-5 py-3 br-sm text-gray-100 bg-blue-500">⠀</div>
+      <div class="px-5 py-3 br-sm text-gray-100 bg-blue-500">⠀</div>
+      <div class="col-span-3 px-5 py-3 br-sm text-gray-100 bg-blue-500">⠀</div>
+      <div class="px-5 py-3 br-sm text-gray-100 bg-blue-500">⠀</div>
+      <div class="px-5 py-3 br-sm text-gray-100 bg-blue-500">⠀</div>
+      <div class="col-start-4 col-end-6 px-5 py-3 br-sm text-gray-100 bg-blue-500">⠀</div>
+    </div>
+  </div>
+</div>
+
+
+```html demo.html
+<div class="grid gap-3 grid-cols-5 ...">
+  <div class="row-span-4 ...">...</div>
+  <div class="...">...</div>
+  <div class="...">...</div>
+  <div class="...">...</div>
+  <div class="...">...</div>
+  <div class="...">...</div>
+  <div class="...">...</div>
+  <div class="...">...</div>
+  <div class="...">...</div>
+  <div class="col-span-3 ...">...</div>
+  <div class="...">...</div>
+  <div class="...">...</div>
+  <div class="col-start-4 col-end-6 ...">...</div>
+</div>
+```
+
+```html app.html focus=1:1
+<div class="grid ...">
+  <div class="...">...</div>
+  <div class="...">...</div>
+  <div class="...">...</div>
+  <div class="...">...</div>
+  <div class="...">...</div>
+  <div class="...">...</div>
+  <div class="...">...</div>
+  <div class="...">...</div>
+  <div class="...">...</div>
+  <div class="...">...</div>
+  <div class="...">...</div>
+  <div class="...">...</div>
+  <div class="...">...</div>
+</div>
+```
+
+
+
+
+
+```css output.css
+.grid {
+  display: grid;
+}
+```
+
+
+
+
+```html app.html focus=1,2,11,14
+<div class="grid gap-3 grid-cols-5 ...">
+  <div class="row-span-4 ...">...</div>
+  <div class="...">...</div>
+  <div class="...">...</div>
+  <div class="...">...</div>
+  <div class="...">...</div>
+  <div class="...">...</div>
+  <div class="...">...</div>
+  <div class="...">...</div>
+  <div class="...">...</div>
+  <div class="col-span-3 ...">...</div>
+  <div class="...">...</div>
+  <div class="...">...</div>
+  <div class="col-start-4 col-end-6 ...">...</div>
+</div>
+```
+
+
+```css output.css
+.grid {
+  display: grid;
+}
+
+.col-span-6 {
+  grid-column: span 6/span 6;
+}
+
+.row-span-6 {
+  grid-row: span 6/span 6;
+}
+
+.col-start-5 {
+  grid-row-start: 5;
+}
+
+.col-end-6 {
+  grid-column-end: 6;
+}
+```
+
+</div>

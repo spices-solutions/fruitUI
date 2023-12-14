@@ -18,7 +18,7 @@ interface Props {
   keywords?: string;
 }
 
-const { favicon,siteName } = WathqnyConfig
+const { favicon, siteName,image } = WathqnyConfig;
 
 const { title, description, keywords } = Astro.props;
 ---
@@ -29,7 +29,21 @@ const { title, description, keywords } = Astro.props;
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <meta name="generator" content={Astro.generator} />
-  <meta name="keywords" content={"fruitUI, fruit, ui, css, html, js, framework, library," + keywords} />
+  <meta
+    name="keywords"
+    content={"fruitUI, fruit, ui, css, html, js, framework, library," +
+      keywords}
+  />
   <meta name="description" content={description} />
+  <meta
+    property="og:title"
+    content={siteName ? title + " | " + siteName : "title"}
+  />
+  <meta property="og:type" content="documentaion" />
+  <meta
+    property="og:image"
+    content={image}
+  />
+  <meta property="og:url" content={Astro.url} />
   <title>{siteName ? title + " | " + siteName : "title"}</title>
 </head>

@@ -1,0 +1,117 @@
+---
+title: flex
+description: hello description
+category: layout
+date: 2023-11-27
+authors: felfel
+position: 3
+href: /flex
+---
+
+## flex
+
+
+<div class="stage anim-slide-right anim-break">
+<h1 class="h2 text-center mx-8">flex system</h1>
+  <div class="prototype p-5">
+    <div class="prototype-gap my-5 text-center">
+      <div class="flex gap-1 mt-3 ">
+        <div class="flex-1/12 px-5 py-3 br-sm text-gray-100 bg-blue-500">1</div>
+        <div class="flex-11/12 px-5 py-3 br-sm text-gray-100 bg-blue-500">11</div>
+      </div>
+      <div class="flex gap-1 mt-3">
+        <div class="flex-2/12 px-5 py-3 br-sm text-gray-100 bg-blue-500">2</div>
+        <div class="flex-10/12 px-5 py-3 br-sm text-gray-100 bg-blue-500">10</div>
+      </div>
+      <div class="flex gap-1 mt-3">
+        <div class="flex-3/12 px-5 py-3 br-sm text-gray-100 bg-blue-500">3</div>
+        <div class="flex-9/12 px-5 py-3 br-sm text-gray-100 bg-blue-500">9</div>
+      </div>
+      <div class="flex gap-1 mt-3">
+        <div class="flex-4/12 px-5 py-3 br-sm text-gray-100 bg-blue-500">4</div>
+        <div class="flex-8/12 px-5 py-3 br-sm text-gray-100 bg-blue-500">8</div>
+      </div>
+      <div class="flex gap-1 mt-3">
+        <div class="flex-5/12 px-5 py-3 br-sm text-gray-100 bg-blue-500">5</div>
+        <div class="flex-7/12 px-5 py-3 br-sm text-gray-100 bg-blue-500">8</div>
+      </div>
+      <div class="flex gap-1 mt-3">
+        <div class="flex-6/12 px-5 py-3 br-sm text-gray-100 bg-blue-500">6</div>
+        <div class="flex-6/12 px-5 py-3 br-sm text-gray-100 bg-blue-500">6</div>
+      </div>
+      <div class="flex gap-1 mt-3">
+        <div class="flex-12/12 px-5 py-3 br-sm text-gray-100 bg-blue-500">12</div>
+      </div>
+    </div>
+  </div>
+
+```html demo.html
+<div class="flex ... ">
+  <div class="flex-1/12 ...">1</div>
+  <div class="flex-11/12 ...">11</div>
+</div>
+<div class="flex ...">
+  <div class="flex-2/12 ...">2</div>
+  <div class="flex-10/12 ...">10</div>
+</div>
+<div class="flex ...">
+  <div class="flex-3/12 ...">3</div>
+  <div class="flex-9/12 ...">9</div>
+</div>
+<div class="flex ...">
+  <div class="flex-4/12 ...">4</div>
+  <div class="flex-8/12 ...">8</div>
+</div>
+<div class="flex ...">
+  <div class="flex-5/12 ...">5</div>
+  <div class="flex-7/12 ...">8</div>
+</div>
+<div class="flex ...">
+  <div class="flex-6/12 ...">6</div>
+  <div class="flex-6/12 ...">6</div>
+</div>
+<div class="flex ...">
+  <div class="flex-12/12 ...">12</div>
+</div>
+```
+
+
+```html app.html focus=1:1
+<div class="flex ... ">
+  <div class="...">...</div>
+  <div class="...">...</div>
+</div>
+```
+
+
+```css output.css
+.flex {
+  display: flex;
+}
+```
+
+these classes is flex basis based
+
+```html app.html focus=2,3
+<div class="flex ... ">
+  <div class="flex-5/12 ">...</div>
+  <div class="flex-3/12">...</div>
+</div>
+
+```
+
+percentage values
+
+```css output.css focus=1:9
+.flex {
+  display: flex;
+}
+.flex-3\/12 {
+  flex: 0 0 25%;
+}
+.flex-5\/12 {
+  flex: 0 0 41.6666666667%;
+}
+```
+
+</div>

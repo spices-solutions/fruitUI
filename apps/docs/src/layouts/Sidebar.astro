@@ -1,11 +1,10 @@
 ---
 import { getCollection } from "astro:content";
 import ArrowIcon from "../components/ArrowIcon.astro";
+import WathqnyConfig from "../wathqny.config";
 const docs = await getCollection("docs");
 
-const config = {
-  categorys: ["intro", "components", "hoss"],
-};
+const { sidebar } = WathqnyConfig
 
 docs.sort((a, b) => (a.data.position > b.data.position ? 1 : -1));
 ---
@@ -13,7 +12,7 @@ docs.sort((a, b) => (a.data.position > b.data.position ? 1 : -1));
 <aside class="wtq-sidebar">
   <ul class="wtq-sidebar-category">
     {
-      config.categorys.map((category) => {
+      sidebar?.map((category) => {
         let classs = ""; // wtq-active
         let urlll = "/" + Astro.url.pathname.split("/").reverse()[0];
 
@@ -25,7 +24,7 @@ docs.sort((a, b) => (a.data.position > b.data.position ? 1 : -1));
         return (
           <li
             class={classs}
-            role="button" 
+            role="button"
             aria-labelledby={category}
             aria-label={category}>
             <a class={`wtq-sidebar-category-link ${classs}`} id={category}>
