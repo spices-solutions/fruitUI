@@ -3,13 +3,6 @@ import "../docs.scss";
 import "../styles/wathqny.scss";
 import "wtqcode/style";
 
-import "@fontsource/inter/300.css";
-import "@fontsource/inter/400.css";
-import "@fontsource/inter/500.css";
-import "@fontsource/inter/600.css";
-import "@fontsource/inter/700.css";
-import "@fontsource/inter/800.css";
-
 import WathqnyConfig from "../wathqny.config";
 
 interface Props {
@@ -18,7 +11,7 @@ interface Props {
   keywords?: string;
 }
 
-const { favicon, siteName,image } = WathqnyConfig;
+const { favicon, siteName, image } = WathqnyConfig;
 
 const { title, description, keywords } = Astro.props;
 ---
@@ -35,15 +28,15 @@ const { title, description, keywords } = Astro.props;
       keywords}
   />
   <meta name="description" content={description} />
+  <meta property="og:description" content={description} />
   <meta
     property="og:title"
     content={siteName ? title + " | " + siteName : "title"}
   />
   <meta property="og:type" content="documentaion" />
-  <meta
-    property="og:image"
-    content={image}
-  />
+  <meta name="twitter:image" content={image} />
+  <meta property="og:image" content={image} />
+
   <meta property="og:url" content={Astro.url} />
   <title>{siteName ? title + " | " + siteName : "title"}</title>
 </head>

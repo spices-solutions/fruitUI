@@ -17,7 +17,7 @@ const { brand, Items } = Astro.props;
       <span>{brand.name}</span>
     </div>
   </a>
-  <span class="wtq-toggle" aria-expanded="false" aria-haspopup="true"></span>
+  <span class="wtq-toggle" aria-expanded="false" aria-haspopup="true" role="menu"></span>
   <ul class="wtq-links">
     {
       Items.map((Item) => {

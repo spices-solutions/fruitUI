@@ -14,7 +14,6 @@
     font-size: 1.2rem;
     display: flex;
     justify-content: center;
-
     align-items: center;
     gap: 6px;
     img {
@@ -22,7 +21,7 @@
       height: 30px;
     }
     span {
-      font-weight: 500;
+      font-weight: 600;
     }
   }
   .#{$prefix}-links {

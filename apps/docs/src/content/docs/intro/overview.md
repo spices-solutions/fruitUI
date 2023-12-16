@@ -10,6 +10,8 @@ href: /overview
 # slug: test/p
 ---
 
+![alt text](/assets/cover_2.png)
+
 # heading h1
 
 ## heading h2
@@ -21,6 +23,8 @@ href: /overview
 ##### heading h5
 
 ###### heading h6
+
+
 
 <br>
 
@@ -53,7 +57,6 @@ _italicized text_
 
 [title](https://www.example.com)
 
-![alt text](/fruitUI.png)
 
 <br>
 

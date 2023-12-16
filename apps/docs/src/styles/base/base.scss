@@ -1,10 +1,24 @@
 .wtq-container {
+  width: 100%;
   padding-left: 10px;
   padding-right: 10px;
   margin-left: auto;
   margin-right: auto;
-  width: 100%;
-  max-width: 1200px;
+  @media screen and (min-width: 640px) {
+    max-width: 640px;
+  }
+  @media screen and (min-width: 768px) {
+    max-width: 700px;
+  }
+  @media screen and (min-width: 1024px) {
+    max-width: 860px;
+  }
+  @media screen and (min-width: 1280px) {
+    max-width: 1200px;
+  }
+  @media screen and (min-width: 1536px) {
+    max-width: 1300px;
+  }
 }
 
 :root {
@@ -20,6 +34,47 @@
   padding: 0px;
   box-sizing: border-box;
   transition: all ease-in-out 200ms;
+}
+
+@font-face {
+  font-family: "Inter";
+  font-weight: 900;
+  src: url("/font/Inter-Black.ttf");
+}
+@font-face {
+  font-family: "Inter";
+  font-weight: 800;
+  src: url("/font/Inter-ExtraBold.ttf");
+}
+@font-face {
+  font-family: "Inter";
+  font-weight: 700;
+  src: url("/font/Inter-Bold.ttf");
+}
+@font-face {
+  font-family: "Inter";
+  font-weight: 600;
+  src: url("/font/Inter-SemiBold.ttf");
+}
+@font-face {
+  font-family: "Inter";
+  font-weight: 500;
+  src: url("/font/Inter-Medium.ttf");
+}
+@font-face {
+  font-family: "Inter";
+  font-weight: 400;
+  src: url("/font/Inter-Regular.ttf");
+}
+@font-face {
+  font-family: "Inter";
+  font-weight: 300;
+  src: url("/font/Inter-Light.ttf");
+}
+@font-face {
+  font-family: "Inter";
+  font-weight: 200;
+  src: url("/font/Inter-Thin.ttf");
 }
 
 html,
@@ -100,7 +155,7 @@ h1 {
   font-size: 2.986rem;
 }
 h2 {
-  line-height: 1.250;
+  line-height: 1.25;
   font-size: 2.488rem;
 }
 h3 {

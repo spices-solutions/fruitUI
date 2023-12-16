@@ -13,22 +13,22 @@ interface WathqnyConfigI {
     Items: { href?: string; item?: string }[];
   };
 }
-
+ 
 const WathqnyConfig: WathqnyConfigI = {
   siteName: "fruitUI",
-  favicon: "/fruitUI.png",
-  image: "/fruitUI.png  ",
+  favicon: "/assets/logo_icon.png",
+  image: "/assets/cover_2.png",
   description: "fruit UI a moduler styling framework",
-  sidebar: ["intro", "components", "layout"],
+  sidebar: ["intro", "components", "layout", "utilites"],
   navbar: {
     brand: {
-      logo: "/fruitUI.png",
-      name: "fruitUI",
+      logo: "/assets/logo_icon.png",
+      name: "FruitUI",
     },
     Items: [
       {
         item: "docs",
-        href: "/docs",
+        href: "/docs/intro/overview",
       },
       {
         item: "blog",

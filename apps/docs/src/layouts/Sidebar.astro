@@ -27,7 +27,7 @@ docs.sort((a, b) => (a.data.position > b.data.position ? 1 : -1));
             role="button"
             aria-labelledby={category}
             aria-label={category}>
-            <a class={`wtq-sidebar-category-link ${classs}`} id={category}>
+            <a class={`wtq-sidebar-category-link ${classs}`} id={category} role="menu">
               {category} <ArrowIcon />
             </a>
             <ul class="wtq-sidebar-category-collapse">
