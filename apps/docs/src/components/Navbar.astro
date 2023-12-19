@@ -1,9 +1,11 @@
 ---
+import { Image } from "astro:assets";
+
 interface Props {
   brand: {
     name?: string;
     logo?: string;
-  };
+  };  
   Items: { href?: string; item?: string }[];
 }
 
@@ -13,11 +15,11 @@ const { brand, Items } = Astro.props;
 <nav class="wtq-navbar" role="navigation">
   <a href="/" aria-label="Go to the homepage">
     <div class="wtq-brand">
-      <img alt="logo" width="40" height="40" src={brand.logo} />
+      <Image alt="logo" width="40" height="40" src={brand.logo} />
       <span>{brand.name}</span>
     </div>
   </a>
-  <span class="wtq-toggle" aria-expanded="false" aria-haspopup="true" role="menu"></span>
+  <span class="wtq-toggle" aria-expanded="false" aria-haspopup="menu" role="menu"></span>
   <ul class="wtq-links">
     {
       Items.map((Item) => {

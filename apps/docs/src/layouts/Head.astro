@@ -14,29 +14,34 @@ interface Props {
 const { favicon, siteName, image } = WathqnyConfig;
 
 const { title, description, keywords } = Astro.props;
+
+const METATITLE = title ?? siteName;
+const METAIMAGE = image;
+const METADESCRIPTION = description;
+const METAKEYWORDS =
+  keywords ?? "fruitUI, fruit, ui, css, html, js, framework, library";
+const METAFAVICON = favicon;
 ---
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="shortcut icon" href={favicon} type="image/x-icon" />
+  <link rel="shortcut icon" href={METAFAVICON} type="image/x-icon" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <meta name="generator" content={Astro.generator} />
-  <meta
-    name="keywords"
-    content={"fruitUI, fruit, ui, css, html, js, framework, library," +
-      keywords}
-  />
-  <meta name="description" content={description} />
-  <meta property="og:description" content={description} />
-  <meta
-    property="og:title"
-    content={siteName ? title + " | " + siteName : "title"}
-  />
-  <meta property="og:type" content="documentaion" />
-  <meta name="twitter:image" content={image} />
-  <meta property="og:image" content={image} />
-
+  <meta name="keywords" content={METAKEYWORDS} />
+  <meta name="description" content={METADESCRIPTION} />
+  <meta property="og:description" content={METADESCRIPTION} />
+  <meta property="og:image" content={METAIMAGE} />
+  <meta property="og:title" content={METATITLE} />
+  <meta property=”og:site_name” content={METATITLE} />
+  <meta property="og:type" content="documentation" />
   <meta property="og:url" content={Astro.url} />
-  <title>{siteName ? title + " | " + siteName : "title"}</title>
+  <meta name="twitter:title" content={METATITLE} />
+  <meta name="twitter:image" content={METAIMAGE} />
+  <meta name="twitter:description" content={METADESCRIPTION} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href={Astro.url} />
+
+  <title>{METATITLE}</title>
 </head>

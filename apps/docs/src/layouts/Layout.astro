@@ -2,8 +2,10 @@
 import Navbar from "../components/Navbar.astro";
 import Head from "./Head.astro";
 import WathqnyConfig from "../wathqny.config";
+import Sidebar from "./Sidebar.astro";
 
 interface Props {
+  sidebar: boolean;
   title: string;
   description: string;
   keywords?: string;
@@ -11,7 +13,7 @@ interface Props {
 
 const { navbar } = WathqnyConfig;
 
-const { title, description, keywords } = Astro.props;
+const { title, description, keywords ,sidebar } = Astro.props;
 ---
 
 <html lang="en" dir="ltr">
@@ -24,6 +26,16 @@ const { title, description, keywords } = Astro.props;
       }}
       Items={navbar?.Items}
     />
-    <slot />
+    <div class="wtq-page">
+      {
+        sidebar ? (
+          <Sidebar />
+
+        ): null
+      }
+      <div class="wtq-container">
+        <slot />
+      </div>
+    </div>
   </body>
 </html>

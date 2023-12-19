@@ -4,11 +4,11 @@ import ArrowIcon from "../components/ArrowIcon.astro";
 import WathqnyConfig from "../wathqny.config";
 const docs = await getCollection("docs");
 
-const { sidebar } = WathqnyConfig
+const { sidebar } = WathqnyConfig;
 
 docs.sort((a, b) => (a.data.position > b.data.position ? 1 : -1));
 ---
-
+      
 <aside class="wtq-sidebar">
   <ul class="wtq-sidebar-category">
     {
@@ -22,14 +22,15 @@ docs.sort((a, b) => (a.data.position > b.data.position ? 1 : -1));
           }
         });
         return (
-          <li
-            class={classs}
-            role="button"
-            aria-labelledby={category}
-            aria-label={category}>
-            <a class={`wtq-sidebar-category-link ${classs}`} id={category} role="menu">
+          <li class={classs}>
+            <span
+              aria-expanded="false"
+              tabindex="0"
+              class={`wtq-sidebar-category-link ${classs}`}
+              id={`${category}-category`}
+              aria-label={`Go to ${category} category`}>
               {category} <ArrowIcon />
-            </a>
+            </span>
             <ul class="wtq-sidebar-category-collapse">
               {docs.map((doc) => {
                 return doc.data.category == category ? (
@@ -58,6 +59,26 @@ docs.sort((a, b) => (a.data.position > b.data.position ? 1 : -1));
       ".wtq-sidebar-category-collapse"
     );
     const icon = categoryItem.querySelector(".wtq-sidebar-category-link");
+
+    categoryItem?.addEventListener("keydown", (e) => {
+      if (e.key == "Enter") {
+        if (categoryItem.classList.contains("wtq-active")) {
+          icon?.classList.remove("wtq-active");
+          categoryItem?.classList.remove("wtq-active");
+          collapse.style.maxHeight = null;
+        } else {
+          collapse.style.maxHeight = collapse.scrollHeight + "px";
+          icon?.classList.add("wtq-active");
+          categoryItem?.classList.add("wtq-active");
+        }
+      }
+      if (e.key == "Tab") {
+        collapse.style.maxHeight = collapse.scrollHeight + "px";
+        icon?.classList.add("wtq-active");
+        categoryItem?.classList.add("wtq-active");
+      }
+    });
+
     categoryItem?.addEventListener("click", () => {
       if (categoryItem.classList.contains("wtq-active")) {
         icon?.classList.remove("wtq-active");

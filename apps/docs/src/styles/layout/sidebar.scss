@@ -4,6 +4,7 @@
   border-right: solid 1px #ccc;
   width: 250px;
   padding: 5px;
+  height: 100vh;
   .wtq-sidebar-category {
     margin-top: 15px;
     list-style: none;
@@ -49,13 +50,14 @@
         display: flex;
         offset: 1px solid $gray-700;
         .wtq-doc-link {
+          outline: none;   
           border-radius: 8px;
           font-size: 0.8rem;
           font-weight: 500;
           padding: 5px 0.6rem;
           width: 100%;
           color: $gray-600;
-          &:hover {
+          &:hover,&:focus {
             color: $gray-700;
             background-color: rgba(0, 0, 16, 0.05);
           }
@@ -73,17 +75,17 @@
         font-weight: 600;
         cursor: pointer;
         font-size: 0.875rem;
-
-        &:hover {
+        outline: none;
+        &:hover,&:focus {
           background-color: rgba(0, 0, 16, 0.05);
         }
 
         &.wtq-active .arrow-icon {
-          transform: rotate(-90deg);
+          transform: rotate(360deg);
         }
-
+        
         .arrow-icon {
-          transform: rotate(90deg);
+          transform: rotate(180deg);
         }
       }
     }

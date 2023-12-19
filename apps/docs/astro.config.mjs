@@ -15,7 +15,6 @@ export default defineConfig({
       shikiConfig: { theme: 'material-theme' },
     }),
     partytown(),
-    prefetch(),
     sitemap(),
   ],
 });

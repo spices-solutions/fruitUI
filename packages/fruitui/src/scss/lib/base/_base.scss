@@ -7,11 +7,15 @@
     box-sizing: border-box;
   }
 
-  html,
   button,
   input,
   select,
   textarea {
+    font: inherit;
+  }
+
+  body,
+  html {
     font-family:
       system-ui,
       -apple-system,
@@ -24,10 +28,6 @@
       "Open Sans",
       "Helvetica Neue",
       sans-serif;
-  }
-
-  body {
-    scroll-behavior: smooth;
   }
 
   a {
