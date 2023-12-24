@@ -27,7 +27,7 @@ const shiki = await getHighlighter({
 });
 
 const codeOutput = shiki.codeToHtml(code, {
-  lang:  lang,
+  lang:  lang as string,
   theme: theme,
 });
 ---

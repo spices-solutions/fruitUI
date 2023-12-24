@@ -1,4 +1,5 @@
 .#{$prefix}-navbar {
+  
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -8,6 +9,12 @@
   background-color: white;
   box-shadow: 0 0 10px 0 rgba($gray-800, 0.15);
   color: $gray-800;
+  &-overlay {
+    
+    display: none;
+    opacity: 0;
+  }
+
   .#{$prefix}-brand {
     padding: 3px 5px;
     border-radius: 0.3em;
@@ -42,14 +49,29 @@
     }
   }
   @media screen and (max-width: 768px) {
+    .wtq-active &-overlay {
+      opacity: 1;
+      display: block;
+      pointer-events: painted;
+      position: absolute;
+      top: 0;
+      cursor: pointer;
+      left: 0;
+      background-color: rgba($gray-900, .50);
+      width: 100%;
+      height: 100vh;
+    }
     &.#{$prefix}-active {
+      z-index: 1;
       .#{$prefix}-links {
-        opacity: 100%;
         transform: translateX(0%);
       }
       .#{$prefix}-toggle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         will-change: transform;
-        top: -3px;
+        top: -5px;
         &::before {
           top: 10px;
           position: relative;
@@ -64,9 +86,11 @@
       width: 40px;
       height: 40px;
       padding: 10px;
-      top: 3px;
+      // top: 3px;
 
       display: flex;
+      justify-content: center;
+      align-items: center;
       position: relative;
       flex-direction: column;
       gap: 6px;
@@ -90,15 +114,16 @@
     }
     .#{$prefix}-links {
       padding: 1rem 0px;
-      opacity: 0;
       transform: translateX(-150%);
       flex-direction: column;
       position: absolute;
-      top: 50px;
       left: 0;
+      top: 0;
       width: 50%;
       gap: 0;
-      height: calc(100vh - 50px);
+      height: 100vh;
+      height: 100dvh;
+
       text-align: center;
       li {
         padding: 10px;

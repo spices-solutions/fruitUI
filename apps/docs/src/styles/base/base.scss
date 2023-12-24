@@ -4,6 +4,8 @@
   padding-right: 10px;
   margin-left: auto;
   margin-right: auto;
+  width: 100%;
+  max-width: 1200px;
   @media screen and (min-width: 640px) {
     max-width: 640px;
   }

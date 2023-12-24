@@ -10,18 +10,21 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/mdx": "^1.0.3",
-    "@astrojs/partytown": "^2.0.0",
-    "@astrojs/react": "^3.0.2",
-    "@astrojs/sitemap": "^3.0.0",
-    "@formkit/auto-animate": "^0.8.0",
-    "@types/react": "^18.0.21",
-    "@types/react-dom": "^18.0.6",
-    "astro": "^3.5.0",
+    "@astrojs/mdx": "^2.0.2",
+    "@astrojs/partytown": "^2.0.2",
+    "@astrojs/react": "^3.0.8",
+    "@astrojs/sitemap": "^3.0.3",
+    "@formkit/auto-animate": "^0.8.1",
+    "@sentry/astro": "^7.90.0",
+    "@spotlightjs/astro": "^1.0.8",
+    "@types/react": "^18.2.45",
+    "@types/react-dom": "^18.2.18",
+    "astro": "^4.0.7",
     "fruitui": "workspace:*",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "sass": "^1.66.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sass": "^1.69.5",
+    "sharp": "^0.33.1",
     "wtqcode": "workspace:*"
   }
 }

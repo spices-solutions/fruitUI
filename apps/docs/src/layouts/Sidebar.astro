@@ -8,32 +8,32 @@ const { sidebar } = WathqnyConfig;
 
 docs.sort((a, b) => (a.data.position > b.data.position ? 1 : -1));
 ---
-      
+
 <aside class="wtq-sidebar">
-  <ul class="wtq-sidebar-category">
+  <ul class="wtq-sidebar-category" role="tablist">
     {
       sidebar?.map((category) => {
-        let classs = ""; // wtq-active
-        let urlll = "/" + Astro.url.pathname.split("/").reverse()[0];
+        let activeClass = "";
+        let cutUrl = "/" + Astro.url.pathname.split("/").reverse()[0];
 
         docs.map((doc) => {
-          if (doc.data.href == urlll && doc.data.category == category) {
-            classs = "wtq-active";
+          if (doc.data.href == cutUrl && doc.data.category == category) {
+            activeClass = "wtq-active";
           }
         });
         return (
-          <li class={classs}>
-            <span
+          <li class={activeClass} role="tab">
+            <div
               aria-expanded="false"
               tabindex="0"
-              class={`wtq-sidebar-category-link ${classs}`}
+              class={`wtq-sidebar-category-link ${activeClass}`}
               id={`${category}-category`}
               aria-label={`Go to ${category} category`}>
               {category} <ArrowIcon />
-            </span>
+            </div>
             <ul class="wtq-sidebar-category-collapse">
               {docs.map((doc) => {
-                return doc.data.category == category ? (
+                return doc.data.category == category && (
                   <li class="wtq-doc-list-item">
                     <a
                       class="wtq-doc-link"
@@ -41,7 +41,7 @@ docs.sort((a, b) => (a.data.position > b.data.position ? 1 : -1));
                       {doc.data.title}
                     </a>
                   </li>
-                ) : null;
+                )
               })}
             </ul>
           </li>

@@ -3,9 +3,10 @@
   display: flex;
   align-items: center;
   color: inherit;
+  list-style: none;
   .wtq-breadcrumb {
     font-size: 16px;
-    display: inline-flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     padding: 6px 10px;
@@ -13,12 +14,11 @@
     border-radius: 8px;
     cursor: pointer;
     color: $gray-700;
-    &:last-child {
+&:hover,&:focus-visible {
+      outline: none;
       background-color: #00000010;
     }
-    &:hover {
-      background-color: #00000010;
-    }
+    
   }
   .arrow-icon {
     transform: rotate(90deg);

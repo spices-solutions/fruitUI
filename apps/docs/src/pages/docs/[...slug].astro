@@ -33,45 +33,34 @@ const authorData = await getEntry("authors", authors?.id);
 const { Content } = await doc.render();
 ---
 
-<Layout sidebar={true}
+<Layout
+  sidebar={true}
   title={doc.data.title}
   description={doc.data.description}
   keywords={doc.data.title}>
-      <ul class="wtq-breadcrumbs">
-        <a href="/" class="wtq-breadcrumb" aria-label="Go to the homepage">
-          <HomeIcon />
-        </a>
-        {
-          mangaURL.map((url, index) => {
-            return (
-              <>
-                <ArrowIcon />
-                <a
-                  href={"/" + mangaURL.slice(0, index + 1).join("/")}
-                  class="wtq-breadcrumb">
-                  {url}
-                </a>
-              </>
-            );
-          })
-        }
-      </ul>
-      <h1>{doc.data.title}</h1>
-      <div class="wtq-avatar-contanier">
-        <Image
-          class="wtq-avatar"
-          width={48}
-          height={48}
-          src={authorData?.data.profile}
-          alt="user avatar"
-        />
-        <div>
-          <p class="wtq-avatar-name">{authorData?.data.name}</p>
-          <p class="wtq-avatar-role">{authorData?.data.role}</p>
-        </div>
-      </div>
-
-      <main>
-        <Content />
-      </main>
+  <ul class="wtq-breadcrumbs" role="tablist">
+    <li role="tab">
+      <a href="/" class="wtq-breadcrumb" aria-label="Go to the homepage">
+        <HomeIcon />
+      </a>
+    </li>
+    {
+      mangaURL.map((url, index) => {
+        return (
+          <ArrowIcon />
+          <li role="tab">
+            <a
+              href={"/" + mangaURL.slice(0, index + 1).join("/")}
+              class="wtq-breadcrumb">
+              {url}
+            </a>
+          </li>
+        );
+      })
+    }
+  </ul>
+  <h1>{doc.data.title}</h1>
+  <main>
+    <Content />
+  </main>
 </Layout>

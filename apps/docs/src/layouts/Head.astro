@@ -15,6 +15,7 @@ const { favicon, siteName, image } = WathqnyConfig;
 
 const { title, description, keywords } = Astro.props;
 
+
 const METATITLE = title ?? siteName;
 const METAIMAGE = image;
 const METADESCRIPTION = description;
@@ -25,7 +26,8 @@ const METAFAVICON = favicon;
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="shortcut icon" href={METAFAVICON} type="image/x-icon" />
+  <link rel="icon" href={METAFAVICON} type="image/x-icon" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <meta name="generator" content={Astro.generator} />

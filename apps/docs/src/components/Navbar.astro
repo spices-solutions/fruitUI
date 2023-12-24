@@ -1,30 +1,32 @@
 ---
 import { Image } from "astro:assets";
 
-interface Props {
-  brand: {
-    name?: string;
-    logo?: string;
-  };  
-  Items: { href?: string; item?: string }[];
-}
+import WathqnyConfig from "../wathqny.config";
 
-const { brand, Items } = Astro.props;
+const { navbar } = WathqnyConfig;
+
+import logo_image from "../assets/icon.svg";
 ---
 
 <nav class="wtq-navbar" role="navigation">
-  <a href="/" aria-label="Go to the homepage">
+  <div class="wtq-navbar-overlay" aria-hidden></div>
+  <a href="/" aria-label="Go to the homepage" role="link">
     <div class="wtq-brand">
-      <Image alt="logo" width="40" height="40" src={brand.logo} />
-      <span>{brand.name}</span>
+      <Image alt="logo" width={40} height={40} src={logo_image} />
+      <span>{navbar?.brand.name}</span>
     </div>
   </a>
-  <span class="wtq-toggle" aria-expanded="false" aria-haspopup="menu" role="menu"></span>
+  <span
+    tabindex="0"
+    class="wtq-toggle"
+    aria-expanded="false"
+    aria-haspopup="menu"
+    role="menu"></span>
   <ul class="wtq-links">
     {
-      Items.map((Item) => {
+      navbar?.Items.map((Item) => {
         return (
-          <li>
+          <li role="menuitem">
             <a href={Item.href}>{Item.item}</a>
           </li>
         );
@@ -34,8 +36,7 @@ const { brand, Items } = Astro.props;
 </nav>
 
 <script>
-  const navbar = document.querySelector(".wtq-navbar");
-  document.querySelector(".wtq-toggle")?.addEventListener("click", () => {
-    navbar?.classList.toggle("wtq-active");
-  });
+  import { navbar } from "./navbar";
+
+  navbar();
 </script>
