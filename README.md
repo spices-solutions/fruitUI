@@ -1,7 +1,7 @@
 [![Built with Astro](https://astro.badg.es/v2/built-with-astro/tiny.svg)](https://astro.build)
 
 <div align="center">
-  <img src="./public/fruitUI.png"/>
+  <img src="./apps/docs/public/cover.png"/>
 </div>
 
 # FruitUI a moduler styling framework 
@@ -10,6 +10,7 @@ when you use bootstarp for just the grid system or use the responsive navbar com
 if you want to use the grid system you have to load about **15k** lines of css code and if you loaded the full bootstarp bundle or if you use the bootstarp grid preset it contains {padding ,margin, etc...} it's about **6k** lines of code I don't want all this stuff so I create this library with it. 
 
 So you can import just one component like just the navbar or import just the grid system 
+
 # License
 
 <a href="https://sil-spices.vercel.app/">under SIL license</a>

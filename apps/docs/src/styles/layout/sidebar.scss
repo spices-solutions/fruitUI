@@ -4,7 +4,8 @@
   border-right: solid 1px #ccc;
   width: 250px;
   padding: 5px;
-  height: 100vh;
+  height: 100%;
+  max-height: 100vh;
   @media screen and (max-width: 768px) {
     display: none;
   }

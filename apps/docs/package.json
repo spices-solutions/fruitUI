@@ -25,6 +25,14 @@
     "react-dom": "^18.2.0",
     "sass": "^1.69.5",
     "sharp": "^0.33.1",
+    "stylelint": "^16.1.0",
+    "stylelint-a11y": "^1.2.3",
+    "stylelint-config-prettier": "^9.0.5",
+    "stylelint-config-standard": "^36.0.0",
+    "stylelint-declaration-block-no-ignored-properties": "^2.7.0",
+    "stylelint-order": "^6.0.4",
+    "stylelint-scss": "^6.0.0",
+    "stylelint-semantic-groups": "^1.2.1",
     "wtqcode": "workspace:*"
   }
 }
