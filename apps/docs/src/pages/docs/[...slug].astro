@@ -5,8 +5,13 @@ import { type CollectionEntry, getCollection } from "astro:content";
 import HomeIcon from "../../components/HomeIcon.astro";
 import ArrowIcon from "../../components/ArrowIcon.astro";
 
-let mangaURL = Astro.url.pathname.split("/");
-mangaURL.shift();
+let mangaURL:any[] = Astro.url.pathname.split("/");
+
+mangaURL = mangaURL.filter((url)=> {
+  if(url != "") {
+    return true
+  }
+})
 
 export async function getStaticPaths() {
   let docs = await getCollection("docs");
@@ -38,7 +43,7 @@ const { Content } = await doc.render();
   keywords={doc.data.title}>
   <ul class="wtq-breadcrumbs" role="tablist">
     <li role="tab">
-      <a role="presentation" href="/" class="wtq-breadcrumb" aria-label="Go to the homepage">
+      <a href="/" class="wtq-breadcrumb" aria-label="Go to the homepage">
         <HomeIcon />
       </a>
     </li>

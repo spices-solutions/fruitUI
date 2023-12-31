@@ -101,10 +101,10 @@ $gray-900: hsl(221, 39%, 11%) !default;
 $primary: $purple-600 !default;
 $secondary: $blue-600 !default;
 $success: $green-500 !default;
-$error: $red-500 !default;
-$info: $yellow-400 !default;
+$error: $red-600 !default;
+$info: $yellow-500 !default;
 $orange: $orange-500 !default;
-$gray: $gray-500 !default;
+$gray: $gray-600 !default;
 $black: $gray-900 !default;
 $white: $gray-200 !default;
 
@@ -115,21 +115,21 @@ $white: $gray-200 !default;
 $theme-colors: 
   "primary" $primary #fff, 
   "secondary" $secondary #fff,
-  "success" $success #fff, 
+  "success" $success #070F0A, 
   "error" $error #fff, 
-  "info" $info #fff,
-  "orange" $orange #fff, 
+  "info" $info #2E271B,
+  "orange" $orange #130a0a, 
   "gray" $gray #fff, 
   "black" $black #fff,
   "white" $white $gray-800 !default;
 
 $flat-colors: 
-  "error" $red-100 $red-600,
-  "secondary" $blue-100 $blue-600,
-  "success" $green-100 $green-600,
-  "info" $yellow-100 $yellow-600,
-  "orange" $orange-100 $orange-600,
-  "primary" $purple-200 $purple-600 !default;
+  "error" $red-200 $red-900,
+  "secondary" $blue-200 $blue-900,
+  "success" $green-200 $green-900,
+  "info" $yellow-200 $yellow-900,
+  "orange" $orange-200 $orange-900,
+  "primary" $purple-200 $purple-900 !default;
 
 
 

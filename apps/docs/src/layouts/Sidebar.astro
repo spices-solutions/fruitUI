@@ -2,6 +2,8 @@
 import { getCollection } from "astro:content";
 import ArrowIcon from "../components/ArrowIcon.astro";
 import WathqnyConfig from "../wathqny.config";
+import { Debug } from "astro:components";
+
 const docs = await getCollection("docs");
 
 const { sidebar } = WathqnyConfig;
@@ -15,7 +17,16 @@ docs.sort((a, b) => (a.data.position > b.data.position ? 1 : -1));
       {
         sidebar?.map((category) => {
           let activeClass = "";
-          let cutUrl = "/" + Astro.url.pathname.split("/").reverse()[0];
+          let cutUrl =
+            "/" +
+            Astro.url.pathname
+              .split("/")
+              .filter((url) => {
+                if (url != "") {
+                  return true;
+                }
+              })
+              .reverse()[0];
 
           docs.map((doc) => {
             if (doc.data.href == cutUrl && doc.data.category == category) {
@@ -23,6 +34,7 @@ docs.sort((a, b) => (a.data.position > b.data.position ? 1 : -1));
             }
           });
           return (
+            // <Debug {cutUrl} />
             <li class={activeClass} role="tab">
               <span
                 role="button"
