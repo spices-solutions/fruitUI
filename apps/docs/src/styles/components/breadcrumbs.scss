@@ -4,6 +4,10 @@
   align-items: center;
   color: inherit;
   list-style: none;
+  li {
+    align-items: center;
+    display: flex;
+  }
   .wtq-breadcrumb {
     font-size: 16px;
     display: flex;
@@ -14,11 +18,11 @@
     border-radius: 8px;
     cursor: pointer;
     color: $gray-700;
-&:hover,&:focus-visible {
+    &:hover,
+    &:focus-visible {
       outline: none;
       background-color: #00000010;
     }
-    
   }
   .arrow-icon {
     transform: rotate(90deg);

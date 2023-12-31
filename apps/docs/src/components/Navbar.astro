@@ -10,23 +10,22 @@ import logo_image from "../assets/treadmark.svg";
 
 <nav class="wtq-navbar" role="navigation">
   <div class="wtq-navbar-overlay" aria-hidden></div>
-  <a href="/" aria-label="Go to the homepage" role="link">
+  <a href="/" aria-label="Go to the homepage" >
     <div class="wtq-brand">
-      <Image alt="logo" width={40} height={40} src={logo_image} />
+      <Image alt="page logo, an beautiful orange with a gradient background"  width={40} height={40} src={logo_image} />
       <span>{navbar?.brand.name}</span>
     </div>
   </a>
   <span
     tabindex="0"
-    class="wtq-toggle"
-    aria-expanded="false"
-    aria-haspopup="menu"
-    role="menu"></span>
+    role="button"
+    aria-label="menubar"
+    class="wtq-toggle"></span>
   <ul class="wtq-links">
     {
       navbar?.Items.map((Item) => {
         return (
-          <li role="menuitem">
+          <li>
             <a href={Item.href}>{Item.item}</a>
           </li>
         );

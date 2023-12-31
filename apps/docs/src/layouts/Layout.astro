@@ -16,6 +16,7 @@ const { title, description, keywords, sidebar } = Astro.props;
 <html xml:lang="en" lang="en" dir="ltr">
   <Head title={title} description={description} keywords={keywords} />
   <body>
+    <a id="skip-main-content" href="#main-content">skip to the main content</a>
     <Navbar />
     <div class="wtq-page">
       {sidebar && <Sidebar />}

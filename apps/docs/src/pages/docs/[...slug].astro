@@ -2,9 +2,7 @@
 import { getEntry } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import { type CollectionEntry, getCollection } from "astro:content";
-import { Image } from "astro:assets";
 import HomeIcon from "../../components/HomeIcon.astro";
-import Sidebar from "../../layouts/Sidebar.astro";
 import ArrowIcon from "../../components/ArrowIcon.astro";
 
 let mangaURL = Astro.url.pathname.split("/");
@@ -40,27 +38,29 @@ const { Content } = await doc.render();
   keywords={doc.data.title}>
   <ul class="wtq-breadcrumbs" role="tablist">
     <li role="tab">
-      <a href="/" class="wtq-breadcrumb" aria-label="Go to the homepage">
+      <a role="presentation" href="/" class="wtq-breadcrumb" aria-label="Go to the homepage">
         <HomeIcon />
       </a>
     </li>
     {
       mangaURL.map((url, index) => {
         return (
-          <ArrowIcon />
+          <>
           <li role="tab">
-            <a
-              href={"/" + mangaURL.slice(0, index + 1).join("/")}
-              class="wtq-breadcrumb">
-              {url}
-            </a>
-          </li>
+            <ArrowIcon />
+              <a
+                href={"/" + mangaURL.slice(0, index + 1).join("/")}
+                class="wtq-breadcrumb">
+                  {url}
+              </a>
+            </li>
+          </>
         );
       })
     }
   </ul>
+  <main id="main-content">
   <h1>{doc.data.title}</h1>
-  <main>
     <Content />
   </main>
 </Layout>

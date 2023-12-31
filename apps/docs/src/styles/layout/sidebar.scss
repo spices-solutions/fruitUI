@@ -4,93 +4,96 @@
   border-right: solid 1px #ccc;
   width: 250px;
   padding: 5px;
-  height: 100%;
-  max-height: 100vh;
   @media screen and (max-width: 768px) {
     display: none;
   }
-  .wtq-sidebar-category {
-    margin-top: 15px;
-    list-style: none;
-    .wtq-sidebar-category-collapse {
-      // will-change: max-height;
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height ease 300ms;
-    }
-    & li.wtq-active .wtq-sidebar-category-collapse {
-      transition: max-height
-        linear(
-          0 0%,
-          0 1.8%,
-          0.01 3.6%,
-          0.03 6.35%,
-          0.07 9.1%,
-          0.13 11.4%,
-          0.19 13.4%,
-          0.27 15%,
-          0.34 16.1%,
-          0.54 18.35%,
-          0.66 20.6%,
-          0.72 22.4%,
-          0.77 24.6%,
-          0.81 27.3%,
-          0.85 30.4%,
-          0.88 35.1%,
-          0.92 40.6%,
-          0.94 47.2%,
-          0.96 55%,
-          0.98 64%,
-          0.99 74.4%,
-          1 86.4%,
-          1 100%
-        )
-        400ms;
-    }
-    li {
-      display: flex;
-      flex-direction: column;
-      .wtq-doc-list-item {
-        padding-inline-start: 10px;
+  > div {
+    height: 100vh;
+    .wtq-sidebar-category {
+      margin-top: 15px;
+      list-style: none;
+      .wtq-sidebar-category-collapse {
+        // will-change: max-height;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height ease 300ms;
+      }
+      & li.wtq-active .wtq-sidebar-category-collapse {
+        transition: max-height
+          linear(
+            0 0%,
+            0 1.8%,
+            0.01 3.6%,
+            0.03 6.35%,
+            0.07 9.1%,
+            0.13 11.4%,
+            0.19 13.4%,
+            0.27 15%,
+            0.34 16.1%,
+            0.54 18.35%,
+            0.66 20.6%,
+            0.72 22.4%,
+            0.77 24.6%,
+            0.81 27.3%,
+            0.85 30.4%,
+            0.88 35.1%,
+            0.92 40.6%,
+            0.94 47.2%,
+            0.96 55%,
+            0.98 64%,
+            0.99 74.4%,
+            1 86.4%,
+            1 100%
+          )
+          400ms;
+      }
+      li {
         display: flex;
-        offset: 1px solid $gray-700;
-        .wtq-doc-link {
-          outline: none;   
-          border-radius: 8px;
-          font-size: 0.8rem;
-          font-weight: 500;
-          padding: 5px 0.6rem;
-          width: 100%;
-          color: $gray-600;
-          &:hover,&:focus {
-            color: $gray-700;
-            background-color: rgba(0, 0, 16, 0.05);
+        flex-direction: column;
+        .wtq-doc-list-item {
+          padding-inline-start: 10px;
+          display: flex;
+          offset: 1px solid $gray-700;
+          .wtq-doc-link {
+            outline: none;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            padding: 5px 0.6rem;
+            width: 100%;
+            color: $gray-600;
+            &:hover,
+            &:focus {
+              color: $gray-700;
+              background-color: rgba(0, 0, 16, 0.05);
+            }
           }
         }
-      }
-      .wtq-sidebar-category-link {
-        user-select: none;
-        justify-content: space-between;
-        display: flex;
-        width: 100%;
-        color: $gray-700;
-        padding: 5px 0.6rem;
-        align-items: center;
-        border-radius: 8px;
-        font-weight: 600;
-        cursor: pointer;
-        font-size: 0.875rem;
-        outline: none;
-        &:hover,&:focus-visible {
-          background-color: rgba(0, 0, 16, 0.05);
-        }
+        .wtq-sidebar-category-link {
+          user-select: none;
+          justify-content: space-between;
+          display: flex;
+          width: 100%;
+          color: $gray-700;
+          padding: 5px 0.6rem;
+          align-items: center;
+          border-radius: 8px;
+          font-weight: 600;
+          cursor: pointer;
+          font-size: 0.875rem;
+          outline: none;
+          &:hover,
+          &:focus-visible {
+            background-color: rgba(0, 0, 16, 0.05);
+          }
 
-        &.wtq-active .arrow-icon {
-          transform: rotate(360deg);
-        }
-        
-        .arrow-icon {
-          transform: rotate(180deg);
+          &.wtq-active .arrow-icon {
+            transform: rotate(360deg);
+          }
+
+          .arrow-icon {
+            transform: rotate(180deg);
+          }
         }
       }
     }
