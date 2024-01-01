@@ -11,6 +11,9 @@ href: /alert
 ## alerts
 
 <br />
+<span className="alert">primary</span>⠀
+<br />
+<br />
 <span className="alert primary">primary</span>⠀
 <br>
 <span className="alert secondary"><p><i className='icon-secondary'></i>secondary</p></span>⠀

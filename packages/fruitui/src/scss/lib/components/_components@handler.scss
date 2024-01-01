@@ -54,34 +54,60 @@ $components: map-merge(
   $components
 );
 
-@if ($base-components or $button or map-get(map-get($components, "base"), "button")) {
+@if (
+  $base-components or $button or map-get(map-get($components, "base"), "button")
+) {
   @include buttonBase();
 }
-@if ($base-components or $navbar or map-get(map-get($components, "base"), "navbar")) {
+@if (
+  $base-components or $navbar or map-get(map-get($components, "base"), "navbar")
+) {
   @include navbarBase();
 }
-@if ($base-components or $card or map-get(map-get($components, "base"), "card")) {
+@if (
+  $base-components or $card or map-get(map-get($components, "base"), "card")
+) {
   @include cardBase();
 }
-@if ($base-components or $forms or map-get(map-get($components, "base"), "forms")) {
+@if (
+  $base-components or $forms or map-get(map-get($components, "base"), "forms")
+) {
   @include forms();
 }
-@if ($base-components or $checkers or map-get(map-get($components, "base"), "checkers")) {
+@if (
+  $base-components or
+    $checkers or
+    map-get(map-get($components, "base"), "checkers")
+) {
   @include checkers();
 }
-@if ($other-components or $badge or map-get(map-get($components, "other"), "badge")) {
+@if (
+  $other-components or $badge or map-get(map-get($components, "other"), "badge")
+) {
   @include badge();
 }
-@if ($other-components or $table or map-get(map-get($components, "other"), "table")) {
+@if (
+  $other-components or $table or map-get(map-get($components, "other"), "table")
+) {
   @include table();
 }
-@if ($other-components or $slider or map-get(map-get($components, "other"), "slider")) {
+@if (
+  $other-components or
+    $slider or
+    map-get(map-get($components, "other"), "slider")
+) {
   @include slider();
 }
-@if ($other-components or $alert or map-get(map-get($components, "other"), "alert")) {
+@if (
+  $other-components or $alert or map-get(map-get($components, "other"), "alert")
+) {
   @include alert();
 }
-@if ($awesome-components or $prototype or map-get(map-get($components, "awesome"), "prototype")) {
+@if (
+  $awesome-components or
+    $prototype or
+    map-get(map-get($components, "awesome"), "prototype")
+) {
   @include prototype();
 }
 
@@ -90,19 +116,16 @@ $components: map-merge(
   @each $key, $colors-bg, $colors-fg in $theme-colors {
     // * colors like ( primary, secondary, success)
     .#{$key} {
-      color: $colors-fg !important;
-      background-color: $colors-bg !important;
-    }
-    .e\:#{$key} {
-      --event-color: #{$colors-bg} !important;
+      --theme-color-bg: #{$colors-bg} !important;
+      --theme-color-fg: #{$colors-fg} !important;
     }
   }
 
   @each $key, $colors-bg, $colors-fg in $flat-colors {
     // * colors like ( primary, secondary, success)
     .#{$key}-flat {
-      color: $colors-fg !important;
-      background-color: $colors-bg !important;
+      --theme-color-bg: #{$colors-bg} !important;
+      --theme-color-fg: #{$colors-fg} !important;
     }
   }
 }

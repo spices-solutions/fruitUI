@@ -1,45 +1,19 @@
 @mixin buttonBase() {
-  // * to be inherited form (btn,btn-flat,btn-outlined)
-  // * default button
   .btn {
-    border: 0;
-    color: white;
+    @extend %defuilt-theme;
     cursor: pointer;
-    overflow: hidden;
-    position: relative;
-    text-align: center;
     font-size: $font-xs;
-    display: inline-block;
-    text-decoration: none;
-    background-color: $primary;
     transition: all 0.1s ease-in;
-    border-radius: $border-radius;
-    padding: $spacing-5 $spacing-10;
-    &:hover {
-      filter: brightness(1.07);
-    }
+    padding: $spacing-4 $spacing-9;
+    will-change: transform;
     &:active {
-      transform: scale(0.9);
+      transform: scale(0.95);
     }
   }
   .outlined {
+    border-width: $border-thickness * 2;
     background-color: transparent;
-    padding: $spacing-4 $spacing-9;
-    color: var(--event-color, $primary);
-    border: $border-thickness * 2 solid var(--event-color, $primary);
-    &:hover {
-      color: $white;
-      background-color: var(--event-color, $primary);
-    }
-  }
-
-  // * overrideing white button
-  .btn.outlined.e\:white {
-    color: #61617c;
-    border-color: #61617c;
-    &:hover {
-      border-color: $white;
-    }
+    color: var(--theme-color-bg);
   }
 
   @if $ripple {

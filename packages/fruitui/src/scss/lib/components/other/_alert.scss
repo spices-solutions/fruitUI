@@ -1,12 +1,10 @@
 @mixin alert() {
   .alert {
-    color: #fff;
+    @extend %defuilt-theme;
     width: 100%;
     height: 60px;
     display: flex;
     align-items: center;
-    background-color: $primary;
-    border-radius: $border-radius;
     justify-content: space-between;
     padding: $spacing-6 $spacing-8;
     p,span,div {

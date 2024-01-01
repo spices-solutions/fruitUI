@@ -112,6 +112,14 @@ $white: $gray-200 !default;
   color: #fff;
 }
 
+%defuilt-theme {
+  color: var(--theme-color-fg, $gray-800);
+  border: $border-thickness solid var(--theme-color-bg, $gray-300);
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.050);
+  background-color: var(--theme-color-bg, $gray-50);
+  border-radius: $border-radius ;
+}
+
 $theme-colors: 
   "primary" $primary #fff, 
   "secondary" $secondary #fff,
@@ -121,7 +129,7 @@ $theme-colors:
   "orange" $orange #130a0a, 
   "gray" $gray #fff, 
   "black" $black #fff,
-  "white" $white $gray-800 !default;
+  "white" $white $gray-900 !default;
 
 $flat-colors: 
   "error" $red-200 $red-900,

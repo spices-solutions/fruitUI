@@ -78,27 +78,6 @@
         important: $important,
         values: $alignments,
       ),
-      "place-items": (
-        class: "place-items",
-        property: place-items,
-        media: $media-alignments,
-        important: $important,
-        values: $alignments,
-      ),
-      "place-content": (
-        class: "place-content",
-        property: place-content,
-        media: $media-alignments,
-        important: $important,
-        values: $alignments,
-      ),
-      "place-self": (
-        class: "place-self",
-        property: place-self,
-        media: $media-alignments,
-        important: $important,
-        values: $alignments,
-      ),
       "text-align": (
         class: "text",
         property: text-align,
