@@ -10,8 +10,9 @@
 
 :root {
   --text-color: #{$gray-900};
-  --focus-ring-color: #{$primary};
-  --focus-ring-background-color: white;
+  --text-color-low-contrast: #{$gray-600};
+  --text-color-base: #{$gray-700};
+  --text-color-high-contrast: #{$gray-700};
 }
 
 *,
@@ -20,7 +21,6 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
-  transition: all ease-in-out 200ms;
 }
 
 @font-face {
@@ -30,8 +30,19 @@
   font-display: swap;
 }
 
+:is(html,body).dark {
+  --text-color: #{$white};
+  color-scheme: dark;
+  --text-color-low-contrast: #{$gray-200};
+  --text-color-base: #{$gray-100};
+  --text-color-high-contrast: #{$gray-50};
+  background-color: #18181b;
+}
+
 html,
 body {
+  transition: all ease-in-out 300ms;
+  color-scheme: light;
   scroll-behavior: smooth;
   color: var(--text-color);
   font-size: 20px;

@@ -13,7 +13,7 @@
       margin-top: 15px;
       list-style: none;
       .wtq-sidebar-category-collapse {
-        // will-change: max-height;
+        will-change: max-height, height, overflow;
         max-height: 0;
         overflow: hidden;
         transition: max-height ease 300ms;
@@ -45,7 +45,7 @@
             1 86.4%,
             1 100%
           )
-          400ms;
+          500ms;
       }
       li {
         display: flex;
@@ -53,7 +53,6 @@
         .wtq-doc-list-item {
           padding-inline-start: 10px;
           display: flex;
-          offset: 1px solid $gray-700;
           .wtq-doc-link {
             outline: none;
             border-radius: 8px;
@@ -61,10 +60,10 @@
             font-weight: 500;
             padding: 5px 0.6rem;
             width: 100%;
-            color: $gray-600;
+            color: var(--text-color-low-contrast);
             &:hover,
             &:focus {
-              color: $gray-700;
+              color: var(--text-color-base);
               background-color: rgba(0, 0, 16, 0.05);
             }
           }
@@ -74,7 +73,8 @@
           justify-content: space-between;
           display: flex;
           width: 100%;
-          color: $gray-700;
+          color: var(--text-color-base);
+
           padding: 5px 0.6rem;
           align-items: center;
           border-radius: 8px;

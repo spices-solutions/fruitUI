@@ -22,7 +22,7 @@ const WathqnyConfig: WathqnyConfigI = {
   sidebar: ["intro", "components", "layout", "utilites"],
   navbar: {
     brand: {
-      logo: "./treadmark.svg",
+      logo: "../assets/treadmark.svg",
       name: "fruitUI",
     },
     Items: [

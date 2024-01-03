@@ -24,22 +24,6 @@
         margin-bottom: $spacing-5;
       }
       .img {
-        text-shadow: 0px 1px 2px #00000094;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 3rem;
-        color: white;
-        background-image: radial-gradient(45deg, black, white);
-        border-radius: 10px;
-        background: rgb(255, 255, 255);
-        background: radial-gradient(
-          circle,
-          rgb(27, 139, 243) 0%,
-          rgb(56, 78, 245) 100%
-
-        );
-
         border-radius: $border-radius;
       }
       .link {

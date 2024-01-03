@@ -2206,7 +2206,7 @@ img {
   transition: transform 0.4s, background-color 0.3s, border 0.3s, opacity 0.2s cubic-bezier(0.43, 1.07, 0.16, 1.01);
 }
 .radio:hover, .switch:hover, .checkbox:hover {
-  border-color: var(--event-color, hsl(271, 81%, 56%));
+  border-color: var(--theme-color-bg, hsl(271, 81%, 56%));
 }
 .radio:checked, .switch:checked, .checkbox:checked {
   background: var(--event-color, hsl(271, 81%, 56%));

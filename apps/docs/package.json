@@ -20,11 +20,15 @@
     "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.18",
     "astro": "^4.0.7",
+    "astro-iconify": "^1.2.0",
     "fruitui": "workspace:*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "sass": "^1.69.5",
     "sharp": "^0.33.1",
     "wtqcode": "workspace:*"
+  },
+  "devDependencies": {
+    "astro-icon": "^1.0.1"
   }
 }

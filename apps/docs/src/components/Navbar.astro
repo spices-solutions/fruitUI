@@ -5,7 +5,7 @@ import WathqnyConfig from "../wathqny.config";
 
 const { navbar } = WathqnyConfig;
 
-import logo_image from "../assets/treadmark.svg";
+import logo_image from "../assets/treadmark.svg"
 ---
 
 <nav class="wtq-navbar" role="navigation">
@@ -19,18 +19,20 @@ import logo_image from "../assets/treadmark.svg";
   <span
     tabindex="0"
     role="button"
-    aria-label="menubar"
+    aria-label="hamburger-menu"
     class="wtq-toggle"></span>
-  <ul class="wtq-links">
+    <ul class="wtq-links">
+    <li class="theme-swicher">
+    </li>
     {
       navbar?.Items.map((Item) => {
         return (
           <li>
             <a href={Item.href}>{Item.item}</a>
           </li>
-        );
-      })
-    }
+          );
+        })
+      }
   </ul>
 </nav>
 
@@ -38,4 +40,9 @@ import logo_image from "../assets/treadmark.svg";
   import { navbar } from "./navbar";
 
   navbar();
+
+  document.querySelector(".theme-swicher")?.addEventListener("click", ()=> {
+    document.body?.classList.toggle("dark")
+    console.log("Awdwad")
+  })
 </script>

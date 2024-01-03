@@ -17,7 +17,7 @@
     gap: 5px;
     border-radius: 8px;
     cursor: pointer;
-    color: $gray-700;
+    color: var(--text-color-base);
     &:hover,
     &:focus-visible {
       outline: none;
@@ -26,6 +26,6 @@
   }
   .arrow-icon {
     transform: rotate(90deg);
-    color: $gray-700;
+    color: var(--text-color-base);
   }
 }

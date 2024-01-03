@@ -1,6 +1,6 @@
 @mixin alert() {
   .alert {
-    @extend %defuilt-theme;
+    @extend %default-theme;
     width: 100%;
     height: 60px;
     display: flex;
