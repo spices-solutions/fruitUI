@@ -36,7 +36,7 @@ categoryItems.forEach((categoryItem) => {
   });
 
   categoryItem?.addEventListener("click", () => {
-    if (categoryItem.classList.contains("wtq-active")) {
+    if (categoryItem.classList.contains("wtq-active") && categoryItem.parentNode != true) {
       categoryItemLinks.forEach((categoryItemLink) => {
         categoryItemLink.removeAttribute("tabindex");
       });
@@ -53,7 +53,10 @@ categoryItems.forEach((categoryItem) => {
     }
   });
 
-  if (categoryItem.classList.contains("wtq-active")) {
-    collapse.style.maxHeight = collapse.scrollHeight + "px";
-  }
+
+  setTimeout(()=> {
+    if (categoryItem.classList.contains("wtq-active")) {
+      collapse.style.maxHeight = collapse.scrollHeight + "px";
+    }
+  }, 500)
 });

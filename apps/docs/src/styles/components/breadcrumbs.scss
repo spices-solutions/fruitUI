@@ -1,8 +1,8 @@
 .wtq-breadcrumbs {
+  font-weight: 300;
   margin-top: 20px;
   display: flex;
   align-items: center;
-  color: inherit;
   list-style: none;
   li {
     align-items: center;
@@ -17,15 +17,15 @@
     gap: 5px;
     border-radius: 8px;
     cursor: pointer;
-    color: var(--text-color-base);
+    color: var(--text-color-low-contrast);
     &:hover,
     &:focus-visible {
       outline: none;
-      background-color: #00000010;
+      background-color: var(--background-hover);
     }
   }
   .arrow-icon {
     transform: rotate(90deg);
-    color: var(--text-color-base);
+    color: var(--text-color-low-contrast);
   }
 }

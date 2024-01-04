@@ -1,17 +1,17 @@
-table {
+.wtq-table {
   width: 100%;
   border-spacing: 0;
   border-collapse: collapse;
 }
 
-table thead th {
+.wtq-table thead th {
   background-color: #f7f7f7;
   text-align: left;
   border-bottom-width: 2px;
   font-weight: 600;
 }
 
-table td,table th {
+.wtq-table td,.wtq-table th {
   text-align: left;
 }
 
@@ -21,6 +21,6 @@ td,th {
 
 }
 
-table tbody tr:nth-child(even) {
+.wtq-table tbody tr:nth-child(even) {
   background-color: #f7f7f7
 }
