@@ -1,7 +1,7 @@
 ---
 title: alert
 description: hello description
-category: components
+category: Components
 date: 2023-11-27
 authors: felfel
 position: 2
@@ -10,62 +10,77 @@ href: /alert
 
 ## alerts
 
-<br />
-<span className="alert">primary</span>⠀
-<br />
-<br />
-<span className="alert primary">primary</span>⠀
-<br>
-<span className="alert secondary"><p><i className='icon-secondary'></i>secondary</p></span>⠀
-<br>
-<span className="alert success"><p><i className='icon-success'></i>success</p></span>⠀
-<br>
-<span className="alert info"><p><i className='icon-info'></i>info</p></span>⠀
-<br>
-<span className="alert orange">orange</span>⠀
-<br>
-<span className="alert error"><p><i className='icon-error'></i>error</p></span>⠀
-<br>
-<span className="alert black">black</span>⠀
-<br>
-<span className="alert gray">gray</span>⠀
-<br>
-<span className="alert white">white</span>⠀
-<br>
-<span className="alert outlined primary">primary</span>⠀
-<br>
-<span className="alert outlined secondary"><p><i className='icon-secondary'></i>secondary</p></span>⠀
-<br>
-<span className="alert outlined success"><p><i className='icon-success'></i>success</p></span>⠀
-<br>
-<span className="alert outlined info"><p><i className='icon-info'></i>info</p></span>⠀
-<br>
-<span className="alert outlined orange">orange</span>⠀
-<br>
-<span className="alert outlined error"><p><i className='icon-error'></i>error</p></span>⠀
-<br>
-<span className="alert outlined black">black</span>⠀
-<br>
-<span className="alert outlined gray">gray</span>⠀
-<br>
-<span className="alert outlined white">white</span>⠀
-<br />
-<br />
-<span className="alert primary-flat">primary</span>
-<br>
-<span className="alert secondary-flat">secondary</span>
-<br>
-<span className="alert success-flat">success</span>
-<br>
-<span className="alert info-flat">info</span>
-<br>
-<span className="alert orange-flat">orange</span>
-<br>
-<span className="alert error-flat">error</span>
-<br>
-<span className="alert gray-flat">gray</span>
-<br>
-<span className="alert black-flat">black</span>
-<br>
-<span className="alert white-flat">white</span>
-<br>
+<div class="browser-app dark">
+  <div class="header">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+  <div class="py-5 px-5">
+
+<span class="alert">primary</span>
+
+</div>
+
+</div>
+
+<div class="browser-app dark">
+  <div class="header">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+  <div class="py-5 px-5 row gap-4">
+<span class="alert primary">primary</span>
+<span class="alert secondary">secondary</span>
+<span class="alert success">success</span>
+<span class="alert info">info</span>
+<span class="alert orange">orange</span>
+<span class="alert error">error</span>
+<span class="alert gray">gray</span>
+<span class="alert black">black</span>
+<span class="alert white">white</span>
+</div>
+</div>
+<div class="browser-app dark">
+  <div class="header">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+  <div class="py-5 px-5 row gap-4">
+<span class="alert outlined primary">primary</span>
+<span class="alert outlined secondary">secondary</span>
+<span class="alert outlined success">success</span>
+<span class="alert outlined info">info</span>
+<span class="alert outlined orange">orange</span>
+<span class="alert outlined error">error</span>
+<span class="alert outlined gray">gray</span>
+<span class="alert outlined black">black</span>
+<span class="alert outlined white">white</span>
+
+</div>
+
+</div>
+
+
+<div class="browser-app dark">
+  <div class="header">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+  <div class="py-5 px-5 row gap-4">
+<span class="alert primary-flat">primary</span>
+<span class="alert secondary-flat">secondary</span>
+<span class="alert success-flat">success</span>
+<span class="alert info-flat">info</span>
+<span class="alert orange-flat">orange</span>
+<span class="alert error-flat">error</span>
+<span class="alert gray-flat">gray</span>
+<span class="alert black-flat">black</span>
+<span class="alert white-flat">white</span>
+
+</div>
+
+</div>

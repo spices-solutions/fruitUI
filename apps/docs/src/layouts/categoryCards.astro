@@ -1,0 +1,23 @@
+---
+import { getCollection } from "astro:content";
+const docs = await getCollection("docs");
+
+const category = Astro.url.pathname.split("/")[2];
+docs.sort((a, b) => (a.data.position > b.data.position ? 1 : -1));
+
+const newdocs = docs.filter((doc) => {
+  return doc.data.category.toLowerCase() == category;
+});
+---
+
+<div class="grid gap-4 grid-cols-3 mt-8">
+  {
+    newdocs.map((doc) => {
+      return (
+        <div class="card p-5">
+          <a href={category + doc.data.href}>{doc.data.title}</a>
+        </div>
+      );
+    })
+  }
+</div>

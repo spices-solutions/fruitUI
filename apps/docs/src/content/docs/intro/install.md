@@ -1,7 +1,7 @@
 ---
 title: installation
 description: hello description
-category: intro
+category: Getting-started
 date: 2023-11-27
 authors: felfel
 position: 2

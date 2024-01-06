@@ -22,37 +22,17 @@ import logo_image from "../assets/treadmark.svg"
     aria-label="hamburger-menu"
     class="wtq-toggle"></span>
     <ul class="wtq-links">
-    <li class="theme-swicher">
-    </li>
-    {
-      navbar?.Items.map((Item) => {
-        return (
-          <li>
-            <a href={Item.href}>{Item.item}</a>
-          </li>
+      {
+        navbar?.Items.map((Item) => {
+          return (
+            <li>
+              <a href={Item.href}>{Item.item}</a>
+            </li>
           );
         })
       }
-  </ul>
+      <li class="theme-swicher" aria-label="dark mode toggler"></li>
+    </ul>
 </nav>
 
-<script>
-  import { navbar } from "./navbar";
-
-  navbar();
-
-  if(localStorage.getItem("theme") == "dark") {
-    document.body.classList.add("dark")
-  }
-
-  document.querySelector(".theme-swicher")?.addEventListener("click", ()=> {
-    
-    if(document.body?.classList.contains("dark")) {
-      document.body.classList.remove("dark")
-      localStorage.setItem("theme", "light")
-    } else {
-      localStorage.setItem("theme", "dark")
-      document.body.classList.add("dark")
-    }
-  })
-</script>
+<script src="./navbar.ts"></script>

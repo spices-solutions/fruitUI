@@ -19,7 +19,7 @@ const WathqnyConfig: WathqnyConfigI = {
   favicon: "/treadmark.svg",
   image: "/cover.png",
   description: "fruit UI a moduler styling framework",
-  sidebar: ["intro", "components", "layout", "utilites"],
+  sidebar: ["Getting-started", "Components", "Layout", "Utilites"],
   navbar: {
     brand: {
       logo: "../assets/treadmark.svg",

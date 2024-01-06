@@ -88,12 +88,14 @@
           }
 
           &.wtq-active .arrow-icon {
-            transform: rotate(360deg);
+            transform: rotate(90deg);
           }
 
           .arrow-icon {
+            width: 24px;
+            height: 24px;
             transition: transform ease 300ms;
-            transform: rotate(180deg);
+            transform: rotate(-90deg);
           }
         }
       }

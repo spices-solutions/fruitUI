@@ -1,0 +1,42 @@
+---
+import { getEntry } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import { type CollectionEntry, getCollection } from "astro:content";
+
+import Breadcrumbs from "../../layouts/breadcrumbs.astro";
+
+
+export async function getStaticPaths() {
+  let docs = await getCollection("docs");
+
+  return docs.map((doc) => {
+    return {
+      params: { id: doc.data.category.toLowerCase() + doc.data.href },
+      props: { doc },
+    };
+  });
+}
+
+interface Props {
+  doc: CollectionEntry<"docs">;
+}
+
+const { doc } = Astro.props;
+const { authors } = doc.data;
+
+const authorData = await getEntry("authors", authors?.id);
+
+const { Content } = await doc.render();
+---
+
+<Layout
+  sidebar={true}
+  title={doc.data.title}
+  description={doc.data.description}
+  keywords={doc.data.title}>
+  <Breadcrumbs/>
+  <main class="anim-slide-botto" id="main-content">
+  <h1>{doc.data.title}</h1>
+    <Content />
+  </main>
+</Layout>
