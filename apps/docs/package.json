@@ -6,29 +6,24 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
+    "serve": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
     "@astrojs/mdx": "^2.0.2",
     "@astrojs/partytown": "^2.0.2",
     "@astrojs/react": "^3.0.8",
+    "@astrojs/rss": "^4.0.1",
     "@astrojs/sitemap": "^3.0.3",
-    "@formkit/auto-animate": "^0.8.1",
-    "@sentry/astro": "^7.90.0",
-    "@spotlightjs/astro": "^1.0.8",
-    "@types/react": "^18.2.45",
-    "@types/react-dom": "^18.2.18",
+    "@vite-pwa/astro": "^0.2.0",
     "astro": "^4.0.7",
-    "astro-iconify": "^1.2.0",
     "fruitui": "workspace:*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "sass": "^1.69.5",
     "sharp": "^0.33.1",
+    "vite-plugin-pwa": "^0.17.4",
+    "workbox-window": "^7.0.0",
     "wtqcode": "workspace:*"
-  },
-  "devDependencies": {
-    "astro-icon": "^1.0.1"
   }
 }

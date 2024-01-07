@@ -2,6 +2,7 @@
 import "../docs.scss";
 import "../styles/wathqny.scss";
 import "wtqcode/style";
+import { pwaInfo } from 'virtual:pwa-info';
 
 import WathqnyConfig from "../wathqny.config";
 
@@ -27,7 +28,10 @@ const METAFAVICON = favicon;
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" href={METAFAVICON} type="image/x-icon" />
-
+  <link rel="apple-touch-icon" href={"/icons/apple-touch-icon.png"}>
+  <link rel="mask-icon" href={"/icons/teardmark-225.png"} color="#FFFFFF">
+  <meta name="theme-color" content="#FFFFFF" />
+  <link rel="sitemap" href="/sitemap-index.xml" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <meta name="generator" content={Astro.generator} />
@@ -44,6 +48,8 @@ const METAFAVICON = favicon;
   <meta name="twitter:description" content={METADESCRIPTION} />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="canonical" href={Astro.url} />
+  { pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} /> }
+  <script src="/src/pwa.ts"></script>
 
   <title>{METATITLE}</title>
 </head>

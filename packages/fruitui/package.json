@@ -1,7 +1,7 @@
 {
   "name": "fruitui",
   "version": "0.2.0",
-  "description": "a moduler styling framework",
+  "description": "a modular styling framework",
   "type": "module",
   "files": ["dist"],
   "main": "./dist/index.umd.cjs",

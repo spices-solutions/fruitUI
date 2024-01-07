@@ -4,7 +4,7 @@
   <img src="./apps/docs/public/cover.png"/>
 </div>
 
-# FruitUI a moduler styling framework 
+# FruitUI a modular styling framework 
 
 when you use bootstarp for just the grid system or use the responsive navbar component ,
 if you want to use the grid system you have to load about **15k** lines of css code and if you loaded the full bootstarp bundle or if you use the bootstarp grid preset it contains {padding ,margin, etc...} it's about **6k** lines of code I don't want all this stuff so I create this library with it. 
