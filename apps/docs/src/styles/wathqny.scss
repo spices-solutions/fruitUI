@@ -8,14 +8,22 @@ $prefix: "wtq";
 @import "./components/table";
 @import "./layout/sidebar";
 
-:is(html, body).dark .browser-app{
+.wtq-main-heading {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-transform: capitalize;
+}
+
+:is(html, body).dark .browser-app {
   background-color: $gray-100;
 }
 
 .browser-app {
   border: 1px solid $gray-200;
   background-color: $gray-50;
-  box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.05), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  box-shadow:
+    0 10px 25px -5px rgb(0 0 0 / 0.05),
+    0 8px 10px -6px rgb(0 0 0 / 0.1);
   margin: 50px 0;
   border-radius: 10px;
 }
@@ -60,12 +68,15 @@ $prefix: "wtq";
   clip: auto;
   white-space: normal;
 }
-
+.dark #skip-main-content {
+  &:focus-visible {
+    background-color: $gray-800;
+    border: 1px solid $gray-700;
+  }
+}
 
 #skip-main-content {
   @extend .sr-only;
-
-  // transform: translate(50%);
   &:focus-visible {
     outline: none;
     z-index: 9999;
@@ -78,5 +89,33 @@ $prefix: "wtq";
     left: 20px;
     top: 20px;
     @extend .sr-not-only;
+  }
+}
+
+.wtq-card {
+  .wtq-card-title {
+    color: var(--accent-800);
+    font-weight: 600;
+    line-height: 1.5;
+    font-size: var(--font-md);
+  }
+  .wtq-card-subtitle {
+    color: var(--accent-700);
+    font-weight: 400;
+    letter-spacing: 0.3pt;
+    font-size: var(--font-xs);
+  }
+  border: 1px solid var(--accent-200);
+  background-color: var(--accent-20);
+  border-radius: 10px;
+  transition: all 200ms ease;
+  padding: 25px;
+  box-shadow:
+    0 10px 25px -5px rgb(0 0 0 / 0.05),
+    0 8px 10px -6px rgb(0 0 0 / 0.1);
+  &:hover {
+    box-shadow:
+      0 10px 20px 0px rgb(0 0 0 / 0.07),
+      0 8px 20px -3px rgb(0 0 0 / 0.1);
   }
 }

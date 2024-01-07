@@ -1,6 +1,8 @@
 .wtq-breadcrumbs {
+  user-select: none;
   font-weight: 300;
   margin-top: 20px;
+  margin-bottom: 20px;
   display: flex;
   align-items: center;
   list-style: none;
@@ -17,7 +19,7 @@
     gap: 5px;
     border-radius: 8px;
     cursor: pointer;
-    color: var(--text-color-low-contrast);
+    color: var(--accent-800);
     &:hover,
     &:focus-visible {
       outline: none;
@@ -25,6 +27,6 @@
     }
   }
   .arrow-icon {
-    color: var(--text-color-low-contrast);
+    color: var(--accent-800);
   }
 }

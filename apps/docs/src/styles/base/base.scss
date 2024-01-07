@@ -8,7 +8,48 @@
   // max-width: 400px;
 }
 
+$accent-20: rgb(254, 254, 254) !default;
+$accent-50: #fdfdfd !default;
+$accent-100: #F4F4F5 !default;
+$accent-200: #E4E4E7 !default;
+$accent-300: #D4D4D8 !default;
+$accent-400: #A1A1AA !default;
+$accent-500: #71717A !default;
+$accent-600: #52525B !default;
+$accent-700: #3F3F46!default;
+$accent-800: #27272A !default;
+$accent-900: #18181B !default;
+$accent-950: #0f0f11 !default;
+
+$font-3xl: 2.986rem;
+$font-2xl: 2.488rem;
+$font-xl: 2.074rem;
+$font-lg: 1.728rem;
+$font-md: 1.44rem;
+$font-sm: 1.2rem;
+$font-xs: 1rem;
+
 :root {
+  --font-3xl: #{$font-3xl};
+  --font-2xl: #{$font-2xl};
+  --font-xl: #{$font-xl};
+  --font-lg: #{$font-lg};
+  --font-md: #{$font-md};
+  --font-sm: #{$font-sm};
+  --font-xs: #{$font-xs};
+  --accent-20: #{$accent-20};
+  --accent-50: #{$accent-50};
+  --accent-100: #{$accent-100};
+  --accent-200: #{$accent-200};
+  --accent-300: #{$accent-300};
+  --accent-400: #{$accent-400};
+  --accent-500: #{$accent-500};
+  --accent-600: #{$accent-600};
+  --accent-700: #{$accent-700};
+  --accent-800: #{$accent-800};
+  --accent-900: #{$accent-900};
+  --accent-950: #{$accent-950};
+
   --text-color: #{$gray-900};
   --text-color-low-contrast: #{$gray-600};
   --text-color-base: #{$gray-700};
@@ -32,22 +73,30 @@
   font-display: swap;
 }
 
-:is(html, body).dark {
+.dark {
   color-scheme: dark;
-  --text-color: #{$gray-50};
-  --text-color-low-contrast: #{$gray-300};
-  --text-color-base: #{$gray-100};
-  --text-color-high-contrast: #{$gray-50};
+  --accent-50: #{$accent-900};
+  --accent-20: #{$accent-800};
+  --accent-100: #{$accent-800};
+  --accent-200: #{$accent-700};
+  --accent-300: #{$accent-600};
+  --accent-400: #{$accent-500};
+  --accent-500: #{$accent-400};
+  --accent-600: #{$accent-300};
+  --accent-700: #{$accent-200};
+  --accent-800: #{$accent-100};
+  --accent-900: #{$accent-50};
+
   --background-hover: #ffffff10;
   --sidebar-border-color: #{rgba($gray-200, 0.2)};
-  background-color: #18181b;
+  background-color: var(--accent-50);
 }
 
 html,
 body {
   color-scheme: light;
   scroll-behavior: smooth;
-  color: var(--text-color);
+  color: var(--accent-900);
   font-size: 20px;
   height: 100%;
   font-family:
@@ -63,10 +112,10 @@ body {
     "Open Sans",
     "Helvetica Neue",
     sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -webkit-text-size-adjust: none;
-    -moz-text-size-adjust: none;
-    text-size-adjust: none;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  text-size-adjust: none;
 }
 img,
 picture,

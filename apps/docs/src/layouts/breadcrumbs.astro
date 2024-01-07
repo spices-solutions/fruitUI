@@ -2,13 +2,13 @@
 import ArrowIcon from "../components/ArrowIcon.astro";
 import HomeIcon from "../components/HomeIcon.astro";
 
-let mangaURL:any[] = Astro.url.pathname.split("/");
+let mangaURL: any[] = Astro.url.pathname.split("/");
 
-mangaURL = mangaURL.filter((url)=> {
-  if(url != "") {
-    return true
+mangaURL = mangaURL.filter((url) => {
+  if (url != "") {
+    return true;
   }
-})
+});
 ---
 
 <ul class="wtq-breadcrumbs" role="tablist">
@@ -21,12 +21,12 @@ mangaURL = mangaURL.filter((url)=> {
     mangaURL.map((url: string, index) => {
       return (
         <>
-        <li role="tab">
-          <ArrowIcon />
+          <li role="tab">
+            <ArrowIcon />
             <a
               href={"/" + mangaURL.slice(0, index + 1).join("/")}
               class="wtq-breadcrumb">
-                {url.toLowerCase().replace("-"," ")}
+              {url.toLowerCase().replace("-", " ")}
             </a>
           </li>
         </>

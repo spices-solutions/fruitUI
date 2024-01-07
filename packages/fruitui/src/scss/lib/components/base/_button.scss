@@ -18,6 +18,10 @@
   }
 
   @if $ripple {
+    .ripple {
+      position: relative;
+      overflow: hidden;
+    }
     span.ripple-container {
       position: absolute;
       border-radius: 50%;

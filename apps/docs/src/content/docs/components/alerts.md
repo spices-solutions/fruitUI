@@ -10,7 +10,7 @@ href: /alert
 
 ## alerts
 
-<div class="browser-app dark">
+<div class="browser-app">
   <div class="header">
     <span class="dot"></span>
     <span class="dot"></span>
@@ -24,7 +24,7 @@ href: /alert
 
 </div>
 
-<div class="browser-app dark">
+<div class="browser-app">
   <div class="header">
     <span class="dot"></span>
     <span class="dot"></span>
@@ -42,7 +42,7 @@ href: /alert
 <span class="alert white">white</span>
 </div>
 </div>
-<div class="browser-app dark">
+<div class="browser-app">
   <div class="header">
     <span class="dot"></span>
     <span class="dot"></span>
@@ -63,8 +63,7 @@ href: /alert
 
 </div>
 
-
-<div class="browser-app dark">
+<div class="browser-app">
   <div class="header">
     <span class="dot"></span>
     <span class="dot"></span>

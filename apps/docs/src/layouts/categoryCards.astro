@@ -10,13 +10,16 @@ const newdocs = docs.filter((doc) => {
 });
 ---
 
-<div class="grid gap-4 grid-cols-3 mt-8">
+<div style="display: grid; gap: 10px; grid-template-columns: repeat(2,1fr);  margin-top: 30px;">
   {
     newdocs.map((doc) => {
       return (
-        <div class="card p-5">
-          <a href={category + doc.data.href}>{doc.data.title}</a>
-        </div>
+        <a href={category + doc.data.href}>
+          <div class="wtq-card">
+            <h2 class="wtq-card-title">{doc.data.title}</h2>
+            <h3 class="wtq-card-subtitle">{doc.data.description}</h3>
+          </div>
+        </a>
       );
     })
   }
