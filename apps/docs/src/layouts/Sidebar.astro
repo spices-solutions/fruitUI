@@ -40,9 +40,8 @@ docs.sort((a, b) => (a.data.position > b.data.position ? 1 : -1));
                 aria-expanded="false"
                 tabindex="0"
                 class={`wtq-sidebar-category-link ${activeClass}`}
-                id={`${category}-category`}
-                aria-label={`Go to ${category} category`}>
-                {category.replace("-"," ")} <ArrowIcon />
+                id={`${category}-category`}>
+                {category.replace("-", " ")} <ArrowIcon />
               </span>
               <ul class="wtq-sidebar-category-collapse">
                 {docs.map((doc) => {
@@ -52,7 +51,9 @@ docs.sort((a, b) => (a.data.position > b.data.position ? 1 : -1));
                         <a
                           tabindex="-1"
                           class="wtq-doc-link"
-                          href={"/docs/" + category.toLowerCase() + doc.data.href}>
+                          href={
+                            "/docs/" + category.toLowerCase() + doc.data.href
+                          }>
                           {doc.data.title}
                         </a>
                       </li>

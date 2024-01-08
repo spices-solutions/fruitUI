@@ -13,7 +13,8 @@ export default defineConfig({
     shikiConfig: {
       theme: 'material-theme'
     }
-  }), partytown(), sitemap(),AstroPWA({
+  }), partytown(), sitemap(), AstroPWA({
+    registerType: "autoUpdate",
     manifest: {
       name:"fruitUI",
       description: "fruitUI a modular styling framework",
@@ -53,8 +54,5 @@ export default defineConfig({
         }
       ]
     },
-    devOptions: {
-      enabled: true
-    }
   })]
 });

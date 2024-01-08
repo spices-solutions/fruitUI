@@ -58,6 +58,7 @@ $prefix: "wtq";
   white-space: nowrap;
   border-width: 0;
 }
+
 .sr-not-only {
   position: static;
   width: auto;
@@ -68,14 +69,14 @@ $prefix: "wtq";
   clip: auto;
   white-space: normal;
 }
-.dark #skip-main-content {
+.dark #skip {
   &:focus-visible {
     background-color: $gray-800;
     border: 1px solid $gray-700;
   }
 }
 
-#skip-main-content {
+#skip {
   @extend .sr-only;
   &:focus-visible {
     outline: none;

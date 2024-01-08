@@ -16,19 +16,19 @@ interface WathqnyConfigI {
 
 const WathqnyConfig: WathqnyConfigI = {
   siteName: "fruitUI",
-  favicon: "/treadmark.svg",
+  favicon: "/icon.svg",
   image: "/cover.png",
   description: "fruit UI a modular styling framework",
   sidebar: ["Getting-started", "Components", "Layout", "Utilites"],
   navbar: {
     brand: {
-      logo: "../assets/treadmark.svg",
+      logo: "/icon.svg",
       name: "fruitUI",
     },
     Items: [
       {
         item: "docs",
-        href: "/docs/intro/overview",
+        href: "/docs/getting-started/overview",
       },
     ],
   },

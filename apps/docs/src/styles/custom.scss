@@ -1,0 +1,36 @@
+main {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    // min-width:  700px;
+    text-align: center;
+
+    .title {
+      background: linear-gradient(
+        9deg,
+        var(--accent-900) 53%,
+        var(--accent-500) 100%
+      );
+      background-clip: text;
+      font-size: 4rem;
+      color: transparent;
+
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      margin-bottom: 12px;
+    }
+    .subtitle {
+      // max-width: 650px;
+      margin-bottom: 24px;
+      font-size: var(--font-md);
+      font-weight: 500;
+      color: var(--accent-700);
+    }
+  }
+}
