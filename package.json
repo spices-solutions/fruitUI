@@ -7,8 +7,8 @@
     "dev": "turbo run dev",
     "build": "turbo run build",
     "lint": "tsc",
-    "sass": "sass -w fruitUI/src/scss/lib:css",
-    "prod": "sass --style=compressed fruitUI/src/scss/build:fruitUI/dist/css",
+    "sass": "sass -w packages/fruitui/src/scss/build:dev-dest/css",
+    "prod": "sass --style=compressed packages/fruitui/src/scss/build:packages/fruitui/dist/css",
     "turbo:prod": "turbo run build"
   },
   "devDependencies": {

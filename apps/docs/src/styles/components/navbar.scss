@@ -27,12 +27,8 @@
   height: 50px;
   position: relative;
   background-color: white;
-  box-shadow: 0 0 10px 0 rgba($gray-800, 0.15);
-  color: $gray-800;
-  &-overlay {
-    display: none;
-    opacity: 0;
-  }
+  box-shadow: 0 0 10px 0 rgba($accent-800, 0.15);
+  color: $accent-800;
 
   .#{$prefix}-brand {
     padding: 3px 5px;
@@ -66,63 +62,38 @@
       }
     }
   }
+  &-overlay {
+    opacity: 0%;
+    transition: all 300ms ease;
+    position: absolute;
+  }
   @media screen and (max-width: 768px) {
     .wtq-active &-overlay {
-      opacity: 1;
+      opacity: 100%;
       display: block;
-      pointer-events: painted;
-      position: absolute;
       top: 0;
       cursor: pointer;
       left: 0;
-      background-color: rgba($gray-900, 0.5);
+      background-color: rgba($accent-900, 0.5);
       width: 100%;
       height: 100vh;
     }
     &.#{$prefix}-active {
-      z-index: 1;
       .#{$prefix}-links {
-        transition: all 300ms ease;
         transform: translateX(0%);
-        
       }
-      // .#{$prefix}-toggle {
-      //   display: flex;
-      //   justify-content: center;
-      //   align-items: center;
-      //   will-change: transform;
-      //   top: -5px;
-      //   &::before {
-      //     top: 10px;
-      //     position: relative;
-      //     transform: rotate(45deg);
-      //   }
-      //   &::after {
-      //     transform: rotate(-45deg);
-      //   }
-      // }
     }
     .#{$prefix}-toggle {
       width: 40px;
       height: 40px;
       padding: 10px;
-      // top: 3px;
-
       display: flex;
       justify-content: center;
       align-items: center;
-      position: relative;
       flex-direction: column;
       gap: 6px;
       cursor: pointer;
-      &::before {
-        background-color: currentColor;
-        content: "";
-        display: block;
-        width: 30px;
-        height: 3px;
-        border-radius: 10px;
-      }
+      &::before,
       &::after {
         background-color: currentColor;
         content: "";
@@ -133,6 +104,7 @@
       }
     }
     .#{$prefix}-links {
+      transition: all 300ms ease;
       padding: 1rem 0px;
       transform: translateX(-100%);
       flex-direction: column;

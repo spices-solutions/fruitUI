@@ -11,6 +11,8 @@
   background-color: white;
   text-overflow: clip;
   &.wtq-sidebar-active {
+    opacity: 0;
+    pointer-events: none;
     border: 0;
     width: 0px;
     overflow: hidden;
@@ -26,6 +28,10 @@
       display: flex !important;
     }
     &.wtq-sidebar-active {
+      opacity: 100%;
+      pointer-events: all;
+      border: 0;
+      overflow: auto;
       z-index: 1;
       border-right: solid 1px var(--sidebar-border-color);
       width: 100%;

@@ -1,6 +1,5 @@
 $prefix: "wtq";
 
-@import "../../node_modules/fruitui/src/scss/lib/core/core@handler";
 @import "./base/base";
 @import "./components/navbar";
 @import "./components/avatar";
@@ -15,12 +14,12 @@ $prefix: "wtq";
 }
 
 :is(html, body).dark .browser-app {
-  background-color: $gray-100;
+  background-color: $accent-100;
 }
 
 .browser-app {
-  border: 1px solid $gray-200;
-  background-color: $gray-50;
+  border: 1px solid $accent-200;
+  background-color: $accent-50;
   box-shadow:
     0 10px 25px -5px rgb(0 0 0 / 0.05),
     0 8px 10px -6px rgb(0 0 0 / 0.1);
@@ -71,8 +70,8 @@ $prefix: "wtq";
 }
 .dark #skip {
   &:focus-visible {
-    background-color: $gray-800;
-    border: 1px solid $gray-700;
+    background-color: $accent-800;
+    border: 1px solid $accent-700;
   }
 }
 
@@ -83,10 +82,10 @@ $prefix: "wtq";
     z-index: 9999;
     position: absolute;
     display: block;
-    background-color: $gray-50;
+    background-color: $accent-50;
     padding: 20px;
     border-radius: 20px;
-    border: 1px solid $gray-400;
+    border: 1px solid $accent-400;
     left: 20px;
     top: 20px;
     @extend .sr-not-only;

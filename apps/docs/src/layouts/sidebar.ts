@@ -74,7 +74,7 @@ categoryItems.forEach((categoryItem) => {
 sidebarBtn.forEach((button) => {
   button.addEventListener("click", () => {
     sidebar.style.transition =
-        "all ease 400ms";
+        "all 400ms, color 0ms, background-color 0ms ease ";
         if (sidebar?.classList.contains("wtq-sidebar-active")) {
           sidebar?.classList.remove("wtq-sidebar-active");
           document.body.style.overflowY = "auto";
@@ -82,7 +82,5 @@ sidebarBtn.forEach((button) => {
           sidebar?.classList.add("wtq-sidebar-active");
           document.body.style.overflowY = "hidden";
         }
-        sidebar.style.transition =
-            "all ease 400ms";
   });
 });

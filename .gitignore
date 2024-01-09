@@ -33,6 +33,7 @@ pnpm-lock.yaml
 # vercel
 .vercel
 
+dev-dist
 # build output
 dist/
 # generated types

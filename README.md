@@ -1,5 +1,3 @@
-[![Built with Astro](https://astro.badg.es/v2/built-with-astro/tiny.svg)](https://astro.build)
-
 <div align="center">
   <img src="./apps/docs/public/cover.png"/>
 </div>
@@ -13,17 +11,15 @@ So you can import just one component like just the navbar or import just the gri
 
 # License
 
-<a href="https://sil-spices.vercel.app/">under SIL license</a>
+<a href="https://github.com/ojuba-org/waqf/blob/master/2.0/EN/RAW">under waqf license</a>
 
 ## Getting Started
 
 docs https://fruit-ui.vercel.app
 
 ```bash
-npm i fruitui 
+npm i spices-fruitui
 ```
-
-fruitUI still on development step there is a lot of stuff to do 
 
 
 - [ ] full RTL support 0%

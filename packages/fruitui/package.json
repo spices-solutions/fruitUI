@@ -1,15 +1,17 @@
 {
-  "name": "fruitui",
-  "version": "0.2.0",
+  "name": "spices-fruitui",
+  "private": false,
+  "version": "0.3.1",
   "description": "a modular styling framework",
   "type": "module",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "main": "./dist/index.umd.cjs",
   "module": "./dist/index.js",
   "types": "./dist/types/types.d.ts",
   "exports": {
     ".": {
-      "require": "./dist/index.umd.cjs",
       "import": "./dist/index.js"
     }
   },
@@ -18,23 +20,26 @@
     "UI",
     "fruitUI"
   ],
-  "homepage": "http://wathqny.vercel.app",
-  "license": "SIL",
   "repository": {
     "type": "git",
     "url": "https://github.com/spices-solutions/fruitUI"
   },
+  "license": {
+    "type": "waqf",
+    "url": "https://github.com/ojuba-org/waqf/blob/master/2.0/EN/RAW"
+  },
   "scripts": {
-    "build": "tsc && vite build"
+    "build:js": "tsc && vite build",
+    "build:css": "sass --style=compressed src/scss/build:dist/css",
+    "build": "npm run build:js && npm run build:css"
   },
   "devDependencies": {
-    "vite": "4.5.0",
+    "sass": "^1.69.5",
     "typescript": "latest",
+    "vite": "4.5.0",
     "vite-plugin-dts": "^3.5.1"
   },
   "bugs": {
     "url": "https://github.com/spices-solutions/fruitUI/issues"
   }
 }
-
-

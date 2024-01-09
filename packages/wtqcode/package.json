@@ -33,7 +33,7 @@
     "build": "tsc && vite build"
   },
   "homepage": "http://fruit-ui.vercel.app",
-  "license": "SIL",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/spices-solutions/"

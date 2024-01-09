@@ -49,13 +49,7 @@ $font-xs: 1rem;
   --accent-800: #{$accent-800};
   --accent-900: #{$accent-900};
   --accent-950: #{$accent-950};
-
-  --text-color: #{$gray-900};
-  --text-color-low-contrast: #{$gray-600};
-  --text-color-base: #{$gray-700};
-  --sidebar-border-color: #{rgba($gray-700, 0.2)};
-  --text-color-high-contrast: #{$gray-700};
-  --background-hover: #00000010;
+  --sidebar-border-color: #{rgba($accent-900, 0.2)};
 }
 
 *,
@@ -88,7 +82,7 @@ $font-xs: 1rem;
   --accent-900: #{$accent-50};
 
   --background-hover: #ffffff10;
-  --sidebar-border-color: #{rgba($gray-200, 0.2)};
+  --sidebar-border-color: #{rgba($accent-200, 0.2)};
   background-color: var(--accent-50);
 }
 

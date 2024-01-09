@@ -12,7 +12,7 @@ export default defineConfig({
       entry: resolve(__dirname, "./src/ts/index.ts"),
       name: 'fruitUI',
       fileName: "index",
-      formats: ["es", "umd","iife"],
+      formats: ["es", "iife"],
     },
   },
   plugins: [
