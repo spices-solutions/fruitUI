@@ -1,10 +1,38 @@
+.dark .wtq-sidebar {
+  background-color: var(--accent-50);
+}
+
 .wtq-sidebar {
   display: flex;
   flex-direction: column;
   border-right: solid 1px var(--sidebar-border-color);
   width: 250px;
   padding: 5px;
+  background-color: white;
+  text-overflow: clip;
+  &.wtq-sidebar-active {
+    border: 0;
+    width: 0px;
+    overflow: hidden;
+  }
+
   @media screen and (max-width: 768px) {
+    transform: translateX(-100%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    .wtq-sidebar-toggle {
+      margin-inline-start: 15px;
+      display: flex !important;
+    }
+    &.wtq-sidebar-active {
+      z-index: 1;
+      border-right: solid 1px var(--sidebar-border-color);
+      width: 100%;
+      transform: translateX(0%);
+    }
+  }
+  .wtq-sidebar-toggle {
     display: none;
   }
   > div {
@@ -16,44 +44,21 @@
         will-change: max-height, height, overflow;
         max-height: 0;
         overflow: hidden;
-        // transition: max-height ease 300ms;
-      }
-      & li.wtq-active .wtq-sidebar-category-collapse {
-        // transition: max-height
-        //   linear(
-        //     0 0%,
-        //     0 1.8%,
-        //     0.01 3.6%,
-        //     0.03 6.35%,
-        //     0.07 9.1%,
-        //     0.13 11.4%,
-        //     0.19 13.4%,
-        //     0.27 15%,
-        //     0.34 16.1%,
-        //     0.54 18.35%,
-        //     0.66 20.6%,
-        //     0.72 22.4%,
-        //     0.77 24.6%,
-        //     0.81 27.3%,
-        //     0.85 30.4%,
-        //     0.88 35.1%,
-        //     0.92 40.6%,
-        //     0.94 47.2%,
-        //     0.96 55%,
-        //     0.98 64%,
-        //     0.99 74.4%,
-        //     1 86.4%,
-        //     1 100%
-        //   )
-        //   500ms;
       }
       li {
         display: flex;
         flex-direction: column;
         .wtq-doc-list-item {
+          @media screen and (max-width: 768px) {
+            padding-inline-start: 20px;
+          }
           padding-inline-start: 10px;
           display: flex;
           .wtq-doc-link {
+            @media screen and (max-width: 768px) {
+              padding: 8px 0.6rem;
+              font-size: 1rem;
+            }
             outline: none;
             border-radius: 8px;
             font-size: 0.8rem;
@@ -74,7 +79,10 @@
           display: flex;
           width: 100%;
           color: var(--accent-700);
-
+          @media screen and (max-width: 768px) {
+            padding: 12px 1rem;
+            font-size: 1.1rem;
+          }
           padding: 5px 0.6rem;
           align-items: center;
           border-radius: 8px;
