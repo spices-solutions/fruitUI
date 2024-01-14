@@ -37,10 +37,12 @@ jobs:
         with:
           node-version: 21.0.0
           cache: "pnpm"
-      - name: disable ipv6
+      - name: Disable IPv6
         run: |
-            sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1
-            sudo sysctl -w net.ipv6.conf.default.disable_ipv6=1
+             echo "net.ipv6.conf.all.disable_ipv6 = 1" >> /etc/sysctl.conf
+             echo "net.ipv6.conf.default.disable_ipv6 = 1" >> /etc/sysctl.conf
+             sudo sysctl -p
+            
       - name: Install dependencies
         run: pnpm install
 
