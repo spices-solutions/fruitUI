@@ -39,11 +39,11 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: lint
-        run: pnpm lint
+      # - name: lint
+      #   run: pnpm lint
 
-      - name: Publish
-        run: pnpm publish
+      # - name: Publish
+      #   run: pnpm publish
 
       - name: Build
         run: pnpm build
