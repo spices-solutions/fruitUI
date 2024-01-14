@@ -1,40 +1,44 @@
 name: CI
- 
+
 on:
   push:
     branches: ["master"]
   pull_request:
     types: [opened, synchronize]
- 
+
 jobs:
+  
   build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
     name: lint, build & publish
     timeout-minutes: 15
-    runs-on: ubuntu-latest
     # To use Remote Caching, uncomment the next lines and follow the steps below.
     # env:
     #  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
     #  TURBO_TEAM: ${{ vars.TURBO_TEAM }}
- 
+
     steps:
       - name: Check out code
         uses: actions/checkout@v3
         with:
           fetch-depth: 2
- 
+
       - uses: pnpm/action-setup@v2.0.1
         with:
           version: 6.32.2
- 
+
       - name: Setup Node.js environment
         uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: 'pnpm'
- 
+          cache: "pnpm"
+
       - name: Install dependencies
         run: pnpm install
-      
+
       - name: lint
         run: pnpm lint
 
@@ -43,4 +47,11 @@ jobs:
 
       - name: Build
         run: pnpm build
- 
+      - name: Publish
+        uses: cloudflare/pages-action@1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: "fruit-ui" # e.g. 'my-project'
+          directory: "apps/docs/dist" # e.g. 'dist'
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
