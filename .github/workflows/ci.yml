@@ -35,13 +35,12 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v3
         with:
-          node-version: 21.0.0
-          cache: "pnpm"
-      - name: Disable IPv6
-        run: |
-             echo "net.ipv6.conf.all.disable_ipv6 = 1" >> /etc/sysctl.conf
-             echo "net.ipv6.conf.default.disable_ipv6 = 1" >> /etc/sysctl.conf
-             sudo sysctl -p
+            node-version: 21.0.0
+      - name: Setup Node.js environment
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8.6.12
+     
             
       - name: Install dependencies
         run: pnpm install
