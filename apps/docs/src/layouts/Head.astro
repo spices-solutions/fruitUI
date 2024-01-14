@@ -1,5 +1,5 @@
 ---
-import { pwaInfo } from 'virtual:pwa-info';
+// import { pwaInfo } from 'virtual:pwa-info';
 
 import "../docs.scss";
 import "../styles/wathqny.scss";
@@ -49,7 +49,7 @@ const METAFAVICON = favicon;
   <meta name="twitter:description" content={METADESCRIPTION} />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="canonical" href={Astro.url} />
-  { pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} /> }
+  <!-- { pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} /> } -->
   <script src="/src/pwa.ts"></script>
 
   <title>{METATITLE}</title>
