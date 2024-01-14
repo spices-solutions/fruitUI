@@ -1,11 +1,96 @@
 ---
 title: navbar
-description: hello description
+description: navbar component
 category: Components
-date: 2023-11-27
+date: 2024-01-11
 authors: felfel
 position: 2
 href: /navbar
 ---
 
-## navbar
+## default theme
+
+<div class="browser-app">
+  <div class="header">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+  <div>
+  <iframe src="/iframe/navbar" width="100%" height="400px" title="navbar example" loading="lazy"
+  frameborder="0"></iframe>
+
+</div>
+
+</div>
+
+```html
+<nav class="navbar">
+  <div class="brand">
+    <img src="/icon.svg" alt="fruitui logo" />
+    <span>brand</span>
+  </div>
+  <div class="toggle">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </div>
+  <ul class="navbar-links">
+    <li>item</li>
+    <li>item</li>
+    <li>item</li>
+  </ul>
+</nav>
+```
+
+### other thmes
+
+All themes are available but not showcased due to the large navbar size, which could result in an excessive number of iframes.
+
+
+```html
+<nav class="navbar <THEME-NAME>">
+  <!-- ... -->
+</nav>
+```
+
+## usage
+
+### section import
+
+```scss
+@use "~"as * with (
+  $base-components: true
+);
+```
+
+### Individual Import
+
+```scss
+@use "~"as * with (
+  $components: (
+    base: (
+      navbar: ture,
+    ),
+  )
+);
+```
+
+### mixin
+
+```scss
+@use "~"as * with (
+  $a-var: "..."
+);
+
+@include navbarBase();
+```
+
+### javascript
+
+```js
+import { Navbar } form "spices-fruitui"
+
+Navbar()
+
+```

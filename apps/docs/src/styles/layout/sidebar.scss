@@ -3,6 +3,7 @@
 }
 
 .wtq-sidebar {
+  transition: all 400ms, color 0ms, background-color 0ms ease ;
   display: flex;
   flex-direction: column;
   border-right: solid 1px var(--sidebar-border-color);
@@ -80,6 +81,8 @@
           }
         }
         .wtq-sidebar-category-link {
+          background-color: transparent;
+          border: 0;
           user-select: none;
           justify-content: space-between;
           display: flex;

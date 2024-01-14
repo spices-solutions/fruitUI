@@ -2,8 +2,6 @@
   *,
   *::after,
   *::before {
-    margin: 0px;
-    padding: 0px;
     box-sizing: border-box;
   }
 
@@ -14,8 +12,9 @@
     font: inherit;
   }
 
-  body,
-  html {
+  body {
+    margin: 0px;
+    padding: 0px;
     font-family:
       system-ui,
       -apple-system,

@@ -1,15 +1,18 @@
 @mixin navbarBase() {
   .navbar {
+    @extend .default-theme;
     z-index: 3;
     height: 60px;
     display: flex;
-    color: white;
     padding: 0 $spacing-8;
     position: relative;
+    border-radius: 0;
+    border: 0;
     align-items: center;
-    background-color: $primary;
     justify-content: space-between;
+
     .brand {
+      cursor: pointer;
       font-size: $font-md;
       display: flex;
       justify-content: center;
@@ -26,14 +29,15 @@
       .bar {
         height: 3px;
         width: 100%;
-        background-color: white;
+        background-color: var(--theme-color-fg, $gray-800);
         border-radius: $border-radius;
       }
     }
     .navbar-links {
+      margin: 0;
+      cursor: pointer;
       display: flex;
       list-style: none;
-      transform-origin: top;
       li {
         margin: 0 $spacing-2;
         a {
@@ -61,7 +65,9 @@
           padding: $spacing-8 0;
           flex-direction: column;
           background-color: inherit;
-          animation: navbar 300ms ease-in-out;
+          li {
+            padding: $spacing-5;
+          }
         }
         .toggle {
           transform: translateX(10px);
@@ -79,15 +85,6 @@
           }
         }
       }
-    }
-  }
-
-  @keyframes navbar {
-    0% {
-      transform: scaleY(0);
-    }
-    100% {
-      transform: scaleY(1);
     }
   }
 }

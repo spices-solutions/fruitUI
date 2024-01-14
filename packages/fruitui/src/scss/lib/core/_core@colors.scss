@@ -114,11 +114,15 @@ $white: $gray-200 !default;
 
 
 
-%default-theme {
-  color: var(--theme-color-fg, $gray-800);
-  border: $border-thickness solid var(--theme-color-bg, $gray-300);
+.default-theme {
+  --theme-color-fg: #{$gray-800};
+  --theme-color-bg: #{$gray-100};
+  --theme-color-br: #{$gray-300};
+  color: var(--theme-color-fg);
+  border: 0; 
+  border: $border-thickness solid var(--theme-color-br);
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1);
-  background-color: var(--theme-color-bg, $gray-50);
+  background-color: var(--theme-color-bg);
   border-radius: $border-radius;
 }
 

@@ -1,60 +1,112 @@
 ---
 title: forms
-description: hello description
+description: form component
 category: Components
-date: 2023-11-27
+date: 2024-01-13
 authors: felfel
-position: 2
+position: 4
 href: /forms
 ---
 
-## forms
+## default theme
 
-<br />
-  <div class="card p-3">
-  <form class="form-group">
-    <label class="">email</label>
-    <input class="form e:secondary" type="email" placeholder="enter your email" />
-    <label class="">password</label>
-    <input class="form" type="password" placeholder="enter your password" />
-    <div class="part">
-      <input class="checkbox" type="checkbox" id="checky11" />
-      <label class="label" for="checky11">check me</label>
-    </div>
-    <div class="part">
-      <input class="radio" type="radio" id="le1" name="one" value="ture" />
-      <label for="le1" class="label">one</label>
-    </div>
-    <div class="part">
-      <input class="radio" type="radio" id="e2" name="one" value="false" />
-      <label for="e2" class="label">tow</label>
-    </div>
-    <div class="part">
-      <button class="btn">submit</button> 
-    </div>
-  </form>
-</div><br />
+single input
 
-```html 
+<div class="browser-app">
+  <div class="header">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+  <div class="p-5">
+    <input id="username" class="form" type="username" placeholder="Enter your username" />
+  </div>
+</div>
+
+```html
+<input class="form" type="username" placeholder="Enter your username" />
+```
+
+from with labels
+
+<div class="browser-app">
+  <div class="header">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+  <div class="p-5">
+    <form class="form-group" style={{color: "black"}}>
+      <label for="email" class="label">Email</label>
+      <input id="email" class="form" type="email" placeholder="Enter your email" />
+      <label for="password" class="label">Password</label>
+      <input id="password" class="form" type="password" placeholder="Enter your password" />
+    </form>    
+  </div>
+</div>
+
+```html
 <form class="form-group">
-  <label class="label">email</label>
-  <input class="form" ... />
-  <label class="label">password</label>
-  <input class="form" ... />
+  <label for="email" class="label">Email</label>
+  <input id="email" class="form" type="email" placeholder="Enter your email" />
+  <label for="password" class="label">Password</label>
+  <input id="password" class="form" type="password" placeholder="Enter your password" />
+</form>    
+```
+
+full form example
+
+<div class="browser-app">
+  <div class="header">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+  <div class="p-5">
+    <form class="form-group" style={{color: "black"}}>
+      <label for="email1" class="label">Email</label>
+      <input id="email1" class="form" type="email" placeholder="Enter your email" />
+      <label for="password1" class="label">Password</label>
+      <input id="password1" class="form" type="password" placeholder="Enter your password" />
+      <div class="part">
+        <input class="checkbox" type="checkbox" id="checky11" />
+        <label class="label" for="checky11">check me</label>
+      </div>
+      <div class="part">
+        <input class="radio" type="radio" id="le1" name="one" value="true" />
+        <label for="le1" class="label">one</label>
+      </div>
+      <div class="part">
+        <input class="radio" type="radio" id="e2" name="one" value="false" />
+        <label for="e2" class="label">tow</label>
+      </div>
+      <div class="part">
+        <button class="btn">submit</button> 
+      </div>
+    </form>    
+  </div>
+</div>
+
+```html
+<form class="form-group">
+  <label for="email" class="label">Email</label>
+  <input id="email" class="form" type="email" placeholder="Enter your email" />
+  <label for="password" class="label">Password</label>
+  <input id="password" class="form" type="password" placeholder="Enter your password" />
   <div class="part">
-    <input class="checkbox" ... />
-    <label class="label" ... >check me</label>
+    <input class="checkbox" type="checkbox" id="checkbox" />
+    <label class="label" for="checkbox">check me</label>
   </div>
   <div class="part">
-    <input class="radio" ... />
-    <label class="label" ... >one</label>
+    <input class="radio" type="radio" id="one" name="one" value="true" />
+    <label for="one" class="label">one</label>
   </div>
   <div class="part">
-    <input class="radio" ... />
-    <label class="label" ... >tow</label>
+    <input class="radio" type="radio" id="tow" name="tow" value="false" />
+    <label for="tow" class="label">tow</label>
   </div>
   <div class="part">
-    <input class="btn" ... />
+    <button class="btn">submit</button> 
   </div>
-</form>
+</form>    
 ```

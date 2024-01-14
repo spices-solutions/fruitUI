@@ -1,21 +1,21 @@
 @use "../../../packages/fruitui/src/scss/lib/import/basket" as * with (
-  $typography-util: true,
+  $typography-util: false,
   $spacing-util: true,
-  $align-util: true,
-  $other-util: true,
-  $size-util: true,
-  $media-alignments: true,
-  $media-flex-dir: true,
-  $media-padding: true,
-  $media-display: true,
-  $media-margin: true,
-  $media-font: true,
-  $animPlugin: true,
+  $align-util: false,
+  $other-util: false,
+  $size-util: false,
+  $media-alignments: false,
+  $media-flex-dir: false,
+  $media-padding: false,
+  $media-display: false,
+  $media-margin: false,
+  $media-font: false,
+  $animPlugin: false,
   $flex: true,
   $grid: true,
   $pct: true,
   $ripple: true,
-  $base: false,
+  $base: true,
   $base-components: true,
   $other-components: true,
   $awesome-components: true,
@@ -31,15 +31,4 @@
 
 .anim-navbar {
   transform: translateX(-100%);
-}
-
-.link {
-  color: #406eec;
-  &:hover {
-    text-decoration: underline;
-  }
-}
-
-.line-height {
-  line-height: 1.8;
 }

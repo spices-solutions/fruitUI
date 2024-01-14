@@ -7,7 +7,7 @@ const { navbar } = WathqnyConfig;
 ---
 
 <nav class="wtq-navbar" role="navigation">
-  <div class="wtq-navbar-overlay" aria-hidden></div>
+  <div class="wtq-navbar-overlay" aria-label="navbar-overlay"></div>
   <a href="/">
     <div class="wtq-brand">
       <Image alt="fruitUI logo, an beautiful orange with a gradient background"  
@@ -15,11 +15,10 @@ const { navbar } = WathqnyConfig;
       <span>{navbar?.brand.name}</span>
     </div>
   </a>
-  <span
+  <button
     tabindex="0"
-    role="button"
     aria-label="hamburger-menu"
-    class="wtq-toggle"></span>
+    class="wtq-toggle"></button>
     <ul class="wtq-links">
       {
         navbar?.Items.map((Item) => {
@@ -30,7 +29,9 @@ const { navbar } = WathqnyConfig;
           );
         })
       }
-      <li class="theme-swicher" aria-label="dark mode toggler"></li>
+      <li>
+        <button class="theme-swicher" aria-label="dark mode toggler"><span></span></button>
+      </li>
     </ul>
 </nav>
 

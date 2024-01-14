@@ -1,0 +1,198 @@
+---
+title: configuration
+description: configuration guide
+category: Getting-started
+date: 2024-01-09
+authors: felfel
+position: 3
+href: /config
+---
+
+
+import { CodeBlock } from "wtqcode";
+
+## Effortless Component Setup
+
+Simplify your workflow by importing entire sections of components with just one line! Whether you need base components, other components, or the extra flair of awesome components, it's as easy as:
+
+```scss
+@use "~" as * with (
+  $base-components: true,
+  $other-components: true,
+  $awesome-components: true,
+);
+```
+### Individual Import
+
+Customize your component selection precisely with individual imports.
+
+```scss
+@use "~" as * with (
+  $components: (
+    base: (
+      button: ture,
+      navbar: ture,
+      card: ture,
+      forms: ture,
+      checkers: ture,
+    ),
+    other: (
+      badge: true,
+      table: true,
+      alert: true,
+      slider: true,
+    ),
+    awesome: (
+      prototype: ture,
+    ),
+  ),
+);
+```
+
+### Mixin Magic
+
+Include components effortlessly using mixins for quick and easy integration.
+
+```scss
+@use "~" as * with (
+  $a-var: "",
+);
+
+@include buttonBase();
+@include navbarBase();
+@include cardBase();
+@include forms();
+@include checkers();
+
+@include badge();
+@include table();
+@include slider();
+@include alert();
+
+@include prototype();
+
+```
+
+Simplify your project's development by choosing the components you need, customizing your import options precisely, and including them effortlessly with mixins.
+
+### Explore Diverse Themes
+
+Discover a range of themes to suit your style! While there's a default theme ready for use, delve into our main themes: "Main," "Outlined," and "Flat."
+
+Unleash creativity and choose the theme that best complements your project. Whether you prefer a classic look, outlined elements, or a sleek flat design, our diverse themes have you covered. Personalize your user experience with the perfect theme for your application!
+
+```scss
+@use "~" as * with (
+  $ui-colors: true,
+);
+```
+
+
+## Seamless Layout Configuration
+
+Make layout management a breeze with our versatile systems. If any layouting system is enabled, the container will be readily available.
+
+
+### Flex system
+
+```scss
+@use "~" as * with (
+    $flex: true, 
+    $flex-columns: 12, // Optional: adjust to change the generated divided columns
+);
+```
+### Grid system
+
+```scss
+@use "~" as * with (
+    $grid: true, 
+    $grid-columns: 12, // Optional: adjust to change the generated divided columns
+);
+```
+### Percentage system
+
+```scss
+@use "~" as * with (
+    $pct: true, 
+    $columns: 12, // Optional: adjust to change the generated divided columns
+);
+```
+
+Effortlessly manage your layouts with the flexibility of our systems. Choose the one that suits your project, tweak the columns as needed, and enjoy a seamless layout experience.
+
+## Tailor-Made Utilities
+
+Customize your styles effortlessly with our versatile utility options. Enable the utilities you need, make them responsive, or create your own!
+
+```scss
+@use "~" as * with (
+  $typography-util: true,
+  $spacing-util: true,
+  $align-util: true,
+  $other-util: true,
+  $size-util: true,
+);
+```
+
+Opt for media query enhancements tailored to your preferences – it's opt-in, not forced!
+
+```scss
+@use "~" as * with (
+  $media-alignments: true,
+  $media-flex-dir: true,
+  $media-display: true,
+  $media-padding: true,
+  $media-margin: true,
+  $media-font: true,
+);
+```
+
+Take control with our Utility API, allowing you to craft custom utilities to suit your needs.
+
+```scss
+@use "~" as * with (
+  $utilities: (
+    "my-util": (
+      class: "uitl",
+      state: hover,
+      property: color,
+      media: true,
+      important: true,
+      values: (
+        ppp: #fff,
+        ddd: #ddd,
+        eee: #ccc
+      ),
+    )
+  ),
+);
+```
+### Color utilities
+
+Explore a variety of colors ranging from 50 to 900 – pick your shade!
+
+```scss
+@use "~" as * with (
+  $a-var: "...",
+
+);
+
+@include useShades();
+```
+Craft your personalized color palette with ease.
+
+```scss
+@use "~" as * with (
+  $colors: (
+    custom: (
+      50: #fff,
+      100: rgb(230, 48, 48),
+      200: rgb(47, 47, 211),
+    )
+  )
+);
+
+@include useShades(900, 50);
+```
+
+Empower your styling journey with these flexible utility options, tailored to meet your project's unique requirements.

@@ -1,14 +1,14 @@
 ---
 title: badge
-description: hello description
+description: badge component
 category: Components
-date: 2023-11-27
+date: 2024-11-27
 authors: felfel
-position: 2
+position: 6
 href: /badge
 ---
 
-## badge
+## default theme
 
 <div class="browser-app">
   <div class="header">
@@ -22,6 +22,14 @@ href: /badge
 </div>
 
 </div>
+
+```html
+<span class="badge">default</span>
+
+```
+
+## main theme
+
 
 <div class="browser-app">
   <div class="header">
@@ -40,11 +48,24 @@ href: /badge
 <span class="badge gray">gray</span>
 <span class="badge black">black</span>
 <span class="badge white">white</span>
-
+</div>
 </div>
 
-</div>
+```html
+<span class="badge primary">primary</span>
+<span class="badge secondary">secondary</span>
+<span class="badge success">success</span>
+<span class="badge info">info</span>
+<span class="badge orange">orange</span>
+<span class="badge error">error</span>
+<span class="badge gray">gray</span>
+<span class="badge black">black</span>
+<span class="badge white">white</span>
+```
 
+
+
+## outlined theme
 
 <div class="browser-app">
   <div class="header">
@@ -66,6 +87,8 @@ href: /badge
 </div>
 </div>
 
+## flat theme
+
 <div class="browser-app">
   <div class="header">
     <span class="dot"></span>
@@ -85,3 +108,38 @@ href: /badge
 
 </div>
 </div>
+
+
+
+## usage
+
+
+### section import
+
+```scss
+@use "~" as * with (
+  $other-components: true,
+);
+```
+
+### Individual Import
+
+
+```scss
+@use "~" as * with (
+  $components: (
+    other: (
+      badge: ture,
+    ),
+  ),
+);
+```
+### mixin
+
+```scss
+@use "~" as * with (
+  $a-var: "",
+);
+
+@include badge();
+```

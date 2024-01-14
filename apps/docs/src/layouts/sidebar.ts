@@ -1,58 +1,26 @@
-const categoryItems = document.querySelectorAll(".wtq-sidebar-category li");
-const sidebarBtn = document.querySelectorAll(".wtq-sidebar-toggle");
-const sidebar = document.querySelector(".wtq-sidebar");
+const categoryItems = document.querySelectorAll(".wtq-sidebar-category li") as NodeListOf<Element>;
+const sidebarBtn = document.querySelectorAll(".wtq-sidebar-toggle") as NodeListOf<Element>;
+const sidebar = document.querySelector(".wtq-sidebar") as HTMLElement;
 
 categoryItems.forEach((categoryItem) => {
-  const categoryItemLinks = categoryItem.querySelectorAll(".wtq-doc-link");
+  const categoryItemLinks = categoryItem.querySelectorAll(".wtq-doc-link") as NodeListOf<Element>;
 
   const collapse = categoryItem.querySelector(
     ".wtq-sidebar-category-collapse",
   ) as HTMLElement;
-  const icon = categoryItem.querySelector(".wtq-sidebar-category-link");
-
-  categoryItem?.addEventListener("keydown", (e) => {
-    if (categoryItem.classList.contains("wtq-active")) {
-      categoryItemLinks.forEach((categoryItemLink) => {
-        categoryItemLink.removeAttribute("tabindex");
-      });
-    } else {
-      categoryItemLinks.forEach((categoryItemLink) => {
-        categoryItemLink.setAttribute("tabindex", -1);
-      });
-    }
-    if (e.key == "Enter") {
-      if (categoryItem.classList.contains("wtq-active")) {
-        categoryItemLinks.forEach((categoryItemLink) => {
-          categoryItemLink.setAttribute("tabindex", -1);
-        });
-        icon?.classList.remove("wtq-active");
-        categoryItem?.classList.remove("wtq-active");
-        collapse.style.maxHeight = null;
-      } else {
-        categoryItemLinks.forEach((categoryItemLink) => {
-          categoryItemLink.removeAttribute("tabindex");
-        });
-        collapse.style.maxHeight = collapse.scrollHeight + "px";
-        icon?.classList.add("wtq-active");
-        categoryItem?.classList.add("wtq-active");
-      }
-    }
-  });
+  const icon = categoryItem.querySelector(".wtq-sidebar-category-link") as HTMLElement;
 
   categoryItem?.addEventListener("click", () => {
-    if (
-      categoryItem.classList.contains("wtq-active") &&
-      categoryItem.parentNode != true
-    ) {
+    if (categoryItem.classList.contains("wtq-active")) {
       categoryItemLinks.forEach((categoryItemLink) => {
-        categoryItemLink.removeAttribute("tabindex");
+        categoryItemLink.setAttribute("tabindex", "-1");
       });
       icon?.classList.remove("wtq-active");
       categoryItem?.classList.remove("wtq-active");
-      collapse.style.maxHeight = null;
+      collapse.style.maxHeight = "0";
     } else {
       categoryItemLinks.forEach((categoryItemLink) => {
-        categoryItemLink.setAttribute("tabindex", -1);
+        categoryItemLink.removeAttribute("tabindex");
       });
       collapse.style.maxHeight = collapse.scrollHeight + "px";
       icon?.classList.add("wtq-active");
@@ -73,14 +41,12 @@ categoryItems.forEach((categoryItem) => {
 
 sidebarBtn.forEach((button) => {
   button.addEventListener("click", () => {
-    sidebar.style.transition =
-        "all 400ms, color 0ms, background-color 0ms ease ";
-        if (sidebar?.classList.contains("wtq-sidebar-active")) {
-          sidebar?.classList.remove("wtq-sidebar-active");
-          document.body.style.overflowY = "auto";
-        } else {
-          sidebar?.classList.add("wtq-sidebar-active");
-          document.body.style.overflowY = "hidden";
-        }
+    if (sidebar?.classList.contains("wtq-sidebar-active")) {
+      sidebar?.classList.remove("wtq-sidebar-active");
+      document.body.style.overflowY = "auto";
+    } else {
+      sidebar?.classList.add("wtq-sidebar-active");
+      document.body.style.overflowY = "hidden";
+    }
   });
 });

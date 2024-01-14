@@ -1,0 +1,31 @@
+---
+import "../../docs.scss";
+import { Image } from "astro:assets";
+---
+
+<nav class="navbar">
+  <div class="brand">
+    <Image
+      src="/icon.svg"
+      width={40}
+      height={40}
+      alt="'ui' text logo with colorful"
+    />
+    <span>brand</span>
+  </div>
+  <div class="toggle">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </div>
+  <ul class="navbar-links">
+    <li>item</li>
+    <li>item</li>
+    <li>item</li>
+  </ul>
+</nav>
+
+<script>
+  import { Navbar } from "spices-fruitui";
+  Navbar();
+</script>

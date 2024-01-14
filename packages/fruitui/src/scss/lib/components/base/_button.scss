@@ -1,6 +1,6 @@
 @mixin buttonBase() {
   .btn {
-    @extend %default-theme;
+    @extend .default-theme;
     cursor: pointer;
     font-size: $font-xs;
     transition: all 0.1s ease-in;

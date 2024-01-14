@@ -1,25 +1,21 @@
 ---
 import type {
-	BuiltinLanguage,
-	BuiltinTheme,
-	LanguageRegistration,
-	SpecialLanguage,
-	ThemeRegistration,
-	ThemeRegistrationRaw,
-} from 'shikiji';
+  BuiltinLanguage,
+  BuiltinTheme,
+  LanguageRegistration,
+  SpecialLanguage,
+  ThemeRegistration,
+  ThemeRegistrationRaw,
+} from "shikiji";
 import { getHighlighter } from "shikiji";
 
 export interface Props {
-	code: string;
-	lang?: BuiltinLanguage | SpecialLanguage | LanguageRegistration;
-	theme?: BuiltinTheme | ThemeRegistration | ThemeRegistrationRaw ;
+  code: string;
+  lang?: BuiltinLanguage | SpecialLanguage | LanguageRegistration;
+  theme?: BuiltinTheme | ThemeRegistration | ThemeRegistrationRaw;
 }
 
-const {
-	code,
-	lang = 'plaintext',
-	theme = 'dark-plus',
-} = Astro.props;
+const { code, lang = "plaintext", theme = "dark-plus" } = Astro.props;
 
 const shiki = await getHighlighter({
   themes: [theme],
@@ -27,10 +23,18 @@ const shiki = await getHighlighter({
 });
 
 const codeOutput = shiki.codeToHtml(code, {
-  lang:  lang as string,
+  lang: lang as string,
   theme: theme,
 });
+
+const bg = shiki.getTheme(theme).bg;
 ---
+
+<style define:vars={{ bg }}>
+  .code.app {
+    background-color: var(--bg);
+  }
+</style>
 
 <div class="code app dark">
   <div class="header">
@@ -40,9 +44,3 @@ const codeOutput = shiki.codeToHtml(code, {
   </div>
   <Fragment set:html={codeOutput} />
 </div>
-
-<script>
-  const CodeEl = document.querySelector("pre.shiki");
-  const CodeApp = document.querySelector(".code.app");
-  CodeApp.style.backgroundColor = CodeEl.style.backgroundColor;
-</script>

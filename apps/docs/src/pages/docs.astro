@@ -1,10 +1,28 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Breadcrumbs from "../layouts/breadcrumbs.astro";
+import WathqnyConfig from "../wathqny.config";
+
+const { sidebar } = WathqnyConfig;
 ---
 
 <Layout sidebar={true} title="docs" description="main docs page">
-  <Breadcrumbs/>
+  <Breadcrumbs />
+  <h1 class="wtq-main-heading">Categorys</h1>
 
-  dwadwadw
+  <main class="anim-slide-botto" id="main-content">
+    <div class="wtq-card-container">
+      {
+        sidebar.map((doc) => {
+          return (
+            <a href={"/docs/" + doc.toLowerCase()}>
+              <div class="wtq-card">
+                <h2 class="wtq-card-title">{doc.replace("-", " ")}</h2>
+              </div>
+            </a>
+          );
+        })
+      }
+    </div>
+  </main>
 </Layout>

@@ -25,10 +25,9 @@ interface Props {
 const { doc } = Astro.props;
 
 ---
-
 <Layout
   sidebar={true}
-  title={doc.data.title}
+  title={doc.data.category.replace("-"," ").toLowerCase()}
   description={doc.data.description}
   keywords={doc.data.title}>
   <Breadcrumbs/>

@@ -2,73 +2,58 @@
 title: overview
 description: an overview of fruitUI
 category: Getting-started
-date: 2023-11-27
+date: 2024-01-09
 authors: felfel
 position: 1
 href: /overview
-
-# slug: test/p
 ---
 
-# heading h1
+import { CodeBlock } from "wtqcode";
 
-## heading h2
+## Why ?
 
-### heading h3
+Bootstrap can be a bit of a heavyweight, packing around 15k lines,
+and its grid system alone throws in another 6k lines of code – that's a lot of baggage! Plus,
+Bootstrap tends to go overboard with styles you might not even need, 
+and it's not the most customizable. Now, enter FruitUI – it's modular, so you only grab what you actually want. Just need the grid system or the navbar? No problem, pick and choose with FruitUI!
 
-#### heading h4
+## usage
 
-##### heading h5
-
-###### heading h6
-
-
-
-<br/>
-
-paragraph Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima obcaecati impedit nisi quae repellendus eligendi eos ratione suscipit nihil! Dolor numquam similique porro corporis iusto eligendi obcaecati vel molestiae unde?
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima obcaecati impedit nisi quae repellendus eligendi eos ratione suscipit nihil! Dolor numquam similique porro corporis iusto eligendi obcaecati vel molestiae unde?
-
-<br/>
-
-<small>small</small>
-
-**bold text**
-
-_italicized text_
-
-> 'adwdkjawdkjawkdlawkd
-> alwda;dl;aldaw
-> adwl;dlaw;dlw'
-
-<br/>
-
-1. First item
-2. Second item
-3. Third item
-
-<br/>
-
-- First item
-- Second item
-- Third item
-
-[title](https://www.example.com)
+### via cdn
 
 
-<br/>
+<CodeBlock theme="material-theme" lang="html" code={
+`<!-- js -->
+<script src="https://cdn.jsdelivr.net/npm/spices-fruitui"></script>
 
-| Syntax    | Description | Description |
-| --------- | ----------- | ----------- |
-| Header    | Title       | Title       |
-| Paragraph | Text        | Title       |
+<!-- css -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/spices-fruitui/style">`} />
 
-<br/>
+### via npm
+
+```bash
+npm i spices-fruitui
+```
+
+
+ import sass from node_modules
+
+```scss
+@import "node_modules/fruitUI/src/scss/lib/import/basket";
+
+```
+a better way
+
+```scss
+@use "~/basket" as * with (
+  $a-var: true, // pass var for sass runtime err
+);
+
+```
+
+ import javascript
 
 ```js
-{
-  "firstName": "John",
-  "lastName": "Smith",
-  "age": 25
-}
+import { Navbar } form "spices-fruitui"
+
 ```

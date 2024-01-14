@@ -1,104 +1,95 @@
 @mixin checkers {
   %checkers {
+    @extend .default-theme;
     width: 26px;
     height: 26px;
     cursor: pointer;
     margin: $spacing-3;
     display: flex;
     align-items: center;
+    justify-content: center;
     -webkit-appearance: none;
     appearance: none;
-    border: 1px solid $gray-400;
+    vertical-align: middle;
+    border: 1px solid $gray-300;
     background: rgba(255, 255, 255);
     transition:
-    transform 0.3s,
-    background-color 0.3s,
-    border 0.3s,
-    width 0.5s,
+      all 0.3s,
+      width 0.5s,
       opacity 0.2s $tran-break;
     &:hover {
-      border-color: var(--theme-color-bg, $gray-400);
+      border-color: var(--theme-color-br);
     }
     &:checked {
-      background: var(--theme-color-bg, $gray-400);
-      border-color: var(--theme-color-bg, $gray-400);
+      border-color: var(--theme-color-br);
+      background-color: var(--theme-color-bg);
     }
     &::after {
+      vertical-align: middle;
       opacity: 0;
+      width: 20px;
+      height: 20px;
+      background-color: var(--theme-color-fg);
       content: "";
-      position: relative;
       transition: inherit;
     }
   }
-
   .checkbox {
+    --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='currentColor' %3E%3Cpath fill-rule='evenodd' d='M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z' clip-rule='evenodd' /%3E%3C/svg%3E%0A");
     @extend %checkers;
-    border-radius: $border-radius;
     transition-timing-function: $tran-wavy;
     &::after {
-      left: 10px;
-      top: -0.1em;
-      width: 6px;
-      height: 10px;
       transform: rotate(160deg);
-      border-top: 0;
-      border-left: 0;
-      border-right: 2px solid #fff;
-      border-bottom: 2px solid #fff;
+      -webkit-mask: var(--svg);
+      mask: var(--svg) center no-repeat;
     }
     &:checked {
       &::after {
         opacity: 1;
-        transform: rotate(43deg);
+        transform: rotate(0deg);
       }
     }
   }
-  // switch
   .switch {
-    width: 48px;
     @extend %checkers;
-    transition-duration: 250ms;
+    width: 48px;
+    // will-change: transform, width;
+    transition-duration: 200ms;
     border-radius: 2em;
-    will-change: transform, width;
-    &:active {
+    &:hover:active {
       &:after {
         width: 24px;
-      }
-      &:checked {
-        &:active {
-          &::after {
-            transform: translateX(18px);
-          }
-        }
+        transform: translateX(-9px);
       }
     }
     &:checked {
       &::after {
-        background-color: #fff;
-        transform: translateX(22px);
+        background: var(--theme-color-fg);
+        transform: translateX(11px);
+      }
+      &:hover:active {
+        &:after {
+          transform: translateX(9px);
+        }
       }
     }
     &:after {
-      left: 2px;
+      transform: translateX(-11px);
       opacity: 1;
-      width: 20px;
-      height: 20px;
       border-radius: 999px;
-      transform: translateX(0);
-      background-color: $gray-400;
+      background: $gray-300;
     }
   }
-  // radio
+
   .radio {
     @extend %checkers;
-    justify-content: center;
+    border-color: $gray-300;
     border-radius: 50%;
     &:after {
       opacity: 0;
-      width: 26px;
-      height: 26px; 
+      width: 25px;
+      height: 25px;
       border-radius: inherit;
-      background: #fff;
     }
     &:checked {
       &::after {

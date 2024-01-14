@@ -14,15 +14,14 @@ $font: (
 ) !default;
 
 $alignments: (
-  "start":   flex-start,
-  "end":     flex-end,
-  "center":  center,
+  "start": flex-start,
+  "end": flex-end,
+  "center": center,
   "between": space-between,
-  "around":  space-around,
-  "evenly":  space-evenly,
+  "around": space-around,
+  "evenly": space-evenly,
   "stretch": stretch,
 ) !default;
-
 
 $spacing-0: 0 !default;
 $spacing-1: 2px !default;
@@ -40,18 +39,17 @@ $spacing-12: 35px !default;
 $spacing-13: 45px !default;
 $spacing-14: 56px !default;
 
-
 $sizes: (
-    "full": 100%,
-    "auto": auto,
-    1: toRem(10px),
-    2: toRem(30px),
-    3: toRem(50px),
-    4: toRem(80px),
-    5: toRem(130px),
-    6: toRem(180px),
-    7: toRem(240px),
-    8: toRem(270px),
-    9: toRem(350px),
-    10: toRem(420px)
+  "full": 100%,
+  "auto": auto,
+  1: toRem(10px),
+  2: toRem(30px),
+  3: toRem(50px),
+  4: toRem(80px),
+  5: toRem(130px),
+  6: toRem(180px),
+  7: toRem(240px),
+  8: toRem(270px),
+  9: toRem(350px),
+  10: toRem(420px),
 ) !default;

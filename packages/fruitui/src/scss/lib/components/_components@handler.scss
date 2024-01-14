@@ -118,6 +118,7 @@ $components: map-merge(
     .#{$key} {
       --theme-color-bg: #{$colors-bg} !important;
       --theme-color-fg: #{$colors-fg} !important;
+      --theme-color-br: #{$colors-bg} !important;
     }
   }
 
@@ -126,6 +127,7 @@ $components: map-merge(
     .#{$key}-flat {
       --theme-color-bg: #{$colors-bg} !important;
       --theme-color-fg: #{$colors-fg} !important;
+      --theme-color-br: #{$colors-bg} !important;
     }
   }
 }
