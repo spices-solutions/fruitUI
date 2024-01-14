@@ -1,0 +1,101 @@
+@mixin checkers {
+  %checkers {
+    @extend .default-theme;
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+    margin: $spacing-3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-appearance: none;
+    appearance: none;
+    vertical-align: middle;
+    border: 1px solid $gray-300;
+    background: rgba(255, 255, 255);
+    transition:
+      all 0.3s,
+      width 0.5s,
+      opacity 0.2s $tran-break;
+    &:hover {
+      border-color: var(--theme-color-br);
+    }
+    &:checked {
+      border-color: var(--theme-color-br);
+      background-color: var(--theme-color-bg);
+    }
+    &::after {
+      vertical-align: middle;
+      opacity: 0;
+      width: 20px;
+      height: 20px;
+      background-color: var(--theme-color-fg);
+      content: "";
+      transition: inherit;
+    }
+  }
+  .checkbox {
+    --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='currentColor' %3E%3Cpath fill-rule='evenodd' d='M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z' clip-rule='evenodd' /%3E%3C/svg%3E%0A");
+    @extend %checkers;
+    transition-timing-function: $tran-wavy;
+    &::after {
+      transform: rotate(160deg);
+      -webkit-mask: var(--svg);
+      mask: var(--svg) center no-repeat;
+    }
+    &:checked {
+      &::after {
+        opacity: 1;
+        transform: rotate(0deg);
+      }
+    }
+  }
+  .switch {
+    @extend %checkers;
+    width: 48px;
+    // will-change: transform, width;
+    transition-duration: 200ms;
+    border-radius: 2em;
+    &:hover:active {
+      &:after {
+        width: 24px;
+        transform: translateX(-9px);
+      }
+    }
+    &:checked {
+      &::after {
+        background: var(--theme-color-fg);
+        transform: translateX(11px);
+      }
+      &:hover:active {
+        &:after {
+          transform: translateX(9px);
+        }
+      }
+    }
+    &:after {
+      transform: translateX(-11px);
+      opacity: 1;
+      border-radius: 999px;
+      background: $gray-300;
+    }
+  }
+
+  .radio {
+    @extend %checkers;
+    border-color: $gray-300;
+    border-radius: 50%;
+    &:after {
+      opacity: 0;
+      width: 25px;
+      height: 25px;
+      border-radius: inherit;
+    }
+    &:checked {
+      &::after {
+        opacity: 1;
+        transform: scale(0.5);
+      }
+    }
+  }
+}

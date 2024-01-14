@@ -1,0 +1,53 @@
+@if $size-util {
+  $utilities: map-merge(
+    (
+      "width": (
+        class: "w",
+        property: width,
+        range: (
+          0: 10,
+        ),
+        important: $important,
+        values: (
+          "full": 100%,
+          "auto": auto,
+          "screen": 100vh,
+          1: toRem(10px),
+          2: toRem(30px),
+          3: toRem(50px),
+          4: toRem(80px),
+          5: toRem(130px),
+          6: toRem(180px),
+          7: toRem(240px),
+          8: toRem(270px),
+          9: toRem(350px),
+          10: toRem(420px),
+        ),
+      ),
+      "height": (
+        class: "h",
+        property: height,
+        range: (
+          0: 10,
+        ),
+        important: $important,
+        values: (
+          "full": 100%,
+          "auto": auto,
+          "screen": 100vh,
+          1: toRem(10px),
+          2: toRem(30px),
+          3: toRem(50px),
+          4: toRem(80px),
+          5: toRem(130px),
+          6: toRem(180px),
+          7: toRem(240px),
+          8: toRem(270px),
+          9: toRem(350px),
+          10: toRem(420px),
+        ),
+      ),
+    ),
+    $utilities
+  );
+}

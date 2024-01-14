@@ -1,1 +1,0 @@
-{"version":3,"file":"fruitUI.js","sourceRoot":"","sources":["../../src/ts/fruitUI.ts"],"names":[],"mappings":"AAAA,OAAO,MAAM,MAAM,kBAAkB,CAAC;AACtC,OAAO,MAAM,MAAM,kBAAkB,CAAC;AAEtC,eAAe,EAAC,MAAM,EAAE,MAAM,EAAC,CAAC","sourcesContent":["import Navbar from \"./fruitUI/navbar\";\r\nimport Button from \"./fruitUI/Button\";\r\n\r\nexport default {Navbar, Button};\r\n"]}

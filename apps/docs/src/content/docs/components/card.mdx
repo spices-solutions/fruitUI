@@ -1,0 +1,139 @@
+---
+title: card
+description: card component
+category: Components
+date: 2023-11-27
+authors: felfel
+position: 3
+href: /card
+---
+
+import { Image } from "astro:assets";
+import Tshirt from "../../../assets/imgs/t-shirt.webp";
+
+<div class="browser-app">
+  <div class="header">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+  <div>
+  <div class="prototype p-5">
+  <div class="prototype-gap my-5">
+    <div style={{ width: "13.5rem" }} class="card">
+      <div class="body">
+        <Image
+          class="img"
+          width={300}
+          height={238}
+          src={Tshirt}
+          alt="man wearing an off white T-shirt "
+        />
+        <h3 class="title">Heading</h3>
+        <p class="text">Lorem ipsum <span class="link">dolor</span> sit amet, consectetur
+          adipiscing elit. </p>
+        <button style={{ width:"100%"}} class="btn secondary">Read more</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+</div>
+
+```html
+<div class="card">
+  <div class="body">
+    <img class="img" src="..." alt="..." />
+    <h3 class="title">Heading</h3>
+    <p class="text">
+      Lorem ipsum <span class="link">dolor</span> sit amet, consectetur
+      adipiscing elit.
+    </p>
+    <button class="btn w-full secondary">Read more</button>
+  </div>
+</div>
+```
+
+moving img tag outside body class for another styling 
+
+<div class="browser-app">
+  <div class="header">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+  <div>
+  <div class="prototype p-5">
+  <div class="prototype-gap my-5">
+    <div style={{ width: "13.5rem" }} class="card">
+        <Image
+          class="img"
+          width={300}
+          height={238}
+          src={Tshirt}
+          alt="man wearing an off white T-shirt "
+        />
+      <div class="body">
+        <h3 class="title">Heading</h3>
+        <p class="text">Lorem ipsum <span class="link">dolor</span> sit amet, consectetur
+          adipiscing elit. </p>
+        <button style={{ width:"100%"}} class="btn secondary">Read more</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+</div>
+
+```html
+<div class="card">
+  <img class="img" src="..." alt="..." />
+  <div class="body">
+    <h3 class="title">Heading</h3>
+    <p class="text">
+      Lorem ipsum <span class="link">dolor</span> sit amet, consectetur
+      adipiscing elit.
+    </p>
+    <button class="btn w-full secondary">Read more</button>
+  </div>
+</div>
+```
+
+
+
+## usage
+
+
+### section import
+
+```scss
+@use "~" as * with (
+  $base-components: true,
+);
+```
+
+### Individual Import
+
+
+```scss
+@use "~" as * with (
+  $components: (
+    base: (
+      card: ture,
+    ),
+  ),
+);
+```
+### mixin
+
+```scss
+@use "~" as * with (
+  $a-var: "",
+);
+
+@include cardBase();
+```

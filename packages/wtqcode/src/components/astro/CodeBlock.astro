@@ -1,0 +1,46 @@
+---
+import type {
+  BuiltinLanguage,
+  BuiltinTheme,
+  LanguageRegistration,
+  SpecialLanguage,
+  ThemeRegistration,
+  ThemeRegistrationRaw,
+} from "shikiji";
+import { getHighlighter } from "shikiji";
+
+export interface Props {
+  code: string;
+  lang?: BuiltinLanguage | SpecialLanguage | LanguageRegistration;
+  theme?: BuiltinTheme | ThemeRegistration | ThemeRegistrationRaw;
+}
+
+const { code, lang = "plaintext", theme = "dark-plus" } = Astro.props;
+
+const shiki = await getHighlighter({
+  themes: [theme],
+  langs: [lang],
+});
+
+const codeOutput = shiki.codeToHtml(code, {
+  lang: lang as string,
+  theme: theme,
+});
+
+const bg = shiki.getTheme(theme).bg;
+---
+
+<style define:vars={{ bg }}>
+  .code.app {
+    background-color: var(--bg);
+  }
+</style>
+
+<div class="code app dark">
+  <div class="header">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+  <Fragment set:html={codeOutput} />
+</div>

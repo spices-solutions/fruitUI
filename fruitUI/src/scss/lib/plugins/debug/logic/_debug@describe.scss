@@ -1,4 +1,0 @@
-@mixin describe($describe) {
-  $describeText: "\a   #{$describe}" !global;
-  @content;
-}

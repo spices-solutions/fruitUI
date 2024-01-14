@@ -1,0 +1,51 @@
+---
+title: installation
+description: installation guide
+category: Getting-started
+date: 2024-01-09
+authors: felfel
+position: 2
+href: /install
+---
+
+
+import { CodeBlock } from "wtqcode";
+
+## as a package
+
+
+```bash
+npm install spices-fruitui
+```
+
+## via cdn 
+
+### short hand
+
+<CodeBlock theme="material-theme" lang="html"
+code={
+  `<!-- js -->
+<script src="https://cdn.jsdelivr.net/npm/spices-fruitui"></script>
+
+<!-- css -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/spices-fruitui/style">
+`} />
+
+### independent imports
+
+<CodeBlock theme="material-theme" lang="html"
+code={
+`<!-- js -->
+<script src="https://cdn.jsdelivr.net/npm/spices-fruitui@0.3.1/dist/index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/spices-fruitui@0.3.1/dist/index.iife.js"></script>
+
+<!-- css -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/spices-fruitui@0.3.1/dist/css/base_components.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/spices-fruitui@0.3.1/dist/css/other_components.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/spices-fruitui@0.3.1/dist/css/awesome_components.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/spices-fruitui@0.3.1/dist/css/flex.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/spices-fruitui@0.3.1/dist/css/grid.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/spices-fruitui@0.3.1/dist/css/pct.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/spices-fruitui@0.3.1/dist/css/utilities.css">
+`} />
+

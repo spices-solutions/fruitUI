@@ -1,0 +1,112 @@
+---
+title: forms
+description: form component
+category: Components
+date: 2024-01-13
+authors: felfel
+position: 4
+href: /forms
+---
+
+## default theme
+
+single input
+
+<div class="browser-app">
+  <div class="header">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+  <div class="p-5">
+    <input id="username" class="form" type="username" placeholder="Enter your username" />
+  </div>
+</div>
+
+```html
+<input class="form" type="username" placeholder="Enter your username" />
+```
+
+from with labels
+
+<div class="browser-app">
+  <div class="header">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+  <div class="p-5">
+    <form class="form-group" style={{color: "black"}}>
+      <label for="email" class="label">Email</label>
+      <input id="email" class="form" type="email" placeholder="Enter your email" />
+      <label for="password" class="label">Password</label>
+      <input id="password" class="form" type="password" placeholder="Enter your password" />
+    </form>    
+  </div>
+</div>
+
+```html
+<form class="form-group">
+  <label for="email" class="label">Email</label>
+  <input id="email" class="form" type="email" placeholder="Enter your email" />
+  <label for="password" class="label">Password</label>
+  <input id="password" class="form" type="password" placeholder="Enter your password" />
+</form>    
+```
+
+full form example
+
+<div class="browser-app">
+  <div class="header">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+  <div class="p-5">
+    <form class="form-group" style={{color: "black"}}>
+      <label for="email1" class="label">Email</label>
+      <input id="email1" class="form" type="email" placeholder="Enter your email" />
+      <label for="password1" class="label">Password</label>
+      <input id="password1" class="form" type="password" placeholder="Enter your password" />
+      <div class="part">
+        <input class="checkbox" type="checkbox" id="checky11" />
+        <label class="label" for="checky11">check me</label>
+      </div>
+      <div class="part">
+        <input class="radio" type="radio" id="le1" name="one" value="true" />
+        <label for="le1" class="label">one</label>
+      </div>
+      <div class="part">
+        <input class="radio" type="radio" id="e2" name="one" value="false" />
+        <label for="e2" class="label">tow</label>
+      </div>
+      <div class="part">
+        <button class="btn">submit</button> 
+      </div>
+    </form>    
+  </div>
+</div>
+
+```html
+<form class="form-group">
+  <label for="email" class="label">Email</label>
+  <input id="email" class="form" type="email" placeholder="Enter your email" />
+  <label for="password" class="label">Password</label>
+  <input id="password" class="form" type="password" placeholder="Enter your password" />
+  <div class="part">
+    <input class="checkbox" type="checkbox" id="checkbox" />
+    <label class="label" for="checkbox">check me</label>
+  </div>
+  <div class="part">
+    <input class="radio" type="radio" id="one" name="one" value="true" />
+    <label for="one" class="label">one</label>
+  </div>
+  <div class="part">
+    <input class="radio" type="radio" id="tow" name="tow" value="false" />
+    <label for="tow" class="label">tow</label>
+  </div>
+  <div class="part">
+    <button class="btn">submit</button> 
+  </div>
+</form>    
+```

@@ -1,0 +1,47 @@
+@mixin buttonBase() {
+  .btn {
+    @extend .default-theme;
+    cursor: pointer;
+    font-size: $font-xs;
+    transition: all 0.1s ease-in;
+    padding: $spacing-4 $spacing-9;
+    will-change: transform;
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+  .outlined {
+    border-width: $border-thickness * 2;
+    padding: $spacing-4 * .950 $spacing-9 * .950;
+    background-color: transparent;
+    color: var(--theme-color-bg);
+  }
+
+  @if $ripple {
+    .ripple {
+      position: relative;
+      overflow: hidden;
+    }
+    span.ripple-container {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      background-color: #fff;
+      transform: translate(-50%, -50%);
+      animation: ripple-effect 1s ease infinite;
+    }
+
+    @keyframes ripple-effect {
+      0% {
+        width: 0px;
+        height: 0px;
+        opacity: 0.5;
+      }
+      100% {
+        opacity: 0;
+        width: 150px;
+        height: 150px;
+      }
+    }
+  }
+}

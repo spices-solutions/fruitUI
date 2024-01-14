@@ -1,0 +1,48 @@
+@mixin table {
+    table.table {
+      border-radius: $border-radius;
+      border-spacing: 0;
+      width: 100%;
+      thead th {
+        text-align: left;
+        font-weight: 700;
+      }
+      & td,
+      th {
+        text-align: left;
+        padding: $spacing-6;
+      }
+      tr {
+        position: relative;
+      }
+      thead {
+        tr:first-child::before  {
+            background-color: white;
+          border-radius: 10px 10px 0px 0px;
+        }
+      }
+      tbody {
+        tr:last-child::before {
+          border-radius: 0px 0px 10px 10px;
+        }
+      }
+      
+      tr::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        width: 100%;
+        z-index: -1;
+        height: 100%;
+        background-color: white;
+      }
+      tr:nth-child(odd)::before {
+        background-color: $gray-100;
+      }
+      tr:nth-child(even)::before {
+        background-color: white;
+      }
+    }
+}

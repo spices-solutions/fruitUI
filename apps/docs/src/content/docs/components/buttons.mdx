@@ -1,0 +1,170 @@
+---
+title: buttons
+description: button component
+category: Components
+date: 2023-11-27
+authors: felfel
+position: 1
+href: /buttons
+---
+
+## default button
+
+<div class="browser-app">
+  <div class="header">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+  <div class="py-5 px-5">
+    <button class="btn">default</button>
+  </div>
+</div>
+
+
+```html
+<button class="btn">default</button>
+```
+
+## main theme
+
+
+<div class="browser-app">
+  <div class="header">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+<div class="py-5 px-5">
+<div class="row gap-4">
+    <button className="btn primary">primary</button>
+  <button className="btn secondary">secondary</button>
+  <button className="btn success">success</button>
+  <button className="btn info">info</button>
+  <button className="btn orange">orange</button>
+  <button className="btn error">error</button>
+  <button className="btn gray">gray</button>
+  <button className="btn black">black</button>
+  <button className="btn white">white</button>
+</div>
+  </div>      
+</div> 
+
+```html
+<button class="btn primary">primary</button>
+<button class="btn secondary">secondary</button>
+<button class="btn success">success</button>
+<button class="btn info">info</button>
+<button class="btn orange">orange</button>
+<button class="btn error">error</button>
+<button class="btn gray">gray</button>
+<button class="btn black">black</button>
+<button class="btn white">white</button>
+```
+
+## outlined theme
+
+
+<div class="browser-app">
+  <div class="header">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+<div class="py-5 px-5">
+<div class="row gap-4">
+  <button className="btn outlined primary">primary</button>
+  <button className="btn outlined secondary">secondary</button>
+  <button className="btn outlined success">success</button>
+  <button className="btn outlined info">info</button>
+  <button className="btn outlined orange">orange</button>
+  <button className="btn outlined error">error</button>
+  <button className="btn outlined gray">gray</button>
+  <button className="btn outlined black">black</button>
+  <button className="btn outlined white">white</button>
+</div>
+  </div>      
+</div> 
+
+```html
+<button class="btn outlined primary">primary</button>
+<button class="btn outlined secondary">secondary</button>
+<button class="btn outlined success">success</button>
+<button class="btn outlined info">info</button>
+<button class="btn outlined orange">orange</button>
+<button class="btn outlined error">error</button>
+<button class="btn outlined gray">gray</button>
+<button class="btn outlined black">black</button>
+<button class="btn outlined white">white</button>
+```
+
+## flat theme
+
+
+<div class="browser-app">
+  <div class="header">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+<div class="py-5 px-5">
+<div class="row gap-4">
+  <button className="btn primary-flat">primary</button>
+  <button className="btn secondary-flat">secondary</button>
+  <button className="btn success-flat">success</button>
+  <button className="btn info-flat">info</button>
+  <button className="btn orange-flat">orange</button>
+  <button className="btn error-flat">error</button>
+  <button className="btn gray-flat">gray</button>
+  <button className="btn black-flat">black</button>
+  <button className="btn white-flat">white</button>
+</div>
+
+  </div>      
+</div> 
+
+```html
+  <button class="btn primary-flat">primary</button>
+  <button class="btn secondary-flat">secondary</button>
+  <button class="btn success-flat">success</button>
+  <button class="btn info-flat">info</button>
+  <button class="btn orange-flat">orange</button>
+  <button class="btn error-flat">error</button>
+  <button class="btn gray-flat">gray</button>
+  <button class="btn black-flat">black</button>
+  <button class="btn white-flat">white</button>
+```
+
+
+## usage
+
+
+### section import
+
+```scss
+@use "~" as * with (
+  $base-components: true,
+);
+```
+
+### Individual Import
+
+
+```scss
+@use "~" as * with (
+  $components: (
+    base: (
+      button: ture,
+    ),
+  ),
+);
+```
+### mixin
+
+```scss
+@use "~" as * with (
+  $a-var: "",
+);
+
+@include buttonBase();
+```

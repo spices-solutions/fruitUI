@@ -1,0 +1,38 @@
+---
+import { Image } from "astro:assets";
+
+import WathqnyConfig from "../wathqny.config";
+
+const { navbar } = WathqnyConfig;
+---
+
+<nav class="wtq-navbar" role="navigation">
+  <div class="wtq-navbar-overlay" aria-label="navbar-overlay"></div>
+  <a href="/">
+    <div class="wtq-brand">
+      <Image alt="fruitUI logo, an beautiful orange with a gradient background"  
+      width={40} height={40} src={navbar?.brand.logo as string}/>
+      <span>{navbar?.brand.name}</span>
+    </div>
+  </a>
+  <button
+    tabindex="0"
+    aria-label="hamburger-menu"
+    class="wtq-toggle"></button>
+    <ul class="wtq-links">
+      {
+        navbar?.Items.map((Item) => {
+          return (
+            <li>
+              <a href={Item.href}>{Item.item}</a>
+            </li>
+          );
+        })
+      }
+      <li>
+        <button class="theme-swicher" aria-label="dark mode toggler"><span></span></button>
+      </li>
+    </ul>
+</nav>
+
+<script src="./navbar.ts"></script>

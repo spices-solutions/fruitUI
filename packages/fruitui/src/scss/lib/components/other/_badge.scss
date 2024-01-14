@@ -1,0 +1,10 @@
+@mixin badge {
+  .badge {
+    @extend .default-theme;
+    font-size: $font-xxs;
+    padding: $spacing-2 $spacing-5;
+  }
+  .badge.outlined {
+    padding: $spacing-2 * .9 $spacing-5 * .9;
+  }
+}

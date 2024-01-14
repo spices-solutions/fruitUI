@@ -1,0 +1,145 @@
+---
+title: badge
+description: badge component
+category: Components
+date: 2024-11-27
+authors: felfel
+position: 6
+href: /badge
+---
+
+## default theme
+
+<div class="browser-app">
+  <div class="header">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+  <div class="py-5 px-5 row gap-4">
+
+<span class="badge">default</span>
+</div>
+
+</div>
+
+```html
+<span class="badge">default</span>
+
+```
+
+## main theme
+
+
+<div class="browser-app">
+  <div class="header">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+  <div class="py-5 px-5 row gap-4">
+
+<span class="badge primary">primary</span>
+<span class="badge secondary">secondary</span>
+<span class="badge success">success</span>
+<span class="badge info">info</span>
+<span class="badge orange">orange</span>
+<span class="badge error">error</span>
+<span class="badge gray">gray</span>
+<span class="badge black">black</span>
+<span class="badge white">white</span>
+</div>
+</div>
+
+```html
+<span class="badge primary">primary</span>
+<span class="badge secondary">secondary</span>
+<span class="badge success">success</span>
+<span class="badge info">info</span>
+<span class="badge orange">orange</span>
+<span class="badge error">error</span>
+<span class="badge gray">gray</span>
+<span class="badge black">black</span>
+<span class="badge white">white</span>
+```
+
+
+
+## outlined theme
+
+<div class="browser-app">
+  <div class="header">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+  <div class="py-5 px-5 row gap-4">
+<span class="badge outlined primary">primary</span>
+<span class="badge outlined secondary">secondary</span>
+<span class="badge outlined success">success</span>
+<span class="badge outlined info">info</span>
+<span class="badge outlined orange">orange</span>
+<span class="badge outlined error">error</span>
+<span class="badge outlined gray">gray</span>
+<span class="badge outlined black">black</span>
+<span class="badge outlined white">white</span>
+
+</div>
+</div>
+
+## flat theme
+
+<div class="browser-app">
+  <div class="header">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+  <div class="py-5 px-5 row gap-4">
+<span class="badge primary-flat">primary</span>
+<span class="badge secondary-flat">secondary</span>
+<span class="badge success-flat">success</span>
+<span class="badge info-flat">info</span>
+<span class="badge orange-flat">orange</span>
+<span class="badge error-flat">error</span>
+<span class="badge gray-flat">gray</span>
+<span class="badge black-flat">black</span>
+<span class="badge white-flat">white</span>
+
+</div>
+</div>
+
+
+
+## usage
+
+
+### section import
+
+```scss
+@use "~" as * with (
+  $other-components: true,
+);
+```
+
+### Individual Import
+
+
+```scss
+@use "~" as * with (
+  $components: (
+    other: (
+      badge: ture,
+    ),
+  ),
+);
+```
+### mixin
+
+```scss
+@use "~" as * with (
+  $a-var: "",
+);
+
+@include badge();
+```

@@ -1,0 +1,132 @@
+$utilities: map-merge(
+  (
+    "opacity": (
+      class: "o",
+      property: opacity,
+      range: (10:100),
+      important: false,
+      values: (
+        10: 0.1,
+        20: 0.2,
+        30: 0.3,
+        40: 0.4,
+        50: 0.5,
+        60: 0.6,
+        70: 0.7,
+        80: 0.8,
+        90: 0.9,
+        100: 1,
+      ),
+    ),
+    "border-radius": (
+      class: "br",
+      property: border-radius,
+      important: false,
+      values: (
+        "none": 0,
+        "xs": 2px,
+        "sm": 5px,
+        "md": 10px,
+        "lg": 20px,
+        "full": 50%,
+      ),
+    ),
+    "display": (
+      property: display,
+      media: false,
+      important: false,
+      values: (
+        "none": none,
+        "block": block,
+        "inline": inline,
+        "inline-block": inline-block,
+        "inline-flex": inline-flex,
+        "inline-grid": inline-grid,
+      ),
+    ),
+    "overflow": (
+      class: "overflow",
+      property: overflow,
+      important: false,
+      values: (
+        "visible": visible,
+        "hidden": hidden,
+        "scroll": scroll,
+      ),
+    ),
+  ),
+  $utilities
+);
+
+$breakpoints: (
+  $xs: 0,
+  sm: 480px,
+  md: 720px,
+  lg: 960px,
+  xl: 1200px,
+) !default;
+
+@function is-int($value) {
+  @return type-of($value) == "number";
+}
+
+@each $mapName, $map in $utilities {
+  $important: map-get($map, "important");
+  $property: map-get($map, "property");
+  $values: map-get($map, "values");
+  $state: map-get($map, "state");
+  $class: map-get($map, "class");
+  $media: map-get($map, "media");
+  $range: map-get($map, "range");
+
+  $dash: "-";
+  @if not $class {
+    $dash: "";
+  }
+  $importantValue: "";
+  @if $important {
+    $importantValue: "!important";
+  }
+
+  $stateVal: "";
+  $newState: "";
+  @if $state {
+    $stateVal: ":" + $state;
+    $newState: $state + $separator;
+  }
+
+  @if $media {
+    @each $break, $point in $breakpoints {
+      @media screen and (min-width: #{$point}) {
+        @each $name, $value in $values {
+          $util-id: $break + $separator + $newState + $class + $dash + $name + $stateVal;
+          @if ($break == null or $break == "" or $break == $xs) {
+            $util-id: $newState + $class + $dash + $name + $stateVal;
+          }
+          .#{$util-id} {
+            @each $props in $property {
+              @each $start, $end in $range {
+                @if (not is-int($name) or $name >= $start and $name <= $end) {
+                  #{$props}: #{$value} #{$importantValue};
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  } @else {
+    @each $name, $value in $values {
+      $util-id: $newState + $class + $dash + $name + $stateVal;
+      .#{$util-id} {
+        @each $props in $property {
+          @each $start, $end in $range {
+            @if (not is-int($name) or $name >= $start and $name <= $end) {
+              #{$props}: #{$value} #{$importantValue};
+            }
+          }
+        }
+      }
+    }
+  }
+}

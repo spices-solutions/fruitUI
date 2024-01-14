@@ -1,0 +1,16 @@
+$flex-columns: 12 !default;
+
+@mixin flex-passer($prop) {
+  $printmedia: #{$prop}#{$separator} !default;
+
+  @if ($prop == null or $prop == "" or $prop == $xs) {
+    $printmedia: "";
+  }
+
+  @for $i from 1 through $flex-columns {
+    .#{$printmedia}flex-#{$i}\/#{$flex-columns} {
+      flex: 0 0 col($i);
+    }
+  }
+}
+

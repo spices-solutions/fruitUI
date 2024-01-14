@@ -1,0 +1,58 @@
+@mixin test($function, $spec) {
+  $passing-tests: 0;
+  $tests: ();
+
+  @each $arguments, $actual-result in $spec {
+    $expected-result: call(get-function($function), $arguments...);
+    $passed: $expected-result == $actual-result;
+
+    $tests: append(
+      $tests,
+      (
+        "input": $arguments,
+        "actual": $actual-result,
+        "expected": $expected-result,
+        "pass": $passed,
+        "fail": not $passed,
+      ),
+      "comma"
+    );
+
+    @if $passed {
+      $passing-tests: $passing-tests + 1;
+    }
+  }
+
+  $data: (
+    "function": $function,
+    "length": length($tests),
+    "tests": $tests,
+    "pass": $passing-tests,
+    "fail": length($tests) - $passing-tests
+  );
+
+  $output: "";
+  $length: map-get($data, "length");
+  $tests: map-get($data, "tests");
+  $failed: map-get($data, "fail");
+  $function: map-get($data, "function");
+  
+  @each $test in $tests {
+    $expected: map-get($test, "expected");
+    $actual: map-get($test, "actual");
+    $passed: map-get($test, "pass");
+    $test-index: index($tests, $test);
+    $output: $output +
+      " Test #{$test-index} ... " +
+      if($passed, $true,
+        '#{$false}\a    Expected : `#{$expected}`\a    Actual   : `#{$actual}`'
+      ) +
+      "\a ";
+  }
+
+  $message: '\a  Started tests for function `#{$function}()` #{$describeText}    #{$itText}'
+  + '\a \a' + $output + ' \a '
+  + 'Finished: #{if($failed > 0,"#{$failed} #{if($failed > 1, "tests", "test")} failing out of #{$length}" , "success all tests passed")}';
+
+    @debug '\a #{$separatorTow + $message + '\a' + $separatorTow} ';
+}

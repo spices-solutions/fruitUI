@@ -1,0 +1,48 @@
+{
+  "name": "spices-fruitui",
+  "private": false,
+  "version": "0.3.1",
+  "description": "a modular styling framework",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.iife.js",
+  "module": "./dist/index.js",
+  "types": "./dist/types/types.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js"
+    },
+    "./style": {
+      "import": "./dist/css/fruitUI.css"
+    }
+  },
+  "keywords": [
+    "spices",
+    "UI",
+    "fruitUI"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/spices-solutions/fruitUI"
+  },
+  "license": {
+    "type": "waqf",
+    "url": "https://github.com/ojuba-org/waqf/blob/master/2.0/EN/RAW"
+  },
+  "scripts": {
+    "build:js": "tsc && vite build",
+    "build:css": "sass --style=compressed src/scss/build:dist/css",
+    "build": "npm run build:js && npm run build:css"
+  },
+  "devDependencies": {
+    "sass": "^1.69.5",
+    "typescript": "latest",
+    "vite": "4.5.0",
+    "vite-plugin-dts": "^3.5.1"
+  },
+  "bugs": {
+    "url": "https://github.com/spices-solutions/fruitUI/issues"
+  }
+}

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://fruit-ui.pages.dev/sitemap-index.xml
