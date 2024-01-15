@@ -39,7 +39,7 @@ jobs:
       - name: Setup Node.js environment
         uses: pnpm/action-setup@v2
         with:
-          version: 8.6.12
+          version: 8.10.2
      
             
       - name: Install dependencies
