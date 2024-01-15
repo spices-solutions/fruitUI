@@ -18,11 +18,12 @@
     "@vite-pwa/astro": "^0.2.0",
     "@vite-pwa/workbox-window": "^8.0.0",
     "astro": "latest",
-    "spices-fruitui": "workspace:*",
+    "astro-compress": "^2.2.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "sass": "^1.69.5",
     "sharp": "^0.33.1",
+    "spices-fruitui": "workspace:*",
     "vite-plugin-pwa": "^0.17.4",
     "workbox-window": "^7.0.0",
     "wtqcode": "workspace:*"

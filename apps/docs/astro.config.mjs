@@ -2,8 +2,9 @@ import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import partytown from "@astrojs/partytown";
 import sitemap from "@astrojs/sitemap";
-import AstroPWA from '@vite-pwa/astro'
+import AstroPWA from '@vite-pwa/astro';
 
+import compress from "astro-compress";
 
 // https://astro.build/config
 export default defineConfig({
@@ -13,7 +14,10 @@ export default defineConfig({
     shikiConfig: {
       theme: 'material-theme'
     }
-  }), partytown(), sitemap(), 
+  }), partytown(), sitemap()
+
+  , compress()]
+});
   // AstroPWA({
   //   registerType: "autoUpdate",
   //   manifest: {
@@ -56,5 +60,3 @@ export default defineConfig({
   //     ]
   //   },
   // })
-]
-});
