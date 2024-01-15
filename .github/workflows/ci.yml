@@ -58,4 +58,4 @@ jobs:
           projectName: "fruit-ui" # e.g. 'my-project'
           directory: "apps/docs/dist" # e.g. 'dist'
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-          branch: production 
+          environment: production 
