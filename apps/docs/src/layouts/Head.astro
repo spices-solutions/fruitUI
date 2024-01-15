@@ -24,6 +24,7 @@ const METADESCRIPTION = description;
 const METAKEYWORDS =
   keywords ?? "fruitUI, fruit, ui, css, html, js, framework, library";
 const METAFAVICON = favicon;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 ---
 
 <head>
@@ -48,7 +49,8 @@ const METAFAVICON = favicon;
   <meta name="twitter:image" content={METAIMAGE} />
   <meta name="twitter:description" content={METADESCRIPTION} />
   <meta name="twitter:card" content="summary_large_image" />
-  <link rel="canonical" href={Astro.url} />
+  <link rel="canonical" href={canonicalURL} />
+  <link rel="preload" href="/font/InterVariable.woff2" as="font" type="font/woff2" crossorigin="anonymous">
   <!-- { pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} /> } -->
   <!-- <script src="/src/pwa.ts"></script> -->
 

@@ -22,13 +22,7 @@
   $ui-colors: true
 );
 
-@include useShades(900, 50);
+// @include renderFrame("slideRight");
 
-@include renderFrame("slideRight");
-
-@include renderFrame("slideBottom");
-@include renderFrame("slideTop");
-
-.anim-navbar {
-  transform: translateX(-100%);
-}
+// @include renderFrame("slideBottom");
+// @include renderFrame("slideTop");
