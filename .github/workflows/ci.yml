@@ -5,8 +5,6 @@ on:
 
   push:
     branches: ["master"]
-  pull_request:
-    types: [opened, synchronize]
 
 jobs:
   
@@ -28,16 +26,17 @@ jobs:
         with:
           fetch-depth: 2
 
-      - uses: pnpm/action-setup@v2.0.1
-        with:
-          version: 6.32.2
-
       - name: Setup Node.js environment
         uses: actions/setup-node@v3
         with:
-          node-version: 21.0.0
-          cache: "pnpm"
-
+            node-version: 21.1.0
+            
+      - name: Setup pnpm environment
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8.10.2
+     
+            
       - name: Install dependencies
         run: pnpm install
 
@@ -57,3 +56,4 @@ jobs:
           projectName: "fruit-ui" # e.g. 'my-project'
           directory: "apps/docs/dist" # e.g. 'dist'
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
