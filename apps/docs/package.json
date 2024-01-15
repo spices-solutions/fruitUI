@@ -7,6 +7,7 @@
     "start": "astro dev",
     "build": "astro build",
     "serve": "astro preview",
+    "compile:styles": "sass -w ./src/docs.scss:./src/docs.css",
     "astro": "astro"
   },
   "dependencies": {
@@ -19,6 +20,8 @@
     "@vite-pwa/workbox-window": "^8.0.0",
     "astro": "latest",
     "astro-compress": "^2.2.8",
+    "astro-purgecss": "^4.0.0",
+    "purgecss": "^5.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "sass": "^1.69.5",
