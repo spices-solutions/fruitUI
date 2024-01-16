@@ -3,11 +3,27 @@ import { getCollection } from "astro:content";
 import ArrowIcon from "../components/ArrowIcon.astro";
 import WathqnyConfig from "../wathqny.config";
 
-const docs = await getCollection("docs"); 
+const docs = await getCollection("docs");
 
 const { sidebar } = WathqnyConfig;
 
 docs.sort((a, b) => (a.data.position > b.data.position ? 1 : -1));
+let cutUrl =
+  "/" +
+  Astro.url.pathname
+    .split("/")
+    .filter((url) => {
+      if (url != "") {
+        return true;
+      }
+    })
+    .reverse()[0];
+const addActivePageLoad = (category) => {
+  return docs.map(
+    (doc) =>
+      doc.data.href == cutUrl && doc.data.category == category && " wtq-active "
+  );
+};
 ---
 
 <aside class="wtq-sidebar">
@@ -31,33 +47,18 @@ docs.sort((a, b) => (a.data.position > b.data.position ? 1 : -1));
       </li>
       {
         sidebar?.map((category) => {
-          let activeClass = "";
-          let cutUrl =
-            "/" +
-            Astro.url.pathname
-              .split("/")
-              .filter((url) => {
-                if (url != "") {
-                  return true;
-                }
-              })
-              .reverse()[0];
-
-          docs.map((doc) => {
-            if (doc.data.href == cutUrl && doc.data.category == category) {
-              activeClass = "wtq-active";
-            }
-          });
           return (
-            <li class={activeClass} role="tab">
+            <li class={`${addActivePageLoad(category)}`} role="tab">
               <button
                 aria-expanded="false"
                 tabindex="0"
-                class={`wtq-sidebar-category-link ${activeClass}`}
+                class={`wtq-sidebar-category-link ${addActivePageLoad(category)}`}
                 id={`${category.toLowerCase()}-category`}>
                 {category.replace("-", " ")} <ArrowIcon />
               </button>
-              <ul class="wtq-sidebar-category-collapse" aria-labelledby={`${category.toLowerCase()}-category`}>
+              <ul
+                class={`wtq-sidebar-category-collapse ${addActivePageLoad(category)}`}
+                aria-labelledby={`${category.toLowerCase()}-category`}>
                 {docs.map((doc) => {
                   return (
                     doc.data.category == category && (
@@ -66,7 +67,10 @@ docs.sort((a, b) => (a.data.position > b.data.position ? 1 : -1));
                           tabindex="-1"
                           class="wtq-doc-link"
                           href={
-                            "/docs/" + category.toLowerCase() + doc.data.href + "/"
+                            "/docs/" +
+                            category.toLowerCase() +
+                            doc.data.href +
+                            "/"
                           }>
                           {doc.data.title}
                         </a>
@@ -81,6 +85,5 @@ docs.sort((a, b) => (a.data.position > b.data.position ? 1 : -1));
       }
     </ul>
   </div>
+  <script src="./sidebar.ts"></script>
 </aside>
-
-<script src="./sidebar.ts"></script>

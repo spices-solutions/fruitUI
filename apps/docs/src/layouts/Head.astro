@@ -1,9 +1,8 @@
 ---
 // import { pwaInfo } from 'virtual:pwa-info';
 
-import "../docs.scss";
 import "wtqcode/style";
-import "../styles/wathqny.scss";
+
 
 import WathqnyConfig from "../wathqny.config";
 
@@ -55,4 +54,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
   <!-- <script src="/src/pwa.ts"></script> -->
 
   <title>{METATITLE}</title>
+  <style>
+    @import "../docs.scss";
+    @import "../styles/wathqny.scss";
+  </style>
 </head>
