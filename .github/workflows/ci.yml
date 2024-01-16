@@ -62,7 +62,7 @@ jobs:
       #     branch: main
       
       - name: Deploy to github pages
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: JamesIves/github-pages-deploy-action@v4.3.3
         with:
           folder: "apps/docs/dist"
           token: ${{ secrets.GITHUB_TOKEN }}
