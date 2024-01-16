@@ -1,9 +1,9 @@
 ---
 // import { pwaInfo } from 'virtual:pwa-info';
 
-import "../docs.scss";
-import "wtqcode/style";
-import "../styles/wathqny.scss";
+import "../docs.scss"; // low priority
+import "wtqcode/style"; // lazy load
+import "../styles/wathqny.scss"; // preload
 
 import WathqnyConfig from "../wathqny.config";
 
@@ -17,8 +17,7 @@ const { favicon, siteName, image } = WathqnyConfig;
 
 const { title, description, keywords } = Astro.props;
 
-
-const METATITLE = title ?? siteName;
+const METATITLE = title ? `${title} - ${siteName}` : siteName;
 const METAIMAGE = image;
 const METADESCRIPTION = description;
 const METAKEYWORDS =
