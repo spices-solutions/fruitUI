@@ -48,12 +48,17 @@ jobs:
 
       - name: Build
         run: pnpm build
-      - name: Publish
-        uses: cloudflare/pages-action@1
+      # - name: Publish
+      #   uses: cloudflare/pages-action@1
+      #   with:
+      #     apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      #     accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      #     projectName: "fruit-ui" # e.g. 'my-project'
+      #     directory: "apps/docs/dist" # e.g. 'dist'
+      #     gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+      #     branch: main
+      
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: "fruit-ui" # e.g. 'my-project'
-          directory: "apps/docs/dist" # e.g. 'dist'
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-          branch: main
+          folder: "apps/docs/dist"
