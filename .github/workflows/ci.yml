@@ -30,6 +30,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
             node-version: 21.1.0
+            cache: 'pnpm'
             
       - name: Setup pnpm environment
         uses: pnpm/action-setup@v2
@@ -48,7 +49,8 @@ jobs:
 
       - name: Build
         run: pnpm build
-      # - name: Publish
+        
+      # - name: deploy to cloudflare
       #   uses: cloudflare/pages-action@1
       #   with:
       #     apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -58,8 +60,8 @@ jobs:
       #     gitHubToken: ${{ secrets.GITHUB_TOKEN }}
       #     branch: main
       
-      - name: Deploy 🚀
+      - name: Deploy to github pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: "apps/docs/dist"
-          token: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
