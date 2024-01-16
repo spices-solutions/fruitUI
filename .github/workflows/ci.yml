@@ -62,3 +62,4 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: "apps/docs/dist"
+          token: ${{ secrets.GITHUB_TOKEN }}
