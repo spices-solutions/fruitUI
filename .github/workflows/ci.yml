@@ -26,16 +26,17 @@ jobs:
         with:
           fetch-depth: 2
 
+      - name: Setup pnpm environment
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8.10.2
       - name: Setup Node.js environment
         uses: actions/setup-node@v3
         with:
             node-version: 21.1.0
             cache: 'pnpm'
             
-      - name: Setup pnpm environment
-        uses: pnpm/action-setup@v2
-        with:
-          version: 8.10.2
+     
      
             
       - name: Install dependencies
