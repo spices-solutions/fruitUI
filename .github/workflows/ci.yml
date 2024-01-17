@@ -12,6 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+      contents: write
       deployments: write
     name: lint, build & publish
     timeout-minutes: 15
@@ -34,7 +35,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
             node-version: 21.1.0
-            cache: 'pnpm'
+
             
      
      
