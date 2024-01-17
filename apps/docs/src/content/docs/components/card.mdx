@@ -9,7 +9,7 @@ href: /card
 ---
 
 import { Image } from "astro:assets";
-import Tshirt from "../../../assets/imgs/t-shirt.webp";
+import CardImage from "../../../assets/imgs/img_placeholder.png";
 
 <div class="browser-app">
   <div class="header">
@@ -20,13 +20,13 @@ import Tshirt from "../../../assets/imgs/t-shirt.webp";
   <div>
   <div class="prototype p-5">
   <div class="prototype-gap my-5">
-    <div style={{ width: "300px" }} class="card">
+    <div style={{ width: "252px" }} class="card">
       <div class="body">
         <Image
           class="img"
-          width={300}
-          height={300}
-          src={Tshirt}
+          width={250}
+          height={200}
+          src={CardImage}
           alt="man wearing an off white T-shirt "
         />
         <h2 class="title">Heading</h2>
@@ -55,7 +55,6 @@ import Tshirt from "../../../assets/imgs/t-shirt.webp";
   </div>
 </div>
 ```
-
 moving img tag outside body class for another styling 
 
 <div class="browser-app">
@@ -67,12 +66,12 @@ moving img tag outside body class for another styling
   <div>
   <div class="prototype p-5">
   <div class="prototype-gap my-5">
-    <div style={{ width: "300px" }} class="card">
+    <div style={{ width: "252px" }} class="card">
         <Image
           class="img"
-          width={300}
-          height={300}
-          src={Tshirt}
+          width={250}
+          height={200}
+          src={CardImage}
           alt="man wearing an off white T-shirt "
         />
       <div class="body">

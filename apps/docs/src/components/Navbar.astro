@@ -11,7 +11,7 @@ const { navbar } = WathqnyConfig;
   <a href="/">
     <div class="wtq-brand">
       <Image alt="fruitUI logo, an beautiful orange with a gradient background"  
-      width={40} height={40} src={navbar?.brand.logo as string}/>
+      width={40} height={40} src={navbar?.brand.logo as string} fetchpriority="low"/>
       <span>{navbar?.brand.name}</span>
     </div>
   </a>
