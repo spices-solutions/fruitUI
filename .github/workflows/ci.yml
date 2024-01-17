@@ -66,3 +66,4 @@ jobs:
         with:
           folder: "apps/docs/dist"
           token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages
