@@ -1,80 +1,80 @@
-name: CI
-env:
-  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-on:
-  workflow_dispatch:
+# name: CI
+# env:
+#   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+#   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+# on:
+#   workflow_dispatch:
 
-  push:
-    branches: ["master"]
+#   push:
+#     branches: ["master"]
 
-jobs:
+# jobs:
   
-  build:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pull-requests: write
-      deployments: write
-    name: lint, build & publish
-    timeout-minutes: 15
-    # To use Remote Caching, uncomment the next lines and follow the steps below.
-    # env:
-    #  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
-    #  TURBO_TEAM: ${{ vars.TURBO_TEAM }}
+#   build:
+#     runs-on: ubuntu-latest
+#     permissions:
+#       contents: write
+#       pull-requests: write
+#       deployments: write
+#     name: lint, build & publish
+#     timeout-minutes: 15
+#     # To use Remote Caching, uncomment the next lines and follow the steps below.
+#     # env:
+#     #  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+#     #  TURBO_TEAM: ${{ vars.TURBO_TEAM }}
 
-    steps:
-      - name: Check out code
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 2
+#     steps:
+#       - name: Check out code
+#         uses: actions/checkout@v3
+#         with:
+#           fetch-depth: 2
 
-      - name: Setup pnpm environment
-        uses: pnpm/action-setup@v2
-        with:
-          version: 8.10.2
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v3
-        with:
-            node-version: 21.1.0
+#       - name: Setup pnpm environment
+#         uses: pnpm/action-setup@v2
+#         with:
+#           version: 8.10.2
+#       - name: Setup Node.js environment
+#         uses: actions/setup-node@v3
+#         with:
+#             node-version: 21.1.0
 
             
      
      
             
-      - name: Install dependencies
-        run: pnpm install
+#       - name: Install dependencies
+#         run: pnpm install
 
-      # - name: lint
-      #   run: pnpm lint
+#       # - name: lint
+#       #   run: pnpm lint
 
-      # - name: Publish
-      #   run: pnpm publish
+#       # - name: Publish
+#       #   run: pnpm publish
 
-      - name: Build
-        run: pnpm build
+#       - name: Build
+#         run: pnpm build
         
-      # - name: deploy to cloudflare
-      #   uses: cloudflare/pages-action@1
-      #   with:
-      #     apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-      #     accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-      #     projectName: "fruit-ui" # e.g. 'my-project'
-      #     directory: "apps/docs/dist" # e.g. 'dist'
-      #     gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-      #     branch: main
+#       # - name: deploy to cloudflare
+#       #   uses: cloudflare/pages-action@1
+#       #   with:
+#       #     apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+#       #     accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+#       #     projectName: "fruit-ui" # e.g. 'my-project'
+#       #     directory: "apps/docs/dist" # e.g. 'dist'
+#       #     gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+#       #     branch: main
       
-      # - name: Deploy to github pages
-      #   uses: JamesIves/github-pages-deploy-action@v4.3.3
-      #   with:
-      #     folder: "apps/docs/dist"
-      #     token: ${{ secrets.GITHUB_TOKEN }}
-      #     branch: gh-pages
+#       # - name: Deploy to github pages
+#       #   uses: JamesIves/github-pages-deploy-action@v4.3.3
+#       #   with:
+#       #     folder: "apps/docs/dist"
+#       #     token: ${{ secrets.GITHUB_TOKEN }}
+#       #     branch: gh-pages
       
-      - name: Deploy to github pages
-        run: pnpm install --global vercel@latest
-      # - name: Pull Vercel Environment Information
-      #   run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
+#       - name: Deploy to github pages
+#         run: pnpm install --global vercel@latest
+#       # - name: Pull Vercel Environment Information
+#       #   run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
      
-      - name: Deploy Project Artifacts to Vercel
-        run: vercel --cwd "apps/docs/dist" --token=${{ secrets.VERCEL_TOKEN }}
+#       - name: Deploy Project Artifacts to Vercel
+#         run: vercel --cwd "apps/docs/dist" --token=${{ secrets.VERCEL_TOKEN }}
