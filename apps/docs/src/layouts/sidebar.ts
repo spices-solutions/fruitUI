@@ -30,22 +30,23 @@ categoryItems.forEach((categoryItem) => {
 			categoryItem?.classList.remove("wtq-active");
 			collapse?.classList.remove("wtq-active");
 		} else {
-      // biome-ignore lint/complexity/noForEach: <explanation>
+			// biome-ignore lint/complexity/noForEach: <explanation>
 			categoryItemLinks.forEach((categoryItemLink) => {
-        categoryItemLink.removeAttribute("tabindex");
+				categoryItemLink.removeAttribute("tabindex");
 			});
-      collapse?.classList.remove("wtq-active");
+			collapse?.classList.remove("wtq-active");
 			collapse.style.maxHeight = `${collapse.scrollHeight}px`;
 			icon?.classList.add("wtq-active");
 			categoryItem?.classList.add("wtq-active");
 		}
 	});
 
-  
-  if (categoryItem.classList.contains("wtq-active")) {
-			collapse.style.maxHeight = `${collapse.scrollHeight}px`;
-  }
+	if (categoryItem.classList.contains("wtq-active")) {
+		collapse.style.maxHeight = `${collapse.scrollHeight}px`;
+	}
 });
+
+
 
 // biome-ignore lint/complexity/noForEach: <explanation>
 sidebarBtn.forEach((button) => {
