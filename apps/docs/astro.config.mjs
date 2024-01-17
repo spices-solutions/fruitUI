@@ -9,7 +9,6 @@ import purgecss from "astro-purgecss";
 
 // https://astro.build/config
 export default defineConfig({
-   base: '/fruitUI',
   site: "https://spices-solutions.github.io",
   integrations: [mdx({
     optimize: true,
