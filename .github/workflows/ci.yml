@@ -12,7 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      contents: write
       deployments: write
     name: lint, build & publish
     timeout-minutes: 15
