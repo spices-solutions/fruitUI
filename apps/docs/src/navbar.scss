@@ -1,5 +1,0 @@
-@use "../../../packages/fruitui/src/scss/lib/import/basket" as * with (
-  $base: true,
-);
-
-@include navbarBase();

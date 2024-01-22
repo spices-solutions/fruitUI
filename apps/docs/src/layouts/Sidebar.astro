@@ -8,6 +8,7 @@ const docs = await getCollection("docs");
 const { sidebar } = WathqnyConfig;
 
 docs.sort((a, b) => (a.data.position > b.data.position ? 1 : -1));
+
 let cutUrl =
   "/" +
   Astro.url.pathname
@@ -18,12 +19,6 @@ let cutUrl =
       }
     })
     .reverse()[0];
-const addActivePageLoad = (category) => {
-  return docs.map(
-    (doc) =>
-      doc.data.href == cutUrl && doc.data.category == category && " wtq-active "
-  );
-};
 ---
 
 <aside class="wtq-sidebar">
@@ -47,18 +42,32 @@ const addActivePageLoad = (category) => {
       </li>
       {
         sidebar?.map((category) => {
+          let ActiveClass = false;
+          docs.map((doc) => {
+            if (doc.data.href == cutUrl && doc.data.category == category) {
+              ActiveClass = true;
+            }
+          });
           return (
-            <li class={`${addActivePageLoad(category)}`} role="tab">
+            <li class:list={[{ "wtq-active": ActiveClass }]} role="tab">
               <button
                 aria-expanded="false"
                 tabindex="0"
-                class={`wtq-sidebar-category-link ${addActivePageLoad(category)}`}
+                class:list={[
+                  "wtq-sidebar-category-link",
+                  { "wtq-active": ActiveClass },
+                ]}
                 id={`${category.toLowerCase()}-category`}>
                 {category.replace("-", " ")} <ArrowIcon />
               </button>
               <ul
-                class={`wtq-sidebar-category-collapse ${addActivePageLoad(category)}`}
-                aria-labelledby={`${category.toLowerCase()}-category`}>
+                aria-labelledby={`${category.toLowerCase()}-category`}
+                class:list={[
+                  "wtq-sidebar-category-collapse",
+                  { "wtq-active": ActiveClass },
+                ]}
+                // style={`max-height: 0px;`}
+                >
                 {docs.map((doc) => {
                   return (
                     doc.data.category == category && (
@@ -67,9 +76,7 @@ const addActivePageLoad = (category) => {
                           tabindex="-1"
                           class="wtq-doc-link"
                           href={
-                            "/docs/" +
-                            category.toLowerCase() +
-                            doc.data.href
+                            "/docs/" + category.toLowerCase() + doc.data.href
                           }>
                           {doc.data.title}
                         </a>

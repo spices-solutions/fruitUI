@@ -17,10 +17,7 @@ export interface Props {
 
 const { code, lang = "plaintext", theme = "dark-plus" } = Astro.props;
 
-const shiki = await getHighlighter({
-  themes: [theme],
-  langs: [lang],
-});
+const shiki = await getHighlighter({ themes: [theme], langs: [lang] });
 
 const codeOutput = shiki.codeToHtml(code, {
   lang: lang as string,
@@ -30,17 +27,13 @@ const codeOutput = shiki.codeToHtml(code, {
 const bg = shiki.getTheme(theme).bg;
 ---
 
-<style define:vars={{ bg }}>
-  .code.app {
-    background-color: var(--bg);
-  }
-</style>
+<style define:vars={{ bg }}></style>
 
-<div class="code app dark">
-  <div class="header">
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
+<div style={`display: flex; flex-direction: column; border-radius: 10px; box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.05), 0 8px 10px -6px rgb(0 0 0 / 0.1); margin: 20px 0; background: var(--bg); overflow-x: auto; `}>
+  <div style={`display: flex; padding: 20px 20px 0; gap: 10px;`}>
+    <span style={`width: 15px; height: 15px; border-radius: 50%; background-color: #ed6b60;`}></span>
+    <span style={`width: 15px; height: 15px; border-radius: 50%; background-color: #f5be4f;`}></span>
+    <span style={`width: 15px; height: 15px; border-radius: 50%; background-color: #62c554;`}></span>
   </div>
   <Fragment set:html={codeOutput} />
 </div>

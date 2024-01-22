@@ -40,10 +40,6 @@ categoryItems.forEach((categoryItem) => {
 			categoryItem?.classList.add("wtq-active");
 		}
 	});
-
-	if (categoryItem.classList.contains("wtq-active")) {
-		collapse.style.maxHeight = `${collapse.scrollHeight}px`;
-	}
 });
 
 

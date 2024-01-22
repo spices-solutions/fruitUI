@@ -1,27 +1,15 @@
-.dark .wtq-sidebar {
-  background-color: var(--accent-50);
-}
-
 .wtq-sidebar {
-  transition:
-    all 400ms,
-    color 0ms,
-    background-color 0ms ease;
   display: flex;
   flex-direction: column;
   border-right: solid 1px var(--sidebar-border-color);
   width: 250px;
   padding: 5px;
-  background-color: white;
+  background-color: var(--body-background);
   text-overflow: clip;
-* {
-  transition: all 500ms
-  linear( 0 0%, 0 1.8%, 0.01 3.6%, 0.03 6.35%, 0.07 9.1%, 0.13 11.4%, 0.19 13.4%, 0.27 15%, 0.34 16.1%, 0.54 18.35%, 0.66 20.6%, 0.72 22.4%, 0.77 24.6%, 0.81 27.3%, 0.85 30.4%, 0.88 35.1%, 0.92 40.6%, 0.94 47.2%, 0.96 55%, 0.98 64%, 0.99 74.4%, 1 86.4%, 1 100%);
-
-}
   .wtq-active {
     max-height: 100% !important;
   }
+
   &.wtq-sidebar-active {
     opacity: 0;
     pointer-events: none;
@@ -30,15 +18,17 @@
     overflow: hidden;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1000px) {
     transform: translateX(-100%);
     position: absolute;
     top: 0;
     left: 0;
+
     .wtq-sidebar-toggle {
       margin-inline-start: 15px;
       display: flex !important;
     }
+
     &.wtq-sidebar-active {
       opacity: 100%;
       pointer-events: all;
@@ -50,15 +40,21 @@
       transform: translateX(0%);
     }
   }
+
   .wtq-sidebar-toggle {
     display: none;
   }
-  > div {
+
+  >div {
     height: 100vh;
+
     .wtq-sidebar-category {
       margin-top: 15px;
       list-style: none;
+
       .wtq-sidebar-category-collapse {
+        transition: max-height 450ms cubic-bezier(0.2, 0.0, 0, 1.0), color 0ms;
+
         will-change: max-height, height, overflow;
         overflow: hidden;
         max-height: 0px;
@@ -67,24 +63,29 @@
       li {
         display: flex;
         flex-direction: column;
+
         .wtq-doc-list-item {
           @media screen and (max-width: 768px) {
             padding-inline-start: 20px;
           }
+
           padding-inline-start: 10px;
           display: flex;
+
           .wtq-doc-link {
             @media screen and (max-width: 768px) {
               padding: 8px 0.6rem;
               font-size: 1rem;
             }
+
             outline: none;
             border-radius: 8px;
             font-size: 0.8rem;
             font-weight: 500;
             padding: 5px 0.6rem;
             width: 100%;
-            color: var(--accent-500);
+            color: var(--accent-600);
+
             &:hover,
             &:focus {
               color: var(--accent-700);
@@ -92,7 +93,11 @@
             }
           }
         }
+
         .wtq-sidebar-category-link {
+          letter-spacing: .3pt;
+          font-kerning: none;
+          font-optical-sizing: none;
           background-color: transparent;
           border: 0;
           user-select: none;
@@ -100,17 +105,19 @@
           display: flex;
           width: 100%;
           color: var(--accent-700);
+          padding: 5px 0.6rem;
+          align-items: center;
+          border-radius: 8px;
+          font-weight: 650;
+          cursor: pointer;
+          font-size: 0.875rem;
+          outline: none;
+
           @media screen and (max-width: 768px) {
             padding: 12px 1rem;
             font-size: 1.1rem;
           }
-          padding: 5px 0.6rem;
-          align-items: center;
-          border-radius: 8px;
-          font-weight: 600;
-          cursor: pointer;
-          font-size: 0.875rem;
-          outline: none;
+
           &:hover,
           &:focus-visible {
             background-color: var(--background-hover);

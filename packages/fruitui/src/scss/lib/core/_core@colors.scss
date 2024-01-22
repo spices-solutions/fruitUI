@@ -121,7 +121,7 @@ $white: $gray-200 !default;
   color: var(--theme-color-fg);
   border: 0; 
   border: $border-thickness solid var(--theme-color-br);
-  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 4px -5px #00000030;
   background-color: var(--theme-color-bg);
   border-radius: $border-radius;
 }

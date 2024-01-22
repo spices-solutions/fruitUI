@@ -4,8 +4,26 @@
   margin-left: auto;
   margin-right: auto;
   width: 100%;
-  max-width: 1200px;
-  // max-width: 400px;
+
+  @media screen and (min-width: 600px) {
+    max-width: 550px;
+  }
+
+  @media screen and (min-width: 850px) {
+    max-width: 700px;
+  }
+
+  @media screen and (min-width: 1000px) {
+    max-width: 650px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    max-width: 900px;
+  }
+
+  @media screen and (min-width: 1500px) {
+    max-width: 1200px;
+  }
 }
 
 $accent-20: rgb(254, 254, 254) !default;
@@ -33,7 +51,6 @@ $font-xs: 1rem;
   font-family: "Inter";
   font-weight: 100 900;
   src: url("/font/InterVariable.woff2") format("woff2");
-  font-display: optional;
 }
 
 :root {
@@ -44,38 +61,73 @@ $font-xs: 1rem;
   --font-md: #{$font-md};
   --font-sm: #{$font-sm};
   --font-xs: #{$font-xs};
-  --accent-20: #{$accent-20};
-  --accent-50: #{$accent-50};
-  --accent-100: #{$accent-100};
-  --accent-200: #{$accent-200};
-  --accent-300: #{$accent-300};
-  --accent-400: #{$accent-400};
-  --accent-500: #{$accent-500};
-  --accent-600: #{$accent-600};
-  --accent-700: #{$accent-700};
-  --accent-800: #{$accent-800};
-  --accent-900: #{$accent-900};
-  --accent-950: #{$accent-950};
-  --background-hover: #00000010;
-  --sidebar-border-color: #{rgba($accent-900, 0.2)};
-}
+  color: var(--accent-900);
+  background-color: var(--body-background);
+  color-scheme: light dark;
 
-.dark {
-  color-scheme: dark;
-  --accent-50: #{$accent-900};
-  --accent-20: #{$accent-800};
-  --accent-100: #{$accent-800};
-  --accent-200: #{$accent-700};
-  --accent-300: #{$accent-600};
-  --accent-400: #{$accent-500};
-  --accent-500: #{$accent-400};
-  --accent-600: #{$accent-300};
-  --accent-700: #{$accent-200};
-  --accent-800: #{$accent-100};
-  --accent-900: #{$accent-50};
-  --background-hover: #ffffff10;
-  --sidebar-border-color: #{rgba($accent-200, 0.2)};
-  background-color: var(--accent-50);
+  &.light {
+    color-scheme: light;
+    --accent-20: #{$accent-20};
+    --accent-50: #{$accent-50};
+    --accent-100: #{$accent-100};
+    --accent-200: #{$accent-200};
+    --accent-300: #{$accent-300};
+    --accent-400: #{$accent-400};
+    --accent-500: #{$accent-500};
+    --accent-600: #{$accent-600};
+    --accent-700: #{$accent-700};
+    --accent-800: #{$accent-800};
+    --accent-900: #{$accent-900};
+    --accent-950: #{$accent-950};
+    --background-hover: #00000010;
+    --body-background: white;
+    --navbar-background: white;
+
+    --sidebar-border-color: #{rgba($accent-900, 0.2)};
+  }
+
+  @media (prefers-color-scheme: light) {
+
+    --accent-20: #{$accent-20};
+    --accent-50: #{$accent-50};
+    --accent-100: #{$accent-100};
+    --accent-200: #{$accent-200};
+    --accent-300: #{$accent-300};
+    --accent-400: #{$accent-400};
+    --accent-500: #{$accent-500};
+    --accent-600: #{$accent-600};
+    --accent-700: #{$accent-700};
+    --accent-800: #{$accent-800};
+    --accent-900: #{$accent-900};
+    --accent-950: #{$accent-950};
+    --background-hover: #00000010;
+    --body-background: white;
+    --navbar-background: white;
+
+    --sidebar-border-color: #{rgba($accent-900, 0.2)};
+
+  }
+
+  @media (prefers-color-scheme: dark) {
+    color-scheme: dark;
+    --accent-50: #{$accent-900};
+    --accent-20: #{$accent-800};
+    --accent-100: #{$accent-800};
+    --accent-200: #{$accent-700};
+    --accent-300: #{$accent-600};
+    --accent-400: #{$accent-500};
+    --accent-500: #{$accent-400};
+    --accent-600: #{$accent-300};
+    --accent-700: #{$accent-200};
+    --accent-800: #{$accent-100};
+    --accent-900: #{$accent-50};
+    --background-hover: #ffffff10;
+    --body-background: #{$accent-900};
+    --navbar-background: #252529;
+
+    --sidebar-border-color: #{rgba($accent-50, 0.2)};
+  }
+
 }
 
 *,
@@ -86,11 +138,9 @@ $font-xs: 1rem;
 
 html,
 body {
+  overflow-x: hidden;
   line-height: 1.5;
-
-  color-scheme: light;
   scroll-behavior: smooth;
-  color: var(--accent-900);
   font-size: 20px;
   height: 100%;
   font-family:
@@ -105,7 +155,7 @@ body {
     Cantarell,
     "Open Sans",
     "Helvetica Neue",
-    sans-serif;
+    sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: none;
   -moz-text-size-adjust: none;
@@ -132,6 +182,11 @@ pre {
   font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo,
     monospace;
   font-size: 1em;
+}
+
+pre {
+  padding: 15px 20px;
+  border-radius: 10px;
 }
 
 sub,
@@ -171,6 +226,7 @@ button,
 [type="reset"],
 [type="submit"] {
   -webkit-appearance: button;
+  appearance: button;
 }
 
 button,
@@ -198,14 +254,17 @@ ol {
   padding: 0;
 }
 
-p,
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  overflow-wrap: break-word;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
 }
 
 #root,
@@ -216,46 +275,52 @@ h6 {
 a {
   color: inherit;
   text-decoration: none;
+
   &:focus-visible {
     text-decoration: underline;
   }
 }
 
 hr {
-  border: 1px soild #dadada;
+  border: 1px solid #dadada;
 }
 
-// type scaling baesed on 1.333 – Perfect Fourth
+// type scaling based on 1.333 – Perfect Fourth
 .h1,
 h1 {
   margin: 3rem 0 0.5rem;
   line-height: 1.1;
   font-size: 2.986rem;
 }
+
 .h2,
 h2 {
   margin: 2rem 0 0.5rem;
   line-height: 1.25;
   font-size: 2.488rem;
 }
+
 .h3,
 h3 {
   margin: 2rem 0 0.5rem;
   line-height: 1.3;
   font-size: 2.074rem;
 }
+
 .h4,
 h4 {
   line-height: 1.4;
   font-size: 1.728rem;
   margin: 2rem 0 1rem;
 }
+
 .h5,
 h5 {
   font-size: 1.44rem;
   line-height: 1.5;
   margin: 2rem 0 1rem;
 }
+
 .h6,
 h6 {
   margin: 2rem 0 1rem;
@@ -287,6 +352,7 @@ h3,
 h4 {
   font-weight: 700;
 }
+
 .h5,
 h5,
 .h6,
@@ -299,6 +365,7 @@ h6 {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {

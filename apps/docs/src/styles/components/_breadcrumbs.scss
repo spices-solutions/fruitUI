@@ -5,6 +5,7 @@
   margin-bottom: 20px;
   display: flex;
   align-items: center;
+  color: var(--accent-800);
   list-style: none;
   li {
     align-items: center;
@@ -19,7 +20,7 @@
     gap: 5px;
     border-radius: 8px;
     cursor: pointer;
-    color: var(--accent-800);
+    color: var(--accent-600);
     &:hover,
     &:focus-visible {
       outline: none;

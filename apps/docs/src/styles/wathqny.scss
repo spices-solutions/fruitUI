@@ -26,22 +26,27 @@ $prefix: "wtq";
   margin: 50px 0;
   border-radius: 10px;
 }
+
 .browser-app .header {
   display: flex;
   padding: 15px 20px;
   gap: 10px;
 }
+
 .browser-app .header .dot {
   width: 15px;
   height: 15px;
   border-radius: 50%;
 }
+
 .browser-app .header .dot:nth-child(1) {
   background-color: #ed6b60;
 }
+
 .browser-app .header .dot:nth-child(2) {
   background-color: #f5be4f;
 }
+
 .browser-app .header .dot:nth-child(3) {
   background-color: #62c554;
 }
@@ -68,6 +73,7 @@ $prefix: "wtq";
   clip: auto;
   white-space: normal;
 }
+
 .dark #skip {
   &:focus-visible {
     background-color: $accent-800;
@@ -77,29 +83,52 @@ $prefix: "wtq";
 
 #skip {
   @extend .sr-only;
+
   &:focus-visible {
     outline: none;
     z-index: 9999;
     position: absolute;
     display: block;
     background-color: $accent-50;
-    padding: 20px;
-    border-radius: 20px;
-    border: 1px solid $accent-400;
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: 1px solid $accent-300;
+    box-shadow: 0 8px 2px -6px #00000021;
     left: 20px;
     top: 20px;
     @extend .sr-not-only;
   }
 }
+
 .wtq-card-container {
   display: grid;
-  gap: 10px;
+  gap: 1.3rem;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  // grid-template-rows: repeat(1, 1fr);
   @media screen and (max-width: 768px) {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
+
   margin-top: 30px;
+
   .wtq-card {
+    height: 100%;
+    border: 1px solid var(--accent-200);
+    background-color: var(--accent-20);
+    border-radius: 20px;
+    transition: all 200ms ease;
+    padding: 25px;
+    box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.08);
+
+    .dark & {
+      border-color: var(--accent-20);
+    }
+
+    &:hover {
+      transform: translateY(-3%);
+    }
+
     .wtq-card-title {
       color: var(--accent-800);
       font-weight: 600;
@@ -107,28 +136,17 @@ $prefix: "wtq";
       font-size: var(--font-md);
       margin: 0;
     }
+
     .wtq-card-subtitle {
-      margin: 10px 0 0px;
+      margin: 0;
       color: var(--accent-700);
       font-weight: 400;
       letter-spacing: 0.3pt;
       font-size: var(--font-xs);
     }
-    border: 1px solid var(--accent-200);
-    background-color: var(--accent-20);
-    border-radius: 10px;
-    transition: all 200ms ease;
-    padding: 25px;
-    box-shadow:
-      0 10px 25px -5px rgb(0 0 0 / 0.05),
-      0 8px 10px -6px rgb(0 0 0 / 0.1);
-    &:hover {
-      box-shadow:
-        0 10px 20px 0px rgb(0 0 0 / 0.07),
-        0 8px 20px -3px rgb(0 0 0 / 0.1);
-    }
   }
 }
+
 .wtq-sidebar-toggle {
   padding: 0 5px;
   margin: 15px 0px;

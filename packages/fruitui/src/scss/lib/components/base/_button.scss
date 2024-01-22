@@ -5,7 +5,6 @@
     font-size: $font-xs;
     transition: all 0.1s ease-in;
     padding: $spacing-4 $spacing-9;
-    will-change: transform;
     &:active {
       transform: scale(0.95);
     }

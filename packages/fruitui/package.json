@@ -5,7 +5,8 @@
   "description": "a modular styling framework",
   "type": "module",
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "main": "./dist/index.iife.js",
   "module": "./dist/index.js",
