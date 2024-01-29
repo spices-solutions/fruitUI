@@ -7,13 +7,47 @@ $prefix: "wtq";
 @import "./components/table";
 @import "./layout/sidebar";
 
+.wtq-page {
+  display: flex;
+  height: 100%;
+}
+
+.wtq-container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+
+  @media screen and (min-width: 600px) {
+    max-width: 550px;
+  }
+
+  @media screen and (min-width: 850px) {
+    max-width: 700px;
+  }
+
+  @media screen and (min-width: 1000px) {
+    max-width: 650px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    max-width: 900px;
+  }
+
+  @media screen and (min-width: 1500px) {
+    max-width: 1200px;
+  }
+}
+
+
 .wtq-main-heading {
   margin-top: 10px;
   margin-bottom: 10px;
   text-transform: capitalize;
 }
 
-:is(html, body).dark .browser-app {
+.dark .browser-app {
   background-color: $accent-100;
 }
 
@@ -155,4 +189,10 @@ $prefix: "wtq";
   cursor: pointer;
   background-color: transparent;
   color: var(--accent-800);
+}
+
+.wtq-content {
+  overflow-y: auto;
+  width: 100%;
+  margin-bottom: 50px;
 }

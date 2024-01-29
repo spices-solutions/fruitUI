@@ -5,6 +5,7 @@ import "../styles/docs.scss";
 import "../styles/wathqny.scss";
 
 import WathqnyConfig from "../wathqny.config";
+import { ViewTransitions } from "astro:transitions";
 
 interface Props {
   title: string;
@@ -61,18 +62,22 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
   <title>{METATITLE}</title>
 
+
   <script is:inline>
-    const root = document.querySelector(":root");
+    function DarkMode() {
+      const root = document.querySelector(":root");
 
-    if (
-      localStorage.theme === "dark" ||
-      (!("theme" in localStorage) &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches)
-    ) {
-      root?.classList.replace("light", "dark");
-    } else {
-      root?.classList.replace("dark", "light");
+      if (
+        localStorage.theme === "dark" ||
+        (!("theme" in localStorage) &&
+        document.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        root?.classList.replace("light", "dark");
+      } else {
+        root?.classList.replace("dark", "light");
+      }
     }
-
+    DarkMode()
+    document.addEventListener("astro:after-swap", DarkMode);
   </script>
 </head>
