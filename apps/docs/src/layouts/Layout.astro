@@ -19,9 +19,11 @@ const { title, description, keywords, sidebar } = Astro.props;
     <a id="skip" href="#main-content">skip to the main content</a>
     <Navbar />
     <div class="wtq-page">
-      {sidebar && <Sidebar />}
-      <div class="wtq-container">
-        <slot />
+      {sidebar && <Sidebar transition:persist />}
+      <div class="wtq-content">
+        <div class="wtq-container" transition:animate="slide">
+          <slot />
+        </div>
       </div>
     </div>
   </body>

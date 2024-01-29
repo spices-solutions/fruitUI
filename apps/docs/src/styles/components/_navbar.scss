@@ -121,7 +121,8 @@
       padding: 10px;
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: end;
+      transition: all ease 200ms;
       flex-direction: column;
       background-color: transparent;
       border: 0;
@@ -130,12 +131,17 @@
 
       &::before,
       &::after {
+        transition: inherit;
         background-color: currentColor;
         content: "";
         display: block;
         width: 30px;
         height: 3px;
         border-radius: 10px;
+      }
+      &:hover::after  {
+        width: 20px;
+
       }
     }
 
@@ -158,10 +164,6 @@
       li {
         padding: 10px;
         background-color: inherit;
-
-        &:hover {
-          filter: brightness(1.1);
-        }
       }
     }
   }

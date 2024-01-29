@@ -13,7 +13,7 @@ const { sidebar } = WathqnyConfig;
   <main class="anim-slide-botto" id="main-content">
     <div class="wtq-card-container">
       {
-        sidebar.map((doc) => {
+        sidebar?.map((doc) => {
           return (
             <a href={"/docs/" + doc.toLowerCase()}>
               <div class="wtq-card">

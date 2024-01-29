@@ -6,6 +6,38 @@
   padding: 5px;
   background-color: var(--body-background);
   text-overflow: clip;
+  padding-bottom: 50px;
+
+  .wtq-collapse-button {
+    letter-spacing: .3pt;
+    font-kerning: none;
+    font-optical-sizing: none;
+    background-color: transparent;
+    border: 0;
+    user-select: none;
+    justify-content: space-between;
+    display: flex;
+    width: 100%;
+    color: var(--accent-700);
+    padding: 5px 0.6rem;
+    justify-content: center;
+    border-radius: 8px;
+    font-weight: 650;
+    cursor: pointer;
+    font-size: 0.875rem;
+    outline: none;
+
+    @media screen and (max-width: 768px) {
+      padding: 12px 1rem;
+      font-size: 1.1rem;
+    }
+
+    &:hover,
+    &:focus-visible {
+      background-color: var(--background-hover);
+    }
+  }
+
   .wtq-active {
     max-height: 100% !important;
   }
@@ -45,94 +77,92 @@
     display: none;
   }
 
-  >div {
+
+  .wtq-sidebar-category {
+    margin-top: 15px;
     height: 100vh;
+    list-style: none;
 
-    .wtq-sidebar-category {
-      margin-top: 15px;
-      list-style: none;
+    .wtq-sidebar-category-collapse {
+      transition: max-height 450ms cubic-bezier(0.2, 0.0, 0, 1.0), color 0ms;
 
-      .wtq-sidebar-category-collapse {
-        transition: max-height 450ms cubic-bezier(0.2, 0.0, 0, 1.0), color 0ms;
+      will-change: max-height, height, overflow;
+      overflow: hidden;
+      max-height: 0px;
+    }
 
-        will-change: max-height, height, overflow;
-        overflow: hidden;
-        max-height: 0px;
-      }
+    li {
+      display: flex;
+      flex-direction: column;
 
-      li {
-        display: flex;
-        flex-direction: column;
-
-        .wtq-doc-list-item {
-          @media screen and (max-width: 768px) {
-            padding-inline-start: 20px;
-          }
-
-          padding-inline-start: 10px;
-          display: flex;
-
-          .wtq-doc-link {
-            @media screen and (max-width: 768px) {
-              padding: 8px 0.6rem;
-              font-size: 1rem;
-            }
-
-            outline: none;
-            border-radius: 8px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            padding: 5px 0.6rem;
-            width: 100%;
-            color: var(--accent-600);
-
-            &:hover,
-            &:focus {
-              color: var(--accent-700);
-              background-color: var(--background-hover);
-            }
-          }
+      .wtq-doc-list-item {
+        @media screen and (max-width: 768px) {
+          padding-inline-start: 20px;
         }
 
-        .wtq-sidebar-category-link {
-          letter-spacing: .3pt;
-          font-kerning: none;
-          font-optical-sizing: none;
-          background-color: transparent;
-          border: 0;
-          user-select: none;
-          justify-content: space-between;
-          display: flex;
-          width: 100%;
-          color: var(--accent-700);
-          padding: 5px 0.6rem;
-          align-items: center;
-          border-radius: 8px;
-          font-weight: 650;
-          cursor: pointer;
-          font-size: 0.875rem;
-          outline: none;
+        padding-inline-start: 10px;
+        display: flex;
 
+        .wtq-doc-link {
           @media screen and (max-width: 768px) {
-            padding: 12px 1rem;
-            font-size: 1.1rem;
+            padding: 8px 0.6rem;
+            font-size: 1rem;
           }
+
+          outline: none;
+          border-radius: 8px;
+          font-size: 0.8rem;
+          font-weight: 500;
+          padding: 5px 0.6rem;
+          width: 100%;
+          color: var(--accent-600);
 
           &:hover,
-          &:focus-visible {
+          &:focus {
+            color: var(--accent-700);
             background-color: var(--background-hover);
           }
+        }
+      }
 
-          &.wtq-active .arrow-icon {
-            transform: rotate(-90deg);
-          }
+      .wtq-sidebar-category-link {
+        letter-spacing: .3pt;
+        font-kerning: none;
+        font-optical-sizing: none;
+        background-color: transparent;
+        border: 0;
+        user-select: none;
+        justify-content: space-between;
+        display: flex;
+        width: 100%;
+        color: var(--accent-700);
+        padding: 5px 0.6rem;
+        align-items: center;
+        border-radius: 8px;
+        font-weight: 650;
+        cursor: pointer;
+        font-size: 0.875rem;
+        outline: none;
 
-          .arrow-icon {
-            width: 24px;
-            height: 24px;
-            transition: transform ease 300ms;
-            transform: rotate(90deg);
-          }
+        @media screen and (max-width: 768px) {
+          padding: 12px 1rem;
+          font-size: 1.1rem;
+        }
+
+        &:hover,
+        &:focus-visible {
+          background-color: var(--background-hover);
+        }
+
+        &.wtq-active .arrow-icon {
+          transform: rotate(-90deg);
+        }
+
+        .arrow-icon {
+          width: 24px;
+          height: 24px;
+          transition: transform ease 300ms;
+          transform: rotate(90deg);
         }
       }
     }
