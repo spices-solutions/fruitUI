@@ -24,10 +24,10 @@
   "devDependencies": {
     "@astrojs/ts-plugin": "^1.3.1",
     "astro": "^3.5.0",
-    "shikiji": "^0.6.13",
+    "shikiji": "^0.10.2",
     "typescript": "latest",
-    "vite": "^5.0.10",
-    "vite-plugin-dts": "^3.5.1"
+    "vite": "latest",
+    "vite-plugin-dts": "^3.5.2"
   },
   "scripts": {
     "build": "tsc && vite build"

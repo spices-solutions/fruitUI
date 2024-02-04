@@ -1,6 +1,6 @@
 import rss from '@astrojs/rss';
 import { getCollection } from 'astro:content';
-import Wathqny from "../wathqny.config"
+import Wathqny from "/wathqny.config"
 
 export async function GET(context) {
   const docs = await getCollection('docs');
@@ -11,7 +11,7 @@ export async function GET(context) {
     items: docs.map((doc) => ({
       title: doc.data.title,
       description: doc.data.description,
-      pubDate: doc.data.date,
+      pubDate: doc.data.date,z,
       link: `/docs/${doc.data.category.toLowerCase() + doc.data.href}`,
     })),
   });

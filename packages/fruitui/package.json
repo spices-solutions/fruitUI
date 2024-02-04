@@ -40,7 +40,7 @@
   "devDependencies": {
     "sass": "^1.69.5",
     "typescript": "latest",
-    "vite": "4.5.0",
+    "vite": "latest",
     "vite-plugin-dts": "^3.5.1"
   },
   "bugs": {

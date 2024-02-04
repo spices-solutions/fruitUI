@@ -1,25 +1,14 @@
 ---
-import Navbar from "../components/Navbar.astro";
-import Head from "./Head.astro";
-import Sidebar from "./Sidebar.astro";
-
-interface Props {
-  sidebar: boolean;
-  title: string;
-  description: string;
-  keywords?: string;
-}
-
-const { title, description, keywords, sidebar } = Astro.props;
+import { Navbar } from "wtqdocs";
+import { Head } from "wtqdocs";
 ---
 
 <html xml:lang="en" lang="en" dir="ltr" class="light">
-  <Head title={title} description={description} keywords={keywords} />
+  <Head />
   <body>
     <a id="skip" href="#main-content">skip to the main content</a>
     <Navbar />
     <div class="wtq-page">
-      {sidebar && <Sidebar transition:persist />}
       <div class="wtq-content">
         <div class="wtq-container" transition:animate="slide">
           <slot />

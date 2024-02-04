@@ -1,0 +1,75 @@
+---
+// import { pwaInfo } from "virtual:pwa-info";
+
+import WathqnyConfig from "/wathqny.config";
+
+export interface Props {
+  title?: string;
+  description?: string;
+  keywords?: string;
+}
+
+const { title, keywords, description } = Astro.props;
+
+const METATITLE = title ? `${title} - ${WathqnyConfig.siteName}` : WathqnyConfig.siteName;
+const METAIMAGE = WathqnyConfig.image;
+const METADESCRIPTION = WathqnyConfig.description;
+const METAKEYWORDS =
+  keywords ?? "fruitUI, fruit, ui, css, html, js, framework, library";
+const METAFAVICON = WathqnyConfig.favicon;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+  <meta name="theme-color" content="#FFFFFF" />
+  <meta name="color-scheme" content="dark light" />
+  <link rel="mask-icon" href="/icons/teardmark-225.png" color="#FFFFFF" />
+  <link rel="sitemap" href="/sitemap-index.xml" />
+  <link rel="icon" href={METAFAVICON} type="image/svg+xml" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta name="generator" content={Astro.generator} />
+  <meta name="keywords" content={METAKEYWORDS} />
+  <meta name="description" content={METADESCRIPTION} />
+  <meta property="og:description" content={METADESCRIPTION} />
+  <meta property="og:image" content={METAIMAGE} />
+  <meta property="og:title" content={METATITLE} />
+  <meta property="og:site_name" content={METATITLE} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalURL} /> 
+  <meta name="twitter:title" content={METATITLE} />
+  <meta name="twitter:image" content={METAIMAGE} />
+  <meta name="twitter:description" content={METADESCRIPTION} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href={canonicalURL} />
+  <link
+    rel="preload"
+    href="/font/InterVariable.woff2"
+    as="font"
+    type="font/woff2"
+    crossorigin="anonymous"
+  />
+  <!-- {pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} />} -->
+  <!-- <script src="/src/pwa.ts"></script> -->
+
+  <title>{METATITLE}</title>
+  <script is:inline>
+    function DarkMode() {
+      const root = document.querySelector(":root");
+
+      if (
+        localStorage.theme === "dark" ||
+        (!("theme" in localStorage) &&
+          document.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        root?.classList.replace("light", "dark");
+      } else {
+        root?.classList.replace("dark", "light");
+      }
+    }
+    DarkMode();
+    document.addEventListener("astro:after-swap", DarkMode);
+  </script>
+</head>

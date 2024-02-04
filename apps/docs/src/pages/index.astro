@@ -1,26 +1,10 @@
 ---
-import Layout from "../layouts/Layout.astro";
-
 import { CodeBlock } from "wtqcode";
+import Layout from "~layouts/Layout.astro"
 ---
 
-<Layout sidebar={false} description="fruit UI a modular styling framework">
-  <main id="main-content">
-    <section class="hero">
-      <h1 class="title">
-        FruitUI a modular <br />
-        <span style="color: rgb(200, 56, 233);">styling</span> framework
-      </h1>
-      <h2 class="subtitle">
-        use the components you want,
-        styles you need,
-        <br> the performance you deserve
-      </h2>
-      <div class="get-started flex gap-5">
-        <a href="/docs/getting-started/overview">
-          <button class="btn primary">Get started</button>
-        </a>
-      </div>
-    </section>
-  </main>
+<Layout>
+  <h1>wtq docs say hi!</h1>
+  <CodeBlock  code="print('hello world')" lang="py" />
 </Layout>
+

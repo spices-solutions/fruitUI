@@ -1,0 +1,43 @@
+{
+  "name": "wtqdocs",
+  "version": "0.1.0",
+  "description": "a ",
+  "type": "module",
+  "files": [
+    "src",
+    "./src/components/*",
+    "./src/index.ts"
+  ],
+  "module": "./src/index.ts",
+  "exports": {
+    ".": {
+      "import": "./src/index.ts"
+    },
+    "./components/Head": "./src/components/Head.astro",
+    "./style": "./src/code.css"
+  },
+  "keywords": [
+    "spices",
+    "code",
+    "wathqny"
+  ],
+  "devDependencies": {
+    "@astrojs/ts-plugin": "latest",
+    "astro": "latest",
+    "typescript": "latest",
+    "vite": "latest",
+    "vite-plugin-dts": "^3.5.2"
+  },
+  "scripts": {
+    "build": "tsc && vite build"
+  },
+  "homepage": "http://fruit-ui.vercel.app",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/spices-solutions/"
+  },
+  "bugs": {
+    "url": "https://github.com/spices-solutions/"
+  }
+}

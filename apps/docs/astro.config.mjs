@@ -7,7 +7,6 @@ import compress from "astro-compress";
 import purgecss from "astro-purgecss";
 import metaTags from "astro-meta-tags";
 import lighthouse from "astro-lighthouse";
-
 import icon from "astro-icon";
 
 // https://astro.build/config
