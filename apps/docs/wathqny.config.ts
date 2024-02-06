@@ -5,6 +5,10 @@ interface WathqnyConfigI {
 	favicon?: string;
 	image?: string;
 	sidebar?: string[];
+  darkMode?: boolean;
+	locale?: string;
+  locale_dir: "ltr" | "rtl";
+  cssPath: string[]
 	navbar?: {
 		brand: {
 			name: string;
@@ -19,7 +23,11 @@ const WathqnyConfig: WathqnyConfigI = {
 	favicon: "/icon.svg",
 	image: "/cover.png",
 	description: "fruit UI a modular styling framework",
+	locale: "en",
+  locale_dir: "ltr",
+  darkMode: true,
 	sidebar: ["Getting-started", "Components", "Layout", "Utilities"],
+  cssPath: ["./src/"],
 	navbar: {
 		brand: {
 			logo: "/icon.svg",

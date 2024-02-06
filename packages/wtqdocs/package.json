@@ -28,9 +28,6 @@
     "vite": "latest",
     "vite-plugin-dts": "^3.5.2"
   },
-  "scripts": {
-    "build": "tsc && vite build"
-  },
   "homepage": "http://fruit-ui.vercel.app",
   "license": "MIT",
   "repository": {

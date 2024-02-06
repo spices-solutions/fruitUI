@@ -38,7 +38,8 @@
   }
 }
 
-.#{$prefix}-navbar {
+.wtq-navbar {
+  z-index: 1;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -48,7 +49,7 @@
   background-color: var(--navbar-background);
   box-shadow: 0 10px 10px -8px #27272a26;
 
-  .#{$prefix}-brand {
+  .wtq-brand {
     padding: 3px 5px;
     border-radius: 0.3em;
     font-size: 1.2rem;
@@ -67,11 +68,11 @@
     }
   }
 
-  .#{$prefix}-toggle {
+  .wtq-toggle {
     display: none;
   }
 
-  .#{$prefix}-links {
+  .wtq-links {
     will-change: transform;
     align-items: center;
     list-style: none;
@@ -109,13 +110,13 @@
       height: 100vh;
     }
 
-    &.#{$prefix}-active {
-      .#{$prefix}-links {
+    &.wtq-active {
+      .wtq-links {
         transform: translateX(100%);
       }
     }
 
-    .#{$prefix}-toggle {
+    .wtq-toggle {
       width: 40px;
       height: 40px;
       padding: 10px;
@@ -145,7 +146,7 @@
       }
     }
 
-    .#{$prefix}-links {
+    .wtq-links {
       transition: all 300ms ease;
       padding: 1rem 0px;
       transform: translateX(200%);

@@ -1,0 +1,25 @@
+---
+import  Head  from "./Head.astro";
+import Navbar from "./Navbar.astro";
+import Sidebar from "./Sidebar.astro";
+import  SkipLink  from "./SkipLink.astro";
+
+
+import WathqnyConfig from "/wathqny.config";
+---
+
+<html xml:lang={WathqnyConfig.locale} lang={WathqnyConfig.locale} dir={WathqnyConfig.locale_dir} class="light">
+  <Head />
+  <body>
+    <SkipLink />
+    <Navbar />
+    <div class="wtq-page">
+      <Sidebar />
+      <div class="wtq-content">
+        <div class="wtq-container" transition:animate="slide">
+          <slot />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
