@@ -4,7 +4,7 @@ interface WathqnyConfigI {
 	keywords?: string[];
 	favicon?: string;
 	image?: string;
-	sidebar?: string[];
+	category?: string[];
   darkMode?: boolean;
 	locale?: string;
   locale_dir: "ltr" | "rtl";
@@ -26,7 +26,7 @@ const WathqnyConfig: WathqnyConfigI = {
 	locale: "en",
   locale_dir: "ltr",
   darkMode: true,
-	sidebar: ["Getting-started", "Components", "Layout", "Utilities"],
+	category: ["Getting-started", "Components", "Layout", "Utilities"],
   cssPath: ["./src/"],
 	navbar: {
 		brand: {

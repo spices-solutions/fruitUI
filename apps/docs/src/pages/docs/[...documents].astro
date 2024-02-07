@@ -1,9 +1,6 @@
 ---
-import { getEntry } from "astro:content";
-import Layout from "../../../../../packages/wtqdocs/src/components/Layout.astro";
 import { type CollectionEntry, getCollection } from "astro:content";
-
-import Breadcrumbs from "../../layouts/breadcrumbs.astro";
+import { Breadcrumbs, Layout } from "wtqdocs";
 
 
 export async function getStaticPaths() {
@@ -11,7 +8,7 @@ export async function getStaticPaths() {
 
   return docs.map((doc) => {
     return {
-      params: { id: doc.data.category.toLowerCase() + doc.data.href },
+      params: { documents: doc.data.category.toLowerCase() + doc.data.href },
       props: { doc },
     };
   });
@@ -23,8 +20,6 @@ interface Props {
 
 const { doc } = Astro.props;
 const { authors } = doc.data;
-
-const authorData = await getEntry("authors", authors?.id);
 
 const { Content } = await doc.render();
 ---

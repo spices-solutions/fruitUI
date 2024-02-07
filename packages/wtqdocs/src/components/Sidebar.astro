@@ -5,7 +5,7 @@ import WathqnyConfig from "/wathqny.config";
 
 const docs = await getCollection("docs");
 
-const { sidebar } = WathqnyConfig;
+const { category } = WathqnyConfig;
 
 docs.sort((a, b) => (a.data.position > b.data.position ? 1 : -1));
 
@@ -24,7 +24,7 @@ let cutUrl =
 <aside class="wtq-sidebar">
   <ul class="wtq-sidebar-category" role="tablist">
     {
-      sidebar?.map((category) => {
+      category?.map((category) => {
         let ActiveClass = false;
         docs.map((doc) => {
           if (doc.data.href == cutUrl && doc.data.category == category) {

@@ -14,7 +14,10 @@
       "import": "./src/index.ts"
     },
     "./components/Head": "./src/components/Head.astro",
-    "./style": "./src/code.css"
+    "./style": "./styles/css/wathqny.css"
+  },
+  "scripts": {
+    "dev": "sass -w styles/scss:styles/css "
   },
   "keywords": [
     "spices",

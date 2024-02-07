@@ -2,7 +2,7 @@
 // import { pwaInfo } from "virtual:pwa-info";
 
 import WathqnyConfig from "/wathqny.config";
-import MainStyles from "../../styles/wathqny.scss?url" 
+import MainStyles from "../../../wtqdocs/styles/css/wathqny.css?url" 
 
 export interface Props {
   title?: string;
@@ -56,7 +56,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <!-- <script src="/src/pwa.ts"></script> -->
 
   <title>{METATITLE}</title>
-  <link rel="stylesheet" href={MainStyles}     >
+  <link href={MainStyles}  rel="preload stylesheet" as="style" type="text/css" />
   {
     WathqnyConfig.darkMode && (
         <script is:inline>
