@@ -2,6 +2,8 @@
 import { getCollection } from "astro:content";
 import ArrowIcon from "./ArrowIcon.astro";
 import WathqnyConfig from "/wathqny.config";
+import SidebarScript from "../components/sidebar?url"
+
 
 const docs = await getCollection("docs");
 
@@ -88,5 +90,5 @@ let cutUrl =
     ></button
   >
 
-  <script src="./sidebar.ts"></script>
+  <script defer src={SidebarScript}></script>
 </aside>

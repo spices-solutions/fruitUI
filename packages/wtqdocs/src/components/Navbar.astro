@@ -4,6 +4,8 @@ import { Image } from "astro:assets";
 import WathqnyConfig from "/wathqny.config";
 
 const { navbar } = WathqnyConfig;
+
+import NavbarScript from "../components/navbar?url"
 ---
 
 <nav class="wtq-navbar" role="navigation">
@@ -44,6 +46,6 @@ const { navbar } = WathqnyConfig;
       </button>
     </li>
   </ul>
+  <script defer src={NavbarScript}></script>
 </nav>
 
-<script src="./navbar.ts"></script>

@@ -18,7 +18,7 @@ export default defineConfig({
     shikiConfig: {
       theme: "material-theme"
     }
-  }), partytown(), sitemap(), compress(), purgecss(), AstroPWA({
+  }), /* partytown() ,*/ sitemap(), compress(), purgecss(), AstroPWA({
     experimental: {
       directoryAndTrailingSlashHandler: true
     },

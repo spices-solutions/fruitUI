@@ -14,7 +14,11 @@
       "import": "./src/index.ts"
     },
     "./components/Head": "./src/components/Head.astro",
-    "./style": "./styles/css/wathqny.css"
+    "./style": "./styles/css/wathqny.css",
+    "./script": {
+      "navbar": "./src/components/navbar.ts",
+      "sidebar": "./src/components/sidebar.ts"
+    }
   },
   "scripts": {
     "dev": "sass -w styles/scss:styles/css "
