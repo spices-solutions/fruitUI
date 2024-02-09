@@ -8,17 +8,12 @@ export const docSchema = z
 			.max(160, "it can't be more than 160 charcters")
 			.min(10),
 		href: z.string(),
-		image: z
-			.object({
-				src: z.string(),
-				alt: z.string(),
-			})
-			.default({ src: "./", alt: "this an image" })
+		OGImage: z.string()
+			.default("/og.png")
 			.optional(),
 		category: z.string(),
 		position: z.number().optional(),
 		authors: reference("authors").optional().default("felfel"),
-		date: z.date().transform((str) => new Date(str)).optional(),
 		draft: z.boolean().optional().default(false),
 	})
 	.strict();
@@ -32,17 +27,13 @@ export const docSchema = z
 			.max(160, "it can't be more than 160 charcters")
 			.min(10),
 		href: z.string(),
-		image: z
-			.object({
-				src: z.string(),
-				alt: z.string(),
-			})
-			.default({ src: "./", alt: "this an image" })
+		OGImage: z.string()
+			.default("/og.png")
 			.optional(),
 		tags: z.string(),
 		position: z.number().optional(),
 		authors: reference("authors").default("felfel").optional(),
-		date: z.date().transform((str) => new Date(str)),
+		pubDate: z.date().transform((str) => new Date(str)),
 		draft: z.boolean().optional().default(false),
 	})
 	.strict();

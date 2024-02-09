@@ -113,6 +113,7 @@ $font-xs: 1rem;
 
 html,
 body {
+  word-wrap: break-word;
   overflow: hidden;
   line-height: 1.5;
   scroll-behavior: smooth;

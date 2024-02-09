@@ -16,6 +16,7 @@
     "./components/Head": "./src/components/Head.astro",
     "./style": "./styles/css/wathqny.css",
     "./schema" : "./src/schema.ts",
+    "./blog" : "./src/blog.ts",
     "./script": {
       "navbar": "./src/components/navbar.ts",
       "sidebar": "./src/components/sidebar.ts"
