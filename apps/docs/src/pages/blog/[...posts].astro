@@ -1,0 +1,37 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import { Breadcrumbs, Layout } from "wtqdocs";
+
+
+export async function getStaticPaths() {
+  let posts = await getCollection("blog");
+
+  return posts.map((post) => {
+    return {
+      params: { posts: post.data.tags.toLowerCase() + post.data.href },
+      props: { post },
+    };
+  });
+}
+
+interface Props {
+  post: CollectionEntry<"blog">;
+}
+
+const { post } = Astro.props;
+const { authors } = post.data;
+
+const { Content } = await post.render();
+---
+
+<Layout
+  sidebar={true}
+  title={post.data.title}
+  description={post.data.description}
+  keywords={post.data.title}>
+    <Breadcrumbs/>
+  <main class="anim-slide-botto" id="main-content">
+  <h1 class="wtq-main-heading">{post.data.title}</h1>
+    <Content />
+  </main>
+</Layout>

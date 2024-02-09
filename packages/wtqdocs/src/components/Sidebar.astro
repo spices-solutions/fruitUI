@@ -2,7 +2,6 @@
 import { getCollection } from "astro:content";
 import ArrowIcon from "./ArrowIcon.astro";
 import WathqnyConfig from "/wathqny.config";
-import SidebarScript from "../components/sidebar?url"
 
 
 const docs = await getCollection("docs");
@@ -74,7 +73,7 @@ let cutUrl =
       })
     }
   </ul>
-  <button class="wtq-collapse-button"
+  <button aria-label="expand sidebar toggle" class="wtq-collapse-button"
     ><svg
       xmlns="http://www.w3.org/2000/svg"
       width="24"
@@ -87,8 +86,7 @@ let cutUrl =
         fill="currentColor"
         d="M11.7 17.29a.996.996 0 0 0 0-1.41L7.83 12l3.88-3.88a.996.996 0 1 0-1.41-1.41L5.71 11.3a.996.996 0 0 0 0 1.41l4.59 4.59c.38.38 1.01.38 1.4-.01"
       ></path></svg
-    ></button
-  >
+    ></button>
 
-  <script defer src={SidebarScript}></script>
+  <script src="./sidebar.ts"></script>
 </aside>

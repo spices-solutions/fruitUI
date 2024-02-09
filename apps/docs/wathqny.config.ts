@@ -23,6 +23,7 @@ const WathqnyConfig: WathqnyConfigI = {
 	favicon: "/icon.svg",
 	image: "/cover.png",
 	description: "fruit UI a modular styling framework",
+  keywords: ["fruitUI", "fruit", "ui", "css", "html", "js", "framework", "library","components"],
 	locale: "en",
   locale_dir: "ltr",
   darkMode: true,
@@ -37,6 +38,10 @@ const WathqnyConfig: WathqnyConfigI = {
 			{
 				item: "docs",
 				href: "/docs/getting-started/overview",
+			},
+			{
+				item: "blog",
+				href: "/blog",
 			},
 		],
 	},

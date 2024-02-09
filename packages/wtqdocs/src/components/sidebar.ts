@@ -1,3 +1,7 @@
+function SidebarActions() {
+
+
+
 const categoryItems = document.querySelectorAll(
 	".wtq-sidebar-category li",
 ) as NodeListOf<Element>;
@@ -56,3 +60,7 @@ sidebarBtn.forEach((button) => {
 		}
 	});
 });
+
+}
+
+SidebarActions()

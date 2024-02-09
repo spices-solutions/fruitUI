@@ -1,9 +1,27 @@
 ---
 import { CodeBlock } from "wtqcode";
-import { Layout } from "wtqdocs";
+import { Head, Layout, Navbar } from "wtqdocs";
 ---
+<html>
 
-<Layout>
-  <h1>wtq docs say hi!</h1>
-  <CodeBlock code="print('hello world')" lang="py" />
-</Layout>
+
+<Head />
+<Navbar />
+<main id="main-content">
+  <section class="hero">
+    <h1 class="title">
+      FruitUI a modular <br />
+      <span style="color: rgb(200, 56, 233);">styling</span> framework
+    </h1>
+    <h2 class="subtitle">
+      use the components you want, styles you need,
+      <br /> the performance you deserve
+    </h2>
+    <div class="get-started flex gap-5">
+      <a href="/docs/getting-started/overview">
+        <button class="btn primary">Get started</button>
+      </a>
+    </div>
+  </section>
+</main>
+</html>
