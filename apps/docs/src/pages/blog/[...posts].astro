@@ -1,7 +1,7 @@
 ---
+import { Image } from "astro:assets";
 import { type CollectionEntry, getCollection } from "astro:content";
 import { Breadcrumbs, Layout } from "wtqdocs";
-
 
 export async function getStaticPaths() {
   let posts = await getCollection("blog");
@@ -19,19 +19,34 @@ interface Props {
 }
 
 const { post } = Astro.props;
-const { authors } = post.data;
 
 const { Content } = await post.render();
 ---
 
+<style>
+  .wtq-cover {
+    border: 1px solid var(--accent-200);
+    border-radius: 40px;
+    aspect-ratio: 16/9;
+    height: auto;
+    box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.1);
+  }
+</style>
+
 <Layout
-  sidebar={true}
   title={post.data.title}
   description={post.data.description}
   keywords={post.data.title}>
-    <Breadcrumbs/>
+  <Breadcrumbs />
   <main class="anim-slide-botto" id="main-content">
-  <h1 class="wtq-main-heading">{post.data.title}</h1>
+    <h1 class="wtq-main-heading">{post.data.title}</h1>
+    <Image
+      class="wtq-cover"
+      width={1280}
+      height={720}
+      src={post.data.OGImage as string}
+      alt={"dwad"}
+    />
     <Content />
   </main>
 </Layout>

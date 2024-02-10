@@ -1,11 +1,15 @@
 ---
 import { Image } from "astro:assets";
-import { getCollection } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 import { CodeBlock } from "wtqcode";
 import { Head, Layout, Navbar } from "wtqdocs";
-import { formatDate } from "wtqdocs/blog";
+import { formatDate, BlogLayout } from "wtqdocs/blog";
 
 const blog = await getCollection("blog");
+
+interface Props {
+  blog: CollectionEntry<"blog">;
+}
 ---
 
 <style lang="scss">
@@ -17,7 +21,7 @@ const blog = await getCollection("blog");
       grid-template-columns: 550px;
     }
     @media screen and (max-width: 600px) {
-      grid-template-columns: 450px;
+      grid-template-columns: 100%;
     }
     margin-top: 30px;
     gap: 1rem;
@@ -42,6 +46,8 @@ const blog = await getCollection("blog");
       padding: 25px;
       box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.05);
       .wtq-cover {
+      border: 1px solid var(--accent-200);
+
         border-radius: 20px;
         aspect-ratio: 16/9;
         height: auto;
@@ -69,37 +75,34 @@ const blog = await getCollection("blog");
   }
 </style>
 
-<html>
-  <Head />
-  <Navbar />
-  <div class="wtq-content">
-    <div class="wtq-container">
-      <div class="wtq-post-container">
-        {
-          blog.map((post) => {
-            return (
-              <div class="wtq-post">
-                <span class="wtq-post-head">
-                  <h1 class="wtq-post-title">{post.data.title}</h1>
-                  <span>
-                    <span>{formatDate(post.data.pubDate)}</span>
-                  </span>
-                </span>
-                <h2 class="wtq-post-subtitle">{post.data.description}</h2>
-                <p class="wtq-post-content">{post.body}</p>
 
-                <img
-                  class="wtq-cover"
-                  width={640}
-                  height={360}
-                  src={`/og.png`}
-                  alt={"dwad"}
-                />
-              </div>
-            );
-          })
-        }
-      </div>
-    </div>
-  </div>
-</html>
+<BlogLayout>
+<div class="wtq-post-container">
+  {
+    blog.map((post) => {
+      return (
+        <a href={"/blog/" + post.data.tags.toLowerCase() + post.data.href}>
+          <div class="wtq-post">
+            <span class="wtq-post-head">
+              <h1 class="wtq-post-title">{post.data.title}</h1>
+              <span>
+                <span>{formatDate(post.data.pubDate)}</span>
+              </span>
+            </span>
+            <h2 class="wtq-post-subtitle">{post.data.description}</h2>
+            <p class="wtq-post-content">{post.body}</p>
+
+            <Image
+              class="wtq-cover"
+              width={640}
+              height={360}
+              src={`/og.png`}
+              alt={"dwad"}
+            />
+          </div>
+        </a>
+      );
+    })
+  }
+</div>
+</BlogLayout>

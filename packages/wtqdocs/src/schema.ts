@@ -8,9 +8,7 @@ export const docSchema = z
 			.max(160, "it can't be more than 160 charcters")
 			.min(10),
 		href: z.string(),
-		OGImage: z.string()
-			.default("/og.png")
-			.optional(),
+		OGImage: z.string().default("/og.png").optional(),
 		category: z.string(),
 		position: z.number().optional(),
 		authors: reference("authors").optional().default("felfel"),
@@ -18,8 +16,7 @@ export const docSchema = z
 	})
 	.strict();
 
-
-  export const blogSchema = z
+export const blogSchema = z
 	.object({
 		title: z.string().max(60, "it can't be more than 60 charcters").min(3),
 		description: z
@@ -27,9 +24,8 @@ export const docSchema = z
 			.max(160, "it can't be more than 160 charcters")
 			.min(10),
 		href: z.string(),
-		OGImage: z.string()
-			.default("/og.png")
-			.optional(),
+		OGImage: z.string().default("/og.png"),
+
 		tags: z.string(),
 		position: z.number().optional(),
 		authors: reference("authors").default("felfel").optional(),

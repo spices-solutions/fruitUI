@@ -1,7 +1,7 @@
 ---
-title: fruitUI 0.3
-description: fruitUI 0.3 realease
-href: /0.3
+title: test
+description: test description
+href: /test
 tags: realease
 pubDate: 2024-02-09
 ---

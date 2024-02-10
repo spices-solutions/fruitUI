@@ -19,19 +19,18 @@ interface Props {
 }
 
 const { doc } = Astro.props;
-const { authors } = doc.data;
 
 const { Content } = await doc.render();
 ---
 
 <Layout
-  sidebar={true}
   title={doc.data.title}
   description={doc.data.description}
   keywords={doc.data.title}>
     <Breadcrumbs/>
   <main class="anim-slide-botto" id="main-content">
   <h1 class="wtq-main-heading">{doc.data.title}</h1>
+  
     <Content />
   </main>
 </Layout>

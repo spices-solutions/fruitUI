@@ -137,11 +137,12 @@ $prefix: "wtq";
   gap: 1.3rem;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   margin-top: 30px;
+
   @media screen and (max-width: 768px) {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 
-}
+
   .wtq-card {
     height: 100%;
     border: 1px solid var(--accent-200);
@@ -175,6 +176,8 @@ $prefix: "wtq";
       font-size: var(--font-xs);
     }
   }
+}
+
 .wtq-sidebar-toggle {
   padding: 0 5px;
   margin: 15px 0px;

@@ -44,6 +44,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <meta name="twitter:image" content={METAIMAGE} />
   <meta name="twitter:description" content={METADESCRIPTION} />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="robots" content="all">
   <link rel="canonical" href={canonicalURL} />
   <link
     rel="preload"
