@@ -8,14 +8,19 @@
   }
   div {
     .wtq-avatar-name {
+      color: var(--accent-900);
+      margin: 0;
       line-height: 1.2;
       font-weight: 500;
       font-size: 0.9rem;
     }
     .wtq-avatar-role {
+      margin: 0;
       line-height: 1.2;
       font-size: .8rem;
-      color: $accent-700;
+      font-weight: 300;
+      letter-spacing: .5pt;
+      color: var(--accent-600);
     }
   }
 }

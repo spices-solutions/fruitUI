@@ -1,7 +1,8 @@
 ---
 import { Image } from "astro:assets";
-import { type CollectionEntry, getCollection } from "astro:content";
+import { type CollectionEntry, getCollection, getEntry } from "astro:content";
 import { Breadcrumbs, Layout } from "wtqdocs";
+import { BlogLayout } from "wtqdocs/blog";
 
 export async function getStaticPaths() {
   let posts = await getCollection("blog");
@@ -20,33 +21,39 @@ interface Props {
 
 const { post } = Astro.props;
 
+const { authors } = post.data;
+const authorData = await getEntry("authors", authors?.id);
+
 const { Content } = await post.render();
 ---
 
-<style>
-  .wtq-cover {
-    border: 1px solid var(--accent-200);
-    border-radius: 40px;
-    aspect-ratio: 16/9;
-    height: auto;
-    box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.1);
-  }
-</style>
-
-<Layout
-  title={post.data.title}
-  description={post.data.description}
-  keywords={post.data.title}>
+<BlogLayout>
   <Breadcrumbs />
-  <main class="anim-slide-botto" id="main-content">
-    <h1 class="wtq-main-heading">{post.data.title}</h1>
-    <Image
-      class="wtq-cover"
-      width={1280}
-      height={720}
-      src={post.data.OGImage as string}
-      alt={"dwad"}
-    />
-    <Content />
-  </main>
-</Layout>
+  <article id="main-content">
+    <span class="wtq-post-head">
+      <h1 class="wtq-main-heading">{post.data.title}</h1>
+      <div class="wtq-avatar-contanier">
+        <Image
+          class="wtq-avatar"
+          width={48}
+          height={48}
+          src={authorData?.data.profile}
+          alt="user avatar"
+        />
+        <div>
+          <p class="wtq-avatar-name">{authorData?.data.name}</p>
+          <p class="wtq-avatar-role">{authorData?.data.role}</p>
+        </div>
+      </div>
+    </span>
+      <Image
+        class="wtq-cover"
+        width={1280}
+        height={720}
+        src={"/og.png"}
+        alt={"dwad"}
+      />
+      <Content />
+    
+  </article>
+</BlogLayout>

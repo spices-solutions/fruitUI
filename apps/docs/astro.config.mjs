@@ -13,6 +13,7 @@ import icon from "astro-icon";
 export default defineConfig({
   site: "https://fruit-ui.vercel.app/",
   trailingSlash: "ignore",
+  output: 'hybrid',
   integrations: [mdx({
     optimize: true,
     shikiConfig: {
