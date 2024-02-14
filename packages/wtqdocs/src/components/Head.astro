@@ -3,6 +3,7 @@ import { pwaInfo } from "virtual:pwa-info";
 
 import WathqnyConfig from "/wathqny.config";
 import MainStyles from "../../../wtqdocs/styles/css/wathqny.css?url" 
+import fruitUIStyles from "../../../wtqdocs/styles/css/docs.css?url" 
 
 export interface Props {
   title?: string;
@@ -44,7 +45,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <meta name="twitter:image" content={METAIMAGE} />
   <meta name="twitter:description" content={METADESCRIPTION} />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="robots" content="all">
+  <meta name="robots" content="index, follow">
   <link rel="canonical" href={canonicalURL} />
   <link
     rel="preload"
@@ -58,6 +59,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
   <title>{METATITLE}</title>
   <link href={MainStyles}  rel="preload stylesheet" as="style" type="text/css" />
+  <link href={fruitUIStyles}  rel="stylesheet" fetchpriority="low" as="style" type="text/css" />
   {
     WathqnyConfig.darkMode && (
     <script is:inline>

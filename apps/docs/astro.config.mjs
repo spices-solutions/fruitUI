@@ -11,9 +11,14 @@ import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
+  server: {
+    host: "0.0.0.0",
+    port: 8000,
+    open: true,
+    
+  },
   site: "https://fruit-ui.vercel.app/",
   trailingSlash: "ignore",
-  output: 'hybrid',
   integrations: [mdx({
     optimize: true,
     shikiConfig: {
