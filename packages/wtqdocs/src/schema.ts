@@ -34,7 +34,7 @@ export const blogSchema = z
 	})
 	.strict();
 
-export const userSchema = ({ image }) => {
+export const authorSchema = ({ image }) => {
 	z.object({
 		name: z.string(),
 		bio: z.string().optional(),
