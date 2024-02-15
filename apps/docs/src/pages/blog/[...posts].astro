@@ -17,14 +17,14 @@ export async function getStaticPaths() {
 
 interface Props {
   post: CollectionEntry<"blog">;
+  authors: CollectionEntry<"authors">;
 }
 
 const { post } = Astro.props;
 
 const { authors } = post.data;
 
-
-const authorData = await getEntry("authors", 'felfel');
+const authorData = await getEntry("authors", authors?.id!);
 
 const { Content } = await post.render();
 ---
@@ -48,14 +48,14 @@ const { Content } = await post.render();
         </div>
       </div>
     </span>
-      <Image
-        class="wtq-cover"
-        width={1280}
-        height={720}
-        src={"/og.png"}
-        alt={"dwad"}
-      />
-      <Content />
-    
+    <Image
+      class="wtq-cover"
+      width={1280}
+      height={720}
+      src={post.data.OGImage}
+      alt={"dwad"}
+      loading="eager"
+    />
+    <Content />
   </article>
 </BlogLayout>

@@ -2,34 +2,33 @@ import { z, reference } from "astro:content";
 
 export const docSchema = z
 	.object({
-		title: z.string().max(60, "it can't be more than 60 charcters").min(3),
+		title: z.string().max(60, "it can't be more than 60 characters").min(3),
 		description: z
 			.string()
-			.max(160, "it can't be more than 160 charcters")
+			.max(160, "it can't be more than 160 characters")
 			.min(10),
 		href: z.string(),
-		OGImage: z.string().default("/og.png").optional(),
+		OGImage: z.string().default("/og.png"),
 		category: z.string(),
 		position: z.number().optional(),
-		authors: reference("authors").optional().default("felfel"),
+		authors: reference("authors").optional(),
 		draft: z.boolean().optional().default(false),
 	})
 	.strict();
 
 export const blogSchema = z
 	.object({
-		title: z.string().max(60, "it can't be more than 60 charcters").min(3),
+		title: z.string().max(60, "it can't be more than 60 characters").min(3),
 		description: z
 			.string()
-			.max(160, "it can't be more than 160 charcters")
+			.max(160, "it can't be more than 160 characters")
 			.min(10),
 		href: z.string(),
 		OGImage: z.string().default("/og.png"),
-
 		tags: z.string(),
 		position: z.number().optional(),
-		authors: reference("authors").default("felfel").optional(),
-		pubDate: z.date().transform((str) => new Date(str)),
+		authors: reference("authors").optional(),
+		pubDate: z.date().transform((str:string) => new Date(str)),
 		draft: z.boolean().optional().default(false),
 	})
 	.strict();
