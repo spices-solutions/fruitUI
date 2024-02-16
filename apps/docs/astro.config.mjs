@@ -30,13 +30,14 @@ export default defineConfig({
     },
     registerType: "autoUpdate",
     devOptions: {
-      enabled: false
+      enabled: true
     },
     workbox: {
       globPatterns: ["**/*.*"],
       clientsClaim: true,
       skipWaiting: true,
       cleanupOutdatedCaches: true
+      
     },
     manifest: {
       name: "fruitUI",

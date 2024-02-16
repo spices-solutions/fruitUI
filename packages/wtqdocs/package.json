@@ -15,8 +15,8 @@
     },
     "./components/Head": "./src/components/Head.astro",
     "./style": "./styles/css/wathqny.css",
-    "./schema" : "./src/schema.ts",
-    "./blog" : "./src/blog.ts",
+    "./schema": "./src/schema.ts",
+    "./blog": "./src/blog.ts",
     "./script": {
       "navbar": "./src/components/navbar.ts",
       "sidebar": "./src/components/sidebar.ts"
@@ -45,5 +45,11 @@
   },
   "bugs": {
     "url": "https://github.com/spices-solutions/"
+  },
+  "dependencies": {
+    "@vite-pwa/astro": "^0.2.0",
+    "@vite-pwa/workbox-window": "^8.0.0",
+    "vite-plugin-pwa": "^0.17.4",
+    "workbox-window": "^7.0.0"
   }
 }
