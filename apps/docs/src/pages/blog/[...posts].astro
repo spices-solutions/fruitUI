@@ -2,7 +2,7 @@
 import { Image } from "astro:assets";
 import { type CollectionEntry, getCollection, getEntry } from "astro:content";
 import { Breadcrumbs, Layout } from "wtqdocs";
-import { BlogLayout } from "wtqdocs/blog";
+import { BlogLayout, AuthorProfile } from "wtqdocs/blog";
 
 export async function getStaticPaths() {
   let posts = await getCollection("blog");
@@ -34,19 +34,7 @@ const { Content } = await post.render();
   <article id="main-content">
     <span class="wtq-post-head">
       <h1 class="wtq-main-heading">{post.data.title}</h1>
-      <div class="wtq-avatar-contanier">
-        <Image
-          class="wtq-avatar"
-          width={48}
-          height={48}
-          src={authorData?.data.profile}
-          alt="user avatar"
-        />
-        <div>
-          <p class="wtq-avatar-name">{authorData?.data.name}</p>
-          <p class="wtq-avatar-role">{authorData?.data.role}</p>
-        </div>
-      </div>
+      <AuthorProfile name={authorData.data.name} role={authorData.data.role} image={authorData.data.profile} />
     </span>
     <Image
       class="wtq-cover"

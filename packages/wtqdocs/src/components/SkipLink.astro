@@ -1,1 +1,52 @@
+<style lang="scss">
+  .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.sr-not-only {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+.dark #skip {
+  &:focus-visible {
+    background-color: var(accent-800);
+
+    border: 1px solid var(accent-700);
+  }
+}
+
+#skip {
+  @extend .sr-only;
+
+  &:focus-visible {
+    outline: none;
+    z-index: 9999;
+    position: absolute;
+    display: block;
+    background-color: var(accent-50);
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: 1px solid var(accent-300);
+    box-shadow: 0 8px 2px -6px #00000021;
+    left: 20px;
+    top: 20px;
+    @extend .sr-not-only;
+  }
+}
+</style>
 <a id="skip" href="#main-content">skip to the main content</a>
