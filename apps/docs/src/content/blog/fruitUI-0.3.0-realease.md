@@ -1,8 +1,8 @@
 ---
 title: fruitUI 0.3
-description: fruitUI 0.3 realease
+description: fruitUI 0.3 release
 href: /0.3
-tags: realease
+tags: release
 authors: felfel
 pubDate: 2024-02-09
 ---

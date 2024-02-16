@@ -33,7 +33,7 @@
   --background-hover: #00000010;
   --body-background: white;
   --navbar-background: white;
-  --sidebar-border-color: rgba(24, 24, 27, 0.2);
+  --sidebar-border-color: rgba(24, 24, 27, 0.1);
 }
 @media (prefers-color-scheme: light) {
   :root {
@@ -52,7 +52,7 @@
     --background-hover: #00000010;
     --body-background: white;
     --navbar-background: white;
-    --sidebar-border-color: rgba(24, 24, 27, 0.2);
+    --sidebar-border-color: rgba(24, 24, 27, 0.1);
   }
 }
 @media (prefers-color-scheme: dark) {
@@ -344,7 +344,7 @@ h6 {
   height: 50px;
   position: relative;
   background-color: var(--navbar-background);
-  box-shadow: 0 10px 10px -8px rgba(39, 39, 42, 0.1490196078);
+  box-shadow: 0 5px 10px -8px rgba(39, 39, 42, 0.1490196078);
 }
 .wtq-navbar .wtq-brand {
   padding: 3px 5px;

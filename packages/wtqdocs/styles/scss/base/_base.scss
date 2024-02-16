@@ -58,7 +58,7 @@ $font-xs: 1rem;
     --body-background: white;
     --navbar-background: white;
 
-    --sidebar-border-color: #{rgba($accent-900, 0.2)};
+    --sidebar-border-color: #{rgba($accent-900, 0.1)};
   }
 
   @media (prefers-color-scheme: light) {
@@ -79,7 +79,7 @@ $font-xs: 1rem;
     --body-background: white;
     --navbar-background: white;
 
-    --sidebar-border-color: #{rgba($accent-900, 0.2)};
+    --sidebar-border-color: #{rgba($accent-900, 0.1)};
 
   }
 
