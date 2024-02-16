@@ -1,8 +1,8 @@
 ---
 import { pwaInfo } from "virtual:pwa-info";
 
+
 import WathqnyConfig from "/wathqny.config";
-import MainStyles from "../../../wtqdocs/styles/css/wathqny.css?url" 
 import fruitUIStyles from "../../../wtqdocs/styles/css/docs.css?url" 
 
 export interface Props {
@@ -58,10 +58,254 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <script src="/src/pwa.ts"></script>
 
   <title>{METATITLE}</title>
+  <style is:global>
+    
+  *,
+  *::after,
+  *::before {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    word-wrap: break-word;
+    overflow: hidden;
+    line-height: 1.5;
+    scroll-behavior: smooth;
+    font-size: 20px;
+    height: 100%;
+    font-family:
+      "Inter",
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      Roboto,
+      Oxygen,
+      Ubuntu,
+      Cantarell,
+      "Open Sans",
+      "Helvetica Neue",
+      sans-serif !important;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: none;
+    -moz-text-size-adjust: none;
+    text-size-adjust: none;
+    -moz-tab-size: 4;
+    tab-size: 4;
+    margin: 0;
+  }
+
+  hr {
+    height: 0;
+    color: inherit;
+  }
+
+  b,
+  strong {
+    font-weight: 800;
+  }
+
+  code,
+  kbd,
+  samp,
+  pre {
+    font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono",
+      Menlo, monospace;
+    font-size: 1em;
+  }
+
+  pre {
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin-block: 5px;
+  }
+
+  sub,
+  sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+  }
+
+  sub {
+    bottom: -0.25em;
+  }
+
+  sup {
+    top: -0.5em;
+  }
+
+  table {
+    text-indent: 0;
+    border-color: inherit;
+  }
+
+  button,
+  input,
+  optgroup,
+  select,
+  textarea {
+    font-family: inherit;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+  }
+
+  button,
+  [type="button"],
+  [type="reset"],
+  [type="submit"] {
+    -webkit-appearance: button;
+    appearance: button;
+  }
+
+  button,
+  select {
+    text-transform: none;
+  }
+
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  ul[role="list"],
+  ol[role="list"] {
+    list-style: none;
+  }
+
+  ul,
+  ol {
+    margin: 0;
+    padding: 0;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+
+    &:focus-visible {
+      text-decoration: underline;
+    }
+  }
+
+  hr {
+    border: 1px solid #dadada;
+  }
+
+  /* type scaling based on 1.333 – Perfect Fourth */
+  .h1,
+  h1 {
+    margin: 3rem 0 0.5rem;
+    line-height: 1.1;
+    font-size: 2.986rem;
+  }
+
+  .h2,
+  h2 {
+    margin: 2rem 0 0.5rem;
+    line-height: 1.25;
+    font-size: 2.488rem;
+  }
+
+  .h3,
+  h3 {
+    margin: 2rem 0 0.5rem;
+    line-height: 1.3;
+    font-size: 2.074rem;
+  }
+
+  .h4,
+  h4 {
+    line-height: 1.4;
+    font-size: 1.728rem;
+    margin: 2rem 0 1rem;
+  }
+
+  .h5,
+  h5 {
+    font-size: 1.44rem;
+    line-height: 1.5;
+    margin: 2rem 0 1rem;
+  }
+
+  .h6,
+  h6 {
+    margin: 2rem 0 1rem;
+    line-height: 1.2;
+    font-size: 1.2rem;
+  }
+
+  .p,
+  p {
+    line-height: 1.3;
+    font-weight: 400;
+    font-size: 1rem;
+  }
+
+  small {
+    font-size: 0.833rem;
+  }
+
+  .h1,
+  h1,
+  .h2,
+  h2 {
+    font-weight: 800;
+  }
+
+  .h3,
+  h3,
+  .h4,
+  h4 {
+    font-weight: 700;
+  }
+
+  .h5,
+  h5,
+  .h6,
+  h6 {
+    font-weight: 600;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  </style>
   <link href={fruitUIStyles}  rel="stylesheet" fetchpriority="low" as="style" type="text/css" />
-  {
+
+{
     WathqnyConfig.darkMode && (
-    <script is:inline>
+    <script is:inline >
+        console.log("helllo");
+      
     function DarkMode() {
       const root = document.querySelector(":root");
 
@@ -77,7 +321,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     }
     DarkMode();
   </script>
-    )
-  }
-
+  )
+}
 </head>

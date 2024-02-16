@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-X-Robots-Tag: all
 Sitemap: https://fruit-ui.vercel.app/sitemap-index.xml
