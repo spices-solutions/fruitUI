@@ -2,7 +2,6 @@
 title: alert
 description: hello description
 category: Components
-date: 2023-11-27
 authors: felfel
 position: 8
 href: /alert

@@ -1,0 +1,72 @@
+---
+import { getCollection } from "astro:content";
+const docs = await getCollection("docs");
+
+const category = Astro.url.pathname.split("/")[2];
+docs.sort((a, b) => (a.data.position > b.data.position ? 1 : -1));
+
+const newdocs = docs.filter((doc) => {
+  return doc.data.category.toLowerCase() == category;
+});
+---
+
+<div class="wtq-card-container-category">
+  <style lang="scss">
+    .wtq-card-container-category {
+      display: grid;
+      gap: 1.3rem;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin-top: 30px;
+
+      @media screen and (max-width: 768px) {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+      }
+
+      .wtq-card {
+        height: 100%;
+        border: 1px solid var(--accent-200);
+        background-color: var(--accent-20);
+        border-radius: 20px;
+        transition: all 200ms ease;
+        padding: 25px;
+        box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.05);
+
+        .dark & {
+          border-color: var(--accent-20);
+        }
+
+        &:hover {
+          transform: translateY(-3%);
+        }
+
+        .wtq-card-title {
+          color: var(--accent-800);
+          font-weight: 600;
+          line-height: 1.5;
+          font-size: var(--font-md);
+          margin: 0;
+        }
+
+        .wtq-card-subtitle {
+          margin: 0;
+          color: var(--accent-700);
+          font-weight: 400;
+          letter-spacing: 0.3pt;
+          font-size: var(--font-xs);
+        }
+      }
+    }
+  </style>
+  {
+    newdocs.map((doc) => {
+      return (
+        <a href={category + doc.data.href}>
+          <div class="wtq-card">
+            <h2 class="wtq-card-title">{doc.data.title}</h2>
+            <h3 class="wtq-card-subtitle">{doc.data.description}</h3>
+          </div>
+        </a>
+      );
+    })
+  }
+</div>
