@@ -32,6 +32,13 @@ let cutUrl =
     background-color: var(--body-background);
     text-overflow: clip;
     padding-bottom: 50px;
+    .wtq-aside-collapse {
+      // display: none !important;
+      height: 0% !important;
+      width: 0%;
+      overflow: hidden;
+      visibility: hidden;
+    }
 
     .wtq-collapse-button {
       letter-spacing: 0.3pt;
@@ -64,7 +71,8 @@ let cutUrl =
     }
 
     .wtq-active {
-      max-height: 100% !important;
+      // max-height: 100% !important;
+      transition-duration: 4s !important;
     }
 
     &.wtq-sidebar-active {
@@ -75,34 +83,12 @@ let cutUrl =
       overflow: hidden;
     }
 
-    @media screen and (max-width: 1000px) {
-      transform: translateX(-100%);
-      position: absolute;
-      top: 0;
-      left: 0;
-
-      .wtq-sidebar-toggle {
-        margin-inline-start: 15px;
-        display: flex !important;
-      }
-
-      &.wtq-sidebar-active {
-        opacity: 100%;
-        pointer-events: all;
-        border: 0;
-        overflow: auto;
-        z-index: 1;
-        border-right: solid 1px var(--sidebar-border-color);
-        width: 100%;
-        transform: translateX(0%);
-      }
-    }
-
     .wtq-sidebar-toggle {
       display: none;
     }
 
     .wtq-sidebar-category {
+      transition: all ease 300ms;
       margin-top: 15px;
       height: 100vh;
       list-style: none;
@@ -193,6 +179,15 @@ let cutUrl =
         }
       }
     }
+    .wtq-sidebar-toggle {
+      padding: 0 5px;
+      margin: 15px 0px;
+      border: 0;
+      border-radius: 10px;
+      cursor: pointer;
+      background-color: transparent;
+      color: var(--accent-800);
+    }
   }
 </style>
 
@@ -263,7 +258,5 @@ let cutUrl =
       ></path></svg
     ></button
   >
-
-  
 </aside>
 <script src="./sidebar.ts"></script>

@@ -1,63 +1,71 @@
 ---
 import { CodeBlock } from "wtqcode";
-import { Head, Layout, Navbar } from "wtqdocs";
+import { Head, Layout, Navbar, SkipLink } from "wtqdocs";
+import WathqnyConfig from "/wathqny.config";
 ---
 
-<style lang="scss">
-  main {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  .hero {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
-    .title {
-      background: linear-gradient(
-        9deg,
-        var(--accent-900) 53%,
-        var(--accent-500) 100%
-      );
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      font-size: clamp(1rem, 10vw, 4rem);
-      color: transparent;
-      font-weight: 900;
-      letter-spacing: -0.5px;
-      margin-bottom: 12px;
+<html
+  xml:lang={WathqnyConfig.locale}
+  lang={WathqnyConfig.locale}
+  dir={WathqnyConfig.locale_dir}
+  class="light">
+  <style lang="scss">
+    main {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .hero {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        .title {
+          background: linear-gradient(
+            9deg,
+            var(--accent-900) 53%,
+            var(--accent-500) 100%
+          );
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          font-size: clamp(1rem, 10vw, 4rem);
+          color: transparent;
+          font-weight: 900;
+          letter-spacing: -0.5px;
+          margin-bottom: 12px;
+          padding-block: 5px;
+        }
+        .subtitle {
+          margin-bottom: 24px;
+          font-size: clamp(1rem, 4vw, 2rem);
+          font-weight: 500;
+          color: var(--accent-700);
+        }
+      }
     }
-    .subtitle {
-      margin-bottom: 24px;
-      font-size: clamp(1rem, 4vw, 2rem);
-      font-weight: 500;
-      color: var(--accent-700);
-    }
-  }
-}
-
-</style>
-
-
-<Layout>
-<main id="main-content">
-  <section class="hero">
-    <h1 class="title">
-      FruitUI a modular <br />
-      <span style="color: rgb(200, 56, 233);">styling</span> framework
-    </h1>
-    <h2 class="subtitle">
-      use the components you want, styles you need,
-      <br /> the performance you deserve
-    </h2>
-    <div class="get-started flex gap-5">
-      <a href="/docs/getting-started/overview">
-        <button class="btn primary">Get started</button>
-      </a>
-    </div>
-  </section>
-</main>
-</Layout>
+  </style>
+  <Head />
+  <body>
+    <SkipLink />
+    <Navbar />
+    <main id="main-content">
+      <section class="hero">
+        <h1 class="title">
+          FruitUI a modular <br />
+          styling framework
+        </h1>
+        <h2 class="subtitle">
+          use the components you want, styles you need,
+          <br /> the performance you deserve
+        </h2>
+        <div class="get-started flex gap-5">
+          <a href="/docs/getting-started/overview">
+            <button class="btn primary">Get started</button>
+          </a>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
