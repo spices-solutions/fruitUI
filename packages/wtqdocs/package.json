@@ -44,5 +44,8 @@
   },
   "bugs": {
     "url": "https://github.com/spices-solutions/"
+  },
+  "dependencies": {
+    "astro-icon": "^1.0.2"
   }
 }

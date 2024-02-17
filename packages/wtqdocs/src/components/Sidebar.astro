@@ -1,8 +1,8 @@
 ---
 import { getCollection } from "astro:content";
-import ArrowIcon from "./ArrowIcon.astro";
-import WathqnyConfig from "/wathqny.config";
+import { Icon } from "astro-icon/components";
 
+import WathqnyConfig from "/wathqny.config";
 
 const docs = await getCollection("docs");
 
@@ -24,175 +24,176 @@ let cutUrl =
 
 <style lang="scss">
   .wtq-sidebar {
-  display: flex;
-  flex-direction: column;
-  border-right: solid 1px var(--sidebar-border-color);
-  width: 250px;
-  padding: 5px;
-  background-color: var(--body-background);
-  text-overflow: clip;
-  padding-bottom: 50px;
-
-  .wtq-collapse-button {
-    letter-spacing: .3pt;
-    font-kerning: none;
-    font-optical-sizing: none;
-    background-color: transparent;
-    border: 0;
-    user-select: none;
-    justify-content: space-between;
     display: flex;
-    width: 100%;
-    color: var(--accent-700);
-    padding: 5px 0.6rem;
-    justify-content: center;
-    border-radius: 8px;
-    font-weight: 650;
-    cursor: pointer;
-    font-size: 0.875rem;
-    outline: none;
+    flex-direction: column;
+    border-right: solid 1px var(--sidebar-border-color);
+    width: 250px;
+    padding: 5px;
+    background-color: var(--body-background);
+    text-overflow: clip;
+    padding-bottom: 50px;
 
-    @media screen and (max-width: 768px) {
-      padding: 12px 1rem;
-      font-size: 1.1rem;
+    .wtq-collapse-button {
+      letter-spacing: 0.3pt;
+      font-kerning: none;
+      font-optical-sizing: none;
+      background-color: transparent;
+      border: 0;
+      user-select: none;
+      justify-content: space-between;
+      display: flex;
+      width: 100%;
+      color: var(--accent-700);
+      padding: 5px 0.6rem;
+      justify-content: center;
+      border-radius: 8px;
+      font-weight: 650;
+      cursor: pointer;
+      font-size: 0.875rem;
+      outline: none;
+
+      @media screen and (max-width: 768px) {
+        padding: 12px 1rem;
+        font-size: 1.1rem;
+      }
+
+      &:hover,
+      &:focus-visible {
+        background-color: var(--background-hover);
+      }
     }
 
-    &:hover,
-    &:focus-visible {
-      background-color: var(--background-hover);
-    }
-  }
-
-  .wtq-active {
-    max-height: 100% !important;
-  }
-
-  &.wtq-sidebar-active {
-    opacity: 0;
-    pointer-events: none;
-    border: 0;
-    width: 0px;
-    overflow: hidden;
-  }
-
-  @media screen and (max-width: 1000px) {
-    transform: translateX(-100%);
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    .wtq-sidebar-toggle {
-      margin-inline-start: 15px;
-      display: flex !important;
+    .wtq-active {
+      max-height: 100% !important;
     }
 
     &.wtq-sidebar-active {
-      opacity: 100%;
-      pointer-events: all;
+      opacity: 0;
+      pointer-events: none;
       border: 0;
-      overflow: auto;
-      z-index: 1;
-      border-right: solid 1px var(--sidebar-border-color);
-      width: 100%;
-      transform: translateX(0%);
-    }
-  }
-
-  .wtq-sidebar-toggle {
-    display: none;
-  }
-
-
-  .wtq-sidebar-category {
-    margin-top: 15px;
-    height: 100vh;
-    list-style: none;
-
-    .wtq-sidebar-category-collapse {
-      transition: max-height 450ms cubic-bezier(0.2, 0.0, 0, 1.0), color 0ms;
-
-      will-change: max-height, height, overflow;
+      width: 0px;
       overflow: hidden;
-      max-height: 0px;
     }
 
-    li {
-      display: flex;
-      flex-direction: column;
+    @media screen and (max-width: 1000px) {
+      transform: translateX(-100%);
+      position: absolute;
+      top: 0;
+      left: 0;
 
-      .wtq-doc-list-item {
-        @media screen and (max-width: 768px) {
-          padding-inline-start: 20px;
-        }
+      .wtq-sidebar-toggle {
+        margin-inline-start: 15px;
+        display: flex !important;
+      }
 
-        padding-inline-start: 10px;
+      &.wtq-sidebar-active {
+        opacity: 100%;
+        pointer-events: all;
+        border: 0;
+        overflow: auto;
+        z-index: 1;
+        border-right: solid 1px var(--sidebar-border-color);
+        width: 100%;
+        transform: translateX(0%);
+      }
+    }
+
+    .wtq-sidebar-toggle {
+      display: none;
+    }
+
+    .wtq-sidebar-category {
+      margin-top: 15px;
+      height: 100vh;
+      list-style: none;
+
+      .wtq-sidebar-category-collapse {
+        transition:
+          max-height 450ms cubic-bezier(0.2, 0, 0, 1),
+          color 0ms;
+
+        will-change: max-height, height, overflow;
+        overflow: hidden;
+        max-height: 0px;
+      }
+
+      li {
         display: flex;
+        flex-direction: column;
 
-        .wtq-doc-link {
+        .wtq-doc-list-item {
           @media screen and (max-width: 768px) {
-            padding: 8px 0.6rem;
-            font-size: 1rem;
+            padding-inline-start: 20px;
           }
 
-          outline: none;
-          border-radius: 8px;
-          font-size: 0.8rem;
-          font-weight: 500;
-          padding: 5px 0.6rem;
+          padding-inline-start: 10px;
+          display: flex;
+
+          .wtq-doc-link {
+            @media screen and (max-width: 768px) {
+              padding: 8px 0.6rem;
+              font-size: 1rem;
+            }
+
+            outline: none;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            padding: 5px 0.6rem;
+            width: 100%;
+            color: var(--accent-600);
+
+            &:hover,
+            &:focus {
+              color: var(--accent-700);
+              background-color: var(--background-hover);
+            }
+          }
+        }
+
+        .wtq-sidebar-category-link {
+          letter-spacing: 0.3pt;
+          font-kerning: none;
+          font-optical-sizing: none;
+          background-color: transparent;
+          border: 0;
+          user-select: none;
+          justify-content: space-between;
+          display: flex;
           width: 100%;
-          color: var(--accent-600);
+          color: var(--accent-700);
+          padding: 5px 0.6rem;
+          align-items: center;
+          border-radius: 8px;
+          font-weight: 650;
+          cursor: pointer;
+          font-size: 0.875rem;
+          outline: none;
+
+          @media screen and (max-width: 768px) {
+            padding: 12px 1rem;
+            font-size: 1.1rem;
+          }
 
           &:hover,
-          &:focus {
-            color: var(--accent-700);
+          &:focus-visible {
             background-color: var(--background-hover);
           }
-        }
-      }
 
-      .wtq-sidebar-category-link {
-        letter-spacing: .3pt;
-        font-kerning: none;
-        font-optical-sizing: none;
-        background-color: transparent;
-        border: 0;
-        user-select: none;
-        justify-content: space-between;
-        display: flex;
-        width: 100%;
-        color: var(--accent-700);
-        padding: 5px 0.6rem;
-        align-items: center;
-        border-radius: 8px;
-        font-weight: 650;
-        cursor: pointer;
-        font-size: 0.875rem;
-        outline: none;
+          &.wtq-active .arrow-icon {
+            transform: rotate(-90deg);
+          }
 
-        @media screen and (max-width: 768px) {
-          padding: 12px 1rem;
-          font-size: 1.1rem;
-        }
-
-        &:hover,
-        &:focus-visible {
-          background-color: var(--background-hover);
-        }
-
-        &.wtq-active .arrow-icon {
-          transform: rotate(-90deg);
-        }
-
-        .arrow-icon {
-          width: 24px;
-          height: 24px;
-          transition: transform ease 300ms;
-          transform: rotate(90deg);
+          .arrow-icon {
+            width: 24px;
+            height: 24px;
+            transition: transform ease 300ms;
+            transform: rotate(90deg);
+          }
         }
       }
     }
   }
-}
 </style>
 
 <aside class="wtq-sidebar">
@@ -215,7 +216,8 @@ let cutUrl =
                 { "wtq-active": ActiveClass },
               ]}
               id={`${category.toLowerCase()}-category`}>
-              {category.replace("-", " ")} <ArrowIcon />
+              {category.replace("-", " ")}{" "}
+              <Icon class="arrow-icon" name={"arrow"} />
             </button>
             <ul
               aria-labelledby={`${category.toLowerCase()}-category`}
@@ -259,7 +261,9 @@ let cutUrl =
         fill="currentColor"
         d="M11.7 17.29a.996.996 0 0 0 0-1.41L7.83 12l3.88-3.88a.996.996 0 1 0-1.41-1.41L5.71 11.3a.996.996 0 0 0 0 1.41l4.59 4.59c.38.38 1.01.38 1.4-.01"
       ></path></svg
-    ></button>
+    ></button
+  >
 
-  <script src="./sidebar.ts"></script>
+  
 </aside>
+<script src="./sidebar.ts"></script>

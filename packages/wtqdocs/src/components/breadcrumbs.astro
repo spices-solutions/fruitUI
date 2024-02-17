@@ -1,6 +1,5 @@
 ---
-import ArrowIcon from "./ArrowIcon.astro";
-import HomeIcon from "./HomeIcon.astro";
+import { Icon } from "astro-icon/components";
 
 let currentURL: any[] = Astro.url.pathname.split("/");
 
@@ -9,62 +8,82 @@ currentURL = currentURL.filter((url) => url !== "");
 
 <style lang="scss">
   .wtq-breadcrumbs {
-  user-select: none;
-  font-weight: 300;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  color: var(--accent-800);
-  list-style: none;
-  li {
-    align-items: center;
+    user-select: none;
+    font-weight: 300;
+    margin-top: 20px;
+    margin-bottom: 20px;
     display: flex;
-  }
-  .wtq-breadcrumb {
-    font-size: 16px;
-    display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
     align-items: center;
-    padding: 6px 10px;
-    gap: 5px;
-    border-radius: 8px;
-    cursor: pointer;
-    color: var(--accent-600);
-    &:hover,
-    &:focus-visible {
-      outline: none;
-      background-color: var(--background-hover);
+    color: var(--accent-800);
+    list-style: none;
+
+    li {
+      align-items: center;
+      display: flex;
+      @media screen and (max-width: 768px) {
+        &:not(:nth-child(3)) {
+          display: none !important;
+        }
+      }
+    }
+    .wtq-breadcrumb {
+      font-size: 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 6px 10px;
+      gap: 5px;
+      border-radius: 8px;
+      cursor: pointer;
+      color: var(--accent-600);
+      &:hover,
+      &:focus-visible {
+        outline: none;
+        background-color: var(--background-hover);
+      }
+    }
+    .arrow-icon {
+      color: var(--accent-800);
+      margin-top: 2px;
     }
   }
-  .arrow-icon {
-    color: var(--accent-800);
-  }
-}
-
 </style>
 
-<ul class="wtq-breadcrumbs" aria-label="Breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
-  <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-    <a href="/" class="wtq-breadcrumb" aria-label="Go to the homepage" itemprop="item">
-      <HomeIcon />
+<ul
+  class="wtq-breadcrumbs"
+  aria-label="Breadcrumb"
+  itemscope
+  itemtype="https://schema.org/BreadcrumbList">
+  <li
+    itemprop="itemListElement"
+    itemscope
+    itemtype="https://schema.org/ListItem">
+    <a
+      href="/"
+      class="wtq-breadcrumb"
+      aria-label="Go to the homepage"
+      itemprop="item">
+      <Icon name={"home"} />
       <span itemprop="name">Home</span>
     </a>
     <meta itemprop="position" content="1" />
   </li>
-  {currentURL.map((url, index) => (
-    <>
-      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <ArrowIcon />
+  {
+    currentURL.map((url, index) => (
+      <li
+        itemprop="itemListElement"
+        itemscope
+        itemtype="https://schema.org/ListItem">
+        <Icon class="arrow-icon" name={"arrow"} />
         <a
           href={"/" + currentURL.slice(0, index + 1).join("/")}
           class="wtq-breadcrumb"
-          itemprop="item"
-        >
+          itemprop="item">
           <span itemprop="name">{url.toLowerCase().replace("-", " ")}</span>
         </a>
-        <meta itemprop="position" content={`${index + 2}`}/>
+        <meta itemprop="position" content={`${index + 2}`} />
       </li>
-    </>
-  ))}
+    ))
+  }
 </ul>

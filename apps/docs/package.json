@@ -13,11 +13,9 @@
   "dependencies": {
     "@astrojs/mdx": "^2.0.5",
     "@astrojs/partytown": "^2.0.4",
-    "@astrojs/react": "^3.0.9",
     "@astrojs/rss": "^4.0.2",
     "@astrojs/sitemap": "^3.0.5",
     "@vite-pwa/astro": "^0.2.0",
-    "@vite-pwa/workbox-window": "^8.0.0",
     "astro": "^4.4.0",
     "astro-compress": "^2.2.8",
     "astro-icon": "^1.0.2",
@@ -27,6 +25,7 @@
     "sass": "^1.69.5",
     "sharp": "^0.33.1",
     "vite-plugin-pwa": "^0.17.4",
+    "workbox-window": "^7.0.0",
     "spices-fruitui": "workspace:*",
     "wtqcode": "workspace:*",
     "wtqdocs": "workspace:*"
