@@ -1,6 +1,6 @@
 export { formatDate } from './utils/formatDate';
 
 // @ts-ignore
-export { default as BlogLayout } from "./components/BlogLayout.astro";
+export { default as BlogLayout } from "./components/bloglayout.astro";
 // @ts-ignore
-export { default as AuthorProfile } from "./components/AuthorProfile.astro";
+export { default as AuthorProfile } from "./components/authorprofile.astro";
