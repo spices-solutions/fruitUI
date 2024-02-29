@@ -1,14 +1,14 @@
 // @ts-ignore
-export { default as Head } from "./components/head.astro";
+export { default as Head } from "./components/Head.astro";
 // @ts-ignore
-export type { Props as HeadType } from "./components/head.astro";
+export type { Props as HeadType } from "./components/Head.astro";
 // @ts-ignore
-export { default as Navbar } from "./components/navbar.astro";
+export { default as Navbar } from "./components/Navbar.astro";
 // @ts-ignore
-export { default as SkipLink } from "./components/skiplink.astro";
+export { default as SkipLink } from "./components/Skiplink.astro";
 // @ts-ignore
-export { default as Layout } from "./components/layout.astro";
+export { default as Layout } from "./components/Layout.astro";
 // @ts-ignore
 export { default as Breadcrumbs } from "./components/breadcrumbs.astro";
 // @ts-ignore
-export { default as CategoryCards } from "./components/categorycards.astro";
+export { default as CategoryCards } from "./components/categoryCards.astro";
