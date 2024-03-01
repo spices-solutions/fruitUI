@@ -3,6 +3,10 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "packageManager": "pnpm",
+  "engines": {
+    "node": ">=20.0.0 <22.0.0"
+  },
   "scripts": {
     "dev": "turbo run dev",
     "build": "turbo run build",

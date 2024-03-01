@@ -1,5 +1,5 @@
 import { blogSchema, docSchema , authorSchema } from 'wtqdocs/schema';
-import { defineCollection,z } from "astro:content";
+import { defineCollection } from "astro:content";
 
 const docs = defineCollection({
 	type: "content",
