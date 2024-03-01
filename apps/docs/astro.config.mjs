@@ -1,17 +1,20 @@
 import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
-import partytown from "@astrojs/partytown";
 import sitemap from "@astrojs/sitemap";
 import AstroPWA from "@vite-pwa/astro";
 import compress from "astro-compress";
 import purgecss from "astro-purgecss";
 import metaTags from "astro-meta-tags";
-import lighthouse from "astro-lighthouse";
-
 import icon from "astro-icon";
+
+import pageInsight from "astro-page-insight";
 
 // https://astro.build/config
 export default defineConfig({
+  server: {
+    host: "0.0.0.0",
+    port: 8000
+  },
   site: "https://fruit-ui.vercel.app/",
   trailingSlash: "ignore",
   integrations: [mdx({
@@ -19,7 +22,7 @@ export default defineConfig({
     shikiConfig: {
       theme: "material-theme"
     }
-  }), partytown(), sitemap(), compress(), purgecss(), AstroPWA({
+  }), sitemap(), compress(), purgecss(), AstroPWA({
     experimental: {
       directoryAndTrailingSlashHandler: true
     },
@@ -67,5 +70,7 @@ export default defineConfig({
         purpose: "any maskable"
       }]
     }
-  }), metaTags(), lighthouse(), icon()]
+  }), metaTags(), icon({
+    iconDir: "src/assets/icons"
+  }), pageInsight()]
 });
