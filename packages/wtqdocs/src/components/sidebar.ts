@@ -44,9 +44,23 @@ function SidebarActions() {
 
 	// sidebarBtn?.addEventListener("click", () => {
 	// 	Aside?.classList.toggle("wtq-aside-collapse");
-  //   sidebar.setAttribute("aria-expanded", "false");
-  //   if()
+
+  //   sidebar.setAttribute("aria-expanded", "true");
+  //   sidebarBtn.setAttribute("aria-expanded", "true");
+    
 	// });
+
+  sidebarBtn?.addEventListener("click", () => {
+    if(Aside.classList.contains("wtq-aside-collapse")) {
+      Aside.classList.remove("wtq-aside-collapse");
+      sidebar.setAttribute("aria-expanded", "false");
+      sidebarBtn.setAttribute("aria-expanded", "false");
+    } else {
+      Aside.classList.add("wtq-aside-collapse");
+      sidebar.setAttribute("aria-expanded", "true");
+      sidebarBtn.setAttribute("aria-expanded", "true");
+    }
+	});
 }
 
 SidebarActions();

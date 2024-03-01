@@ -32,8 +32,11 @@ let cutUrl =
     background-color: var(--body-background);
     text-overflow: clip;
     padding-bottom: 50px;
+    &[aria-expanded="true"] {
+      width: 60px !important;
+    }
     .wtq-aside-collapse {
-      // display: none !important;
+      display: none !important;
       height: 0% !important;
       width: 0%;
       overflow: hidden;
@@ -71,8 +74,8 @@ let cutUrl =
     }
 
     .wtq-active {
-      // max-height: 100% !important;
-      transition-duration: 4s !important;
+      max-height: 100% !important;
+      // transition-duration: 4s !important;
     }
 
     &.wtq-sidebar-active {
@@ -179,14 +182,19 @@ let cutUrl =
         }
       }
     }
-    .wtq-sidebar-toggle {
-      padding: 0 5px;
+    .wtq-collapse-button {
       margin: 15px 0px;
       border: 0;
       border-radius: 10px;
       cursor: pointer;
       background-color: transparent;
       color: var(--accent-800);
+      display: flex;
+      align-items: center;
+      transition: all 400ms ease;
+    }
+    .wtq-collapse-button[aria-expanded="true"] {
+      height: 100%;
     }
   }
 </style>
