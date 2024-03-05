@@ -12,18 +12,6 @@ import compressor from "astro-compressor";
 
 // https://astro.build/config
 export default defineConfig({
-  vite: {
-    optimizeDeps: {
-      exclude: ['sharp']
-  },
-  esbuild: {
-    exclude: ['sharp']
-},
-    logLevel: 'info',
-    define: {
-      __DATE__: `'${new Date().toISOString()}'`,
-    },
-  },
   server: {
     host: "0.0.0.0",
     port: 8000,
