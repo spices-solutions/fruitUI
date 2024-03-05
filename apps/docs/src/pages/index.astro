@@ -1,6 +1,5 @@
 ---
-import { CodeBlock } from "wtqcode";
-import { Head, Layout, Navbar, SkipLink } from "wtqdocs";
+import { Head, Navbar, SkipLink } from "wtqdocs";
 import WathqnyConfig from "/wathqny.config";
 ---
 
@@ -9,7 +8,7 @@ import WathqnyConfig from "/wathqny.config";
   lang={WathqnyConfig.locale}
   dir={WathqnyConfig.locale_dir}
   class="light">
-  <style lang="scss">
+  <style is:inline lang="scss">
     main {
       height: 100vh;
       display: flex;
