@@ -3,6 +3,12 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "pnpm": {
+    "supportedArchitectures": {
+      "os": ["win32"],
+      "cpu": ["x64"]
+    }
+  },
   "packageManager": "pnpm",
   "engines": {
     "node": ">=20.0.0 <22.0.0"

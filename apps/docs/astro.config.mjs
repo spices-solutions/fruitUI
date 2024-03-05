@@ -6,14 +6,27 @@ import compress from "astro-compress";
 import purgecss from "astro-purgecss";
 import metaTags from "astro-meta-tags";
 import icon from "astro-icon";
-
 import pageInsight from "astro-page-insight";
+
+import compressor from "astro-compressor";
 
 // https://astro.build/config
 export default defineConfig({
+  vite: {
+    optimizeDeps: {
+      exclude: ['sharp']
+  },
+  esbuild: {
+    exclude: ['sharp']
+},
+    logLevel: 'info',
+    define: {
+      __DATE__: `'${new Date().toISOString()}'`,
+    },
+  },
   server: {
     host: "0.0.0.0",
-    port: 8000
+    port: 8000,
   },
   site: "https://fruit-ui.vercel.app/",
   trailingSlash: "ignore",
@@ -28,13 +41,18 @@ export default defineConfig({
     },
     registerType: "autoUpdate",
     devOptions: {
-      enabled: true
+      enabled: true,
+      navigateFallbackAllowlist: [/^\//],
+    },
+    pwaAssets: {
+      config: true,
     },
     workbox: {
-      globPatterns: ["**/*.*"],
       clientsClaim: true,
       skipWaiting: true,
-      cleanupOutdatedCaches: true
+      cleanupOutdatedCaches: true,
+      navigateFallback: '/',
+      globPatterns: ['**/*.{css,js,html,svg,png,ico,txt}'],
     },
     manifest: {
       name: "fruitUI",
@@ -43,34 +61,34 @@ export default defineConfig({
       background_color: "#fff",
       display: "standalone",
       scope: "/",
-      start_url: "/",
+      base: "/",
       orientation: "portrait",
-      icons: [{
-        src: "/icons/trademark-192.png",
-        sizes: "192x192",
-        type: "image/png"
-      }, {
-        src: "/icons/trademark-512.png",
-        sizes: "512x512",
-        type: "image/png"
-      }, {
-        src: "/icons/apple-touch-icon.png",
-        sizes: "180x180",
-        type: "image/png",
-        purpose: "apple-touch-icon"
-      }, {
-        src: "/icons/trademark-225.png",
-        sizes: "225x225",
-        type: "image/png",
-        purpose: "any maskable"
-      }, {
-        src: "/icons/trademark-144.png",
-        sizes: "144x144",
-        type: "image/png",
-        purpose: "any maskable"
-      }]
+      // icons: [{
+      //   src: "/icons/trademark-192.png",
+      //   sizes: "192x192",
+      //   type: "image/png"
+      // }, {
+      //   src: "/icons/trademark-512.png",
+      //   sizes: "512x512",
+      //   type: "image/png"
+      // }, {
+      //   src: "/icons/apple-touch-icon.png",
+      //   sizes: "180x180",
+      //   type: "image/png",
+      //   purpose: "apple-touch-icon"
+      // }, {
+      //   src: "/icons/trademark-225.png",
+      //   sizes: "225x225",
+      //   type: "image/png",
+      //   purpose: "any maskable"
+      // }, {
+      //   src: "/icons/trademark-144.png",
+      //   sizes: "144x144",
+      //   type: "image/png",
+      //   purpose: "any maskable"
+      // }]
     }
   }), metaTags(), icon({
     iconDir: "src/assets/icons"
-  }), pageInsight()]
+  }), pageInsight(), compressor({ gzip: true, brotli: false })]
 });
