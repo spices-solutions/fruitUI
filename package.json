@@ -5,8 +5,12 @@
   "type": "module",
   "pnpm": {
     "supportedArchitectures": {
-      "os": ["win32"],
-      "cpu": ["x64"]
+      "os": [
+        "win32"
+      ],
+      "cpu": [
+        "x64"
+      ]
     }
   },
   "packageManager": "pnpm",
@@ -22,6 +26,6 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.5.1",
-    "turbo": "^1.12.4"
+    "turbo": "^1.12.5"
   }
 }

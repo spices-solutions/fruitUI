@@ -2,13 +2,16 @@
   "name": "docs",
   "type": "module",
   "version": "0.0.1",
-    "pnpm": {
-      "supportedArchitectures": {
-        "os": ["win32"],
-        "cpu": ["x64"]
-      }
-    },
-  
+  "pnpm": {
+    "supportedArchitectures": {
+      "os": [
+        "win32"
+      ],
+      "cpu": [
+        "x64"
+      ]
+    }
+  },
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -22,9 +25,8 @@
     "@astrojs/partytown": "^2.0.4",
     "@astrojs/rss": "^4.0.5",
     "@astrojs/sitemap": "^3.1.1",
-    "@vite-pwa/assets-generator": "^0.2.4",
     "@vite-pwa/astro": "^0.3.0",
-    "astro": "^4.4.11",
+    "astro": "^4.4.13",
     "astro-compress": "^2.2.11",
     "astro-compressor": "^0.4.1",
     "astro-critters": "^2.1.2",
@@ -42,6 +44,7 @@
     "wtqdocs": "workspace:*"
   },
   "devDependencies": {
+    "@vite-pwa/assets-generator": "^0.2.4",
     "sharp-ico": "^0.1.5"
   }
 }
