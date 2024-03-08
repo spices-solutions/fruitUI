@@ -17,6 +17,7 @@
     "@vite-pwa/astro": "^0.3.0",
     "astro": "^4.4.6",
     "astro-compress": "^2.2.11",
+    "astro-compressor": "^0.4.1",
     "astro-icon": "^1.1.0",
     "astro-meta-tags": "^0.2.1",
     "astro-page-insight": "^0.0.18",

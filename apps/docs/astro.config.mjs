@@ -6,8 +6,9 @@ import compress from "astro-compress";
 import purgecss from "astro-purgecss";
 import metaTags from "astro-meta-tags";
 import icon from "astro-icon";
-
 import pageInsight from "astro-page-insight";
+
+import compressor from "astro-compressor";
 
 // https://astro.build/config
 export default defineConfig({
@@ -72,5 +73,5 @@ export default defineConfig({
     }
   }), metaTags(), icon({
     iconDir: "src/assets/icons"
-  }), pageInsight()]
+  }), pageInsight(), compressor({ gzip: true, brotli: false })]
 });
