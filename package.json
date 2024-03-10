@@ -1,8 +1,4 @@
 {
-  "name": "runtime",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
   "pnpm": {
     "supportedArchitectures": {
       "os": [
@@ -13,7 +9,11 @@
       ]
     }
   },
-  "packageManager": "pnpm",
+  "packageManager": "pnpm@8.15.1",
+  "name": "runtime",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "engines": {
     "node": ">=20.0.0 <22.0.0"
   },

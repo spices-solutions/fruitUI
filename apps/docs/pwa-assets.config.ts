@@ -13,6 +13,7 @@ export const minimal2023Preset: Preset = {
   apple: {
     sizes: [180]
   }
+  
 }
 
 export default defineConfig({

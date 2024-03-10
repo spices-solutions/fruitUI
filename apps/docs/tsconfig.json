@@ -2,6 +2,11 @@
   "extends": "astro/tsconfigs/strictest",
   "compilerOptions": {
     "baseUrl": ".",
+    "types": [
+      "astro/client",
+      "vite-plugin-pwa/pwa-assets",
+      "vite-plugin-pwa/info"
+    ],
     "paths": {
       "~components/*": ["src/components/*"],
       "~layouts/*": ["src/layouts/*"]
