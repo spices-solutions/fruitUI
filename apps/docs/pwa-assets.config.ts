@@ -23,10 +23,9 @@ export default defineConfig({
   preset: {
     ...minimal2023Preset,
     png: {
-      
       compressionLevel: 9,
       quality: 85
     }
   },
-  images: ['public/logo.svg']
+  images: ['public/icon.svg']
 })

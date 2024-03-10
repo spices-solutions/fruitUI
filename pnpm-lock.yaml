@@ -68,6 +68,9 @@ importers:
       spices-fruitui:
         specifier: workspace:*
         version: link:../../packages/fruitui
+      vite-plugin-pwa:
+        specifier: ^0.19.2
+        version: 0.19.2(@vite-pwa/assets-generator@0.2.4)(vite@5.1.5)(workbox-build@7.0.0)(workbox-window@7.0.0)
       workbox-window:
         specifier: ^7.0.0
         version: 7.0.0
