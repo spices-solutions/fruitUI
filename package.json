@@ -1,14 +1,4 @@
 {
-  "pnpm": {
-    "supportedArchitectures": {
-      "os": [
-        "win32"
-      ],
-      "cpu": [
-        "x64"
-      ]
-    }
-  },
   "packageManager": "pnpm@8.15.1",
   "name": "runtime",
   "private": true,
