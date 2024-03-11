@@ -2,7 +2,7 @@
   "$schema": "https://turbo.build/schema.json",
   "pipeline": {
     "dev": {
-      "cache": false,
+      "cache": true,
       "persistent": true
     },
     "lint": {
