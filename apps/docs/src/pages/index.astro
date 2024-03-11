@@ -1,6 +1,7 @@
 ---
 import { Head, Navbar, SkipLink } from "wtqdocs";
 import WathqnyConfig from "/wathqny.config";
+import "../custom.scss"
 ---
 
 <html
@@ -8,43 +9,6 @@ import WathqnyConfig from "/wathqny.config";
   lang={WathqnyConfig.locale}
   dir={WathqnyConfig.locale_dir}
   class="light">
-  <style is:inline lang="scss">
-    main {
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      .hero {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        text-align: center;
-        .title {
-          background: linear-gradient(
-            9deg,
-            var(--accent-900) 53%,
-            var(--accent-500) 100%
-          );
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-          font-size: clamp(1rem, 10vw, 4rem);
-          color: transparent;
-          font-weight: 900;
-          letter-spacing: -0.5px;
-          margin-bottom: 12px;
-          padding-block: 5px;
-        }
-        .subtitle {
-          margin-bottom: 24px;
-          font-size: clamp(1rem, 4vw, 2rem);
-          font-weight: 500;
-          color: var(--accent-700);
-        }
-      }
-    }
-  </style>
   <Head />
   <body>
     <SkipLink />
