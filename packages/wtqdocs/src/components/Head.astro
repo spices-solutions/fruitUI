@@ -1,5 +1,6 @@
 ---
 import { pwaInfo } from "virtual:pwa-info";
+import { pwaAssetsHead } from "virtual:pwa-assets/head";
 
 import WathqnyConfig from "/wathqny.config";
 import MainStyles from "../../../wtqdocs/styles/css/wathqny.css?url";
@@ -25,12 +26,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
-  <meta name="theme-color" content="#FFFFFF" />
   <meta name="color-scheme" content="dark light" />
-  <link rel="mask-icon" href="/icons/teardmark-225.png" color="#FFFFFF" />
   <link rel="sitemap" href="/sitemap-index.xml" />
-  <link rel="icon" href={METAFAVICON} type="image/svg+xml" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <meta name="generator" content={Astro.generator} />
@@ -55,6 +52,13 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     type="font/woff2"
     crossorigin="anonymous"
   />
+  {
+    pwaAssetsHead.themeColor && (
+      <meta name="theme-color" content={pwaAssetsHead.themeColor.content} />
+    )
+  }
+  {pwaAssetsHead.links.map((link) => <link {...link} />)}
+
   {pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} />}
   <script src="/src/pwa.ts"></script>
 
@@ -63,19 +67,17 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <link href={fruitUIStyles} rel="stylesheet" crossorigin="anonymous" />
   <link href={MainStyles} rel="stylesheet" crossorigin="anonymous" />
 
-  <script is:inline>
-    try {
-      const root = document.documentElement;
+  <script>
+    const root = document.documentElement;
 
-      if (
-        localStorage.theme === "dark" ||
-        (document.matchMedia("(prefers-color-scheme: dark)").matches &&
-          !localStorage.theme === "light")
-      ) {
-        root?.classList.replace("light", "dark");
-      } else {
-        root?.classList.replace("dark", "light");
-      }
-    } catch (e) {}
+    if (
+      localStorage.theme === "dark" ||
+      (!("theme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      root?.classList.replace("light", "dark");
+    } else {
+      root?.classList.replace("dark", "light");
+    }
   </script>
 </head>
