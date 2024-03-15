@@ -3,16 +3,16 @@ import { getCollection } from "astro:content";
 const docs = await getCollection("docs");
 
 const category = Astro.url.pathname.split("/")[2];
-docs.sort((a, b) => (a.data.position > b.data.position ? 1 : -1));
+docs.sort((a: { data: { position: number; }; }, b: { data: { position: number; }; }) => (a.data.position > b.data.position ? 1 : -1));
 
-const newdocs = docs.filter((doc) => {
+const newdocs = docs.filter((doc: { data: { category: string; }; }) => {
   return doc.data.category.toLowerCase() == category;
 });
 ---
 
 <div class="wtq-card-container-category">
   {
-    newdocs.map((doc) => {
+    newdocs.map((doc: { data: { href: string | number; title: unknown; description: unknown; }; }) => {
       return (
         <a href={category + doc.data.href}>
           <div class="wtq-card">

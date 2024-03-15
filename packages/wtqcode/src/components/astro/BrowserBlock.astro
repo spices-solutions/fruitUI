@@ -1,0 +1,36 @@
+<div
+  style={{
+    border: "1px solid var(--accent-200)",
+    backgroundColor: "var(--accent-50)",
+    boxShadow:
+      "0 10px 25px -5px rgb(0 0 0 / 0.05) , 0 8px 10px -6px rgb(0 0 0 / 0.1)",
+    margin: "50px 0",
+    borderRadius: "10px",
+  }}>
+  <div style={{ display: "flex", gap: "10px", padding: "20px 20px 0" }}>
+    <span
+      style={{
+        width: "15px",
+        height: "15px",
+        borderRadius: "50%",
+        backgroundColor: "#ed6b60",
+      }}></span>
+    <span
+      style={{
+        width: "15px",
+        height: "15px",
+        borderRadius: "50%",
+        backgroundColor: "#f5be4f",
+      }}></span>
+    <span
+      style={{
+        width: "15px",
+        height: "15px",
+        borderRadius: "50%",
+        backgroundColor: "#62c554",
+      }}></span>
+  </div>
+  <div class="py-5 px-5">
+    <slot />
+  </div>
+</div>
