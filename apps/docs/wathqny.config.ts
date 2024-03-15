@@ -2,6 +2,7 @@ interface WathqnyConfigI {
 	siteName?: string;
 	description?: string;
 	keywords?: string[];
+  sidebar?: any;
 	image?: string;
 	category?: string[];
   darkMode?: boolean;
@@ -26,6 +27,16 @@ const WathqnyConfig: WathqnyConfigI = {
   locale_dir: "ltr",
   darkMode: true,
 	category: ["Getting-started", "Components", "Layout", "Utilities"],
+  sidebar: {
+    gettingStarted: "Getting started",
+    components: {
+      base: 'base',
+      other: 'other',
+      awesome: 'awesome',
+    },
+    layout: "Layout",
+    utilities: "Utilities"
+  },
   cssPath: ["./src/"],
 	navbar: {
 		brand: {
