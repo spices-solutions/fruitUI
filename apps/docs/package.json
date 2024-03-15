@@ -7,17 +7,16 @@
     "start": "astro dev",
     "build": "astro build",
     "serve": "astro preview",
-    "gpa": "pwa-assets-generator",
-    "astro": "astro"
+    "astro": "astro",
+    "gpa": "pwa-assets-generator"
   },
   "dependencies": {
     "@astrojs/mdx": "^2.1.1",
-    "@astrojs/partytown": "^2.0.4",
     "@astrojs/rss": "^4.0.5",
     "@astrojs/sitemap": "^3.1.1",
     "@vite-pwa/assets-generator": "^0.2.4",
     "@vite-pwa/astro": "^0.3.0",
-    "astro": "^4.4.15",
+    "astro": "^4.5.4",
     "astro-compress": "^2.2.3",
     "astro-compressor": "^0.4.1",
     "astro-icon": "^1.1.0",
