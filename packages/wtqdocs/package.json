@@ -22,7 +22,8 @@
     }
   },
   "scripts": {
-    "dev": "sass -w styles/scss:styles/css "
+    "dev": "sass -w styles/scss:styles/css",
+    "build": "sass styles/scss:styles/css "
   },
   "keywords": [
     "spices",
