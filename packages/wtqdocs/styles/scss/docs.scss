@@ -1,8 +1,8 @@
 @use "../../../fruitui/src/scss/lib/import/basket" as * with (
   $typography-util: false,
   $spacing-util: true,
-  $align-util: false,
-  $other-util: false,
+  $align-util: true,
+  $other-util: true,
   $size-util: false,
   $media-alignments: false,
   $media-flex-dir: false,
@@ -21,6 +21,8 @@
   $awesome-components: true,
   $ui-colors: true
 );
+
+@include useShades(900,50)
 
 // @include renderFrame("slideRight");
 
