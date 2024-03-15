@@ -1,0 +1,23 @@
+---
+import { Head, Navbar, SkipLink } from "wtqdocs";
+import WathqnyConfig from "/wathqny.config";
+import "../custom.scss";
+---
+
+<html
+  xml:lang={WathqnyConfig.locale}
+  lang={WathqnyConfig.locale}
+  dir={WathqnyConfig.locale_dir}
+  class="light">
+  <Head />
+  <body>
+    <SkipLink />
+    <Navbar />
+    <main id="main-content">
+      <section class="hero">
+        <h1 class="title">404</h1>
+        <p>page not found,  <a style="cursor: pointer;" onclick="window.history.back()">go back</a></p>
+      </section>
+    </main>
+  </body>
+</html>

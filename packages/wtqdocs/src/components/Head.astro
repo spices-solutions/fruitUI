@@ -1,10 +1,10 @@
 ---
 import { pwaInfo } from "virtual:pwa-info";
 import { pwaAssetsHead } from "virtual:pwa-assets/head";
-
 import WathqnyConfig from "/wathqny.config";
-import MainStyles from "../../../wtqdocs/styles/css/wathqny.css?url";
-import fruitUIStyles from "../../../wtqdocs/styles/css/docs.css?url";
+
+import MainStyles from "../../styles/css/wathqny.css?url";
+import fruitUIStyles from "../../styles/css/docs.css?url";
 
 export interface Props {
   title?: string;
@@ -20,7 +20,6 @@ const METATITLE = title
 const METAIMAGE = WathqnyConfig.image;
 const METADESCRIPTION = WathqnyConfig.description;
 const METAKEYWORDS = keywords ?? [...WathqnyConfig.keywords];
-const METAFAVICON = WathqnyConfig.favicon;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
@@ -31,7 +30,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <meta name="generator" content={Astro.generator} />
-  <meta name="keywords" content={METAKEYWORDS} />
+  <meta name="keywords" content={METAKEYWORDS as string} />
   <meta name="description" content={METADESCRIPTION} />
   <meta property="og:description" content={METADESCRIPTION} />
   <meta property="og:image" content={METAIMAGE} />
@@ -58,14 +57,15 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     )
   }
   {pwaAssetsHead.links.map((link) => <link {...link} />)}
-
   {pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} />}
+
+  <link href={fruitUIStyles} rel="stylesheet" crossorigin="anonymous" />
+  <link href={MainStyles} rel="stylesheet" crossorigin="anonymous" />
+
   <script src="/src/pwa.ts"></script>
 
   <title>{METATITLE}</title>
 
-  <link href={fruitUIStyles} rel="stylesheet" crossorigin="anonymous" />
-  <link href={MainStyles} rel="stylesheet" crossorigin="anonymous" />
 
   <script>
     const root = document.documentElement;

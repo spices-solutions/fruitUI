@@ -34,8 +34,7 @@ export default defineConfig({
       },
       registerType: "autoUpdate",
       devOptions: {
-        enabled: true,
-        navigateFallbackAllowlist: [/^\//],
+        enabled: false,
       },
       pwaAssets: {
         config: true
@@ -44,7 +43,7 @@ export default defineConfig({
         clientsClaim: true,
         skipWaiting: true,
         cleanupOutdatedCaches: true,
-        navigateFallback: "/",
+        navigateFallback: "/404",
         globPatterns: ["**/*.{css,js,html,svg,png,ico,txt}"],
       },
       manifest: {

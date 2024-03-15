@@ -1,7 +1,6 @@
 ---
 import { Image } from "astro:assets";
 import { getCollection, type CollectionEntry } from "astro:content";
-import { Head, Layout, Navbar } from "wtqdocs";
 import { formatDate, BlogLayout } from "wtqdocs/blog";
 
 const blog = await getCollection("blog");
@@ -31,7 +30,7 @@ interface Props {
               <Image
                 width={640}
                 height={360}
-                src={`/og.png`}
+                src={ post.data.OGImage ? post.data.OGImage :  `/og.png`}
                 alt={"dwad"}
                 loading="eager"
               />

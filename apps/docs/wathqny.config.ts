@@ -2,7 +2,6 @@ interface WathqnyConfigI {
 	siteName?: string;
 	description?: string;
 	keywords?: string[];
-	favicon?: string;
 	image?: string;
 	category?: string[];
   darkMode?: boolean;
@@ -20,7 +19,6 @@ interface WathqnyConfigI {
 
 const WathqnyConfig: WathqnyConfigI = {
 	siteName: "fruitUI",
-	favicon: "/icon.svg",
 	image: "/og.png",
 	description: "fruit UI a modular styling framework",
   keywords: ["fruitUI", "fruit", "ui", "css", "html", "js", "framework", "library","components"],
