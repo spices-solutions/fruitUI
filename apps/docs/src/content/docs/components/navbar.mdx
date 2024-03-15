@@ -7,21 +7,14 @@ position: 2
 href: /navbar
 ---
 
+import { BrowserBlock } from "wtqcode";
+
 ## default theme
 
-<div class="browser-app">
-  <div class="header">
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-  </div>
-  <div>
+<BrowserBlock>
   <iframe src="/iframe/navbar" width="100%" height="400px" title="navbar example" loading="lazy"
   frameborder="0"></iframe>
-
-</div>
-
-</div>
+</BrowserBlock>
 
 ```html
 <nav class="navbar">
@@ -45,7 +38,6 @@ href: /navbar
 ### other thmes
 
 All themes are available but not showcased due to the large navbar size, which could result in an excessive number of iframes.
-
 
 ```html
 <nav class="navbar <THEME-NAME>">

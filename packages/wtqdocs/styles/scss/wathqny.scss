@@ -11,6 +11,10 @@ $accent-800: #27272a !default;
 $accent-900: #18181b !default;
 $accent-950: #0f0f11 !default;
 
+// --darkest: ; --dark: ; --medium: ; --light: ; --lightest: ;
+// --darkest: ; --dark: ; --medium: ; --light: ; --lightest: ;
+// darkest dark medium light lightest
+
 $font-3xl: 2.986rem;
 $font-2xl: 2.488rem;
 $font-xl: 2.074rem;
@@ -100,74 +104,13 @@ $font-xs: 1rem;
   }
 }
 
-.wtq-page {
-  display: flex;
-  height: 100%;
-}
 
-.wtq-container {
-  padding-inline: 15px;
-  margin-inline: auto;
-  width: 90%;
-  max-width: 1400px;
-}
-
-.wtq-main-heading {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  text-transform: capitalize;
-}
-
-.dark .browser-app {
-  background-color: $accent-100;
-}
-
-.browser-app {
-  border: 1px solid $accent-200;
-  background-color: $accent-50;
-  box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.05),
-    0 8px 10px -6px rgb(0 0 0 / 0.1);
-  margin: 50px 0;
-  border-radius: 10px;
-}
-
-.browser-app .header {
-  display: flex;
-  padding: 15px 20px;
-  gap: 10px;
-}
-
-.browser-app .header .dot {
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-}
-
-.browser-app .header .dot:nth-child(1) {
-  background-color: #ed6b60;
-}
-
-.browser-app .header .dot:nth-child(2) {
-  background-color: #f5be4f;
-}
-
-.browser-app .header .dot:nth-child(3) {
-  background-color: #62c554;
-}
-
-.wtq-content {
-  overflow-y: auto;
-  width: 100%;
-  height: calc(100vh - 50px);
-  padding-bottom: 40px;
-}
 
 *,
 *::after,
 *::before {
   box-sizing: border-box;
 }
-
 html,
 body {
   word-wrap: break-word;
@@ -182,8 +125,6 @@ body {
   -webkit-text-size-adjust: none;
   -moz-text-size-adjust: none;
   text-size-adjust: none;
-  -moz-tab-size: 4;
-  tab-size: 4;
   margin: 0;
 }
 
@@ -956,4 +897,33 @@ h6 {
   font-weight: 400;
   letter-spacing: 0.3pt;
   font-size: var(--font-xs);
+}
+
+
+
+.wtq-page {
+  display: flex;
+  height: 100%;
+}
+
+.wtq-container {
+  padding-inline: 15px;
+  margin-inline: auto;
+  width: 90%;
+  max-width: 1400px;
+}
+
+.wtq-main-heading {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-transform: capitalize;
+}
+
+
+
+.wtq-content {
+  overflow-y: auto;
+  width: 100%;
+  height: calc(100vh - 50px);
+  padding-bottom: 40px;
 }

@@ -77,67 +77,6 @@
   }
 }
 
-.wtq-page {
-  display: flex;
-  height: 100%;
-}
-
-.wtq-container {
-  padding-inline: 15px;
-  margin-inline: auto;
-  width: 90%;
-  max-width: 1400px;
-}
-
-.wtq-main-heading {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  text-transform: capitalize;
-}
-
-.dark .browser-app {
-  background-color: #f4f4f5;
-}
-
-.browser-app {
-  border: 1px solid #e4e4e7;
-  background-color: #fdfdfd;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
-  margin: 50px 0;
-  border-radius: 10px;
-}
-
-.browser-app .header {
-  display: flex;
-  padding: 15px 20px;
-  gap: 10px;
-}
-
-.browser-app .header .dot {
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-}
-
-.browser-app .header .dot:nth-child(1) {
-  background-color: #ed6b60;
-}
-
-.browser-app .header .dot:nth-child(2) {
-  background-color: #f5be4f;
-}
-
-.browser-app .header .dot:nth-child(3) {
-  background-color: #62c554;
-}
-
-.wtq-content {
-  overflow-y: auto;
-  width: 100%;
-  height: calc(100vh - 50px);
-  padding-bottom: 40px;
-}
-
 *,
 *::after,
 *::before {
@@ -157,8 +96,6 @@ body {
   -webkit-text-size-adjust: none;
   -moz-text-size-adjust: none;
   text-size-adjust: none;
-  -moz-tab-size: 4;
-  tab-size: 4;
   margin: 0;
 }
 
@@ -875,6 +812,31 @@ h6 {
   font-weight: 400;
   letter-spacing: 0.3pt;
   font-size: var(--font-xs);
+}
+
+.wtq-page {
+  display: flex;
+  height: 100%;
+}
+
+.wtq-container {
+  padding-inline: 15px;
+  margin-inline: auto;
+  width: 90%;
+  max-width: 1400px;
+}
+
+.wtq-main-heading {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-transform: capitalize;
+}
+
+.wtq-content {
+  overflow-y: auto;
+  width: 100%;
+  height: calc(100vh - 50px);
+  padding-bottom: 40px;
 }
 
 /*# sourceMappingURL=wathqny.css.map */

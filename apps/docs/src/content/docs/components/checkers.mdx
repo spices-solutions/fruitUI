@@ -1,74 +1,62 @@
 ---
 title: checkers
-description:  checkboxs, radio buttons and switchs
+description: checkboxs, radio buttons and switchs
 category: Components
 authors: felfel
 position: 5
 href: /checkers
 ---
 
+import { BrowserBlock } from "wtqcode";
+
 ## default theme
 
-<div class="browser-app">
-  <div class="header">
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
+<BrowserBlock>
+  <div class="form-part flex items-center gap-2">
+    <input id="checkbox" class="checkbox" type="checkbox" />
+    <label style="color: black;" for="checkbox" class="lable">
+      check me
+    </label>
   </div>
-  <div class="p-5">
-
-    <div class="form-part flex items-center gap-2">
-
-      <input id="checkbox" class="checkbox" type="checkbox" />
-      <label style="color: black;" for="checkbox" class="lable">check me</label>
-    </div>
-
-  </div>
-
-</div>
+</BrowserBlock>
 
 ```html
 <input type="checkbox" class="checkbox" />
 ```
 
-<div class="browser-app">
-  <div class="header">
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-  </div>
-  <div class="p-5">
+<BrowserBlock>
     <div class="form-part flex items-center gap-2">
       <input id="switch-1" class="radio" type="radio" name="one" value="ture" />
-      <label style="color: black;" for="switch-1">check me</label>
+      <label style="color: black;" for="switch-1">
+        check me
+      </label>
     </div>
     <div class="form-part flex items-center gap-2">
-      <input id="switch-2" class="radio" type="radio" name="one" value="false" />
-      <label style="color: black;" for="switch-2">check me</label>
+      <input
+        id="switch-2"
+        class="radio"
+        type="radio"
+        name="one"
+        value="false"
+      />
+      <label style="color: black;" for="switch-2">
+        check me
+      </label>
     </div>
-  </div>
-</div>
 
+</BrowserBlock>
 
 ```html
 <input type="radio" class="radio" />
 ```
 
-<div class="browser-app">
-  <div class="header">
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-  </div>
-  <div class="p-5">
-
+<BrowserBlock>
     <div class="form-part flex items-center">
       <input id="switch" class="switch" type="checkbox" />
       <label style="color: black;" for="switch">check me</label>
     </div>
-  </div>
+</BrowserBlock>
 
-</div>
 
 ```html
 <input type="checkbox" class="switch" />
@@ -76,14 +64,7 @@ href: /checkers
 
 ## main theme
 
-
-<div class="browser-app">
-  <div class="header">
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-  </div>
-  <div class="p-5">
+<BrowserBlock>
     <div class="form-part flex items-center">
       <input checked aria-label="checkbox" class="checkbox primary" type="checkbox" />
       <input checked aria-label="checkbox" class="checkbox secondary" type="checkbox" />
@@ -95,9 +76,7 @@ href: /checkers
       <input checked aria-label="checkbox" class="checkbox black" type="checkbox" />
       <input checked aria-label="checkbox" class="checkbox white" type="checkbox" />
     </div>
-  </div>
-
-</div>
+</BrowserBlock>
 
 ```html
 <input class="checkbox primary" type="checkbox" />
@@ -113,14 +92,7 @@ href: /checkers
 
 ## flat theme
 
-
-<div class="browser-app">
-  <div class="header">
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-  </div>
-  <div class="p-5">
+<BrowserBlock>
     <div class="form-part flex items-center">
       <input checked aria-label="checkbox" class="checkbox primary-flat" type="checkbox" />
       <input checked aria-label="checkbox" class="checkbox secondary-flat" type="checkbox" />
@@ -132,9 +104,7 @@ href: /checkers
       <input checked aria-label="checkbox" class="checkbox black-flat" type="checkbox" />
       <input checked aria-label="checkbox" class="checkbox white-flat" type="checkbox" />
     </div>
-  </div>
-
-</div>
+</BrowserBlock>
 
 ```html
 <input class="checkbox primary-flat" type="checkbox" />
@@ -150,14 +120,7 @@ href: /checkers
 
 ## main theme
 
-
-<div class="browser-app">
-  <div class="header">
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-  </div>
-  <div class="p-5">
+<BrowserBlock>
     <div class="form-part flex items-center">
       <input aria-label="radio" class="radio primary" type="radio" />
       <input aria-label="radio" class="radio secondary" type="radio" />
@@ -169,9 +132,7 @@ href: /checkers
       <input aria-label="radio" class="radio black" type="radio" />
       <input aria-label="radio" class="radio white" type="radio" />
     </div>
-  </div>
-
-</div>
+</BrowserBlock>
 
 ```html
 <input class="radio primary" type="radio" />
@@ -187,14 +148,7 @@ href: /checkers
 
 ## flat theme
 
-
-<div class="browser-app">
-  <div class="header">
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-  </div>
-  <div class="p-5">
+<BrowserBlock>
     <div class="form-part flex items-center">
       <input aria-label="radio" class="radio  primary-flat" type="radio" />
       <input aria-label="radio" class="radio  secondary-flat" type="radio" />
@@ -206,9 +160,7 @@ href: /checkers
       <input aria-label="radio" class="radio  black-flat" type="radio" />
       <input aria-label="radio" class="radio  white-flat" type="radio" />
     </div>
-  </div>
-
-</div>
+</BrowserBlock>
 
 ```html
 <input class="radio primary-flat" type="radio" />
@@ -224,14 +176,7 @@ href: /checkers
 
 ## main theme
 
-
-<div class="browser-app">
-  <div class="header">
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-  </div>
-  <div class="p-5">
+<BrowserBlock>
     <div class="form-part flex items-center">
       <input checked aria-label="switch" class="switch primary" type="checkbox" />
       <input checked aria-label="switch" class="switch secondary" type="checkbox" />
@@ -243,9 +188,7 @@ href: /checkers
       <input checked aria-label="switch" class="switch black" type="checkbox" />
       <input checked aria-label="switch" class="switch white" type="checkbox" />
     </div>
-  </div>
-
-</div>
+</BrowserBlock>
 
 ```html
 <input class="switch primary" type="checkbox" />
@@ -261,14 +204,7 @@ href: /checkers
 
 ## flat theme
 
-
-<div class="browser-app">
-  <div class="header">
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-  </div>
-  <div class="p-5">
+<BrowserBlock>
     <div class="form-part flex items-center">
       <input checked aria-label="switch" class="switch primary-flat" type="checkbox" />
       <input checked aria-label="switch" class="switch secondary-flat" type="checkbox" />
@@ -280,10 +216,7 @@ href: /checkers
       <input checked aria-label="switch" class="switch black-flat" type="checkbox" />
       <input checked aria-label="switch" class="switch white-flat" type="checkbox" />
     </div>
-  </div>
-
-</div>
-
+</BrowserBlock>
 
 ```html
 <input class="switch primary-flat" type="checkbox" />
@@ -297,36 +230,33 @@ href: /checkers
 <input class="switch white-flat" type="checkbox" />
 ```
 
-
-
 ## usage
-
 
 ### section import
 
 ```scss
-@use "~" as * with (
-  $base-components: true,
+@use "~"as * with (
+  $base-components: true
 );
 ```
 
 ### Individual Import
 
-
 ```scss
-@use "~" as * with (
+@use "~"as * with (
   $components: (
     base: (
       checkers: ture,
     ),
-  ),
+  )
 );
 ```
+
 ### mixin
 
 ```scss
-@use "~" as * with (
-  $a-var: "",
+@use "~"as * with (
+  $a-var: ""
 );
 
 @include checkers();
