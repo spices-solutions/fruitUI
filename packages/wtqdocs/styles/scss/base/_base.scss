@@ -11,12 +11,6 @@ $accent-800: #27272a !default;
 $accent-900: #18181b !default;
 $accent-950: #0f0f11 !default;
 
-// --darkest: ; --dark: ; --medium: ; --light: ; --lightest: ;
-// --darkest: ; --dark: ; --medium: ; --light: ; --lightest: ;
-// darkest dark medium light lightest
-
-
-
 $font-3xl: 2.986rem;
 $font-2xl: 2.488rem;
 $font-xl: 2.074rem;
@@ -33,6 +27,11 @@ $font-xs: 1rem;
 }
 
 :root {
+  --darkest: #{$accent-900};
+  --dark: #{$accent-700};
+  --medium: #{$accent-500};
+  --light: #{$accent-300};
+  --lightest: #{$accent-100};
   --font-3xl: #{$font-3xl};
   --font-2xl: #{$font-2xl};
   --font-xl: #{$font-xl};
@@ -40,24 +39,15 @@ $font-xs: 1rem;
   --font-md: #{$font-md};
   --font-sm: #{$font-sm};
   --font-xs: #{$font-xs};
-  color: var(--accent-900);
-  background-color: var(--body-background);
   color-scheme: light dark;
 
   &.light {
     color-scheme: light;
-    --accent-20: #{$accent-20};
-    --accent-50: #{$accent-50};
-    --accent-100: #{$accent-100};
-    --accent-200: #{$accent-200};
-    --accent-300: #{$accent-300};
-    --accent-400: #{$accent-400};
-    --accent-500: #{$accent-500};
-    --accent-600: #{$accent-600};
-    --accent-700: #{$accent-700};
-    --accent-800: #{$accent-800};
-    --accent-900: #{$accent-900};
-    --accent-950: #{$accent-950};
+    --darkest: #{$accent-900};
+    --dark: #{$accent-700};
+    --medium: #{$accent-500};
+    --light: #{$accent-300};
+    --lightest: #{$accent-100};
     --background-hover: #00000010;
     --body-background: white;
     --navbar-background: white;
@@ -66,18 +56,11 @@ $font-xs: 1rem;
   }
 
   @media (prefers-color-scheme: light) {
-    --accent-20: #{$accent-20};
-    --accent-50: #{$accent-50};
-    --accent-100: #{$accent-100};
-    --accent-200: #{$accent-200};
-    --accent-300: #{$accent-300};
-    --accent-400: #{$accent-400};
-    --accent-500: #{$accent-500};
-    --accent-600: #{$accent-600};
-    --accent-700: #{$accent-700};
-    --accent-800: #{$accent-800};
-    --accent-900: #{$accent-900};
-    --accent-950: #{$accent-950};
+    --darkest: #{$accent-900};
+    --dark: #{$accent-700};
+    --medium: #{$accent-500};
+    --light: #{$accent-300};
+    --lightest: #{$accent-100};
     --background-hover: #00000010;
     --body-background: white;
     --navbar-background: white;
@@ -87,17 +70,11 @@ $font-xs: 1rem;
 
   @media (prefers-color-scheme: dark) {
     color-scheme: dark;
-    --accent-50: #{$accent-900};
-    --accent-20: #{$accent-800};
-    --accent-100: #{$accent-800};
-    --accent-200: #{$accent-700};
-    --accent-300: #{$accent-600};
-    --accent-400: #{$accent-500};
-    --accent-500: #{$accent-400};
-    --accent-600: #{$accent-300};
-    --accent-700: #{$accent-200};
-    --accent-800: #{$accent-100};
-    --accent-900: #{$accent-50};
+    --darkest: #{$accent-100};
+    --dark: #{$accent-300};
+    --medium: #{$accent-500};
+    --light: #{$accent-700};
+    --lightest: #{$accent-900};
     --background-hover: #ffffff10;
     --body-background: #{$accent-900};
     --navbar-background: #252529;
@@ -105,8 +82,6 @@ $font-xs: 1rem;
     --sidebar-border-color: #{rgba($accent-50, 0.2)};
   }
 }
-
-
 
 *,
 *::after,
@@ -128,6 +103,8 @@ body {
   -moz-text-size-adjust: none;
   text-size-adjust: none;
   margin: 0;
+  background-color: var(--body-background);
+  color: var(--darkest);
 }
 
 hr {

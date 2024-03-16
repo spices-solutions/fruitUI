@@ -65,11 +65,12 @@ const { Content } = await post.render();
     }
     
     .wtq-cover {
-      border: 1px solid var(--accent-50);
+      border: 1px solid var(----lightest);
       border-radius: 40px;
       aspect-ratio: 16/9;
       height: auto;
-      box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.1);
+      margin-inline: auto;
+      filter: drop-shadow(1px 17px 15px #00000025);
     }
     
     .wtq-post-title {
@@ -89,7 +90,7 @@ const { Content } = await post.render();
     }
     </style>
   <Breadcrumbs />
-  <article id="main-content">
+  <article>
     <span class="wtq-post-head">
       <h1 class="wtq-main-heading">{post.data.title}</h1>
       <AuthorProfile name={authorData.data.name} role={authorData.data.role} image={authorData.data.profile} />
@@ -102,6 +103,8 @@ const { Content } = await post.render();
       alt={"dwad"}
       loading="eager"
     />
-    <Content />
+    <main id="main-content">
+      <Content />
+    </main>
   </article>
 </BlogLayout>

@@ -16,7 +16,7 @@
       align-items: center;
       display: flex;
       width: 100%;
-      color: var(--accent-700);
+      color: var(--darkest);
       padding: 5px 0.6rem;
       font-weight: 600;
       .arrow-icon {
@@ -39,7 +39,7 @@
           border-radius: 8px;
           font-weight: 400;
           padding: 5px 0.6rem;
-          color: var(--accent-600);
+          color: var(--dark);
           display: block;
         }
       }
@@ -70,7 +70,7 @@
   &:hover,
   &:focus-visible {
     outline: none !important;
-    color: var(--accent-700) !important;
+    color: var(--darkest) !important;
     background-color: var(--background-hover) !important;
   }
 }

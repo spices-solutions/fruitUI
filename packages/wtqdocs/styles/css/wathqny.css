@@ -6,6 +6,11 @@
   font-display: swap;
 }
 :root {
+  --darkest: #18181b;
+  --dark: #3f3f46;
+  --medium: #71717a;
+  --light: #d4d4d8;
+  --lightest: #f4f4f5;
   --font-3xl: 2.986rem;
   --font-2xl: 2.488rem;
   --font-xl: 2.074rem;
@@ -13,24 +18,15 @@
   --font-md: 1.44rem;
   --font-sm: 1.2rem;
   --font-xs: 1rem;
-  color: var(--accent-900);
-  background-color: var(--body-background);
   color-scheme: light dark;
 }
 :root.light {
   color-scheme: light;
-  --accent-20: rgb(254, 254, 254);
-  --accent-50: #fdfdfd;
-  --accent-100: #f4f4f5;
-  --accent-200: #e4e4e7;
-  --accent-300: #d4d4d8;
-  --accent-400: #a1a1aa;
-  --accent-500: #71717a;
-  --accent-600: #52525b;
-  --accent-700: #3f3f46;
-  --accent-800: #27272a;
-  --accent-900: #18181b;
-  --accent-950: #0f0f11;
+  --darkest: #18181b;
+  --dark: #3f3f46;
+  --medium: #71717a;
+  --light: #d4d4d8;
+  --lightest: #f4f4f5;
   --background-hover: #00000010;
   --body-background: white;
   --navbar-background: white;
@@ -38,18 +34,11 @@
 }
 @media (prefers-color-scheme: light) {
   :root {
-    --accent-20: rgb(254, 254, 254);
-    --accent-50: #fdfdfd;
-    --accent-100: #f4f4f5;
-    --accent-200: #e4e4e7;
-    --accent-300: #d4d4d8;
-    --accent-400: #a1a1aa;
-    --accent-500: #71717a;
-    --accent-600: #52525b;
-    --accent-700: #3f3f46;
-    --accent-800: #27272a;
-    --accent-900: #18181b;
-    --accent-950: #0f0f11;
+    --darkest: #18181b;
+    --dark: #3f3f46;
+    --medium: #71717a;
+    --light: #d4d4d8;
+    --lightest: #f4f4f5;
     --background-hover: #00000010;
     --body-background: white;
     --navbar-background: white;
@@ -59,17 +48,11 @@
 @media (prefers-color-scheme: dark) {
   :root {
     color-scheme: dark;
-    --accent-50: #18181b;
-    --accent-20: #27272a;
-    --accent-100: #27272a;
-    --accent-200: #3f3f46;
-    --accent-300: #52525b;
-    --accent-400: #71717a;
-    --accent-500: #a1a1aa;
-    --accent-600: #d4d4d8;
-    --accent-700: #e4e4e7;
-    --accent-800: #f4f4f5;
-    --accent-900: #fdfdfd;
+    --darkest: #f4f4f5;
+    --dark: #d4d4d8;
+    --medium: #71717a;
+    --light: #3f3f46;
+    --lightest: #18181b;
     --background-hover: #ffffff10;
     --body-background: #18181b;
     --navbar-background: #252529;
@@ -97,6 +80,8 @@ body {
   -moz-text-size-adjust: none;
   text-size-adjust: none;
   margin: 0;
+  background-color: var(--body-background);
+  color: var(--darkest);
 }
 
 hr {
@@ -453,7 +438,7 @@ h6 {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  color: var(--accent-800);
+  color: var(--dark);
   list-style: none;
 }
 .wtq-breadcrumbs li {
@@ -474,14 +459,8 @@ h6 {
   gap: 5px;
   border-radius: 8px;
   cursor: pointer;
-  color: var(--accent-600);
-}
-.wtq-breadcrumbs .wtq-breadcrumb:hover, .wtq-breadcrumbs .wtq-breadcrumb:focus-visible {
-  outline: none;
-  background-color: var(--background-hover);
 }
 .wtq-breadcrumbs .arrow-icon {
-  color: var(--accent-800);
   margin-top: 2px;
 }
 
@@ -505,7 +484,7 @@ h6 {
   align-items: center;
   display: flex;
   width: 100%;
-  color: var(--accent-700);
+  color: var(--darkest);
   padding: 5px 0.6rem;
   font-weight: 600;
 }
@@ -529,7 +508,7 @@ h6 {
   border-radius: 8px;
   font-weight: 400;
   padding: 5px 0.6rem;
-  color: var(--accent-600);
+  color: var(--dark);
   display: block;
 }
 .wtq-sidebar .sidebar_category :is(.category_collapse, .category_toggle) {
@@ -554,7 +533,7 @@ h6 {
 
 .wtq-focusable:hover, .wtq-focusable:focus-visible {
   outline: none !important;
-  color: var(--accent-700) !important;
+  color: var(--darkest) !important;
   background-color: var(--background-hover) !important;
 }
 
@@ -562,7 +541,6 @@ h6 {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin: 1rem 0px;
 }
 .wtq-avatar-contanier .wtq-avatar {
   border-radius: 50%;
@@ -573,25 +551,26 @@ h6 {
     height: auto;
   }
 }
+.wtq-avatar-contanier div {
+  line-height: 1.2;
+}
 @media screen and (max-width: 768px) {
   .wtq-avatar-contanier div {
     display: none;
   }
 }
 .wtq-avatar-contanier div .wtq-avatar-name {
-  color: var(--accent-900);
+  color: var(--darkest);
   margin: 0;
-  line-height: 1.2;
   font-weight: 500;
   font-size: 0.9rem;
 }
 .wtq-avatar-contanier div .wtq-avatar-role {
   margin: 0;
-  line-height: 1.2;
   font-size: 0.8rem;
   font-weight: 300;
   letter-spacing: 0.5pt;
-  color: var(--accent-600);
+  color: var(--dark);
 }
 
 .wtq-card-container-category {

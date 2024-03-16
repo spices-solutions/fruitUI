@@ -17,7 +17,7 @@ currentURL = currentURL.filter((url) => url !== "");
     itemtype="https://schema.org/ListItem">
     <a
       href="/"
-      class="wtq-breadcrumb"
+      class="wtq-breadcrumb wtq-focusable"
       aria-label="Go to the homepage"
       itemprop="item">
       <Icon name={"home"} />
@@ -34,7 +34,7 @@ currentURL = currentURL.filter((url) => url !== "");
         <Icon class="arrow-icon" name={"arrow"} />
         <a
           href={"/" + currentURL.slice(0, index + 1).join("/")}
-          class="wtq-breadcrumb"
+          class="wtq-breadcrumb wtq-focusable"
           itemprop="item">
           <span itemprop="name">{url.toLowerCase().replace("-", " ")}</span>
         </a>
