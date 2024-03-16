@@ -6,205 +6,30 @@ import WathqnyConfig from "/wathqny.config";
 
 const docs = await getCollection("docs");
 
-const { category } = WathqnyConfig;
+const { category, sidebar } = WathqnyConfig;
 
-docs.sort((a, b) => (a.data.position > b.data.position ? 1 : -1));
+console.log(sidebar);
+
+docs.sort(
+  (a: { data: { position: number } }, b: { data: { position: number } }) =>
+    a.data.position > b.data.position ? 1 : -1
+);
 
 let cutUrl =
   "/" +
   Astro.url.pathname
     .split("/")
-    .filter((url) => {
-      if (url != "") {
-        return true;
-      }
-    })
+    .filter((url) => url !== "")
     .reverse()[0];
 ---
 
-<style lang="scss">
-  .wtq-sidebar {
-    display: flex;
-    flex-direction: column;
-    border-right: solid 1px var(--sidebar-border-color);
-    width: 250px;
-    padding: 5px;
-    background-color: var(--body-background);
-    text-overflow: clip;
-    padding-bottom: 50px;
-    &[aria-expanded="true"] {
-      width: 60px !important;
-    }
-    .wtq-aside-collapse {
-      display: none !important;
-      height: 0% !important;
-      width: 0%;
-      overflow: hidden;
-      visibility: hidden;
-    }
-
-    .wtq-collapse-button {
-      letter-spacing: 0.3pt;
-      font-kerning: none;
-      font-optical-sizing: none;
-      background-color: transparent;
-      border: 0;
-      user-select: none;
-      justify-content: space-between;
-      display: flex;
-      width: 100%;
-      color: var(--accent-700);
-      padding: 5px 0.6rem;
-      justify-content: center;
-      border-radius: 8px;
-      font-weight: 650;
-      cursor: pointer;
-      font-size: 0.875rem;
-      outline: none;
-
-      @media screen and (max-width: 768px) {
-        padding: 12px 1rem;
-        font-size: 1.1rem;
-      }
-
-      &:hover,
-      &:focus-visible {
-        background-color: var(--background-hover);
-      }
-    }
-
-    .wtq-active {
-      max-height: 100% !important;
-      // transition-duration: 4s !important;
-    }
-
-    &.wtq-sidebar-active {
-      opacity: 0;
-      pointer-events: none;
-      border: 0;
-      width: 0px;
-      overflow: hidden;
-    }
-
-    .wtq-sidebar-toggle {
-      display: none;
-    }
-
-    .wtq-sidebar-category {
-      transition: all ease 300ms;
-      margin-top: 15px;
-      height: 100vh;
-      list-style: none;
-
-      .wtq-sidebar-category-collapse {
-        transition:
-          max-height 450ms cubic-bezier(0.2, 0, 0, 1),
-          color 0ms;
-
-        will-change: max-height, height, overflow;
-        overflow: hidden;
-        max-height: 0px;
-      }
-
-      li {
-        display: flex;
-        flex-direction: column;
-
-        .wtq-doc-list-item {
-          @media screen and (max-width: 768px) {
-            padding-inline-start: 20px;
-          }
-
-          padding-inline-start: 10px;
-          display: flex;
-
-          .wtq-doc-link {
-            @media screen and (max-width: 768px) {
-              padding: 8px 0.6rem;
-              font-size: 1rem;
-            }
-
-            outline: none;
-            border-radius: 8px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            padding: 5px 0.6rem;
-            width: 100%;
-            color: var(--accent-600);
-
-            &:hover,
-            &:focus {
-              color: var(--accent-700);
-              background-color: var(--background-hover);
-            }
-          }
-        }
-
-        .wtq-sidebar-category-link {
-          letter-spacing: 0.3pt;
-          font-kerning: none;
-          font-optical-sizing: none;
-          background-color: transparent;
-          border: 0;
-          user-select: none;
-          justify-content: space-between;
-          display: flex;
-          width: 100%;
-          color: var(--accent-700);
-          padding: 5px 0.6rem;
-          align-items: center;
-          border-radius: 8px;
-          font-weight: 650;
-          cursor: pointer;
-          font-size: 0.875rem;
-          outline: none;
-
-          @media screen and (max-width: 768px) {
-            padding: 12px 1rem;
-            font-size: 1.1rem;
-          }
-
-          &:hover,
-          &:focus-visible {
-            background-color: var(--background-hover);
-          }
-
-          &.wtq-active .arrow-icon {
-            transform: rotate(-90deg);
-          }
-
-          .arrow-icon {
-            width: 24px;
-            height: 24px;
-            transition: transform ease 300ms;
-            transform: rotate(90deg);
-          }
-        }
-      }
-    }
-    .wtq-collapse-button {
-      margin: 15px 0px;
-      border: 0;
-      border-radius: 10px;
-      cursor: pointer;
-      background-color: transparent;
-      color: var(--accent-800);
-      display: flex;
-      align-items: center;
-      transition: all 400ms ease;
-    }
-    .wtq-collapse-button[aria-expanded="true"] {
-      height: 100%;
-    }
-  }
-</style>
-
+<script src="./sidebar.ts"></script>
 <aside class="wtq-sidebar">
-  <ul class="wtq-sidebar-category" role="tablist">
+  <ul class="sidebar_category" role="tablist">
     {
-      category?.map((category) => {
+      category?.map((category: string) => {
         let ActiveClass = false;
-        docs.map((doc) => {
+        docs.map((doc: { data: { href: string; category: string } }) => {
           if (doc.data.href == cutUrl && doc.data.category == category) {
             ActiveClass = true;
           }
@@ -212,58 +37,43 @@ let cutUrl =
         return (
           <li class:list={[{ "wtq-active": ActiveClass }]} role="tab">
             <button
-              aria-expanded="false"
-              tabindex="0"
               class:list={[
-                "wtq-sidebar-category-link",
+                "wtq-focusable category_toggle  ",
                 { "wtq-active": ActiveClass },
-              ]}
-              id={`${category.toLowerCase()}-category`}>
-              {category.replace("-", " ")}{" "}
+              ]}>
+              {category.replace("-", " ")}
               <Icon class="arrow-icon" name={"arrow"} />
             </button>
             <ul
-              aria-labelledby={`${category.toLowerCase()}-category`}
-              class:list={[
-                "wtq-sidebar-category-collapse",
-                { "wtq-active": ActiveClass },
-              ]}>
-              {docs.map((doc) => {
-                return (
-                  doc.data.category == category && (
-                    <li class="wtq-doc-list-item">
-                      <a
-                        tabindex="-1"
-                        class="wtq-doc-link"
-                        href={
-                          "/docs/" + category.toLowerCase() + doc.data.href
-                        }>
-                        {doc.data.title}
-                      </a>
-                    </li>
-                  )
-                );
-              })}
+              class:list={["category_collapse", { "wtq-active": ActiveClass }]}>
+              {docs.map(
+                (doc: {
+                  data: { category: string; href: string; title: string };
+                }) => {
+                  return (
+                    doc.data.category == category && (
+                      <li class="collapse_item">
+                        <a
+                          tabindex="-1"
+                          class="collapse_item--link wtq-focusable"
+                          href={
+                            "/docs/" + category.toLowerCase() + doc.data.href
+                          }>
+                          {doc.data.title}
+                        </a>
+                      </li>
+                    )
+                  );
+                }
+              )}
             </ul>
           </li>
         );
       })
     }
   </ul>
-  <button aria-label="expand sidebar toggle" class="wtq-collapse-button"
-    ><svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      ><path
-        fill="currentColor"
-        d="M18.29 17.29a.996.996 0 0 0 0-1.41L14.42 12l3.88-3.88a.996.996 0 1 0-1.41-1.41L12.3 11.3a.996.996 0 0 0 0 1.41l4.59 4.59c.38.38 1.01.38 1.4-.01"
-      ></path><path
-        fill="currentColor"
-        d="M11.7 17.29a.996.996 0 0 0 0-1.41L7.83 12l3.88-3.88a.996.996 0 1 0-1.41-1.41L5.71 11.3a.996.996 0 0 0 0 1.41l4.59 4.59c.38.38 1.01.38 1.4-.01"
-      ></path></svg
-    ></button
+  <button aria-label="expand sidebar toggle" class="collapse-button wtq-focusable">
+    <Icon name={"double-arrow"} /></button
   >
 </aside>
 <script src="./sidebar.ts"></script>

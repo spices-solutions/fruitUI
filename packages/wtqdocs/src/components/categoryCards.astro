@@ -14,7 +14,7 @@ const newdocs = docs.filter((doc: { data: { category: string; }; }) => {
   {
     newdocs.map((doc: { data: { href: string | number; title: unknown; description: unknown; }; }) => {
       return (
-        <a href={category + doc.data.href}>
+        <a href={category! + doc.data.href}>
           <div class="wtq-card">
             <h2 class="wtq-card-title">{doc.data.title}</h2>
             <h3 class="wtq-card-subtitle">{doc.data.description}</h3>

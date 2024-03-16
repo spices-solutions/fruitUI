@@ -2,6 +2,7 @@
 import Head from "./Head.astro";
 import Navbar from "./Navbar.astro";
 import Sidebar from "./Sidebar.astro";
+import SidebarRefine from "./SidebarRefine.astro";
 import SkipLink from "./SkipLink.astro";
 
 import WathqnyConfig from "/wathqny.config";
@@ -17,7 +18,8 @@ import WathqnyConfig from "/wathqny.config";
     <SkipLink />
     <Navbar />
     <div class="wtq-page">
-      <Sidebar />
+      <!-- <Sidebar /> -->
+      <SidebarRefine />
       <div class="wtq-content">
         <div class="wtq-container">
           <slot />
