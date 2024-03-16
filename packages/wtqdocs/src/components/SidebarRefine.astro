@@ -1,14 +1,28 @@
 ---
 import { getCollection } from "astro:content";
 import { Icon } from "astro-icon/components";
-
 import WathqnyConfig from "/wathqny.config";
 
 const docs = await getCollection("docs");
 
-const { category, sidebar } = WathqnyConfig;
 
-console.log(sidebar);
+const { sidebar } = WathqnyConfig;
+interface categoryItem {
+  name: string;
+  items: category;
+}
+
+type category = Array<string | categoryItem>;
+
+// sidebar: [
+//     "Getting-started",
+//     {
+//       name: "components",
+//       items: ["base", "other", "awesome"],
+//     },
+//     "Layout",
+//     "Utilities",
+//   ],
 
 docs.sort(
   (a: { data: { position: number } }, b: { data: { position: number } }) =>
@@ -22,41 +36,66 @@ let cutUrl =
     .filter((url) => url !== "")
     .reverse()[0];
 
-    let ActiveClass;
+let ActiveClass;
 ---
+    
+    
+    <aside class="wtq-sidebar">
+      <ul class="sidebar_category" role="tablist">
+        {
+        // sparta passed from here
+      }
 
-<script src="./sidebar.ts"></script>
-<aside class="wtq-sidebar">
-  <ul class="sidebar_category" role="tablist">
-    {
-      // sparta passed from here
-    }
+      <li class:list={[{ "wtq-active": ActiveClass }]} role="tab">
+        <button
+          class:list={[
+            "wtq-focusable category_toggle  ",
+            { "wtq-active": ActiveClass },
+          ]}>
+          trigger
+          <Icon class="arrow-icon" name={"arrow"} />
+        </button>
+        <ul class:list={["category_collapse", { "wtq-active": ActiveClass }]}>
+          <li class="collapse_item">
+            <a
+              tabindex="-1"
+              class="collapse_item--link wtq-focusable"
+              href={"/docs/"}>
+              link
+            </a>
+          </li>
+          <li
+            class="collapse_item"
+            class:list={[{ "wtq-active": ActiveClass }]}>
+            <button
+              class:list={[
+                "wtq-focusable category_toggle  ",
+                { "wtq-active": ActiveClass },
+              ]}>
+              trigger
+              <Icon class="arrow-icon" name={"arrow"} />
+            </button>
+            <ul
+              class:list={["category_collapse", { "wtq-active": ActiveClass }]}>
+              <li class="collapse_item">
+                <a
+                  tabindex="-1"
+                  class="collapse_item--link wtq-focusable"
+                  href={"/docs/"}>
+                  link
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <button
+      aria-label="expand sidebar toggle"
+      class="collapse-button wtq-focusable">
+      <Icon name={"double-arrow"} /></button
+    >
+  </aside>
+  <script src="./sidebar.ts"></script>
 
-    <li class:list={[{ "wtq-active": ActiveClass }]} role="tab">
-      <button
-        class:list={[
-          "wtq-focusable category_toggle  ",
-          { "wtq-active": ActiveClass },
-        ]}>
-        trigger
-        <Icon class="arrow-icon" name={"arrow"} />
-      </button>
-      <ul class:list={["category_collapse", { "wtq-active": ActiveClass }]}>
-        <li class="collapse_item">
-          <a
-            tabindex="-1"
-            class="collapse_item--link wtq-focusable"
-            href={"/docs/"}>
-            link
-          </a>
-        </li>
-      </ul>
-    </li>
-  </ul>
-  <button
-    aria-label="expand sidebar toggle"
-    class="collapse-button wtq-focusable">
-    <Icon name={"double-arrow"} /></button
-  >
-</aside>
-<script src="./sidebar.ts"></script>
+</ssrc=".>

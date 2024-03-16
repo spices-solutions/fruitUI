@@ -1,9 +1,9 @@
-interface categoryItem {
+export interface categoryItem {
     name: string
     items: category
 }
 
-type category = Array<string | categoryItem>
+export type category = Array<string | categoryItem>
 
 interface WathqnyConfigI {
   siteName?: string;
