@@ -21,58 +21,41 @@ let cutUrl =
     .split("/")
     .filter((url) => url !== "")
     .reverse()[0];
+
+    let ActiveClass;
 ---
 
 <script src="./sidebar.ts"></script>
 <aside class="wtq-sidebar">
   <ul class="sidebar_category" role="tablist">
     {
-      category?.map((category: string) => {
-        let ActiveClass = false;
-        docs.map((doc: { data: { href: string; category: string } }) => {
-          if (doc.data.href == cutUrl && doc.data.category == category) {
-            ActiveClass = true;
-          }
-        });
-        return (
-          <li class:list={[{ "wtq-active": ActiveClass }]} role="tab">
-            <button
-              class:list={[
-                "wtq-focusable category_toggle  ",
-                { "wtq-active": ActiveClass },
-              ]}>
-              {category.replace("-", " ")}
-              <Icon class="arrow-icon" name={"arrow"} />
-            </button>
-            <ul
-              class:list={["category_collapse", { "wtq-active": ActiveClass }]}>
-              {docs.map(
-                (doc: {
-                  data: { category: string; href: string; title: string };
-                }) => {
-                  return (
-                    doc.data.category == category && (
-                      <li class="collapse_item">
-                        <a
-                          tabindex="-1"
-                          class="collapse_item--link wtq-focusable"
-                          href={
-                            "/docs/" + category.toLowerCase() + doc.data.href
-                          }>
-                          {doc.data.title}
-                        </a>
-                      </li>
-                    )
-                  );
-                }
-              )}
-            </ul>
-          </li>
-        );
-      })
+      // sparta passed from here
     }
+
+    <li class:list={[{ "wtq-active": ActiveClass }]} role="tab">
+      <button
+        class:list={[
+          "wtq-focusable category_toggle  ",
+          { "wtq-active": ActiveClass },
+        ]}>
+        trigger
+        <Icon class="arrow-icon" name={"arrow"} />
+      </button>
+      <ul class:list={["category_collapse", { "wtq-active": ActiveClass }]}>
+        <li class="collapse_item">
+          <a
+            tabindex="-1"
+            class="collapse_item--link wtq-focusable"
+            href={"/docs/"}>
+            link
+          </a>
+        </li>
+      </ul>
+    </li>
   </ul>
-  <button aria-label="expand sidebar toggle" class="collapse-button wtq-focusable">
+  <button
+    aria-label="expand sidebar toggle"
+    class="collapse-button wtq-focusable">
     <Icon name={"double-arrow"} /></button
   >
 </aside>
