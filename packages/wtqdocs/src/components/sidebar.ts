@@ -63,8 +63,15 @@ function SidebarActions() {
   });
 }
 
+function measurePerformance(callback: Function) {
+  let start = performance.now();
+  callback();
+  let end = performance.now();
+  console.log(`Execution time: ${end - start} ms`);
+}
+
 // SidebarActions();
-let start = performance.now()
+function NewSidebarActions() {
 // TODO: refactor looping over all this elements
 const sidebar = document.querySelector(".wtq-sidebar");
 const categoryItems = sidebar?.querySelectorAll(".sidebar_category li");
@@ -85,6 +92,8 @@ categoryItems?.forEach((categoryItem) => {
     }
   });
 });
-let end = performance.now()
+}
 
-console.log(end - start)
+measurePerformance(() => {
+  SidebarActions();
+});

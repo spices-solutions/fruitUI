@@ -44,7 +44,6 @@ const WathqnyConfig: WathqnyConfigI = {
   locale_dir: "ltr",
   darkMode: true,
   category: ["Getting-started", "Components", "Layout", "Utilities"],
-
   sidebar: [
     "Getting-started",
     {

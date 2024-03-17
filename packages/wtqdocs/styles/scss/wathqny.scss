@@ -70,7 +70,7 @@
 #skip {
   @extend .sr-only;
   &:focus-visible {
-  @extend .sr-not-only;
+    @extend .sr-not-only;
     outline: none;
     z-index: 9999;
     position: absolute;
