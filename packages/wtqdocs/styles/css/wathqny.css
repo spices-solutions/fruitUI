@@ -6,11 +6,11 @@
   font-display: swap;
 }
 :root {
-  --darkest: #18181b;
-  --dark: #3f3f46;
-  --medium: #71717a;
-  --light: #d4d4d8;
-  --lightest: #f4f4f5;
+  --darkest: 240, 6%, 10%;
+  --dark: 240, 5%, 26%;
+  --medium: 240, 4%, 46%;
+  --light: 240, 5%, 84%;
+  --lightest: 240, 5%, 96%;
   --font-3xl: 2.986rem;
   --font-2xl: 2.488rem;
   --font-xl: 2.074rem;
@@ -22,47 +22,47 @@
 }
 :root.light {
   color-scheme: light;
-  --darkest: #18181b;
-  --dark: #3f3f46;
-  --medium: #71717a;
-  --light: #d4d4d8;
-  --lightest: #f4f4f5;
-  --white: #fdfdfd;
-  --black: #0f0f11;
+  --darkest: 240, 6%, 10%;
+  --dark: 240, 5%, 26%;
+  --medium: 240, 4%, 46%;
+  --light: 240, 5%, 84%;
+  --lightest: 240, 5%, 96%;
+  --white: 0, 0%, 99%;
+  --black: 240, 6%, 6%;
   --background-hover: #00000010;
   --body-background: white;
   --navbar-background: white;
-  --sidebar-border-color: rgba(24, 24, 27, 0.1);
+  --sidebar-border-color: hsl(var(--darkest), 0.1);
 }
 @media (prefers-color-scheme: light) {
   :root {
-    --darkest: #18181b;
-    --dark: #3f3f46;
-    --medium: #71717a;
-    --light: #d4d4d8;
-    --lightest: #f4f4f5;
-    --white: #fdfdfd;
-    --black: #0f0f11;
+    --darkest: 240, 6%, 10%;
+    --dark: 240, 5%, 26%;
+    --medium: 240, 4%, 46%;
+    --light: 240, 5%, 84%;
+    --lightest: 240, 5%, 96%;
+    --white: 0, 0%, 99%;
+    --black: 240, 6%, 6%;
     --background-hover: #00000010;
     --body-background: white;
     --navbar-background: white;
-    --sidebar-border-color: rgba(24, 24, 27, 0.1);
+    --sidebar-border-color: hsl(var(--darkest), 0.1);
   }
 }
 @media (prefers-color-scheme: dark) {
   :root {
     color-scheme: dark;
-    --darkest: #f4f4f5;
-    --dark: #d4d4d8;
-    --medium: #71717a;
-    --light: #3f3f46;
-    --lightest: #18181b;
-    --white: #0f0f11;
-    --black: #fdfdfd;
+    --darkest: 240, 5%, 96%;
+    --dark: 240, 5%, 84%;
+    --medium: 240, 4%, 46%;
+    --light: 240, 5%, 26%;
+    --lightest: 240, 6%, 10%;
+    --white: 240, 6%, 6%;
+    --black: 0, 0%, 99%;
     --background-hover: #ffffff10;
-    --body-background: #18181b;
+    --body-background: hsl(var(--lightest), 0.2);
     --navbar-background: #252529;
-    --sidebar-border-color: rgba(253, 253, 253, 0.2);
+    --sidebar-border-color: hsl(var(--lightest), 0.2);
   }
 }
 
@@ -677,7 +677,7 @@ h6 {
 }
 .dark .wtq-card-container-category .wtq-card {
   border-color: var(--lightest);
-  background-color: #27272a;
+  background-color: 240, 4%, 16%;
   background-color: rgba(var(--light), 0.5);
 }
 .wtq-card-container-category .wtq-card:hover {

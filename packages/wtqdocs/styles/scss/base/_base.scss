@@ -1,15 +1,14 @@
-$accent-20: rgb(254, 254, 254) !default;
-$accent-50: #fdfdfd !default;
-$accent-100: #f4f4f5 !default;
-$accent-200: #e4e4e7 !default;
-$accent-300: #d4d4d8 !default;
-$accent-400: #a1a1aa !default;
-$accent-500: #71717a !default;
-$accent-600: #52525b !default;
-$accent-700: #3f3f46 !default;
-$accent-800: #27272a !default;
-$accent-900: #18181b !default;
-$accent-950: #0f0f11 !default;
+$accent-50: 0, 0%, 99% !default;
+$accent-100: 240, 5%, 96% !default;
+$accent-200: 240, 6%, 90% !default;
+$accent-300: 240, 5%, 84% !default;
+$accent-400: 240, 5%, 65% !default;
+$accent-500: 240, 4%, 46% !default;
+$accent-600: 240, 5%, 34% !default;
+$accent-700: 240, 5%, 26% !default;
+$accent-800: 240, 4%, 16% !default;
+$accent-900: 240, 6%, 10% !default;
+$accent-950: 240, 6%, 6% !default;
 
 $font-3xl: 2.986rem;
 $font-2xl: 2.488rem;
@@ -32,6 +31,7 @@ $font-xs: 1rem;
   --medium: #{$accent-500};
   --light: #{$accent-300};
   --lightest: #{$accent-100};
+
   --font-3xl: #{$font-3xl};
   --font-2xl: #{$font-2xl};
   --font-xl: #{$font-xl};
@@ -53,8 +53,7 @@ $font-xs: 1rem;
     --background-hover: #00000010;
     --body-background: white;
     --navbar-background: white;
-
-    --sidebar-border-color: #{rgba($accent-900, 0.1)};
+    --sidebar-border-color: hsl(var(--darkest), 0.1);
   }
 
   @media (prefers-color-scheme: light) {
@@ -68,8 +67,7 @@ $font-xs: 1rem;
     --background-hover: #00000010;
     --body-background: white;
     --navbar-background: white;
-
-    --sidebar-border-color: #{rgba($accent-900, 0.1)};
+    --sidebar-border-color: hsl(var(--darkest), 0.1);
   }
 
   @media (prefers-color-scheme: dark) {
@@ -82,9 +80,9 @@ $font-xs: 1rem;
     --white: #{$accent-950};
     --black: #{$accent-50};
     --background-hover: #ffffff10;
-    --body-background: #{$accent-900};
+    --body-background: hsl(var(--lightest), 0.2);
     --navbar-background: #252529;
-    --sidebar-border-color: #{rgba($accent-50, 0.2)};
+    --sidebar-border-color: hsl(var(--lightest), 0.2);
   }
 }
 
