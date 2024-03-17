@@ -27,6 +27,8 @@
   --medium: #71717a;
   --light: #d4d4d8;
   --lightest: #f4f4f5;
+  --white: #fdfdfd;
+  --black: #0f0f11;
   --background-hover: #00000010;
   --body-background: white;
   --navbar-background: white;
@@ -39,6 +41,8 @@
     --medium: #71717a;
     --light: #d4d4d8;
     --lightest: #f4f4f5;
+    --white: #fdfdfd;
+    --black: #0f0f11;
     --background-hover: #00000010;
     --body-background: white;
     --navbar-background: white;
@@ -53,6 +57,8 @@
     --medium: #71717a;
     --light: #3f3f46;
     --lightest: #18181b;
+    --white: #0f0f11;
+    --black: #fdfdfd;
     --background-hover: #ffffff10;
     --body-background: #18181b;
     --navbar-background: #252529;
@@ -662,21 +668,23 @@ h6 {
 }
 .wtq-card-container-category .wtq-card {
   height: 100%;
-  border: 1px solid var(--accent-200);
-  background-color: var(--accent-20);
+  border: 1px solid var(--lightest);
+  background-color: var(--white);
   border-radius: 20px;
   transition: all 200ms ease;
   padding: 25px;
   box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
 }
 .dark .wtq-card-container-category .wtq-card {
-  border-color: var(--accent-20);
+  border-color: var(--lightest);
+  background-color: #27272a;
+  background-color: rgba(var(--light), 0.5);
 }
 .wtq-card-container-category .wtq-card:hover {
   transform: translateY(-3%);
 }
 .wtq-card-container-category .wtq-card .wtq-card-title {
-  color: var(--accent-800);
+  color: var(--darkest);
   font-weight: 600;
   line-height: 1.5;
   font-size: var(--font-md);
@@ -684,7 +692,7 @@ h6 {
 }
 .wtq-card-container-category .wtq-card .wtq-card-subtitle {
   margin: 0;
-  color: var(--accent-700);
+  color: var(--dark);
   font-weight: 400;
   letter-spacing: 0.3pt;
   font-size: var(--font-xs);
@@ -718,10 +726,10 @@ h6 {
   z-index: 9999;
   position: absolute;
   display: block;
-  background-color: var(--accent-50);
+  background-color: var(--lightest);
   padding: 10px 15px;
   border-radius: 10px;
-  border: 1px solid var(--accent-100);
+  border: 1px solid var(--lightest);
   box-shadow: 0 8px 2px -6px rgba(0, 0, 0, 0.1294117647);
   left: 10px;
   top: 10px;
@@ -749,7 +757,7 @@ h6 {
 }
 
 .wtq-post {
-  border: 1px solid var(--accent-200);
+  border: 1px solid var(--light);
   background-color: var(--accent-20);
   border-radius: 20px;
   transition: all 200ms ease;

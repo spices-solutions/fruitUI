@@ -48,6 +48,8 @@ $font-xs: 1rem;
     --medium: #{$accent-500};
     --light: #{$accent-300};
     --lightest: #{$accent-100};
+    --white: #{$accent-50};
+    --black: #{$accent-950};
     --background-hover: #00000010;
     --body-background: white;
     --navbar-background: white;
@@ -61,6 +63,8 @@ $font-xs: 1rem;
     --medium: #{$accent-500};
     --light: #{$accent-300};
     --lightest: #{$accent-100};
+    --white: #{$accent-50};
+    --black: #{$accent-950};
     --background-hover: #00000010;
     --body-background: white;
     --navbar-background: white;
@@ -75,10 +79,11 @@ $font-xs: 1rem;
     --medium: #{$accent-500};
     --light: #{$accent-700};
     --lightest: #{$accent-900};
+    --white: #{$accent-950};
+    --black: #{$accent-50};
     --background-hover: #ffffff10;
     --body-background: #{$accent-900};
     --navbar-background: #252529;
-
     --sidebar-border-color: #{rgba($accent-50, 0.2)};
   }
 }
@@ -88,6 +93,7 @@ $font-xs: 1rem;
 *::before {
   box-sizing: border-box;
 }
+
 html,
 body {
   word-wrap: break-word;
