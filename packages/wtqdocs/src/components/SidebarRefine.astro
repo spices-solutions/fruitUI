@@ -14,6 +14,29 @@ interface categoryItem {
 
 type category = Array<string | categoryItem>;
 
+
+  function ParseCategory(ele:category){
+  ele.forEach((ele)=>{
+    if(typeof ele == 'object'){
+      console.log(ele)
+    }else{
+      console.log ((
+        <li class="collapse_item">
+              <a
+                tabindex="-1"
+                class="collapse_item--link wtq-focusable"
+                href={"/docs/"}>
+                {ele}
+              </a>
+            </li>
+        ))
+    }
+  })
+}
+
+  
+
+ParseCategory(sidebar)
 // sidebar: [
 //     "Getting-started",
 //     {
@@ -40,13 +63,31 @@ let ActiveClass;
 ---
     
     
-    <aside class="wtq-sidebar">
-      <ul class="sidebar_category" role="tablist">
-        {
-        // sparta passed from here
-      }
-
-      <li class:list={[{ "wtq-active": ActiveClass }]} role="tab">
+<aside class="wtq-sidebar">
+  <ul class="sidebar_category" role="tablist">
+    {
+    // sparta passed from here
+    <li class:list={[{ "wtq-active": ActiveClass }]} role="tab">
+    <button
+      class:list={[
+        "wtq-focusable category_toggle  ",
+        { "wtq-active": ActiveClass },
+      ]}>
+      trigger
+      <Icon class="arrow-icon" name={"arrow"} />
+    </button>
+    <ul class:list={["category_collapse", { "wtq-active": ActiveClass }]}>
+      <li class="collapse_item">
+        <a
+          tabindex="-1"
+          class="collapse_item--link wtq-focusable"
+          href={"/docs/"}>
+          link
+        </a>
+      </li>
+      <li
+        class="collapse_item"
+        class:list={[{ "wtq-active": ActiveClass }]}>
         <button
           class:list={[
             "wtq-focusable category_toggle  ",
@@ -55,7 +96,8 @@ let ActiveClass;
           trigger
           <Icon class="arrow-icon" name={"arrow"} />
         </button>
-        <ul class:list={["category_collapse", { "wtq-active": ActiveClass }]}>
+        <ul
+          class:list={["category_collapse", { "wtq-active": ActiveClass }]}>
           <li class="collapse_item">
             <a
               tabindex="-1"
@@ -64,38 +106,15 @@ let ActiveClass;
               link
             </a>
           </li>
-          <li
-            class="collapse_item"
-            class:list={[{ "wtq-active": ActiveClass }]}>
-            <button
-              class:list={[
-                "wtq-focusable category_toggle  ",
-                { "wtq-active": ActiveClass },
-              ]}>
-              trigger
-              <Icon class="arrow-icon" name={"arrow"} />
-            </button>
-            <ul
-              class:list={["category_collapse", { "wtq-active": ActiveClass }]}>
-              <li class="collapse_item">
-                <a
-                  tabindex="-1"
-                  class="collapse_item--link wtq-focusable"
-                  href={"/docs/"}>
-                  link
-                </a>
-              </li>
-            </ul>
-          </li>
         </ul>
       </li>
     </ul>
-    <button
-      aria-label="expand sidebar toggle"
-      class="collapse-button wtq-focusable">
-      <Icon name={"double-arrow"} /></button
-    >
-  </aside>
-  <script src="./sidebar.ts"></script>
-
-</ssrc=".>
+  </li>
+}       
+</ul>
+<button
+  aria-label="expand sidebar toggle"
+  class="collapse-button wtq-focusable">
+  <Icon name={"double-arrow"} /></button>
+</aside>
+<script src="./sidebar.ts"></script>
