@@ -12,8 +12,8 @@ main {
     .title {
       background: linear-gradient(
         9deg,
-        var(--darkest) 53%,
-        var(--medium) 100%
+        hsl(var(--darkest)) 53%,
+        hsl(var(--medium)) 100%
       );
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -28,7 +28,7 @@ main {
       margin-bottom: 24px;
       font-size: clamp(1rem, 4vw, 2rem);
       font-weight: 500;
-      color: var(--dark);
+      color: hsl(var(--dark));
     }
   }
 }

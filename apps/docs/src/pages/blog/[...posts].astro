@@ -30,65 +30,6 @@ const { Content } = await post.render();
 ---
 
 <BlogLayout>
-  <style lang="scss">
-    .wtq-post-container {
-      display: grid;
-      justify-content: center;
-      grid-template-columns: 692px;
-      margin-top: 30px;
-      gap: 1rem;
-    
-      .dark & {
-        border-color: var(--accent-20);
-      }
-    }
-    
-    .wtq-post {
-      border: 1px solid var(--accent-200);
-      background-color: var(--accent-20);
-      border-radius: 20px;
-      transition: all 200ms ease;
-      padding: 25px;
-      box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.05);
-    }
-    
-    .wtq-post-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    
-    .wtq-post-content {
-      text-overflow: ellipsis;
-      overflow: hidden;
-      white-space: nowrap;
-    }
-    
-    .wtq-cover {
-      border: 1px solid var(----lightest);
-      border-radius: 40px;
-      aspect-ratio: 16/9;
-      height: auto;
-      margin-inline: auto;
-      filter: drop-shadow(1px 17px 15px #00000025);
-    }
-    
-    .wtq-post-title {
-      color: var(--accent-800);
-      font-weight: 600;
-      line-height: 1.5;
-      font-size: var(--font-md);
-      margin: 0;
-    }
-    
-    .wtq-post-subtitle {
-      margin: 0;
-      color: var(--accent-700);
-      font-weight: 400;
-      letter-spacing: 0.3pt;
-      font-size: var(--font-xs);
-    }
-    </style>
   <Breadcrumbs />
   <article>
     <span class="wtq-post-head">
@@ -97,8 +38,8 @@ const { Content } = await post.render();
     </span>
     <Image
       class="wtq-cover"
-      width={1280}
-      height={720}
+      width={740}
+      height={310}
       src={post.data.OGImage}
       alt={"dwad"}
       loading="eager"

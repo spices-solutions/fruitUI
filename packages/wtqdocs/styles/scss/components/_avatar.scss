@@ -17,7 +17,7 @@
     }
     line-height: 1.2;
     .wtq-avatar-name {
-      color: var(--darkest);
+      color: hsl(var(--darkest));
       margin: 0;
       font-weight: 500;
       font-size: 0.9rem;
@@ -27,7 +27,7 @@
       font-size: 0.8rem;
       font-weight: 300;
       letter-spacing: 0.5pt;
-      color: var(--dark);
+      color: hsl(var(--dark));
     }
   }
 }
