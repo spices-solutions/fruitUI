@@ -6,7 +6,7 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  color: var(--accent-800);
+  color: hsl(var(--dark));
   list-style: none;
 
   li {
@@ -27,15 +27,8 @@
     gap: 5px;
     border-radius: 8px;
     cursor: pointer;
-    color: var(--accent-600);
-    &:hover,
-    &:focus-visible {
-      outline: none;
-      background-color: var(--background-hover);
-    }
   }
   .arrow-icon {
-    color: var(--accent-800);
     margin-top: 2px;
   }
 }

@@ -3,7 +3,6 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  margin: 1rem 0px;
 
   .wtq-avatar {
     @media screen and (max-width: 768px) {
@@ -16,20 +15,19 @@
     @media screen and (max-width: 768px) {
       display: none;
     }
+    line-height: 1.2;
     .wtq-avatar-name {
-      color: var(--accent-900);
+      color: hsl(var(--darkest));
       margin: 0;
-      line-height: 1.2;
       font-weight: 500;
       font-size: 0.9rem;
     }
     .wtq-avatar-role {
       margin: 0;
-      line-height: 1.2;
       font-size: 0.8rem;
       font-weight: 300;
       letter-spacing: 0.5pt;
-      color: var(--accent-600);
+      color: hsl(var(--dark));
     }
   }
 }

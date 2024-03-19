@@ -1,19 +1,14 @@
-$accent-20: rgb(254, 254, 254) !default;
-$accent-50: #fdfdfd !default;
-$accent-100: #f4f4f5 !default;
-$accent-200: #e4e4e7 !default;
-$accent-300: #d4d4d8 !default;
-$accent-400: #a1a1aa !default;
-$accent-500: #71717a !default;
-$accent-600: #52525b !default;
-$accent-700: #3f3f46 !default;
-$accent-800: #27272a !default;
-$accent-900: #18181b !default;
-$accent-950: #0f0f11 !default;
-
-// --darkest: ; --dark: ; --medium: ; --light: ; --lightest: ;
-// --darkest: ; --dark: ; --medium: ; --light: ; --lightest: ;
-// darkest dark medium light lightest
+$accent-50: 0, 0%, 99% !default;
+$accent-100: 240, 5%, 96% !default;
+$accent-200: 240, 6%, 90% !default;
+$accent-300: 240, 5%, 84% !default;
+$accent-400: 240, 5%, 65% !default;
+$accent-500: 240, 4%, 46% !default;
+$accent-600: 240, 5%, 34% !default;
+$accent-700: 240, 5%, 26% !default;
+$accent-800: 240, 4%, 16% !default;
+$accent-900: 240, 6%, 10% !default;
+$accent-950: 240, 6%, 6% !default;
 
 $font-3xl: 2.986rem;
 $font-2xl: 2.488rem;
@@ -27,10 +22,16 @@ $font-xs: 1rem;
   font-family: "Geist";
   font-weight: 100 900;
   src: url("/font/GeistVariableVF.woff2") format("woff2");
-  font-display: optional;
+  font-display: swap;
 }
 
 :root {
+  --darkest: #{$accent-900};
+  --dark: #{$accent-700};
+  --medium: #{$accent-500};
+  --light: #{$accent-300};
+  --lightest: #{$accent-100};
+
   --font-3xl: #{$font-3xl};
   --font-2xl: #{$font-2xl};
   --font-xl: #{$font-xl};
@@ -38,79 +39,59 @@ $font-xs: 1rem;
   --font-md: #{$font-md};
   --font-sm: #{$font-sm};
   --font-xs: #{$font-xs};
-  color: var(--accent-900);
-  background-color: var(--body-background);
   color-scheme: light dark;
 
   &.light {
     color-scheme: light;
-    --accent-20: #{$accent-20};
-    --accent-50: #{$accent-50};
-    --accent-100: #{$accent-100};
-    --accent-200: #{$accent-200};
-    --accent-300: #{$accent-300};
-    --accent-400: #{$accent-400};
-    --accent-500: #{$accent-500};
-    --accent-600: #{$accent-600};
-    --accent-700: #{$accent-700};
-    --accent-800: #{$accent-800};
-    --accent-900: #{$accent-900};
-    --accent-950: #{$accent-950};
+    --darkest: #{$accent-900};
+    --dark: #{$accent-700};
+    --medium: #{$accent-500};
+    --light: #{$accent-300};
+    --lightest: #{$accent-100};
+    --white: #{$accent-50};
+    --black: #{$accent-950};
     --background-hover: #00000010;
     --body-background: white;
     --navbar-background: white;
-
-    --sidebar-border-color: #{rgba($accent-900, 0.1)};
+    --sidebar-border-color: hsl(var(--darkest), 0.1);
   }
 
   @media (prefers-color-scheme: light) {
-    --accent-20: #{$accent-20};
-    --accent-50: #{$accent-50};
-    --accent-100: #{$accent-100};
-    --accent-200: #{$accent-200};
-    --accent-300: #{$accent-300};
-    --accent-400: #{$accent-400};
-    --accent-500: #{$accent-500};
-    --accent-600: #{$accent-600};
-    --accent-700: #{$accent-700};
-    --accent-800: #{$accent-800};
-    --accent-900: #{$accent-900};
-    --accent-950: #{$accent-950};
+    --darkest: #{$accent-900};
+    --dark: #{$accent-700};
+    --medium: #{$accent-500};
+    --light: #{$accent-300};
+    --lightest: #{$accent-100};
+    --white: #{$accent-50};
+    --black: #{$accent-950};
     --background-hover: #00000010;
     --body-background: white;
     --navbar-background: white;
-
-    --sidebar-border-color: #{rgba($accent-900, 0.1)};
+    --sidebar-border-color: hsl(var(--darkest), 0.1);
   }
 
   @media (prefers-color-scheme: dark) {
     color-scheme: dark;
-    --accent-50: #{$accent-900};
-    --accent-20: #{$accent-800};
-    --accent-100: #{$accent-800};
-    --accent-200: #{$accent-700};
-    --accent-300: #{$accent-600};
-    --accent-400: #{$accent-500};
-    --accent-500: #{$accent-400};
-    --accent-600: #{$accent-300};
-    --accent-700: #{$accent-200};
-    --accent-800: #{$accent-100};
-    --accent-900: #{$accent-50};
+    --darkest: #{$accent-100};
+    --dark: #{$accent-300};
+    --medium: #{$accent-500};
+    --light: #{$accent-700};
+    --lightest: #{$accent-900};
+    --white: #{$accent-950};
+    --black: #{$accent-50};
     --background-hover: #ffffff10;
-    --body-background: #{$accent-900};
+    --body-background: hsl(var(--lightest), 0.2);
     --navbar-background: #252529;
-
-    --sidebar-border-color: #{rgba($accent-50, 0.2)};
+    --sidebar-border-color: hsl(var(--lightest), 0.2);
   }
 }
-
-
 
 *,
 *::after,
 *::before {
   box-sizing: border-box;
 }
+
 html,
 body {
   word-wrap: break-word;
@@ -126,6 +107,8 @@ body {
   -moz-text-size-adjust: none;
   text-size-adjust: none;
   margin: 0;
+  background-color: var(--body-background);
+  color: hsl(var(--darkest));
 }
 
 hr {
