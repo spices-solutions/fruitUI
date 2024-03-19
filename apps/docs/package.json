@@ -16,7 +16,7 @@
     "@astrojs/sitemap": "^3.1.1",
     "@vite-pwa/assets-generator": "^0.2.4",
     "@vite-pwa/astro": "^0.3.0",
-    "astro": "^4.5.4",
+    "astro": "^4.5.6",
     "astro-compress": "^2.2.3",
     "astro-compressor": "^0.4.1",
     "astro-icon": "^1.1.0",

@@ -12,26 +12,9 @@
   user-select: none;
   border-radius: 50%;
   transition: all 200ms ease-out;
-
-  &:hover,
-  &:focus-visible {
-    background-color: var(--background-hover);
-  }
-
   svg {
     transition: inherit;
-    transform: rotate(180deg);
 
-    path {
-      d: path(
-        "M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
-      );
-    }
-  }
-}
-
-:root.dark .theme-switcher {
-  svg {
     transform: rotate(0deg);
 
     path {
@@ -42,6 +25,18 @@
   }
 }
 
+.dark .theme-switcher {
+  svg {
+    transform: rotate(180deg);
+    path {      d: path(
+        "M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
+      );
+
+    }
+  }
+}
+
+
 .wtq-navbar {
   z-index: 1;
   display: flex;
@@ -50,9 +45,13 @@
   padding: 5px 1rem;
   height: 50px;
   position: relative;
-  background-color: var(--navbar-background);
+  background-color: hsl(var(--white));
   box-shadow: 0 5px 10px -8px #27272a26;
-
+  @at-root {
+    .dark .wtq-navbar {
+      background-color: hsl(var(--black),.05) ;
+    }
+  }
   .wtq-brand {
     padding: 3px 5px;
     border-radius: 0.3em;
@@ -83,7 +82,7 @@
     padding: 0px 1rem;
     display: flex;
     gap: 1rem;
-    background-color: inherit;
+    // background-color: hsl(var(--light), .);
 
     li {
       line-height: 0;
