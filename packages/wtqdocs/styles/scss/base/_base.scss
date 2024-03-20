@@ -112,6 +112,7 @@ pre {
   font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo,
     monospace;
   font-size: 1em;
+  text-align: left;
 }
 
 pre {
@@ -184,7 +185,65 @@ ul,
 ol {
   margin: 0;
   padding: 0;
+  list-style-position: inside;
 }
+
+blockquote {
+  display: flex;
+  gap: .5rem;
+  margin: 1rem;
+  &::before {
+    border-inline-start: solid 4px hsl(var(--medium));
+    content: "";
+  }
+}
+
+
+
+figcaption {
+  word-break: break-all;
+  color: hsl(var(--medium));
+  font-style: italic;
+  margin-top: 1rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem
+}
+
+table thead tr {
+  border-bottom: 2px solid #dadde1
+}
+
+table thead,table tr:nth-child(2n) {
+  background-color: rgba(0,0,0,.03)
+}
+
+table tr {
+  background-color: transparent;
+  border-top: 1px solid #dadde1
+}
+
+table td,table th {
+  border: 1px solid #dadde1;
+  padding: 0.75rem;
+  &:dir(rtl) {
+    text-align: right; /* Adjust alignment */
+  }
+}
+
+table th {
+  background-color: inherit;
+  color: inherit;
+  font-weight: 700
+}
+
+table td {
+  color: var(--ifm-table-cell-color)
+}
+
 
 h1,
 h2,

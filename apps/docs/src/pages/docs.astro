@@ -10,9 +10,9 @@ const { category } = WathqnyConfig;
   <h1 class="wtq-main-heading">Categorys</h1>
 
   <main class="anim-slide-botto" id="main-content">
-    <div class="wtq-card-container">
+    <div class="wtq-card-container-category">
       {
-        category?.map((doc) => {
+        category?.map((doc: string) => {
           return (
             <a href={"/docs/" + doc.toLowerCase()}>
               <div class="wtq-card">

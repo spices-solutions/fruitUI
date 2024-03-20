@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import { Picture } from "astro:assets";
 import { type CollectionEntry, getCollection, getEntry } from "astro:content";
 import { Breadcrumbs, Layout } from "wtqdocs";
 import { BlogLayout, AuthorProfile } from "wtqdocs/blog";
@@ -24,7 +24,13 @@ const { post } = Astro.props;
 
 const { authors } = post.data;
 
-const authorData = await getEntry("authors", authors?.id!);
+const authorData = (await getEntry("authors", authors?.id!)) as {
+  data: {
+    name: string;
+    role: string;
+    profile: string;
+  };
+};
 
 const { Content } = await post.render();
 ---
@@ -34,16 +40,27 @@ const { Content } = await post.render();
   <article>
     <span class="wtq-post-head">
       <h1 class="wtq-main-heading">{post.data.title}</h1>
-      <AuthorProfile name={authorData.data.name} role={authorData.data.role} image={authorData.data.profile} />
+      <AuthorProfile
+        name={authorData.data.name}
+        role={authorData.data.role}
+        image={authorData.data.profile}
+      />
+      <figure>
+        <Picture
+          class="wtq-cover"
+          width={960}
+          height={540}
+          src={post.data.OGImage}
+          formats={["avif", "webp"]}
+          loading="eager"
+          alt="A description of my image."
+        />
+        <figcaption>
+          dwaodjwaodjwijdkwahdhjwhgdjwhajdhjwhdwagdkulwdjlkwakldkl;awdiwijdkwahdhjwhgdjwhajdhjwhdwagdkulwdjlkwakldkl;awdiwakdgadhasklg.fendf;jheajgfawjdjagwdnjdcawdjbakwdbjkwabdjb
+          dwakdgadhasklg.fendf;jheajgfawjdjagwdnjdcawdjbakwdbjkwabdjb
+        </figcaption>
+      </figure>
     </span>
-    <Image
-      class="wtq-cover"
-      width={740}
-      height={310}
-      src={post.data.OGImage}
-      alt={"dwad"}
-      loading="eager"
-    />
     <main id="main-content">
       <Content />
     </main>
