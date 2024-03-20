@@ -32,6 +32,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <meta name="generator" content={Astro.generator} />
   <meta name="keywords" content={METAKEYWORDS as string} />
   <meta name="description" content={METADESCRIPTION} />
+  
   <meta property="og:description" content={METADESCRIPTION} />
   <meta property="og:image" content={METAIMAGE} />
   <meta property="og:title" content={METATITLE} />
@@ -81,4 +82,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       root?.classList.replace("dark", "light");
     }
   </script>
+
+  <slot />
 </head>

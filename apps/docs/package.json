@@ -30,6 +30,7 @@
     "vite-plugin-pwa": "^0.19.2",
     "workbox-window": "^7.0.0",
     "wtqcode": "workspace:*",
-    "wtqdocs": "workspace:*"
+    "wtqdocs": "workspace:*",
+    "wtqtypes": "workspace:*"
   }
 }

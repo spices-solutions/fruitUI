@@ -1,31 +1,6 @@
-export interface categoryItem {
-    name: string
-    items: category
-}
+import type { WathqnyConfig } from "wtqtypes"
 
-export type category = Array<string | categoryItem>
-
-interface WathqnyConfigI {
-  siteName?: string;
-  description?: string;
-  keywords?: string[];
-  sidebar?: category;
-  image?: string;
-  category?: any;
-  darkMode?: boolean;
-  locale?: string;
-  locale_dir: "ltr" | "rtl";
-  cssPath: string[];
-  navbar?: {
-    brand: {
-      name: string;
-      logo: string;
-    };
-    Items: { href?: string; item?: string }[];
-  };
-}
-
-const WathqnyConfig: WathqnyConfigI = {
+const Config: WathqnyConfig = {
   siteName: "fruitUI",
   image: "/og.png",
   description: "fruit UI a modular styling framework",
@@ -72,4 +47,4 @@ const WathqnyConfig: WathqnyConfigI = {
   },
 };
 
-export default WathqnyConfig;
+export default Config;

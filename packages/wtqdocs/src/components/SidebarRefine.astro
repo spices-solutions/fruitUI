@@ -1,19 +1,14 @@
 ---
 import { getCollection } from "astro:content";
 import { Icon } from "astro-icon/components";
+import type { category } from "wtqtypes"
 import WathqnyConfig from "/wathqny.config";
+
+
 
 const docs = await getCollection("docs");
 
-
 const { sidebar } = WathqnyConfig;
-interface categoryItem {
-  name: string;
-  items: category;
-}
-
-type category = Array<string | categoryItem>;
-
 
   function ParseCategory(ele:category){
   ele.forEach((ele)=>{
