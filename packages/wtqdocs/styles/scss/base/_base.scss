@@ -75,7 +75,7 @@ $font-xs: 1rem;
 *::before {
   box-sizing: border-box;
 }
-
+ 
 html,
 body {
   word-wrap: break-word;
@@ -112,7 +112,7 @@ pre {
   font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo,
     monospace;
   font-size: 1em;
-  text-align: left;
+  direction: ltr;
 }
 
 pre {
@@ -198,11 +198,9 @@ blockquote {
   }
 }
 
-
-
 figcaption {
   word-break: break-all;
-  color: hsl(var(--medium));
+  color: hsl(var(--dark), 0.8);
   font-style: italic;
   margin-top: 1rem;
 }
@@ -214,23 +212,23 @@ table {
 }
 
 table thead tr {
-  border-bottom: 2px solid #dadde1
+  border-bottom: 2px solid hsl(var(--light))
 }
 
-table thead,table tr:nth-child(2n) {
-  background-color: rgba(0,0,0,.03)
+table :is(thead, tr:nth-child(2n)) {
+  background-color: hsl(var(--light), 0.25)
 }
 
 table tr {
   background-color: transparent;
-  border-top: 1px solid #dadde1
+  border-top: 1px solid hsl(var(--light))
 }
 
-table td,table th {
-  border: 1px solid #dadde1;
+table :is(td,th) {
+  border: 1px solid hsl(var(--light));
   padding: 0.75rem;
   &:dir(rtl) {
-    text-align: right; /* Adjust alignment */
+    text-align: right;
   }
 }
 
@@ -241,9 +239,8 @@ table th {
 }
 
 table td {
-  color: var(--ifm-table-cell-color)
+  color: inherit
 }
-
 
 h1,
 h2,
