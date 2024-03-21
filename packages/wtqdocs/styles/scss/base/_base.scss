@@ -26,11 +26,6 @@ $font-xs: 1rem;
 }
 
 :root {
-  --darkest: #{$accent-900};
-  --dark: #{$accent-700};
-  --medium: #{$accent-500};
-  --light: #{$accent-300};
-  --lightest: #{$accent-100};
   --font-lg: #{$font-lg};
   --font-md: #{$font-md};
   --font-sm: #{$font-sm};
@@ -39,16 +34,6 @@ $font-xs: 1rem;
 
   &.light {
     color-scheme: light;
-    --darkest: #{$accent-900};
-    --dark: #{$accent-700};
-    --medium: #{$accent-500};
-    --light: #{$accent-300};
-    --lightest: #{$accent-100};
-    --white: 0, 0%, 100%;
-    --black: #{$accent-900};
-  }
-
-  @media (prefers-color-scheme: light) {
     --darkest: #{$accent-900};
     --dark: #{$accent-700};
     --medium: #{$accent-500};
@@ -75,7 +60,7 @@ $font-xs: 1rem;
 *::before {
   box-sizing: border-box;
 }
- 
+
 html,
 body {
   word-wrap: break-word;

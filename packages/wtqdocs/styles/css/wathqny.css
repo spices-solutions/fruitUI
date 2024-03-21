@@ -6,11 +6,6 @@
   font-display: swap;
 }
 :root {
-  --darkest: 240, 6%, 10%;
-  --dark: 240, 5%, 26%;
-  --medium: 240, 4%, 46%;
-  --light: 240, 5%, 84%;
-  --lightest: 240, 5%, 96%;
   --font-lg: 1.728rem;
   --font-md: 1.44rem;
   --font-sm: 1.2rem;
@@ -26,17 +21,6 @@
   --lightest: 240, 5%, 96%;
   --white: 0, 0%, 100%;
   --black: 240, 6%, 10%;
-}
-@media (prefers-color-scheme: light) {
-  :root {
-    --darkest: 240, 6%, 10%;
-    --dark: 240, 5%, 26%;
-    --medium: 240, 4%, 46%;
-    --light: 240, 5%, 84%;
-    --lightest: 240, 5%, 96%;
-    --white: 0, 0%, 100%;
-    --black: 240, 6%, 10%;
-  }
 }
 @media (prefers-color-scheme: dark) {
   :root {
