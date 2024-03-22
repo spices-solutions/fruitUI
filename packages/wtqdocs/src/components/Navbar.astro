@@ -5,6 +5,7 @@ import type { WathqnyConfig as WathqnyConfigType } from "wtqtypes";
 
 // @ts-ignore
 import untypedWathqnyConfig from "/wathqny.config";
+import { Icon } from "astro-icon/components";
 
 const WathqnyConfig: WathqnyConfigType = untypedWathqnyConfig;
 
@@ -38,14 +39,8 @@ const { navbar } = WathqnyConfig;
     }
     <li class="wtq-item-button ">
       <button class="theme-switcher wtq-focusable" aria-label="dark mode toggler">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="currentColor"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round"></path>
-        </svg>
+        <Icon name={"moon"} class={"dark-mode-moon"} />
+        <Icon name={"sun"} class={"dark-mode-sun"} />
       </button>
     </li>
   </ul>

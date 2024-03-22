@@ -1,41 +1,30 @@
-
 .theme-switcher {
   background-color: transparent;
   border: 0;
   padding: 10px;
-  display: flex;
-  width: 40px;
-  height: 40px;
-  align-items: center;
   cursor: pointer;
-  transition: all ease 200ms;
   user-select: none;
   border-radius: 50%;
-  transition: all 200ms ease-out;
+  transition: all 200ms cubic-bezier(0.39, 0.575, 0.565, 1);
   svg {
     transition: inherit;
-
-    transform: rotate(0deg);
-
-    path {
-      d: path(
-        "M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"
-      );
-    }
+  }
+  .dark-mode-moon {
+    display: block;
+  }
+  .dark-mode-sun {
+    display: none;
   }
 }
 
 .dark .theme-switcher {
-  svg {
-    transform: rotate(180deg);
-    path {      d: path(
-        "M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
-      );
-
-    }
+  .dark-mode-moon {
+    display: none;
+  }
+  .dark-mode-sun {
+    display: block;
   }
 }
-
 
 .wtq-navbar {
   z-index: 1;
@@ -47,10 +36,8 @@
   position: relative;
   background-color: hsl(var(--white));
   box-shadow: 0 5px 10px -8px #27272a26;
-  @at-root {
-    .dark .wtq-navbar {
-      background-color: hsl(var(--black),.05) ;
-    }
+  .dark & {
+    background-color: hsl(var(--black), 0.05);
   }
   .wtq-brand {
     padding: 3px 5px;
@@ -104,6 +91,7 @@
       background-color: #00000070;
       width: 100%;
       height: 100vh;
+
     }
 
     &.wtq-active {
@@ -140,8 +128,8 @@
         width: 20px;
       }
     }
-
     .wtq-links {
+      background-color: hsl(var(--lightest));
       transition: all 300ms ease;
       padding: 1rem 0px;
       transform: translateX(200%);
@@ -151,13 +139,9 @@
       top: 0;
       width: 50%;
       height: 100vh;
-      height: 100dvh;
-
       text-align: center;
-
       li {
         padding: 10px;
-        background-color: inherit;
       }
       .wtq-item-button {
         padding: 0;

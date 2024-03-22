@@ -44,14 +44,14 @@ const Config: WathqnyConfig = {
       },
     ],
   },
-    css: [
-    {
-      href: "/src/css/docs.css",
-    },
-    {
-      href: "/src/css/wathqny.css",
-    },
-  ],
+  //   css: [
+  //   {
+  //     href: "/src/css/docs.css",
+  //   },
+  //   {
+  //     href: "/src/css/wathqny.css",
+  //   },
+  // ],
 };
 
 export default Config;

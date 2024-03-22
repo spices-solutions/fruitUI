@@ -95,5 +95,5 @@ categoryItems?.forEach((categoryItem) => {
 }
 
 measurePerformance(() => {
-  SidebarActions();
+  NewSidebarActions();
 });

@@ -15,7 +15,7 @@ type WathqnyConfig = {
   darkMode?: boolean;
   locale?: string;
   locale_dir: "ltr" | "rtl";
-  css: {
+  css?: {
     href: string;
   }[];
   navbar?: {

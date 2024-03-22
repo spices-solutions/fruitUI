@@ -14,28 +14,8 @@ const docs = await getCollection("docs");
 
 const { sidebar } = WathqnyConfig;
 
-  function ParseCategory(ele:category){
-  ele.forEach((ele)=>{
-    if(typeof ele == 'object'){
-      console.log(ele)
-    }else{
-      console.log ((
-        <li class="collapse_item">
-              <a
-                tabindex="-1"
-                class="collapse_item--link wtq-focusable"
-                href={"/docs/"}>
-                {ele}
-              </a>
-            </li>
-        ))
-    }
-  })
-}
-
-  
-
-ParseCategory(sidebar)
+// i want you to start form catigory interface it will be your entry point you will loop over it and check if the item is string or not if is string you will just return it in li html tag if it is categoryItem you will use this funcion as a recursion to to id again until you finish returnung all html tags as string at the end so i will hae a html element as a string and in each function call wrap the result inside ul tag
+// here is the types
 // sidebar: [
 //     "Getting-started",
 //     {

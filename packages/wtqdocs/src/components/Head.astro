@@ -1,10 +1,13 @@
 ---
+// @ts-ignore
 import { pwaInfo } from "virtual:pwa-info";
+// @ts-ignore
 import { pwaAssetsHead } from "virtual:pwa-assets/head";
 
 
 import type { WathqnyConfig as WathqnyConfigType } from "wtqtypes";
 
+import fruitStyles from "../../styles/css/docs.css?url";
 import MainStyles from "../../styles/css/wathqny.css?url";
 
 // @ts-ignore
@@ -69,13 +72,15 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   {pwaAssetsHead.links.map((link: astroHTML.JSX.IntrinsicAttributes & astroHTML.JSX.LinkHTMLAttributes) => <link {...link} />)}
   {pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} />}
 
+  <link href={fruitStyles} rel="stylesheet" crossorigin="anonymous" />
   <link href={MainStyles} rel="stylesheet" crossorigin="anonymous" />
 
   {
 
-    WathqnyConfig.css.map(async (stylesheet) => {
+    WathqnyConfig?.css?.map(async (stylesheet) => {
       return (
         // <link href={(await import(`${stylesheet.href}?url`)).default} rel="stylesheet" crossorigin="anonymous" />
+        // fix
         <link href={stylesheet.href} rel="stylesheet" crossorigin="anonymous" />
       );
     })

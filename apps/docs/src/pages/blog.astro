@@ -16,23 +16,20 @@ interface Props {
       blog.map((post) => {
         return (
           <a href={"/blog/" + post.data.tags.toLowerCase() + post.data.href}>
-            <div class="wtq-post">
-              <span class="wtq-post-head">
-                <h1 class="wtq-post-title">{post.data.title}</h1>
-                <span>
-                  <time datetime={post.data.pubDate.toISOString()}>
-                    {formatDate(post.data.pubDate)}
-                  </time>
-                </span>
+            <div class="wtq-card">
+              <h1 class="wtq-card-title">{post.data.title}</h1>
+              <span class="wtq-card-subtitle">
+                <time datetime={post.data.pubDate.toISOString()}>
+                  {formatDate(post.data.pubDate)}
+                </time>
               </span>
-              <p class="wtq-post-content">{post.data.description}</p>
-
+              <p class="wtq-post-content">{post.body}</p>
               <Image
+                class={"wtq-cover"}
                 width={640}
                 height={360}
-                src={ post.data.OGImage ? post.data.OGImage :  `/og.png`}
+                src={post.data.OGImage ? post.data.OGImage : `/og.png`}
                 alt={"dwad"}
-                loading="eager"
               />
             </div>
           </a>
