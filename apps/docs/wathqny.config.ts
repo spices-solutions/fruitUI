@@ -28,7 +28,6 @@ const Config: WathqnyConfig = {
     "Layout",
     "Utilities",
   ],
-  cssPath: ["./src/"],
   navbar: {
     brand: {
       logo: "/icon.svg",
@@ -36,15 +35,23 @@ const Config: WathqnyConfig = {
     },
     Items: [
       {
-        item: "docs",
+        item: "Docs",
         href: "/docs/getting-started/overview",
       },
       {
-        item: "blog",
+        item: "Blog",
         href: "/blog",
       },
     ],
   },
+    css: [
+    {
+      href: "/src/css/docs.css",
+    },
+    {
+      href: "/src/css/wathqny.css",
+    },
+  ],
 };
 
 export default Config;

@@ -1,9 +1,15 @@
 ---
 import { Image } from "astro:assets";
 
-import WathqnyConfig from "/wathqny.config";
+import type { WathqnyConfig as WathqnyConfigType } from "wtqtypes";
+
+// @ts-ignore
+import untypedWathqnyConfig from "/wathqny.config";
+
+const WathqnyConfig: WathqnyConfigType = untypedWathqnyConfig;
 
 const { navbar } = WathqnyConfig;
+
 ---
 <nav class="wtq-navbar" role="navigation">
   <span class="wtq-navbar-overlay"></span>

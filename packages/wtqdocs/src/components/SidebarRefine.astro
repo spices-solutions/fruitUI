@@ -1,8 +1,12 @@
 ---
 import { getCollection } from "astro:content";
 import { Icon } from "astro-icon/components";
-import type { category } from "wtqtypes"
-import WathqnyConfig from "/wathqny.config";
+import type { category, WathqnyConfig as WathqnyConfigType } from "wtqtypes";
+
+// @ts-ignore
+import untypedWathqnyConfig from "/wathqny.config";
+
+const WathqnyConfig: WathqnyConfigType = untypedWathqnyConfig;
 
 
 
