@@ -1,6 +1,6 @@
 ---
 import { type CollectionEntry, getCollection } from "astro:content";
-import { Breadcrumbs, CategoryCards, Layout } from "wtqdocs";
+import { Breadcrumbs, Layout } from "wtqdocs";
 
 export async function getStaticPaths() {
   let blog = await getCollection("blog");

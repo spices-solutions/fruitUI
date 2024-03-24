@@ -611,12 +611,6 @@ h6 {
   flex-direction: column;
 }
 
-.wtq-post-content {
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-}
-
 .wtq-cover {
   border: 1px solid hsl(var(--light));
   border-radius: 20px;

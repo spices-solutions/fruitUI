@@ -1,6 +1,9 @@
 ---
 import { getCollection } from "astro:content";
 import { Icon } from "astro-icon/components";
+import LinkItem from "./LinkItem.astro"
+import CategoryToggle from "./CategoryToggle.astro"
+import CollapseButton from "./CollapseButton.astro"
 import type { category, WathqnyConfig as WathqnyConfigType } from "wtqtypes";
 
 // @ts-ignore
@@ -8,23 +11,9 @@ import untypedWathqnyConfig from "/wathqny.config";
 
 const WathqnyConfig: WathqnyConfigType = untypedWathqnyConfig;
 
-
-
 const docs = await getCollection("docs");
 
 const { sidebar } = WathqnyConfig;
-
-// i want you to start form catigory interface it will be your entry point you will loop over it and check if the item is string or not if is string you will just return it in li html tag if it is categoryItem you will use this funcion as a recursion to to id again until you finish returnung all html tags as string at the end so i will hae a html element as a string and in each function call wrap the result inside ul tag
-// here is the types
-// sidebar: [
-//     "Getting-started",
-//     {
-//       name: "components",
-//       items: ["base", "other", "awesome"],
-//     },
-//     "Layout",
-//     "Utilities",
-//   ],
 
 docs.sort(
   (a: { data: { position: number } }, b: { data: { position: number } }) =>
@@ -40,60 +29,19 @@ let cutUrl =
 
 let ActiveClass;
 ---
-    
-    
+
 <aside class="wtq-sidebar">
-  <ul class="sidebar_category" role="tablist">
-    {
-    // sparta passed from here
+  <ul class="sidebar_category" role="tablist">      
     <li class:list={[{ "wtq-active": ActiveClass }]} role="tab">
-    <button
-      class:list={[
-        "wtq-focusable category_toggle  ",
-        { "wtq-active": ActiveClass },
-      ]}>
-      trigger
-      <Icon class="arrow-icon" name={"arrow"} />
-    </button>
-    <ul class:list={["category_collapse", { "wtq-active": ActiveClass }]}>
-      <li class="collapse_item">
-        <a
-          tabindex="-1"
-          class="collapse_item--link wtq-focusable"
-          href={"/docs/"}>
-          link
-        </a>
-      </li>
-      <li
-        class="collapse_item"
-        class:list={[{ "wtq-active": ActiveClass }]}>
-        <button
-          class:list={[
-            "wtq-focusable category_toggle  ",
-            { "wtq-active": ActiveClass },
-          ]}>
-          trigger
-          <Icon class="arrow-icon" name={"arrow"} />
-        </button>
-        <ul
-          class:list={["category_collapse", { "wtq-active": ActiveClass }]}>
-          <li class="collapse_item">
-            <a
-              tabindex="-1"
-              class="collapse_item--link wtq-focusable"
-              href={"/docs/"}>
-              link
-            </a>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-}       
-</ul>
-<button
-  aria-label="expand sidebar toggle"
-  class="collapse-button wtq-focusable">
-  <Icon name={"double-arrow"} /></button>
+      <CategoryToggle name="Getting started" />
+      <ul class="category_collapse">
+        <li class="collapse_item">
+          <LinkItem href="/docs" name="link" />
+        </li>
+      </ul>
+    </li>
+  </ul>
+<CollapseButton />
 </aside>
+
 <script src="./sidebar.ts"></script>

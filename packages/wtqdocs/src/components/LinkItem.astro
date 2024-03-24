@@ -1,0 +1,12 @@
+---
+interface Props {
+  href: string;
+  name: string;
+}
+
+const { name, href } = Astro.props;
+---
+
+<a tabindex="-1" class="collapse_item--link wtq-focusable" href={href}>
+  {name}
+</a>

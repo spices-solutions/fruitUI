@@ -41,17 +41,17 @@ const Config: WathqnyConfig = {
       {
         item: "Blog",
         href: "/blog",
-      },
+      }
     ],
   },
-  //   css: [
-  //   {
-  //     href: "/src/css/docs.css",
-  //   },
-  //   {
-  //     href: "/src/css/wathqny.css",
-  //   },
-  // ],
+    css: [
+    {
+      href: "/src/css/docs.css",
+    },
+    {
+      href: "/src/css/wathqny.css",
+    },
+  ],
 };
 
 export default Config;
