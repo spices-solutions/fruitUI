@@ -1,4 +1,4 @@
-import type { WathqnyConfig } from "wtqtypes"
+import type { WathqnyConfig } from "wtqtypes";
 
 const Config: WathqnyConfig = {
   siteName: "fruitUI",
@@ -20,10 +20,17 @@ const Config: WathqnyConfig = {
   darkMode: true,
   category: ["Getting-started", "Components", "Layout", "Utilities"],
   sidebar: [
-    "Getting-started",
+    "Getting started",
     {
       name: "components",
-      items: ["base", "other", "awesome"],
+      items: [
+        "base",
+        "other",
+        {
+          name: "xyx",
+          items: ["d", "dwad", "ys"],
+        },
+      ],
     },
     "Layout",
     "Utilities",
@@ -41,10 +48,10 @@ const Config: WathqnyConfig = {
       {
         item: "Blog",
         href: "/blog",
-      }
+      },
     ],
   },
-    css: [
+  css: [
     {
       href: "/src/css/docs.css",
     },

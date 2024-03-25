@@ -7,6 +7,7 @@
     "start": "astro dev",
     "build": "astro build",
     "serve": "astro preview",
+    "preview": "astro build && astro preview",
     "astro": "astro",
     "gpa": "pwa-assets-generator"
   },

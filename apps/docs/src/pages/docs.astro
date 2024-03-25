@@ -15,7 +15,7 @@ const { category } = WathqnyConfig;
         category?.map((doc: string) => {
           return (
             <a href={"/docs/" + doc.toLowerCase()}>
-              <div class="wtq-card">
+              <div class="wtq-card wtq-shadow">
                 <h2 class="wtq-card-title">{doc.replace("-", " ")}</h2>
               </div>
             </a>

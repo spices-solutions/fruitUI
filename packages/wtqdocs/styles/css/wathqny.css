@@ -618,7 +618,7 @@ h6 {
 }
 
 .wtq-shadow {
-  filter: drop-shadow(1px 17px 15px rgba(0, 0, 0, 0.1450980392));
+  box-shadow: 0px 10px 9px -8px rgba(0, 0, 0, 0.1);
 }
 
 .sr-only, #skip {
@@ -647,13 +647,17 @@ h6 {
 #skip:focus-visible {
   outline: none;
   z-index: 9999;
+  margin: 0.75rem;
   position: absolute;
-  display: block;
-  background-color: hsl(var(--lightest));
+  background-color: white;
   padding: 10px 15px;
   border-radius: 10px;
-  border: 1px solid hsl(var(--lightest));
-  box-shadow: 0 8px 2px -6px;
+  border: 1px solid hsl(var(--light));
+  box-shadow: 0px 10px 9px -8px rgba(0, 0, 0, 0.1);
+}
+.dark #skip:focus-visible {
+  background-color: hsl(var(--lightest));
+  border: 1px solid hsl(var(--light));
 }
 
 .wtq-page {
@@ -700,7 +704,6 @@ h6 {
   border-radius: 20px;
   transition: all 200ms ease;
   padding: 25px;
-  filter: drop-shadow(0 6px 3px rgba(0, 0, 0, 0.05));
 }
 .dark .wtq-card {
   border-color: hsl(var(--lightest));

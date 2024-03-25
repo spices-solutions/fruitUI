@@ -16,7 +16,7 @@ interface Props {
       blog.map((post) => {
         return (
           <a href={"/blog/" + post.data.tags.toLowerCase() + post.data.href}>
-            <div class="wtq-card">
+            <div class="wtq-card wtq-shadow">
               <h1 class="wtq-card-title">{post.data.title}</h1>
               <span class="wtq-card-subtitle">
                 <time datetime={post.data.pubDate.toISOString()}>
@@ -25,7 +25,7 @@ interface Props {
               </span>
               <p class="wtq-post-content">{post.body.slice(0, 200)+'...'}</p>
               <Image
-                class={"wtq-cover"}
+                class={"wtq-cover wtq-shadow"}
                 width={640}
                 height={360}
                 src={post.data.OGImage}

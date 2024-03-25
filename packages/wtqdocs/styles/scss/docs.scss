@@ -22,9 +22,12 @@
   $ui-colors: true
 );
 
-@include useShades(900,50)
+@include useShades(900,50);
 
 // @include renderFrame("slideRight");
 
-// @include renderFrame("slideBottom");
+// .showup {
+//   @include anim(slideBottom, .5s, ease);
+// }
+
 // @include renderFrame("slideTop");

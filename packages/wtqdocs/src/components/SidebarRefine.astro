@@ -1,10 +1,9 @@
 ---
 import { getCollection } from "astro:content";
-import { Icon } from "astro-icon/components";
-import LinkItem from "./LinkItem.astro"
-import CategoryToggle from "./CategoryToggle.astro"
-import CollapseButton from "./CollapseButton.astro"
-import type { category, WathqnyConfig as WathqnyConfigType } from "wtqtypes";
+import LinkItem from "./LinkItem.astro";
+import CategoryToggle from "./CategoryToggle.astro";
+import CollapseButton from "./CollapseButton.astro";
+import type { WathqnyConfig as WathqnyConfigType } from "wtqtypes";
 
 // @ts-ignore
 import untypedWathqnyConfig from "/wathqny.config";
@@ -27,21 +26,31 @@ let cutUrl =
     .filter((url) => url !== "")
     .reverse()[0];
 
-let ActiveClass;
+let ActiveClass: boolean;
 ---
 
 <aside class="wtq-sidebar">
-  <ul class="sidebar_category" role="tablist">      
-    <li class:list={[{ "wtq-active": ActiveClass }]} role="tab">
-      <CategoryToggle name="Getting started" />
-      <ul class="category_collapse">
-        <li class="collapse_item">
-          <LinkItem href="/docs" name="link" />
-        </li>
-      </ul>
-    </li>
+  <ul class="sidebar_category" role="tablist">
+    {
+      function genrateItems() {
+        return sidebar?.map((item) => {
+          return typeof item === "string" ? (
+            <li class:list={[{ "wtq-active": ActiveClass }]} role="tab">
+              <CategoryToggle name={item} />
+              <ul class="category_collapse">
+                <li class="collapse_item">
+                  <LinkItem href="/docs" name="link" />
+                </li>
+              </ul>
+            </li>
+          ) : (
+            <LinkItem href="/docs" name="object" />
+          );
+        });
+      }
+    }
   </ul>
-<CollapseButton />
+  <CollapseButton />
 </aside>
 
 <script src="./sidebar.ts"></script>
