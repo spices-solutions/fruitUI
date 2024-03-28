@@ -4,7 +4,6 @@ import { pwaInfo } from "virtual:pwa-info";
 // @ts-ignore
 import { pwaAssetsHead } from "virtual:pwa-assets/head";
 
-
 import type { WathqnyConfig as WathqnyConfigType } from "wtqtypes";
 
 import MainStyles from "../../styles/scss/wathqny.scss?url";
@@ -18,15 +17,19 @@ const WathqnyConfig: WathqnyConfigType = untypedWathqnyConfig;
 export interface Props {
   title?: string | undefined;
   description?: string | undefined;
-  keywords?: string | undefined;
+  OGImage?: string | undefined;
+  OGImageAlt?: string | undefined;
+  keywords?: string | string[] | undefined;
 }
 
-const { title, keywords, description } = Astro.props as Props;
+const { title, keywords, description, OGImage, OGImageAlt } =
+  Astro.props as Props;
 
 const METATITLE = title
   ? `${title} - ${WathqnyConfig.siteName}`
   : WathqnyConfig.siteName;
-const METAIMAGE = WathqnyConfig.image;
+const METAIMAGE = OGImage;
+const METAIMAGEALT = OGImageAlt;
 const METADESCRIPTION = description ?? WathqnyConfig.description;
 const METAKEYWORDS = keywords ?? [...(WathqnyConfig.keywords || [])];
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -43,12 +46,14 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <meta name="description" content={METADESCRIPTION} />
   <meta property="og:description" content={METADESCRIPTION} />
   <meta property="og:image" content={METAIMAGE} />
+  <meta property="og:image:alt" content={METAIMAGEALT} />
   <meta property="og:title" content={METATITLE} />
   <meta property="og:site_name" content={METATITLE} />
   <meta property="og:type" content="website" />
   <meta property="og:url" content={canonicalURL} />
   <meta name="twitter:title" content={METATITLE} />
   <meta name="twitter:image" content={METAIMAGE} />
+  <meta name="twitter:image:alt" content={METAIMAGEALT} />
   <meta name="twitter:description" content={METADESCRIPTION} />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="robots" content="index, follow" />
@@ -69,7 +74,14 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       <meta name="theme-color" content={pwaAssetsHead.themeColor.content} />
     )
   }
-  {pwaAssetsHead.links.map((link: astroHTML.JSX.IntrinsicAttributes & astroHTML.JSX.LinkHTMLAttributes) => <link {...link} />)}
+  {
+    pwaAssetsHead.links.map(
+      (
+        link: astroHTML.JSX.IntrinsicAttributes &
+          astroHTML.JSX.LinkHTMLAttributes
+      ) => <link {...link} />
+    )
+  }
   {pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} />}
 
   <link href={fruitStyles} rel="stylesheet" crossorigin="anonymous" />

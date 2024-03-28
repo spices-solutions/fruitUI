@@ -1,8 +1,8 @@
 ---
 import { Image } from "astro:assets";
 import { getCollection, type CollectionEntry } from "astro:content";
-import { formatDate, BlogLayout } from "wtqdocs/blog";
-
+import { BlogLayout } from "wtqdocs/blog";
+import { formatDate } from "wtqdocs/utils";
 const blog = await getCollection("blog");
 
 interface Props {
@@ -15,7 +15,7 @@ interface Props {
     {
       blog.map((post) => {
         return (
-          <a href={"/blog/" + post.data.tags.toLowerCase() + post.data.href}>
+          <a href={"/blog" + post.data.href}>
             <div class="wtq-card wtq-shadow">
               <h1 class="wtq-card-title">{post.data.title}</h1>
               <span class="wtq-card-subtitle">

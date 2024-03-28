@@ -9,7 +9,7 @@ export async function getStaticPaths() {
 
   return posts.map((post) => {
     return {
-      params: { posts: post.data.tags.toLowerCase() + post.data.href },
+      params: { posts:  post.data.href },
       props: { post },
     };
   });
@@ -20,7 +20,7 @@ interface Props {
   authors: CollectionEntry<"authors">;
 }
 
-const { post } = Astro.props;
+const { post } = Astro.props as Props;
 
 const { authors } = post.data;
 
@@ -35,7 +35,7 @@ const authorData = (await getEntry("authors", authors?.id!)) as {
 const { Content } = await post.render();
 ---
 
-<BlogLayout>
+<BlogLayout title={post.data.title} description={post.data.description} keywords={post.data.keywords} OGImage={post.data.OGImage} OGImageAlt={post.data.OGImageAlt} >
   <Breadcrumbs />
   <article>
     <span class="wtq-post-head">

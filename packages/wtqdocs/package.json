@@ -16,6 +16,7 @@
     "./components/Head": "./src/components/Head.astro",
     "./schema": "./src/schema.ts",
     "./blog": "./src/blog.ts",
+    "./utils": "./src/utils.ts",
     "./script": {
       "navbar": "./src/components/navbar.ts",
       "sidebar": "./src/components/sidebar.ts"
