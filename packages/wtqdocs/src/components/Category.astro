@@ -10,23 +10,11 @@ interface Props {
 const { name, href } = Astro.props;
 ---
 
-<CategoryToggle name={name} />
-{
-  href ? (
-    <>
-      <ul class="category_collapse">
-        <li class="collapse_item">
-          <LinkItem href={href} name={name} />
-        </li>
-      </ul>
-    </>
-  ) : (
-    <>
-      <ul class="category_collapse">
-        <li class="collapse_item">
-          <slot />
-        </li>
-      </ul>
-    </>
-  )
-}
+<li role="tab" class="collapse_item">
+  <CategoryToggle name={name} />
+  <ul class="category_collapse">
+    <li class="collapse_item">
+      {href ? <LinkItem href={href} name={name} /> : <slot />}
+    </li>
+  </ul>
+</li>

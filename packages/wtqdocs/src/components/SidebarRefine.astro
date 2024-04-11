@@ -6,6 +6,7 @@ import type { WathqnyConfig as WathqnyConfigType } from "wtqtypes";
 
 // @ts-ignore
 import untypedWathqnyConfig from "/wathqny.config";
+import For from "./For.astro";
 
 const WathqnyConfig: WathqnyConfigType = untypedWathqnyConfig;
 
@@ -30,17 +31,15 @@ let ActiveClass: boolean = true;
 
 <aside class="wtq-sidebar">
   <ul class="sidebar_category" role="tablist">
-    {
-      sidebar?.map((item) => {
-        return (
-          <li role="tab">
-            <Category name={item}>
-              <Category name={item} href={item} />
-            </Category>
-          </li>
-        );
-      })
-    }
+    <For each={sidebar}>
+      {
+        (item: string) => (
+          <Category name={item}>
+            <Category name={item} href={item} />
+          </Category>
+        )
+      }
+    </For>
   </ul>
   <CollapseButton />
 </aside>

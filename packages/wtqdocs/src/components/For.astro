@@ -1,0 +1,19 @@
+---
+const { each } = Astro.props;
+
+let html = "";
+let loopedItems;
+
+if (Astro.slots.has("default")) {
+  if (typeof each === "object" && each !== null) {
+    loopedItems = Object.values(each).map((item) => item);
+  } else {
+    loopedItems = each?.map((item) => item);
+  }
+  for (let i = 0; i < loopedItems.length; i++) {
+    html += await Astro.slots.render("default", [loopedItems[i]]);
+  }
+}
+---
+
+<Fragment set:html={html} />
