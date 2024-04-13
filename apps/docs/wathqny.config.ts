@@ -20,20 +20,36 @@ const Config: WathqnyConfig = {
   darkMode: true,
   category: ["Getting-started", "Components", "Layout", "Utilities"],
   sidebar: [
-    "Getting started",
     {
-      name: "components",
+      name: "Getting started",
+      href: "/",
+    },
+    {
+      name: "Components",
+      href: "/components",
       items: [
-        "base",
-        "other",
         {
-          name: "xyx",
-          items: ["d", "dwad", "ys"],
+          name: "base",
+          href: "/components/base",
+        },
+        {
+          name: "other",
+          href: "/components/other",
+        },
+        {
+          name: "awesome",
+          href: "/components/awesome",
         },
       ],
     },
-    "Layout",
-    "Utilities",
+    {
+      name: "Layout",
+      href: "/Layout",
+    },
+    {
+      name: "utilities",
+      href: "/utilities",
+    },
   ],
   navbar: {
     brand: {

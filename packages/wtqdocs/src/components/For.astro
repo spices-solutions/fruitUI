@@ -1,19 +1,27 @@
 ---
-const { each } = Astro.props;
+interface Props {
+  each: string[] | object[] | object;
+  self?: Boolean;
+}
+const { each, self } = Astro.props as Props;
 
-let html = "";
-let loopedItems;
-
-if (Astro.slots.has("default")) {
-  if (typeof each === "object" && each !== null) {
-    loopedItems = Object.values(each).map((item) => item);
-  } else {
-    loopedItems = each?.map((item) => item);
+async function forloop() {
+  let html = "";
+  let loopedItems;
+  if (Astro.slots.has("default")) {
+    if (typeof each === "object" && each !== null) {
+      loopedItems = Object.values(each).map((item) => item);
+    } else if (Array.isArray(each) && each !== null) {
+      loopedItems = each?.map((item) => item);
+    } else {
+      throw new Error("invaild prop value, pass array or an object");
+    }
+    for (let i = 0; i < loopedItems.length; i++) {
+      html += await Astro.slots.render("default", [loopedItems[i]]);
+    }
   }
-  for (let i = 0; i < loopedItems.length; i++) {
-    html += await Astro.slots.render("default", [loopedItems[i]]);
-  }
+  return html;
 }
 ---
 
-<Fragment set:html={html} />
+<Fragment set:html={forloop()} />
