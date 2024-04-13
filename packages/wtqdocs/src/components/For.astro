@@ -1,13 +1,16 @@
 ---
 interface Props {
   each: string[] | object[] | object;
-  self?: Boolean;
+  self?: boolean;
 }
+
 const { each, self } = Astro.props as Props;
 
+let memorySafeCounter = 0;
+
+let html = "";
+let loopedItems;
 async function forloop() {
-  let html = "";
-  let loopedItems;
   if (Astro.slots.has("default")) {
     if (typeof each === "object" && each !== null) {
       loopedItems = Object.values(each).map((item) => item);
@@ -16,7 +19,14 @@ async function forloop() {
     } else {
       throw new Error("invaild prop value, pass array or an object");
     }
+
     for (let i = 0; i < loopedItems.length; i++) {
+      if (self && memorySafeCounter < 10) {
+        if (Array.isArray(loopedItems[i].items)) {
+          memorySafeCounter++;
+          forloop();
+        }
+      }
       html += await Astro.slots.render("default", [loopedItems[i]]);
     }
   }

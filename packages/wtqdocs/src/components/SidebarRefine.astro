@@ -32,7 +32,7 @@ let ActiveClass: boolean = true;
 
 <aside class="wtq-sidebar">
   <ul class="sidebar_category" role="tablist">
-    <For each={sidebar} self>
+    <For each={sidebar} self="items">
       {(item: string) => <Category name={item.name}>{item.name}</Category>}
     </For>
 
