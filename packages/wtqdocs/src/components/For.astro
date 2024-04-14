@@ -4,18 +4,35 @@ interface Props {
   self?: boolean;
 }
 
+function measurePerformance(callback: Function) {
+  
+  let startTime = performance.now();
+  callback();
+  let endTime = performance.now();
+  
+const timeDiff = endTime - startTime;
+const roundedTimeDiff = timeDiff.toFixed(7); // Round to 7 decimal places
+  console.log(`Execution time: ${roundedTimeDiff}ms`);
+}
+
+
 const { each, self } = Astro.props as Props;
 
 let memorySafeCounter = 0;
 
 let html = "";
 let loopedItems;
+
+// In-memory cache
+const cache = new Map();
+
+
 async function forloop() {
   if (Astro.slots.has("default")) {
     if (typeof each === "object" && each !== null) {
       loopedItems = Object.values(each).map((item) => item);
     } else if (Array.isArray(each) && each !== null) {
-      loopedItems = each?.map((item) => item);
+      loopedItems = each.map((item) => item);
     } else {
       throw new Error("invaild prop value, pass array or an object");
     }
@@ -30,8 +47,53 @@ async function forloop() {
       html += await Astro.slots.render("default", [loopedItems[i]]);
     }
   }
+
   return html;
 }
+
+
+async function Cachedforloop() {
+  // Check if the rendered HTML is already cached
+  const cacheKey = JSON.stringify({ each, self });
+  const cachedHTML = cache.get(cacheKey);
+  if (cachedHTML) {
+    return cachedHTML;
+  }
+
+  if (Astro.slots.has("default")) {
+    if (typeof each === "object" && each !== null) {
+      loopedItems = Object.values(each).map((item) => item);
+    } else if (Array.isArray(each) && each !== null) {
+      loopedItems = each.map((item) => item);
+    } else {
+      throw new Error("invaild prop value, pass array or an object");
+    }
+
+    for (let i = 0; i < loopedItems.length; i++) {
+      if (self && memorySafeCounter < 10) {
+        if (Array.isArray(loopedItems[i].items)) {
+          memorySafeCounter++;
+          forloop();
+        }
+      }
+      html += await Astro.slots.render("default", [loopedItems[i]]);
+    }
+  }
+
+  // Cache the rendered HTML for the current set of props
+  cache.set(cacheKey, html);
+
+  return html;
+}
+
+measurePerformance(() => {
+  console.log(forloop())
+});
+
+measurePerformance(() => {
+  console.log(Cachedforloop())
+
+});
 ---
 
 <Fragment set:html={forloop()} />
