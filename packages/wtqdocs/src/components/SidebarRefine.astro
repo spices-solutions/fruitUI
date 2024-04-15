@@ -33,39 +33,20 @@ let ActiveClass: boolean = true;
 <aside class="wtq-sidebar">
   <ul class="sidebar_category" role="tablist">
     <For each={sidebar} self="items">
-      {(item: string) => <Category name={item.name}>{item.name}</Category>}
+      {
+        (item: string) => (
+          <Category name={item.name}>
+            <For each={docs}>
+              {(doc: string) =>
+                doc.data.category == item.id && (
+                  <LinkItem name={doc.data.title} />
+                )
+              }
+            </For>
+          </Category>
+        )
+      }
     </For>
-
-    <!-- 
-    <Category name={"Getting started"}>
-      <LinkItem name={"overview"} href="overview" /></Category
-    >
-    <Category name={"components"}>
-      <Category name={"base"}
-        ><LinkItem name={"buttons"} href="buttons" /><LinkItem
-          name={"navbar"}
-          href="navbar"
-        /><LinkItem name={"forms"} href="forms" /></Category
-      >
-      <Category name={"other"}
-        ><LinkItem name={"overview"} href="overview" /></Category
-      >
-      <Category name={"awesome"}
-        ><LinkItem name={"overview"} href="overview" /></Category
-      >
-    </Category>
-    <Category name={"layout"}
-      ><LinkItem name={"flex"} href="flex" /><LinkItem
-        name={"grid"}
-        href="grid"
-      /><LinkItem name={"container"} href="container" /></Category
-    >
-    <Category name={"utitities"}
-      ><LinkItem name={"spacing"} href="spacing" /><LinkItem
-        name={"alginment"}
-        href="alginment"
-      /><LinkItem name={"others"} href="others" /></Category
-    > -->
   </ul>
   <CollapseButton />
 </aside>

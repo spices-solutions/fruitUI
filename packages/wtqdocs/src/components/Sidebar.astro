@@ -6,7 +6,7 @@ import WathqnyConfig from "/wathqny.config";
 
 const docs = await getCollection("docs");
 
-const { category, sidebar } = WathqnyConfig;
+const { category } = WathqnyConfig;
 
 docs.sort(
   (a: { data: { position: number } }, b: { data: { position: number } }) =>

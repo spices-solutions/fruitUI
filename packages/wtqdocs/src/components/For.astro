@@ -8,21 +8,22 @@ const { each, self } = Astro.props as Props;
 
 let memorySafeCounter = 0;
 
-let html = "";
-let loopedItems;
 
-let startTime = performance.now();
+// let startTime = performance.now();
+ 
 
 
-console.log(each)
 async function forloop(each) {  
-  
+  let html = "";
   if (Astro.slots.has("default")) {
+    console.log(each.length)
     for (let i = 0; i < each.length; i++) {
-      if (self && memorySafeCounter < 10) {
+      if (self && memorySafeCounter < 5) {
         if (Array.isArray(each[i].items)) {
+          console.log(each[i].items)
           memorySafeCounter++;
           html += await forloop(each[i].items);
+          console.log(html)
         }
       }
       html += await Astro.slots.render("default", [each[i]]);
@@ -31,10 +32,10 @@ async function forloop(each) {
   return html;
 }
 
-  let endTime = performance.now();
-  const timeDiff = endTime - startTime;
-  const roundedTimeDiff = timeDiff.toFixed(7); // Round to 7 decimal places
-  console.log(`Execution time: ${roundedTimeDiff}ms`);
+  // let endTime = performance.now();
+  // const timeDiff = endTime - startTime;
+  // const roundedTimeDiff = timeDiff.toFixed(7); // Round to 7 decimal places
+  // console.log(`Execution time: ${roundedTimeDiff}ms`);
 ---
 
 <Fragment set:html={forloop(each)} />

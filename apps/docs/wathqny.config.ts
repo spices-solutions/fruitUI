@@ -22,32 +22,39 @@ const Config: WathqnyConfig = {
   sidebar: [
     {
       name: "Getting started",
+      id: "Getting-started",
       href: "/",
     },
     {
-      name: "Components",
+      name: "components",
+      id: "Components",
       href: "/components",
       items: [
         {
           name: "base",
+          id: "base",
           href: "/components/base",
         },
         {
           name: "other",
+          id: "other",
           href: "/components/other",
         },
         {
           name: "awesome",
+          id: "awesome",
           href: "/components/awesome",
         },
       ],
     },
     {
       name: "Layout",
+      id: "Layout",
       href: "/Layout",
     },
     {
       name: "utilities",
+      id: "utilities",
       href: "/utilities",
     },
   ],
