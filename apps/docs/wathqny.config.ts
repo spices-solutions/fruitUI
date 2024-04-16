@@ -21,41 +21,20 @@ const Config: WathqnyConfig = {
   category: ["Getting-started", "Components", "Layout", "Utilities"],
   sidebar: [
     {
-      name: "Getting started",
-      id: "Getting-started",
-      href: "/",
+      label: "Getting started",
+      id: "getting-started",
     },
     {
-      name: "components",
-      id: "Components",
-      href: "/components",
-      items: [
-        {
-          name: "base",
-          id: "base",
-          href: "/components/base",
-        },
-        {
-          name: "other",
-          id: "other",
-          href: "/components/other",
-        },
-        {
-          name: "awesome",
-          id: "awesome",
-          href: "/components/awesome",
-        },
-      ],
+      label: "Components",
+      id: "components",
     },
     {
-      name: "Layout",
-      id: "Layout",
-      href: "/Layout",
+      label: "Layout",
+      id: "layout",
     },
     {
-      name: "utilities",
+      label: "Utilities",
       id: "utilities",
-      href: "/utilities",
     },
   ],
   navbar: {
@@ -75,12 +54,7 @@ const Config: WathqnyConfig = {
     ],
   },
   css: [
-    {
-      href: "/src/css/docs.css",
-    },
-    {
-      href: "/src/css/wathqny.css",
-    },
+    "/src/docs.scss"
   ],
 };
 

@@ -6,13 +6,14 @@ import { pwaAssetsHead } from "virtual:pwa-assets/head";
 
 import type { WathqnyConfig as WathqnyConfigType } from "wtqtypes";
 
-import MainStyles from "../../styles/scss/wathqny.scss?url";
-import fruitStyles from "../../styles/scss/docs.scss?url";
-
 // @ts-ignore
 import untypedWathqnyConfig from "/wathqny.config";
 
 const WathqnyConfig: WathqnyConfigType = untypedWathqnyConfig;
+
+import fruitStyles from "/src/docs.scss?url";
+import MainStyles from "../../../wtqdocs/styles/scss/wathqny.scss?url";
+
 
 export interface Props {
   title?: string | undefined;
@@ -88,12 +89,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <link href={MainStyles} rel="stylesheet" crossorigin="anonymous" />
 
   <!-- {
-
     WathqnyConfig?.css?.map(async (stylesheet) => {
       return (
-        // <link href={(await import(`${stylesheet.href}?url`)).default} rel="stylesheet" crossorigin="anonymous" />
-        // fix
-        <link href={stylesheet.href} rel="stylesheet" crossorigin="anonymous" />
+        <link href={stylesheet} rel="stylesheet" crossorigin="anonymous" />
       );
     })
   } -->

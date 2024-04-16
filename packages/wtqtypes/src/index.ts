@@ -1,23 +1,17 @@
-type categoryItem = {
-  name: string;
-  items: category;
-};
-
-type category = Array<string | categoryItem>;
-
 type WathqnyConfig = {
   siteName?: string;
   description?: string;
   keywords?: string[];
-  sidebar?: category;
+  sidebar?: {
+    label: string;
+    id?: string;
+  }[];
   image?: string;
   category?: any;
   darkMode?: boolean;
   locale?: string;
   locale_dir: "ltr" | "rtl";
-  css?: {
-    href: string;
-  }[];
+  css?: string[];
   navbar?: {
     brand: {
       name: string;
@@ -27,4 +21,4 @@ type WathqnyConfig = {
   };
 };
 
-export type { WathqnyConfig, category };
+export type { WathqnyConfig };

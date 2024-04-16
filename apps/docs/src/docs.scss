@@ -1,4 +1,4 @@
-@use "../../../fruitui/src/scss/lib/import/basket" as * with (
+@use "../node_modules/spices-fruitui/src/scss/lib/import/basket" as * with (
   $typography-util: false,
   $spacing-util: true,
   $align-util: true,

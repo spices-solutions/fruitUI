@@ -35,7 +35,7 @@ let ActiveClass: boolean = true;
     <For each={sidebar} self="items">
       {
         (item: string) => (
-          <Category name={item.name}>
+          <Category name={item.label}>
             <For each={docs}>
               {(doc: string) =>
                 doc.data.category == item.id && (

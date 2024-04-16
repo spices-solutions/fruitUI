@@ -19,6 +19,9 @@ interface Props {
 
 const { doc } = Astro.props;
 
+import "wtqdocs/styles";
+
+
 const { Content } = await doc.render();
 ---
 
@@ -29,7 +32,6 @@ const { Content } = await doc.render();
   <Breadcrumbs />
   <main class="showup" id="main-content">
     <h1 class="wtq-main-heading">{doc.data.title}</h1>
-
     <Content />
   </main>
 </Layout>

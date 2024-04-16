@@ -1,1 +1,1 @@
-../packages/fruitui/README.md
+packages/fruitui/README.md
