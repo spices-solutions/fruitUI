@@ -7,7 +7,7 @@ export async function getStaticPaths() {
 
   return docs.map((doc) => {
     return {
-      params: { documents: doc.data.category.toLowerCase() + doc.data.href },
+      params: { documents: doc.data.category + doc.data.href },
       props: { doc },
     };
   });

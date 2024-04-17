@@ -7,7 +7,7 @@ export const docSchema = z
       .string()
       .max(160, "it can't be more than 160 characters")
       .min(10),
-    href: z.string(),
+    href: z.string().optional(),
     OGImage: z.string().default("/og.png"),
     OGImageAlt: z
       .string()
@@ -29,7 +29,7 @@ export const blogSchema = z
       .string()
       .max(160, "it can't be more than 160 characters")
       .min(10),
-    href: z.string(),
+    href: z.string().optional(),
     OGImage: z.string().default("/og.png"),
     OGImageAlt: z
       .string()

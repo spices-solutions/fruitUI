@@ -2,7 +2,7 @@
 import WathqnyConfig from "../../wathqny.config";
 import { Breadcrumbs, Layout } from "wtqdocs";
 
-const { category } = WathqnyConfig;
+const { sidebar } = WathqnyConfig;
 ---
 
 <Layout title="docs" description="main docs page">
@@ -12,11 +12,11 @@ const { category } = WathqnyConfig;
   <main class="anim-slide-botto" id="main-content">
     <div class="wtq-card-container-category">
       {
-        category?.map((doc: string) => {
+        sidebar?.map((doc) => {
           return (
-            <a href={"/docs/" + doc.toLowerCase()}>
+            <a href={"/docs/" + doc.id}>
               <div class="wtq-card wtq-shadow">
-                <h2 class="wtq-card-title">{doc.replace("-", " ")}</h2>
+                <h2 class="wtq-card-title">{doc.label}</h2>
               </div>
             </a>
           );

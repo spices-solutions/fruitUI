@@ -7,7 +7,7 @@ export async function getStaticPaths() {
 
   return docs.map((doc) => {
     return {
-      params: { categories: doc.data.category.toLowerCase() },
+      params: { categories: doc.data.category },
       props: { doc },
     };
   });
@@ -26,7 +26,7 @@ const { doc } = Astro.props;
   keywords={doc.data.title}>
   <Breadcrumbs />
   <main class="anim-slide-botto" id="main-content">
-    <h1 class="wtq-main-heading">{doc.data.category.replace("-", " ")}</h1>
+    <h1 class="wtq-main-heading">{doc.data.category}</h1>
     <CategoryCards />
   </main>
 </Layout>
