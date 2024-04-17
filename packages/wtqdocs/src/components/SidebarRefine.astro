@@ -6,14 +6,15 @@ import type { WathqnyConfig as WathqnyConfigType } from "wtqtypes";
 
 // @ts-ignore
 import untypedWathqnyConfig from "/wathqny.config";
-import For from "./For.astro";
-import LinkItem from "./LinkItem.astro";
 
 const WathqnyConfig: WathqnyConfigType = untypedWathqnyConfig;
 
-const docs = await getCollection("docs");
+import For from "./For.astro";
+import LinkItem from "./LinkItem.astro";
 
 const { sidebar } = WathqnyConfig;
+
+const docs = await getCollection("docs");
 
 docs.sort(
   (a: { data: { position: number } }, b: { data: { position: number } }) =>

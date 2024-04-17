@@ -1,13 +1,16 @@
 ---
 import { type CollectionEntry, getCollection } from "astro:content";
 import { Breadcrumbs, Layout } from "wtqdocs";
+import { slugify } from "wtqdocs/utils";
 
 export async function getStaticPaths() {
   let docs = await getCollection("docs");
 
   return docs.map((doc) => {
+    let doumentLink =
+      doc.data.category + (doc.data.href ?? "/" + slugify(doc.data.title));
     return {
-      params: { documents: doc.data.category + doc.data.href },
+      params: { documents: doumentLink },
       props: { doc },
     };
   });

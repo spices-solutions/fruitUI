@@ -26,7 +26,7 @@ const { doc } = Astro.props;
   keywords={doc.data.title}>
   <Breadcrumbs />
   <main class="anim-slide-botto" id="main-content">
-    <h1 class="wtq-main-heading">{doc.data.category}</h1>
+    <h1 class="wtq-main-heading">{doc.data.category.replace("-", " ")}</h1>
     <CategoryCards />
   </main>
 </Layout>
