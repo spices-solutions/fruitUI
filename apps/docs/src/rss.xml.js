@@ -12,7 +12,7 @@ export async function GET(context) {
       title: post.data.title,
       description: post.data.description,
       pubDate: post.data.date,
-      link: `/blog/${post.data.tags.toLowerCase() + post.data.href}`,
+      link: `/blog/${slugify(post.data.href) ?? "/" + slugify(post.data.title)}`,
     })),
   });
 } 

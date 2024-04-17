@@ -7,10 +7,11 @@ export async function getStaticPaths() {
   let docs = await getCollection("docs");
 
   return docs.map((doc) => {
-    let doumentLink =
-      doc.data.category + (doc.data.href ?? "/" + slugify(doc.data.title));
+    let documentLink =
+      doc.data.category +
+      (slugify(doc.data.href) ?? "/" + slugify(doc.data.title));
     return {
-      params: { documents: doumentLink },
+      params: { documents: documentLink },
       props: { doc },
     };
   });

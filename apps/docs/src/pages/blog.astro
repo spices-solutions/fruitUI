@@ -2,7 +2,7 @@
 import { Image } from "astro:assets";
 import { getCollection, type CollectionEntry } from "astro:content";
 import { BlogLayout } from "wtqdocs/blog";
-import { formatDate } from "wtqdocs/utils";
+import { formatDate, slugify } from "wtqdocs/utils";
 const blog = await getCollection("blog");
 
 interface Props {
@@ -14,8 +14,9 @@ interface Props {
   <div class="wtq-post-container">
     {
       blog.map((post) => {
+        let postLink = slugify(post.data.href) ?? "/" + slugify(post.data.title);
         return (
-          <a href={"/blog" + post.data.href}>
+          <a href={"/blog" + postLink}>
             <div class="wtq-card wtq-shadow">
               <h1 class="wtq-card-title">{post.data.title}</h1>
               <span class="wtq-card-subtitle">

@@ -3,13 +3,16 @@ import { Picture } from "astro:assets";
 import { type CollectionEntry, getCollection, getEntry } from "astro:content";
 import { Breadcrumbs } from "wtqdocs";
 import { BlogLayout, AuthorProfile } from "wtqdocs/blog";
+import { slugify } from "wtqdocs/utils";
 
 export async function getStaticPaths() {
   let posts = await getCollection("blog");
 
   return posts.map((post) => {
+    let postLink = slugify(post.data.href) ?? "/" + slugify(post.data.title);
+
     return {
-      params: { posts:  post.data.href },
+      params: { posts: postLink },
       props: { post },
     };
   });
@@ -35,7 +38,12 @@ const authorData = (await getEntry("authors", authors?.id!)) as {
 const { Content } = await post.render();
 ---
 
-<BlogLayout title={post.data.title} description={post.data.description} keywords={post.data.keywords} OGImage={post.data.OGImage} OGImageAlt={post.data.OGImageAlt} >
+<BlogLayout
+  title={post.data.title}
+  description={post.data.description}
+  keywords={post.data.keywords}
+  OGImage={post.data.OGImage}
+  OGImageAlt={post.data.OGImageAlt}>
   <Breadcrumbs />
   <article>
     <span class="wtq-post-head">

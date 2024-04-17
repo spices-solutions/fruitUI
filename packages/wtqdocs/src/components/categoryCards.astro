@@ -29,10 +29,10 @@ filteredDocs.sort(
           description: string;
         };
       }) => {
-        let doumentLink =
-          doc.data.category + (doc.data.href ?? "/" + slugify(doc.data.title));
+        let documentLink =
+          doc.data.category + (slugify(doc.data.href) ?? "/" + slugify(doc.data.title));
         return (
-          <a href={doumentLink}>
+          <a href={documentLink}>
             <div class="wtq-card wtq-shadow">
               <h2 class="wtq-card-title">{doc.data.title}</h2>
               <h3 class="wtq-card-subtitle">{doc.data.description}</h3>
