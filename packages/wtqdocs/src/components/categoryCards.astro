@@ -30,7 +30,7 @@ filteredDocs.sort(
         };
       }) => {
         let documentLink =
-          doc.data.category + (slugify(doc.data.href) ?? "/" + slugify(doc.data.title));
+          doc.data.category + (doc.data.href ?? "/" + slugify(doc.data.title));
         return (
           <a href={documentLink}>
             <div class="wtq-card wtq-shadow">

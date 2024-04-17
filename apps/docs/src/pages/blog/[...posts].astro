@@ -9,7 +9,7 @@ export async function getStaticPaths() {
   let posts = await getCollection("blog");
 
   return posts.map((post) => {
-    let postLink = slugify(post.data.href) ?? "/" + slugify(post.data.title);
+    let postLink = post.data.href ?? "/" + slugify(post.data.title);
 
     return {
       params: { posts: postLink },

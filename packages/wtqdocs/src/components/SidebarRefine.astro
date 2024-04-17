@@ -11,6 +11,7 @@ const WathqnyConfig: WathqnyConfigType = untypedWathqnyConfig;
 
 import For from "./For.astro";
 import LinkItem from "./LinkItem.astro";
+import { slugify } from "../utils";
 
 const { sidebar } = WathqnyConfig;
 
@@ -40,7 +41,13 @@ let ActiveClass: boolean = true;
             <For each={docs}>
               {(doc: string) =>
                 doc.data.category == item.id && (
-                  <LinkItem name={doc.data.title} />
+                  <LinkItem
+                    href={"/docs/" +
+                      doc.data.category +
+                      (doc.data.href ?? "/" + slugify(doc.data.title)) + "/"
+                    }
+                    name={doc.data.title}
+                  />
                 )
               }
             </For>

@@ -14,7 +14,7 @@ interface Props {
   <div class="wtq-post-container">
     {
       blog.map((post) => {
-        let postLink = slugify(post.data.href) ?? "/" + slugify(post.data.title);
+        let postLink = post.data.href ?? "/" + slugify(post.data.title);
         return (
           <a href={"/blog" + postLink}>
             <div class="wtq-card wtq-shadow">
