@@ -1,11 +1,23 @@
 ---
 import Head from "./Head.astro";
 import Navbar from "./Navbar.astro";
-import Sidebar from "./Sidebar.astro";
+// import Sidebar from "./Sidebar.astro";
 import SidebarRefine from "./SidebarRefine.astro";
 import SkipLink from "./SkipLink.astro";
+import type { WathqnyConfig as WathqnyConfigType } from "wtqtypes";
 
-import WathqnyConfig from "/wathqny.config";
+// @ts-ignore
+import untypedWathqnyConfig from "/wathqny.config";
+
+const WathqnyConfig: WathqnyConfigType = untypedWathqnyConfig;
+
+export interface Props {
+  title?: string | undefined;
+  description?: string | undefined;
+  keywords?: string | undefined;
+}
+
+const { title, keywords, description } = Astro.props as Props;
 ---
 
 <html
@@ -13,13 +25,13 @@ import WathqnyConfig from "/wathqny.config";
   lang={WathqnyConfig.locale}
   dir={WathqnyConfig.locale_dir}
   class="light">
-  <Head />
+  <Head {title} {keywords} {description} />
   <body>
     <SkipLink />
     <Navbar />
     <div class="wtq-page">
-      <!-- <SidebarRefine /> -->
-      <Sidebar />
+      <!-- <Sidebar /> -->
+      <SidebarRefine />
       <div class="wtq-content">
         <div class="wtq-container">
           <slot />

@@ -1,15 +1,18 @@
 ---
-import { Image } from "astro:assets";
+import { Picture } from "astro:assets";
 import { type CollectionEntry, getCollection, getEntry } from "astro:content";
-import { Breadcrumbs, Layout } from "wtqdocs";
+import { Breadcrumbs } from "wtqdocs";
 import { BlogLayout, AuthorProfile } from "wtqdocs/blog";
+import { slugify } from "wtqdocs/utils";
 
 export async function getStaticPaths() {
   let posts = await getCollection("blog");
 
   return posts.map((post) => {
+    let postLink = post.data.href ?? "/" + slugify(post.data.title);
+
     return {
-      params: { posts: post.data.tags.toLowerCase() + post.data.href },
+      params: { posts: postLink },
       props: { post },
     };
   });
@@ -20,88 +23,54 @@ interface Props {
   authors: CollectionEntry<"authors">;
 }
 
-const { post } = Astro.props;
+const { post } = Astro.props as Props;
 
 const { authors } = post.data;
 
-const authorData = await getEntry("authors", authors?.id!);
+const authorData = (await getEntry("authors", authors?.id!)) as {
+  data: {
+    name: string;
+    role: string;
+    profile: string;
+  };
+};
 
 const { Content } = await post.render();
 ---
 
-<BlogLayout>
-  <style lang="scss">
-    .wtq-post-container {
-      display: grid;
-      justify-content: center;
-      grid-template-columns: 692px;
-      margin-top: 30px;
-      gap: 1rem;
-    
-      .dark & {
-        border-color: var(--accent-20);
-      }
-    }
-    
-    .wtq-post {
-      border: 1px solid var(--accent-200);
-      background-color: var(--accent-20);
-      border-radius: 20px;
-      transition: all 200ms ease;
-      padding: 25px;
-      box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.05);
-    }
-    
-    .wtq-post-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    
-    .wtq-post-content {
-      text-overflow: ellipsis;
-      overflow: hidden;
-      white-space: nowrap;
-    }
-    
-    .wtq-cover {
-      border: 1px solid var(--accent-50);
-      border-radius: 40px;
-      aspect-ratio: 16/9;
-      height: auto;
-      box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.1);
-    }
-    
-    .wtq-post-title {
-      color: var(--accent-800);
-      font-weight: 600;
-      line-height: 1.5;
-      font-size: var(--font-md);
-      margin: 0;
-    }
-    
-    .wtq-post-subtitle {
-      margin: 0;
-      color: var(--accent-700);
-      font-weight: 400;
-      letter-spacing: 0.3pt;
-      font-size: var(--font-xs);
-    }
-    </style>
+<BlogLayout
+  title={post.data.title}
+  description={post.data.description}
+  keywords={post.data.keywords}
+  OGImage={post.data.OGImage}
+  OGImageAlt={post.data.OGImageAlt}>
   <Breadcrumbs />
-  <article id="main-content">
+  <article>
     <span class="wtq-post-head">
       <h1 class="wtq-main-heading">{post.data.title}</h1>
-      <AuthorProfile name={authorData.data.name} role={authorData.data.role} image={authorData.data.profile} />
+      <AuthorProfile
+        name={authorData.data.name}
+        role={authorData.data.role}
+        image={authorData.data.profile}
+      />
+      <figure>
+        <Picture
+          class="wtq-cover"
+          width={960}
+          height={540}
+          src={post.data.OGImage}
+          formats={["avif", "webp"]}
+          loading="eager"
+          alt="A description of my image."
+        />
+        <figcaption>
+          dwaodjwaodjwijdkwahdhjwhgdjwhajdhjwhdwagdkulwdjlkwakldkl;awdiwijdkwahdhjwhgdjwhajdhjwhdwagdkulwdjlkwakldkl;awdiwakdgadhasklg.fendf;jheajgfawjdjagwdnjdcawdjbakwdbjkwabdjb
+          dwakdgadhasklg.fendf;jheajgfawjdjagwdnjdcawdjbakwdbjkwabdjb
+        </figcaption>
+      </figure>
     </span>
-    <Image
-      class="wtq-cover"
-      width={1280}
-      height={720}
-      src={post.data.OGImage}
-      alt={"dwad"}
-      loading="eager"
-    />
-    <Content />
+    <main id="main-content">
+      <Content />
+    </main>
   </article>
 </BlogLayout>

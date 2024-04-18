@@ -8,25 +8,25 @@ const docs = await getCollection("docs");
 
 const { category } = WathqnyConfig;
 
-docs.sort((a, b) => (a.data.position > b.data.position ? 1 : -1));
+docs.sort(
+  (a: { data: { position: number } }, b: { data: { position: number } }) =>
+    a.data.position > b.data.position ? 1 : -1
+);
 
 let cutUrl =
   "/" +
   Astro.url.pathname
     .split("/")
-    .filter((url) => {
-      if (url != "") {
-        return true;
-      }
-    })
+    .filter((url) => url !== "")
     .reverse()[0];
 ---
+
 <aside class="wtq-sidebar">
   <ul class="wtq-sidebar-category" role="tablist">
     {
-      category?.map((category) => {
+      category?.map((category: string) => {
         let ActiveClass = false;
-        docs.map((doc) => {
+        docs.map((doc: { data: { href: string; category: any } }) => {
           if (doc.data.href == cutUrl && doc.data.category == category) {
             ActiveClass = true;
           }
@@ -37,7 +37,7 @@ let cutUrl =
               aria-expanded="false"
               tabindex="0"
               class:list={[
-                "wtq-sidebar-category-link",
+                "wtq-sidebar-category-link wtq-focusable",
                 { "wtq-active": ActiveClass },
               ]}
               id={`${category.toLowerCase()}-category`}>
@@ -47,46 +47,40 @@ let cutUrl =
             <ul
               aria-labelledby={`${category.toLowerCase()}-category`}
               class:list={[
-                "wtq-sidebar-category-collapse",
+                "wtq-sidebar-category-collapse ",
                 { "wtq-active": ActiveClass },
               ]}
               style={`${ActiveClass && "max-height: 0px;"}`}>
-              {docs.map((doc) => {
-                return (
-                  doc.data.category == category && (
-                    <li class="wtq-doc-list-item">
-                      <a
-                        tabindex="-1"
-                        class="wtq-doc-link"
-                        href={
-                          "/docs/" + category.toLowerCase() + doc.data.href
-                        }>
-                        {doc.data.title}
-                      </a>
-                    </li>
-                  )
-                );
-              })}
+              {docs.map(
+                (doc: {
+                  data: { category: any; href: string; title: unknown };
+                }) => {
+                  return (
+                    doc.data.category == category && (
+                      <li class="wtq-doc-list-item">
+                        <a
+                          tabindex="-1"
+                          class="wtq-doc-link wtq-focusable"
+                          href={
+                            "/docs/" + category.toLowerCase() + doc.data.href
+                          }>
+                          {doc.data.title}
+                        </a>
+                      </li>
+                    )
+                  );
+                }
+              )}
             </ul>
           </li>
         );
       })
     }
   </ul>
-  <button aria-label="expand sidebar toggle" class="wtq-collapse-button"
-    ><svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      ><path
-        fill="currentColor"
-        d="M18.29 17.29a.996.996 0 0 0 0-1.41L14.42 12l3.88-3.88a.996.996 0 1 0-1.41-1.41L12.3 11.3a.996.996 0 0 0 0 1.41l4.59 4.59c.38.38 1.01.38 1.4-.01"
-      ></path><path
-        fill="currentColor"
-        d="M11.7 17.29a.996.996 0 0 0 0-1.41L7.83 12l3.88-3.88a.996.996 0 1 0-1.41-1.41L5.71 11.3a.996.996 0 0 0 0 1.41l4.59 4.59c.38.38 1.01.38 1.4-.01"
-      ></path></svg
-    ></button
+  <button
+    aria-label="expand sidebar toggle"
+    class="wtq-collapse-button wtq-focusable"
+    ><Icon name={"double-arrow"} /></button
   >
 </aside>
 <script src="./sidebar.ts"></script>

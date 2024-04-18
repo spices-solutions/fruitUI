@@ -16,28 +16,33 @@
     "./components/Head": "./src/components/Head.astro",
     "./schema": "./src/schema.ts",
     "./blog": "./src/blog.ts",
+    "./utils": "./src/utils.ts",
+    "./styles": "./styles/scss/wathqny.scss",
+
     "./script": {
       "navbar": "./src/components/navbar.ts",
       "sidebar": "./src/components/sidebar.ts"
     }
   },
   "scripts": {
-    "dev": "sass -w styles/scss:styles/css "
+    "dev": "sass -w styles/scss:styles/css",
+    "build": "sass styles/scss:styles/css "
   },
   "keywords": [
     "spices",
-    "code",
+    "docs",
     "wathqny"
   ],
   "devDependencies": {
-    "@astrojs/ts-plugin": "latest",
+    "@astrojs/ts-plugin": "^1.6.0",
     "@vite-pwa/assets-generator": "^0.2.4",
     "@vite-pwa/astro": "^0.3.0",
     "astro": "^4.4.15",
     "typescript": "^5.4.2",
     "vite": "^5.1.5",
     "vite-plugin-dts": "^3.7.3",
-    "workbox-window": "^7.0.0"
+    "workbox-window": "^7.0.0",
+    "wtqtypes": "workspace:*"
   },
   "homepage": "http://fruit-ui.vercel.app",
   "license": "MIT",

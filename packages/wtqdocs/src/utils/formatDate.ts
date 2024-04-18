@@ -1,4 +1,4 @@
-export function formatDate(dateString: string | Date): string {
+export default function formatDate(dateString: string | Date): string {
   // Parse the date string
   const date = new Date(dateString);
 

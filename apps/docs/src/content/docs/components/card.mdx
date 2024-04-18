@@ -1,45 +1,42 @@
 ---
 title: card
 description: card component
-category: Components
+category: components
 authors: felfel
 position: 3
-href: /card
 ---
 
 import { Image } from "astro:assets";
+import { BrowserBlock } from "wtqcode";
+
 import CardImage from "../../../assets/imgs/img_placeholder.png";
 
-<div class="browser-app">
-  <div class="header">
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-  </div>
-  <div>
+<BrowserBlock>
   <div class="prototype p-5">
-  <div class="prototype-gap my-5">
-    <div style={{ width: "286px" }} class="card">
-      <div class="body">
-        <Image
-          class="img"
-          width={250}
-          height={200}
-          src={CardImage}
-          alt="man wearing an off white T-shirt "
-        />
-        <h2 class="title">Heading</h2>
-        <p class="text">Lorem ipsum <span class="link">dolor</span> sit amet, consectetur
-          adipiscing elit. </p>
-        <button style={{ width:"100%"}} class="btn secondary">Read more</button>
+    <div class="prototype-gap my-5">
+      <div style={{ width: "286px" }} class="card">
+        <div class="body">
+          <Image
+            class="img"
+            width={250}
+            height={200}
+            src={CardImage}
+            alt="man wearing an off white T-shirt "
+          />
+          <h2 class="title">Heading</h2>
+          <p class="text">
+            Lorem ipsum <span class="link">dolor</span> sit amet, consectetur
+            adipiscing elit.{" "}
+          </p>
+          <button style={{ width: "100%" }} class="btn secondary">
+            Read more
+          </button>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</BrowserBlock>
 
-</div>
-
-</div>
 
 ```html
 <div class="card">
@@ -54,15 +51,10 @@ import CardImage from "../../../assets/imgs/img_placeholder.png";
   </div>
 </div>
 ```
-moving img tag outside body class for another styling 
 
-<div class="browser-app">
-  <div class="header">
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-  </div>
-  <div>
+moving img tag outside body class for another styling
+
+<BrowserBlock>
   <div class="prototype p-5">
   <div class="prototype-gap my-5">
     <div style={{ width: "252px" }} class="card">
@@ -81,11 +73,10 @@ moving img tag outside body class for another styling
       </div>
     </div>
   </div>
-</div>
+  </div>
+</BrowserBlock>
 
-</div>
 
-</div>
 
 ```html
 <div class="card">
@@ -101,36 +92,33 @@ moving img tag outside body class for another styling
 </div>
 ```
 
-
-
 ## usage
-
 
 ### section import
 
 ```scss
-@use "~" as * with (
-  $base-components: true,
+@use "~"as * with (
+  $base-components: true
 );
 ```
 
 ### Individual Import
 
-
 ```scss
-@use "~" as * with (
+@use "~"as * with (
   $components: (
     base: (
       card: ture,
     ),
-  ),
+  )
 );
 ```
+
 ### mixin
 
 ```scss
-@use "~" as * with (
-  $a-var: "",
+@use "~"as * with (
+  $a-var: ""
 );
 
 @include cardBase();

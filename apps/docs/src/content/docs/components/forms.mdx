@@ -1,26 +1,21 @@
 ---
 title: forms
 description: form component
-category: Components
+category: components
 authors: felfel
 position: 4
-href: /forms
 ---
+
+import {BrowserBlock} from "wtqcode"
+
 
 ## default theme
 
 single input
 
-<div class="browser-app">
-  <div class="header">
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-  </div>
-  <div class="p-5">
+<BrowserBlock>
     <input id="username" class="form" type="username" placeholder="Enter your username" />
-  </div>
-</div>
+</BrowserBlock>
 
 ```html
 <input class="form" type="username" placeholder="Enter your username" />
@@ -28,21 +23,14 @@ single input
 
 from with labels
 
-<div class="browser-app">
-  <div class="header">
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-  </div>
-  <div class="p-5">
+<BrowserBlock>
     <form class="form-group" style={{color: "black"}}>
       <label for="email" class="label">Email</label>
       <input id="email" class="form" type="email" placeholder="Enter your email" />
       <label for="password" class="label">Password</label>
       <input id="password" class="form" type="password" placeholder="Enter your password" />
     </form>    
-  </div>
-</div>
+</BrowserBlock>
 
 ```html
 <form class="form-group">
@@ -55,13 +43,7 @@ from with labels
 
 full form example
 
-<div class="browser-app">
-  <div class="header">
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-  </div>
-  <div class="p-5">
+<BrowserBlock>
     <form class="form-group" style={{color: "black"}}>
       <label for="email1" class="label">Email</label>
       <input id="email1" class="form" type="email" placeholder="Enter your email" />
@@ -83,8 +65,7 @@ full form example
         <button class="btn">submit</button> 
       </div>
     </form>    
-  </div>
-</div>
+</BrowserBlock>
 
 ```html
 <form class="form-group">

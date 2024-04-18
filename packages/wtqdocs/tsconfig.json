@@ -15,9 +15,8 @@
     "baseUrl": ".",
     "paths": {
       "~components/*": ["./src/components/*"],
-      "~layouts/*": ["src/layouts/*"]
+      "~layouts/*": ["src/layouts/*"],
     },
-
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,

@@ -1,42 +1,27 @@
 ---
 title: badge
 description: badge component
-category: Components
+category: components
 authors: felfel
 position: 6
-href: /badge
 ---
+
+import { BrowserBlock } from "wtqcode";
 
 ## default theme
 
-<div class="browser-app">
-  <div class="header">
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-  </div>
-  <div class="py-5 px-5 row gap-4">
-
-<span class="badge">default</span>
-</div>
-
-</div>
+<BrowserBlock>
+  <span class="badge">default</span>
+</BrowserBlock>
 
 ```html
 <span class="badge">default</span>
-
 ```
 
 ## main theme
 
-
-<div class="browser-app">
-  <div class="header">
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-  </div>
-  <div class="py-5 px-5 row gap-4">
+<BrowserBlock>
+  <div class="row gap-4">
 
 <span class="badge primary">primary</span>
 <span class="badge secondary">secondary</span>
@@ -48,7 +33,7 @@ href: /badge
 <span class="badge black">black</span>
 <span class="badge white">white</span>
 </div>
-</div>
+</BrowserBlock>
 
 ```html
 <span class="badge primary">primary</span>
@@ -62,17 +47,10 @@ href: /badge
 <span class="badge white">white</span>
 ```
 
-
-
 ## outlined theme
 
-<div class="browser-app">
-  <div class="header">
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-  </div>
-  <div class="py-5 px-5 row gap-4">
+<BrowserBlock>
+  <div class="row gap-4">
 <span class="badge outlined primary">primary</span>
 <span class="badge outlined secondary">secondary</span>
 <span class="badge outlined success">success</span>
@@ -84,17 +62,12 @@ href: /badge
 <span class="badge outlined white">white</span>
 
 </div>
-</div>
+</BrowserBlock>
 
 ## flat theme
 
-<div class="browser-app">
-  <div class="header">
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-  </div>
-  <div class="py-5 px-5 row gap-4">
+<BrowserBlock>
+  <div class="row gap-4">
 <span class="badge primary-flat">primary</span>
 <span class="badge secondary-flat">secondary</span>
 <span class="badge success-flat">success</span>
@@ -106,23 +79,19 @@ href: /badge
 <span class="badge white-flat">white</span>
 
 </div>
-</div>
-
-
+</BrowserBlock>
 
 ## usage
-
 
 ### section import
 
 ```scss
 @use "~" as * with (
-  $other-components: true,
+  $other-components: true
 );
 ```
 
 ### Individual Import
-
 
 ```scss
 @use "~" as * with (
@@ -130,14 +99,15 @@ href: /badge
     other: (
       badge: ture,
     ),
-  ),
+  )
 );
 ```
+
 ### mixin
 
 ```scss
 @use "~" as * with (
-  $a-var: "",
+  $a-var: ""
 );
 
 @include badge();
