@@ -1,25 +1,38 @@
 ---
+// @ts-ignore
 import { pwaInfo } from "virtual:pwa-info";
+// @ts-ignore
 import { pwaAssetsHead } from "virtual:pwa-assets/head";
-import WathqnyConfig from "/wathqny.config";
 
-import MainStyles from "../../styles/css/wathqny.css?url";
-import fruitUIStyles from "../../styles/css/docs.css?url";
+import type { WathqnyConfig as WathqnyConfigType } from "wtqtypes";
+
+// @ts-ignore
+import untypedWathqnyConfig from "/wathqny.config";
+
+const WathqnyConfig: WathqnyConfigType = untypedWathqnyConfig;
+
+import fruitStyles from "/src/docs.scss?url";
+import MainStyles from "../../../wtqdocs/styles/scss/wathqny.scss?url";
+
 
 export interface Props {
-  title?: string;
-  description?: string;
-  keywords?: string;
+  title?: string | undefined;
+  description?: string | undefined;
+  OGImage?: string | undefined;
+  OGImageAlt?: string | undefined;
+  keywords?: string | string[] | undefined;
 }
 
-const { title, keywords, description } = Astro.props;
+const { title, keywords, description, OGImage, OGImageAlt } =
+  Astro.props as Props;
 
 const METATITLE = title
   ? `${title} - ${WathqnyConfig.siteName}`
   : WathqnyConfig.siteName;
-const METAIMAGE = WathqnyConfig.image;
-const METADESCRIPTION = WathqnyConfig.description;
-const METAKEYWORDS = keywords ?? [...WathqnyConfig.keywords];
+const METAIMAGE = OGImage;
+const METAIMAGEALT = OGImageAlt;
+const METADESCRIPTION = description ?? WathqnyConfig.description;
+const METAKEYWORDS = keywords ?? [...(WathqnyConfig.keywords || [])];
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
@@ -34,16 +47,21 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <meta name="description" content={METADESCRIPTION} />
   <meta property="og:description" content={METADESCRIPTION} />
   <meta property="og:image" content={METAIMAGE} />
+  <meta property="og:image:alt" content={METAIMAGEALT} />
   <meta property="og:title" content={METATITLE} />
   <meta property="og:site_name" content={METATITLE} />
   <meta property="og:type" content="website" />
   <meta property="og:url" content={canonicalURL} />
   <meta name="twitter:title" content={METATITLE} />
   <meta name="twitter:image" content={METAIMAGE} />
+  <meta name="twitter:image:alt" content={METAIMAGEALT} />
   <meta name="twitter:description" content={METADESCRIPTION} />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="robots" content="index, follow" />
-  <meta name="google-site-verification" content="PVw1xk8LSGGe9WA1CzziS4zL1GXshAvdNn9iksdbmWw" />
+  <meta
+    name="google-site-verification"
+    content="PVw1xk8LSGGe9WA1CzziS4zL1GXshAvdNn9iksdbmWw"
+  />
   <link rel="canonical" href={canonicalURL} />
   <link
     rel="preload"
@@ -57,16 +75,30 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       <meta name="theme-color" content={pwaAssetsHead.themeColor.content} />
     )
   }
-  {pwaAssetsHead.links.map((link) => <link {...link} />)}
+  {
+    pwaAssetsHead.links.map(
+      (
+        link: astroHTML.JSX.IntrinsicAttributes &
+          astroHTML.JSX.LinkHTMLAttributes
+      ) => <link {...link} />
+    )
+  }
   {pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} />}
 
-  <link href={fruitUIStyles} rel="stylesheet" crossorigin="anonymous" />
+  <link href={fruitStyles} rel="stylesheet" crossorigin="anonymous" />
   <link href={MainStyles} rel="stylesheet" crossorigin="anonymous" />
+
+  <!-- {
+    WathqnyConfig?.css?.map(async (stylesheet) => {
+      return (
+        <link href={stylesheet} rel="stylesheet" crossorigin="anonymous" />
+      );
+    })
+  } -->
 
   <script src="/src/pwa.ts"></script>
 
   <title>{METATITLE}</title>
-
 
   <script>
     const root = document.documentElement;
@@ -81,4 +113,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       root?.classList.replace("dark", "light");
     }
   </script>
+
+  <slot />
 </head>

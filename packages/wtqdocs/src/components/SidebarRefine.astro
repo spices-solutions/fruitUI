@@ -1,120 +1,71 @@
 ---
 import { getCollection } from "astro:content";
-import { Icon } from "astro-icon/components";
-import WathqnyConfig from "/wathqny.config";
+import Category from "./Category.astro";
+import CollapseButton from "./CollapseButton.astro";
+import type { WathqnyConfig as WathqnyConfigType } from "wtqtypes";
 
-const docs = await getCollection("docs");
+// @ts-ignore
+import untypedWathqnyConfig from "/wathqny.config";
 
+const WathqnyConfig: WathqnyConfigType = untypedWathqnyConfig;
+
+import For from "./For.astro";
+import LinkItem from "./LinkItem.astro";
+import { slugify } from "../utils";
 
 const { sidebar } = WathqnyConfig;
-interface categoryItem {
-  name: string;
-  items: category;
-}
 
-type category = Array<string | categoryItem>;
-
-
-  function ParseCategory(ele:category){
-  ele.forEach((ele)=>{
-    if(typeof ele == 'object'){
-      console.log(ele)
-    }else{
-      console.log ((
-        <li class="collapse_item">
-              <a
-                tabindex="-1"
-                class="collapse_item--link wtq-focusable"
-                href={"/docs/"}>
-                {ele}
-              </a>
-            </li>
-        ))
-    }
-  })
-}
-
-  
-
-ParseCategory(sidebar)
-// sidebar: [
-//     "Getting-started",
-//     {
-//       name: "components",
-//       items: ["base", "other", "awesome"],
-//     },
-//     "Layout",
-//     "Utilities",
-//   ],
+const docs = await getCollection("docs");
 
 docs.sort(
   (a: { data: { position: number } }, b: { data: { position: number } }) =>
     a.data.position > b.data.position ? 1 : -1
 );
 
-let cutUrl =
+let currentUrl =
   "/" +
   Astro.url.pathname
     .split("/")
     .filter((url) => url !== "")
     .reverse()[0];
-
-let ActiveClass;
 ---
-    
-    
 <aside class="wtq-sidebar">
   <ul class="sidebar_category" role="tablist">
-    {
-    // sparta passed from here
-    <li class:list={[{ "wtq-active": ActiveClass }]} role="tab">
-    <button
-      class:list={[
-        "wtq-focusable category_toggle  ",
-        { "wtq-active": ActiveClass },
-      ]}>
-      trigger
-      <Icon class="arrow-icon" name={"arrow"} />
-    </button>
-    <ul class:list={["category_collapse", { "wtq-active": ActiveClass }]}>
-      <li class="collapse_item">
-        <a
-          tabindex="-1"
-          class="collapse_item--link wtq-focusable"
-          href={"/docs/"}>
-          link
-        </a>
-      </li>
-      <li
-        class="collapse_item"
-        class:list={[{ "wtq-active": ActiveClass }]}>
-        <button
-          class:list={[
-            "wtq-focusable category_toggle  ",
-            { "wtq-active": ActiveClass },
-          ]}>
-          trigger
-          <Icon class="arrow-icon" name={"arrow"} />
-        </button>
-        <ul
-          class:list={["category_collapse", { "wtq-active": ActiveClass }]}>
-          <li class="collapse_item">
-            <a
-              tabindex="-1"
-              class="collapse_item--link wtq-focusable"
-              href={"/docs/"}>
-              link
-            </a>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-}       
-</ul>
-<button
-  aria-label="expand sidebar toggle"
-  class="collapse-button wtq-focusable">
-  <Icon name={"double-arrow"} /></button>
+    <For each={sidebar}>
+      {
+        (item: { label: string; id: any }) => (
+          <Category
+            name={item.label}
+            isActive={docs.some((doc: { data: { href: string; title: string | undefined; category: any; }; }) => {
+              let documentLink = doc.data.href ?? ("/" + slugify(doc.data.title))
+              return doc.data.category == item.id && currentUrl == documentLink
+            })}>
+            <For each={docs}>
+              {(doc: {
+                data: {
+                  category: string;
+                  href: any;
+                  title: string | undefined;
+                };
+              }) =>
+                doc.data.category == item.id && (
+                  <LinkItem
+                    href={
+                      "/docs/" +
+                      doc.data.category +
+                      (doc.data.href ?? "/" + slugify(doc.data.title))
+                    }
+                    name={doc.data.title}
+                  />
+                )
+              }
+            </For>
+          </Category>
+        )
+      }
+    </For>
+  </ul>
+  <CollapseButton />
 </aside>
+
 <script src="./sidebar.ts"></script>

@@ -1,31 +1,6 @@
-export interface categoryItem {
-    name: string
-    items: category
-}
+import type { WathqnyConfig } from "wtqtypes";
 
-export type category = Array<string | categoryItem>
-
-interface WathqnyConfigI {
-  siteName?: string;
-  description?: string;
-  keywords?: string[];
-  sidebar?: category;
-  image?: string;
-  category?: any;
-  darkMode?: boolean;
-  locale?: string;
-  locale_dir: "ltr" | "rtl";
-  cssPath: string[];
-  navbar?: {
-    brand: {
-      name: string;
-      logo: string;
-    };
-    Items: { href?: string; item?: string }[];
-  };
-}
-
-const WathqnyConfig: WathqnyConfigI = {
+const Config: WathqnyConfig = {
   siteName: "fruitUI",
   image: "/og.png",
   description: "fruit UI a modular styling framework",
@@ -45,15 +20,23 @@ const WathqnyConfig: WathqnyConfigI = {
   darkMode: true,
   category: ["Getting-started", "Components", "Layout", "Utilities"],
   sidebar: [
-    "Getting-started",
     {
-      name: "components",
-      items: ["base", "other", "awesome"],
+      label: "Getting started",
+      id: "getting-started",
     },
-    "Layout",
-    "Utilities",
+    {
+      label: "Components",
+      id: "components",
+    },
+    {
+      label: "Layout",
+      id: "layout",
+    },
+    {
+      label: "Utilities",
+      id: "utilities",
+    },
   ],
-  cssPath: ["./src/"],
   navbar: {
     brand: {
       logo: "/icon.svg",
@@ -61,15 +44,18 @@ const WathqnyConfig: WathqnyConfigI = {
     },
     Items: [
       {
-        item: "docs",
+        item: "Docs",
         href: "/docs/getting-started/overview",
       },
       {
-        item: "blog",
+        item: "Blog",
         href: "/blog",
       },
     ],
   },
+  css: [
+    "/src/docs.scss"
+  ],
 };
 
-export default WathqnyConfig;
+export default Config;

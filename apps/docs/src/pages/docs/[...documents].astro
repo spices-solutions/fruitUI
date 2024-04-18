@@ -1,14 +1,17 @@
 ---
 import { type CollectionEntry, getCollection } from "astro:content";
 import { Breadcrumbs, Layout } from "wtqdocs";
-
+import { slugify } from "wtqdocs/utils";
 
 export async function getStaticPaths() {
   let docs = await getCollection("docs");
 
   return docs.map((doc) => {
+    let documentLink =
+      doc.data.category +
+      (doc.data.href ?? "/" + slugify(doc.data.title));
     return {
-      params: { documents: doc.data.category.toLowerCase() + doc.data.href },
+      params: { documents: documentLink },
       props: { doc },
     };
   });
@@ -27,10 +30,9 @@ const { Content } = await doc.render();
   title={doc.data.title}
   description={doc.data.description}
   keywords={doc.data.title}>
-    <Breadcrumbs/>
-  <main class="anim-slide-botto" id="main-content">
-  <h1 class="wtq-main-heading">{doc.data.title}</h1>
-  
+  <Breadcrumbs />
+  <main class="showup" id="main-content">
+    <h1 class="wtq-main-heading">{doc.data.title}</h1>
     <Content />
   </main>
 </Layout>

@@ -26,20 +26,10 @@ $font-xs: 1rem;
 }
 
 :root {
-  --darkest: #{$accent-900};
-  --dark: #{$accent-700};
-  --medium: #{$accent-500};
-  --light: #{$accent-300};
-  --lightest: #{$accent-100};
-
-  --font-3xl: #{$font-3xl};
-  --font-2xl: #{$font-2xl};
-  --font-xl: #{$font-xl};
   --font-lg: #{$font-lg};
   --font-md: #{$font-md};
   --font-sm: #{$font-sm};
   --font-xs: #{$font-xs};
-  color-scheme: light dark;
 
   &.light {
     color-scheme: light;
@@ -48,26 +38,8 @@ $font-xs: 1rem;
     --medium: #{$accent-500};
     --light: #{$accent-300};
     --lightest: #{$accent-100};
-    --white: #{$accent-50};
-    --black: #{$accent-950};
-    --background-hover: #00000010;
-    --body-background: white;
-    --navbar-background: white;
-    --sidebar-border-color: hsl(var(--darkest), 0.1);
-  }
-
-  @media (prefers-color-scheme: light) {
-    --darkest: #{$accent-900};
-    --dark: #{$accent-700};
-    --medium: #{$accent-500};
-    --light: #{$accent-300};
-    --lightest: #{$accent-100};
-    --white: #{$accent-50};
-    --black: #{$accent-950};
-    --background-hover: #00000010;
-    --body-background: white;
-    --navbar-background: white;
-    --sidebar-border-color: hsl(var(--darkest), 0.1);
+    --white: 0, 0%, 100%;
+    --black: #{$accent-900};
   }
 
   @media (prefers-color-scheme: dark) {
@@ -77,12 +49,8 @@ $font-xs: 1rem;
     --medium: #{$accent-500};
     --light: #{$accent-700};
     --lightest: #{$accent-900};
-    --white: #{$accent-950};
-    --black: #{$accent-50};
-    --background-hover: #ffffff10;
-    --body-background: hsl(var(--lightest), 0.2);
-    --navbar-background: #252529;
-    --sidebar-border-color: hsl(var(--lightest), 0.2);
+    --white: #{$accent-900};
+    --black: 0, 0%, 100%;
   }
 }
 
@@ -94,22 +62,22 @@ $font-xs: 1rem;
 
 html,
 body {
-  word-wrap: break-word;
   overflow: hidden;
   line-height: 1.5;
   scroll-behavior: smooth;
   font-size: 20px;
   height: 100%;
   font-family: "Geist", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif !important;
+    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: none;
   -moz-text-size-adjust: none;
   text-size-adjust: none;
   margin: 0;
-  background-color: var(--body-background);
   color: hsl(var(--darkest));
+  background-color: hsl(var(--white));
 }
+
 
 hr {
   height: 0;
@@ -128,6 +96,7 @@ pre {
   font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo,
     monospace;
   font-size: 1em;
+  direction: ltr;
 }
 
 pre {
@@ -200,6 +169,61 @@ ul,
 ol {
   margin: 0;
   padding: 0;
+  list-style-position: inside;
+}
+
+blockquote {
+  display: flex;
+  gap: .5rem;
+  margin: 1rem;
+  &::before {
+    border-inline-start: solid 4px hsl(var(--medium));
+    content: "";
+  }
+}
+
+figcaption {
+  word-break: break-all;
+  color: hsl(var(--dark), 0.8);
+  font-style: italic;
+  margin-top: 1rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem
+}
+
+table thead tr {
+  border-bottom: 2px solid hsl(var(--light))
+}
+
+table :is(thead, tr:nth-child(2n)) {
+  background-color: hsl(var(--light), 0.25)
+}
+
+table tr {
+  background-color: transparent;
+  border-top: 1px solid hsl(var(--light))
+}
+
+table :is(td,th) {
+  border: 1px solid hsl(var(--light));
+  padding: 0.75rem;
+  &:dir(rtl) {
+    text-align: right;
+  }
+}
+
+table th {
+  background-color: inherit;
+  color: inherit;
+  font-weight: 700
+}
+
+table td {
+  color: inherit
 }
 
 h1,

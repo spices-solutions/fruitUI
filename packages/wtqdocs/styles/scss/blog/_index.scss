@@ -1,0 +1,24 @@
+.wtq-post-container {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: minmax(0,692px);
+  margin-top: 30px;
+  gap: 1rem;
+}
+
+.wtq-post-head {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.wtq-cover {
+  border: 1px solid hsl(var(--light));
+  border-radius: 20px;
+  margin-inline: auto;
+}
+
+.wtq-shadow {
+  box-shadow: 0px 10px 9px -8px rgba(0, 0, 0, 0.1);
+}
+

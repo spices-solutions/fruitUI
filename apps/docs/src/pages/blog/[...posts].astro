@@ -1,15 +1,18 @@
 ---
-import { Image } from "astro:assets";
+import { Picture } from "astro:assets";
 import { type CollectionEntry, getCollection, getEntry } from "astro:content";
-import { Breadcrumbs, Layout } from "wtqdocs";
+import { Breadcrumbs } from "wtqdocs";
 import { BlogLayout, AuthorProfile } from "wtqdocs/blog";
+import { slugify } from "wtqdocs/utils";
 
 export async function getStaticPaths() {
   let posts = await getCollection("blog");
 
   return posts.map((post) => {
+    let postLink = post.data.href ?? "/" + slugify(post.data.title);
+
     return {
-      params: { posts: post.data.tags.toLowerCase() + post.data.href },
+      params: { posts: postLink },
       props: { post },
     };
   });
@@ -20,30 +23,52 @@ interface Props {
   authors: CollectionEntry<"authors">;
 }
 
-const { post } = Astro.props;
+const { post } = Astro.props as Props;
 
 const { authors } = post.data;
 
-const authorData = await getEntry("authors", authors?.id!);
+const authorData = (await getEntry("authors", authors?.id!)) as {
+  data: {
+    name: string;
+    role: string;
+    profile: string;
+  };
+};
 
 const { Content } = await post.render();
 ---
 
-<BlogLayout>
+<BlogLayout
+  title={post.data.title}
+  description={post.data.description}
+  keywords={post.data.keywords}
+  OGImage={post.data.OGImage}
+  OGImageAlt={post.data.OGImageAlt}>
   <Breadcrumbs />
   <article>
     <span class="wtq-post-head">
       <h1 class="wtq-main-heading">{post.data.title}</h1>
-      <AuthorProfile name={authorData.data.name} role={authorData.data.role} image={authorData.data.profile} />
+      <AuthorProfile
+        name={authorData.data.name}
+        role={authorData.data.role}
+        image={authorData.data.profile}
+      />
+      <figure>
+        <Picture
+          class="wtq-cover"
+          width={960}
+          height={540}
+          src={post.data.OGImage}
+          formats={["avif", "webp"]}
+          loading="eager"
+          alt="A description of my image."
+        />
+        <figcaption>
+          dwaodjwaodjwijdkwahdhjwhgdjwhajdhjwhdwagdkulwdjlkwakldkl;awdiwijdkwahdhjwhgdjwhajdhjwhdwagdkulwdjlkwakldkl;awdiwakdgadhasklg.fendf;jheajgfawjdjagwdnjdcawdjbakwdbjkwabdjb
+          dwakdgadhasklg.fendf;jheajgfawjdjagwdnjdcawdjbakwdbjkwabdjb
+        </figcaption>
+      </figure>
     </span>
-    <Image
-      class="wtq-cover"
-      width={740}
-      height={310}
-      src={post.data.OGImage}
-      alt={"dwad"}
-      loading="eager"
-    />
     <main id="main-content">
       <Content />
     </main>

@@ -7,6 +7,7 @@
     "start": "astro dev",
     "build": "astro build",
     "serve": "astro preview",
+    "preview": "astro build && astro preview",
     "astro": "astro",
     "gpa": "pwa-assets-generator"
   },
@@ -16,7 +17,7 @@
     "@astrojs/sitemap": "^3.1.1",
     "@vite-pwa/assets-generator": "^0.2.4",
     "@vite-pwa/astro": "^0.3.0",
-    "astro": "^4.5.4",
+    "astro": "^4.6.2",
     "astro-compress": "^2.2.3",
     "astro-compressor": "^0.4.1",
     "astro-icon": "^1.1.0",
@@ -30,6 +31,7 @@
     "vite-plugin-pwa": "^0.19.2",
     "workbox-window": "^7.0.0",
     "wtqcode": "workspace:*",
-    "wtqdocs": "workspace:*"
+    "wtqdocs": "workspace:*",
+    "wtqtypes": "workspace:*"
   }
 }

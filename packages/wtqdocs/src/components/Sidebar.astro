@@ -6,7 +6,7 @@ import WathqnyConfig from "/wathqny.config";
 
 const docs = await getCollection("docs");
 
-const { category, sidebar } = WathqnyConfig;
+const { category } = WathqnyConfig;
 
 docs.sort(
   (a: { data: { position: number } }, b: { data: { position: number } }) =>
@@ -37,7 +37,7 @@ let cutUrl =
               aria-expanded="false"
               tabindex="0"
               class:list={[
-                "wtq-sidebar-category-link",
+                "wtq-sidebar-category-link wtq-focusable",
                 { "wtq-active": ActiveClass },
               ]}
               id={`${category.toLowerCase()}-category`}>
@@ -47,7 +47,7 @@ let cutUrl =
             <ul
               aria-labelledby={`${category.toLowerCase()}-category`}
               class:list={[
-                "wtq-sidebar-category-collapse",
+                "wtq-sidebar-category-collapse ",
                 { "wtq-active": ActiveClass },
               ]}
               style={`${ActiveClass && "max-height: 0px;"}`}>
@@ -60,7 +60,7 @@ let cutUrl =
                       <li class="wtq-doc-list-item">
                         <a
                           tabindex="-1"
-                          class="wtq-doc-link"
+                          class="wtq-doc-link wtq-focusable"
                           href={
                             "/docs/" + category.toLowerCase() + doc.data.href
                           }>
@@ -77,7 +77,9 @@ let cutUrl =
       })
     }
   </ul>
-  <button aria-label="expand sidebar toggle" class="wtq-collapse-button"
+  <button
+    aria-label="expand sidebar toggle"
+    class="wtq-collapse-button wtq-focusable"
     ><Icon name={"double-arrow"} /></button
   >
 </aside>
