@@ -21,6 +21,13 @@ export default defineConfig({
   site: "https://fruit-ui.vercel.app/",
   trailingSlash: "ignore",
   integrations: [
+    AutoImport({
+      imports: [
+        {
+          "wtqcode": ["BrowserBlock", "CodeBlock"],
+        },
+      ],
+    }),
     mdx({
       optimize: true,
       shikiConfig: {
@@ -65,12 +72,5 @@ export default defineConfig({
     }),
     pageInsight(),
     compressor({ gzip: true, brotli: false }),
-    AutoImport({
-      imports: [
-        {
-          "wtqcode": ["BrowserBlock", "CodeBlock"],
-        },
-      ],
-    }),
   ],
 });
