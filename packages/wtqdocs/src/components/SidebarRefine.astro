@@ -28,23 +28,32 @@ let currentUrl =
     .split("/")
     .filter((url) => url !== "")
     .reverse()[0];
-
-let ActiveClass: boolean = true;
 ---
-
 <aside class="wtq-sidebar">
   <ul class="sidebar_category" role="tablist">
-    <For each={sidebar} self="items">
+    <For each={sidebar}>
       {
-        (item: string) => (
-          <Category name={item.label}>
+        (item: { label: string; id: any }) => (
+          <Category
+            name={item.label}
+            isActive={docs.some((doc: { data: { href: string; title: string | undefined; category: any; }; }) => {
+              let documentLink = doc.data.href ?? ("/" + slugify(doc.data.title))
+              return doc.data.category == item.id && currentUrl == documentLink
+            })}>
             <For each={docs}>
-              {(doc: string) =>
+              {(doc: {
+                data: {
+                  category: string;
+                  href: any;
+                  title: string | undefined;
+                };
+              }) =>
                 doc.data.category == item.id && (
                   <LinkItem
-                    href={"/docs/" +
+                    href={
+                      "/docs/" +
                       doc.data.category +
-                      (doc.data.href ?? "/" + slugify(doc.data.title)) + "/"
+                      (doc.data.href ?? "/" + slugify(doc.data.title))
                     }
                     name={doc.data.title}
                   />

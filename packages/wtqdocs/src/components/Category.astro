@@ -5,14 +5,15 @@ import CategoryToggle from "./CategoryToggle.astro";
 interface Props {
   href?: string;
   name: string;
+  isActive: boolean;
 }
 
-const { name, href } = Astro.props;
+const { name, href, isActive } = Astro.props;
 ---
 
-<li role="tab" class="collapse_item">
+<li role="tab" class="collapse_item" >
   <CategoryToggle name={name} />
-  <ul class="category_collapse">
+  <ul class="category_collapse" class:list={{ "wtq-active": isActive }}>
     <li class="collapse_item">
       {href ? <LinkItem href={href} name={name} /> : <slot />}
     </li>

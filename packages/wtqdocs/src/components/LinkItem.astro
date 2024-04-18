@@ -1,12 +1,10 @@
 ---
 interface Props {
-  href: string;
-  name: string;
+  href?: string | undefined;
+  name: string | undefined;
 }
 
 const { name, href } = Astro.props;
-
-import { slugify } from "../../src/utils";
 ---
 
 <a tabindex="-1" class="collapse_item--link wtq-focusable" href={href}>
