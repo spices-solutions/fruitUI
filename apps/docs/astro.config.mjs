@@ -24,6 +24,7 @@ export default defineConfig({
     AutoImport({
       imports: [
         {
+          "astro:assets": ["Image"],
           "wtqcode": ["BrowserBlock", "CodeBlock"],
         },
       ],
