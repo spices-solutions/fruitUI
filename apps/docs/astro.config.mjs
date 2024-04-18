@@ -8,6 +8,8 @@ import metaTags from "astro-meta-tags";
 import icon from "astro-icon";
 import pageInsight from "astro-page-insight";
 import compressor from "astro-compressor";
+import AutoImport from "astro-auto-import";
+
 import Wathqny from "./wathqny.config";
 
 // https://astro.build/config
@@ -19,6 +21,14 @@ export default defineConfig({
   site: "https://fruit-ui.vercel.app/",
   trailingSlash: "ignore",
   integrations: [
+    AutoImport({
+      imports: [
+        {
+          "astro:assets": ["Image"],
+          "wtqcode": ["BrowserBlock", "CodeBlock"],
+        },
+      ],
+    }),
     mdx({
       optimize: true,
       shikiConfig: {
@@ -37,7 +47,7 @@ export default defineConfig({
         enabled: false,
       },
       pwaAssets: {
-        config: true
+        config: true,
       },
       workbox: {
         clientsClaim: true,
