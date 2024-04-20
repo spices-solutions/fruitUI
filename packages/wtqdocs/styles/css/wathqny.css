@@ -34,139 +34,120 @@
   }
 }
 
-*,
-*::after,
-*::before {
+:is(*, *::after, *::before) :not(.not-content) {
   box-sizing: border-box;
 }
 
-html,
-body {
+:is(html, body) :not(.not-content) {
   overflow: hidden;
   line-height: 1.5;
   scroll-behavior: smooth;
   font-size: 20px;
   height: 100%;
   font-family: "Geist", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: none;
   -moz-text-size-adjust: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: never;
   text-size-adjust: none;
   margin: 0;
   color: hsl(var(--darkest));
   background-color: hsl(var(--white));
 }
 
-hr {
+hr :not(.not-content) {
   height: 0;
   color: inherit;
+  border: 1px solid #dadada;
 }
 
-b,
-strong {
+:is(b, strong) :not(.not-content) {
   font-weight: 800;
 }
 
-code,
-kbd,
-samp,
-pre {
+:is(code, kbd, samp, pre) :not(.not-content) {
   font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
   font-size: 1em;
   direction: ltr;
 }
 
-pre {
+pre :not(.not-content) {
   padding: 15px 20px;
   border-radius: 10px;
   margin-block: 5px;
 }
 
-sub,
-sup {
+:is(sub, sup) :not(.not-content) {
   font-size: 75%;
   line-height: 0;
   position: relative;
   vertical-align: baseline;
 }
 
-sub {
+sub :not(.not-content) {
   bottom: -0.25em;
 }
 
-sup {
+sup :not(.not-content) {
   top: -0.5em;
 }
 
-table {
+table :not(.not-content) {
   text-indent: 0;
   border-color: inherit;
 }
 
-button,
-input,
-optgroup,
-select,
-textarea {
+:is(button, input, optgroup, select, textarea) :not(.not-content) {
   font-family: inherit;
   font-size: 100%;
   line-height: 1.15;
   margin: 0;
 }
 
-button,
-[type=button],
-[type=reset],
-[type=submit] {
+:is(button, [type=button], [type=reset], [type=submit]) :not(.not-content) {
   -webkit-appearance: button;
   appearance: button;
 }
 
-button,
-select {
+:is(button, select) :not(.not-content) {
   text-transform: none;
 }
 
-img,
-picture,
-video,
-canvas,
-svg {
+:is(img, picture, video, canvas, svg) :not(.not-content) {
   display: block;
   max-width: 100%;
   height: auto;
 }
 
-ul[role=list],
-ol[role=list] {
+:is(ul[role=list], ol[role=list]) :not(.not-content) {
   list-style: none;
 }
 
-ul,
-ol {
+:is(ul, ol) :not(.not-content) {
   margin: 0;
   padding: 0;
   list-style-position: inside;
 }
 
-blockquote {
+blockquote :not(.not-content) {
   display: flex;
   gap: 0.5rem;
   margin: 1rem;
 }
-blockquote::before {
+blockquote :not(.not-content)::before {
   border-inline-start: solid 4px hsl(var(--medium));
   content: "";
 }
 
-figcaption {
+figcaption :not(.not-content) {
   word-break: break-all;
   color: hsl(var(--dark), 0.8);
   font-style: italic;
   margin-top: 1rem;
 }
 
-table {
+table :not(.not-content) {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 1rem;
@@ -203,103 +184,78 @@ table td {
   color: inherit;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+:is(h1, h2, h3, h4, h5, h6) :not(.not-content) {
   text-wrap: balance;
 }
 
-p {
+p :not(.not-content) {
   text-wrap: pretty;
 }
 
-a {
+a :not(.not-content) {
   color: inherit;
   text-decoration: none;
 }
-a:focus-visible {
+a :not(.not-content):focus-visible {
   text-decoration: underline;
 }
 
-hr {
-  border: 1px solid #dadada;
-}
-
 /* type scaling based on 1.333 – Perfect Fourth */
-.h1,
-h1 {
+:is(.h1, h1) :not(.not-content) {
   margin: 3rem 0 0.5rem;
   line-height: 1.1;
   font-size: 2.986rem;
 }
 
-.h2,
-h2 {
+:is(.h2, h2) :not(.not-content) {
   margin: 1.5rem 0 0.5rem;
   line-height: 1.25;
   font-size: 2.488rem;
 }
 
-.h3,
-h3 {
+:is(.h3, h3) :not(.not-content) {
   margin: 2rem 0 0.5rem;
   line-height: 1.3;
   font-size: 2.074rem;
 }
 
-.h4,
-h4 {
+:is(.h4, h4) :not(.not-content) {
   line-height: 1.4;
   font-size: 1.728rem;
   margin: 2rem 0 1rem;
 }
 
-.h5,
-h5 {
+:is(.h5, h5) :not(.not-content) {
   font-size: 1.44rem;
   line-height: 1.5;
   margin: 2rem 0 1rem;
 }
 
-.h6,
-h6 {
+:is(.h6, h6) :not(.not-content) {
   margin: 2rem 0 1rem;
   line-height: 1.2;
   font-size: 1.2rem;
 }
 
-.p,
-p {
+:is(.p, p) :not(.not-content) {
   line-height: 1.3;
   font-weight: 400;
   font-size: 1rem;
 }
 
-small {
+small :not(.not-content) {
   font-size: 0.833rem;
 }
 
-.h1,
-h1,
-.h2,
-h2 {
+:is(.h1, h1, .h2, h2) :not(.not-content) {
   font-weight: 800;
 }
 
-.h3,
-h3,
-.h4,
-h4 {
+:is(.h3, h3, .h4, h4) :not(.not-content) {
   font-weight: 700;
 }
 
-.h5,
-h5,
-.h6,
-h6 {
+:is(.h5, h5, .h6, h6) :not(.not-content) {
   font-weight: 600;
 }
 
