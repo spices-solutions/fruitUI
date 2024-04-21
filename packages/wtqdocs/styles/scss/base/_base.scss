@@ -62,7 +62,7 @@ $font-xs: 1rem;
   box-sizing: border-box;
 }
 
-:is(html, body) #{$not-content-block} {
+:is(html, body)#{$not-content-block} {
   overflow: hidden;
   line-height: 1.5;
   scroll-behavior: smooth;
@@ -72,84 +72,83 @@ $font-xs: 1rem;
     Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   -webkit-text-size-adjust: none;
   -moz-text-size-adjust: none;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-smooth: never;
   text-size-adjust: none;
   margin: 0;
   color: hsl(var(--darkest));
   background-color: hsl(var(--white));
 }
 
-hr #{$not-content-block} {
+#{$not-content-block} hr {
   height: 0;
   color: inherit;
   border: 1px solid #dadada;
 }
 
-:is(b, strong) #{$not-content-block} {
+#{$not-content-block} :is(b, strong)  {
   font-weight: 800;
 }
-:is(code, kbd, samp, pre) #{$not-content-block} {
+
+#{$not-content-block} :is(code, kbd, samp, pre) {
   font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo,
     monospace;
   font-size: 1em;
   direction: ltr;
 }
 
-pre #{$not-content-block} {
+#{$not-content-block} pre  {
   padding: 15px 20px;
   border-radius: 10px;
   margin-block: 5px;
 }
 
-:is(sub, sup) #{$not-content-block} {
+#{$not-content-block} :is(sub, sup)  {
   font-size: 75%;
   line-height: 0;
   position: relative;
   vertical-align: baseline;
 }
 
-sub #{$not-content-block} {
+#{$not-content-block} sub  {
   bottom: -0.25em;
 }
 
-sup #{$not-content-block} {
+#{$not-content-block} sup  {
   top: -0.5em;
 }
 
-table #{$not-content-block} {
-  text-indent: 0;
-  border-color: inherit;
-}
-:is(button, input, optgroup, select, textarea) #{$not-content-block} {
+#{$not-content-block} :is(button, input, optgroup, select, textarea) {
   font-family: inherit;
   font-size: 100%;
   line-height: 1.15;
   margin: 0;
 }
-:is(button, [type="button"], [type="reset"], [type="submit"]) #{$not-content-block} {
+
+#{$not-content-block} :is(button, [type="button"], [type="reset"], [type="submit"]) {
   -webkit-appearance: button;
   appearance: button;
 }
-:is(button, select) #{$not-content-block} {
+
+#{$not-content-block} :is(button, select) {
   text-transform: none;
 }
-:is(img, picture, video, canvas, svg) #{$not-content-block} {
+
+#{$not-content-block} :is(img, picture, video, canvas, svg) {
   display: block;
   max-width: 100%;
   height: auto;
 }
-:is(ul[role="list"], ol[role="list"]) #{$not-content-block} {
+
+#{$not-content-block} :is(ul[role="list"], ol[role="list"]) {
   list-style: none;
 }
-:is(ul, ol) #{$not-content-block} {
+
+#{$not-content-block} :is(ul, ol) {
   margin: 0;
   padding: 0;
   list-style-position: inside;
 }
 
-blockquote #{$not-content-block} {
+#{$not-content-block} blockquote {
   display: flex;
   gap: 0.5rem;
   margin: 1rem;
@@ -159,59 +158,60 @@ blockquote #{$not-content-block} {
   }
 }
 
-figcaption #{$not-content-block} {
+#{$not-content-block} figcaption {
   word-break: break-all;
   color: hsl(var(--dark), 0.8);
   font-style: italic;
   margin-top: 1rem;
 }
 
-table #{$not-content-block} {
+#{$not-content-block} table {
   width: 100%;
+  text-indent: 0;
+  border-color: inherit;
   border-collapse: collapse;
   margin-bottom: 1rem;
-}
+  thead tr {
+    border-bottom: 2px solid hsl(var(--light));
+  }
 
-table thead tr {
-  border-bottom: 2px solid hsl(var(--light));
-}
+  :is(thead, tr:nth-child(2n)) {
+    background-color: hsl(var(--light), 0.25);
+  }
 
-table :is(thead, tr:nth-child(2n)) {
-  background-color: hsl(var(--light), 0.25);
-}
+  tr {
+    background-color: transparent;
+    border-top: 1px solid hsl(var(--light));
+  }
 
-table tr {
-  background-color: transparent;
-  border-top: 1px solid hsl(var(--light));
-}
+  :is(td, th) {
+    border: 1px solid hsl(var(--light));
+    padding: 0.75rem;
+    &:dir(rtl) {
+      text-align: right;
+    }
+  }
 
-table :is(td, th) {
-  border: 1px solid hsl(var(--light));
-  padding: 0.75rem;
-  &:dir(rtl) {
-    text-align: right;
+  th {
+    background-color: inherit;
+    color: inherit;
+    font-weight: 700;
+  }
+
+  td {
+    color: inherit;
   }
 }
 
-table th {
-  background-color: inherit;
-  color: inherit;
-  font-weight: 700;
-}
-
-table td {
-  color: inherit;
-}
-
-:is(h1, h2, h3, h4, h5, h6) #{$not-content-block} {
+#{$not-content-block} :is(h1, h2, h3, h4, h5, h6) {
   text-wrap: balance;
 }
 
-p #{$not-content-block} {
+#{$not-content-block} p {
   text-wrap: pretty;
 }
 
-a #{$not-content-block} {
+#{$not-content-block} a {
   color: inherit;
   text-decoration: none;
 
@@ -221,61 +221,61 @@ a #{$not-content-block} {
 }
 
 /* type scaling based on 1.333 – Perfect Fourth */
-:is(.h1, h1) #{$not-content-block} {
+#{$not-content-block} :is(.h1, h1) {
   margin: 3rem 0 0.5rem;
   line-height: 1.1;
   font-size: 2.986rem;
 }
 
-:is(.h2, h2) #{$not-content-block} {
+#{$not-content-block} :is(.h2, h2) {
   margin: 1.5rem 0 0.5rem;
   line-height: 1.25;
   font-size: 2.488rem;
 }
 
-:is(.h3, h3) #{$not-content-block} {
+#{$not-content-block} :is(.h3, h3) {
   margin: 2rem 0 0.5rem;
   line-height: 1.3;
   font-size: 2.074rem;
 }
 
-:is(.h4, h4) #{$not-content-block} {
+#{$not-content-block} :is(.h4, h4) {
   line-height: 1.4;
   font-size: 1.728rem;
   margin: 2rem 0 1rem;
 }
 
-:is(.h5, h5) #{$not-content-block} {
+#{$not-content-block} :is(.h5, h5) {
   font-size: 1.44rem;
   line-height: 1.5;
   margin: 2rem 0 1rem;
 }
 
-:is(.h6, h6) #{$not-content-block} {
+#{$not-content-block} :is(.h6, h6) {
   margin: 2rem 0 1rem;
   line-height: 1.2;
   font-size: 1.2rem;
 }
 
-:is(.p, p) #{$not-content-block} {
+#{$not-content-block} :is(.p, p) {
   line-height: 1.3;
   font-weight: 400;
   font-size: 1rem;
 }
 
-small #{$not-content-block} {
+#{$not-content-block} small {
   font-size: 0.833rem;
 }
 
-:is(.h1, h1, .h2, h2) #{$not-content-block} {
+#{$not-content-block} :is(.h1, h1, .h2, h2) {
   font-weight: 800;
 }
 
-:is(.h3, h3, .h4, h4) #{$not-content-block} {
+#{$not-content-block} :is(.h3, h3, .h4, h4) {
   font-weight: 700;
 }
 
-:is(.h5, h5, .h6, h6) #{$not-content-block} {
+#{$not-content-block} :is(.h5, h5, .h6, h6) {
   font-weight: 600;
 }
 

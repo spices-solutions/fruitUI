@@ -38,7 +38,7 @@
   box-sizing: border-box;
 }
 
-:is(html, body) :not(.not-content) {
+:is(html, body):not(.not-content) {
   overflow: hidden;
   line-height: 1.5;
   scroll-behavior: smooth;
@@ -47,215 +47,203 @@
   font-family: "Geist", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   -webkit-text-size-adjust: none;
   -moz-text-size-adjust: none;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-smooth: never;
   text-size-adjust: none;
   margin: 0;
   color: hsl(var(--darkest));
   background-color: hsl(var(--white));
 }
 
-hr :not(.not-content) {
+:not(.not-content) hr {
   height: 0;
   color: inherit;
   border: 1px solid #dadada;
 }
 
-:is(b, strong) :not(.not-content) {
+:not(.not-content) :is(b, strong) {
   font-weight: 800;
 }
 
-:is(code, kbd, samp, pre) :not(.not-content) {
+:not(.not-content) :is(code, kbd, samp, pre) {
   font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
   font-size: 1em;
   direction: ltr;
 }
 
-pre :not(.not-content) {
+:not(.not-content) pre {
   padding: 15px 20px;
   border-radius: 10px;
   margin-block: 5px;
 }
 
-:is(sub, sup) :not(.not-content) {
+:not(.not-content) :is(sub, sup) {
   font-size: 75%;
   line-height: 0;
   position: relative;
   vertical-align: baseline;
 }
 
-sub :not(.not-content) {
+:not(.not-content) sub {
   bottom: -0.25em;
 }
 
-sup :not(.not-content) {
+:not(.not-content) sup {
   top: -0.5em;
 }
 
-table :not(.not-content) {
-  text-indent: 0;
-  border-color: inherit;
-}
-
-:is(button, input, optgroup, select, textarea) :not(.not-content) {
+:not(.not-content) :is(button, input, optgroup, select, textarea) {
   font-family: inherit;
   font-size: 100%;
   line-height: 1.15;
   margin: 0;
 }
 
-:is(button, [type=button], [type=reset], [type=submit]) :not(.not-content) {
+:not(.not-content) :is(button, [type=button], [type=reset], [type=submit]) {
   -webkit-appearance: button;
   appearance: button;
 }
 
-:is(button, select) :not(.not-content) {
+:not(.not-content) :is(button, select) {
   text-transform: none;
 }
 
-:is(img, picture, video, canvas, svg) :not(.not-content) {
+:not(.not-content) :is(img, picture, video, canvas, svg) {
   display: block;
   max-width: 100%;
   height: auto;
 }
 
-:is(ul[role=list], ol[role=list]) :not(.not-content) {
+:not(.not-content) :is(ul[role=list], ol[role=list]) {
   list-style: none;
 }
 
-:is(ul, ol) :not(.not-content) {
+:not(.not-content) :is(ul, ol) {
   margin: 0;
   padding: 0;
   list-style-position: inside;
 }
 
-blockquote :not(.not-content) {
+:not(.not-content) blockquote {
   display: flex;
   gap: 0.5rem;
   margin: 1rem;
 }
-blockquote :not(.not-content)::before {
+:not(.not-content) blockquote::before {
   border-inline-start: solid 4px hsl(var(--medium));
   content: "";
 }
 
-figcaption :not(.not-content) {
+:not(.not-content) figcaption {
   word-break: break-all;
   color: hsl(var(--dark), 0.8);
   font-style: italic;
   margin-top: 1rem;
 }
 
-table :not(.not-content) {
+:not(.not-content) table {
   width: 100%;
+  text-indent: 0;
+  border-color: inherit;
   border-collapse: collapse;
   margin-bottom: 1rem;
 }
-
-table thead tr {
+:not(.not-content) table thead tr {
   border-bottom: 2px solid hsl(var(--light));
 }
-
-table :is(thead, tr:nth-child(2n)) {
+:not(.not-content) table :is(thead, tr:nth-child(2n)) {
   background-color: hsl(var(--light), 0.25);
 }
-
-table tr {
+:not(.not-content) table tr {
   background-color: transparent;
   border-top: 1px solid hsl(var(--light));
 }
-
-table :is(td, th) {
+:not(.not-content) table :is(td, th) {
   border: 1px solid hsl(var(--light));
   padding: 0.75rem;
 }
-table :is(td, th):dir(rtl) {
+:not(.not-content) table :is(td, th):dir(rtl) {
   text-align: right;
 }
-
-table th {
+:not(.not-content) table th {
   background-color: inherit;
   color: inherit;
   font-weight: 700;
 }
-
-table td {
+:not(.not-content) table td {
   color: inherit;
 }
 
-:is(h1, h2, h3, h4, h5, h6) :not(.not-content) {
+:not(.not-content) :is(h1, h2, h3, h4, h5, h6) {
   text-wrap: balance;
 }
 
-p :not(.not-content) {
+:not(.not-content) p {
   text-wrap: pretty;
 }
 
-a :not(.not-content) {
+:not(.not-content) a {
   color: inherit;
   text-decoration: none;
 }
-a :not(.not-content):focus-visible {
+:not(.not-content) a:focus-visible {
   text-decoration: underline;
 }
 
 /* type scaling based on 1.333 – Perfect Fourth */
-:is(.h1, h1) :not(.not-content) {
+:not(.not-content) :is(.h1, h1) {
   margin: 3rem 0 0.5rem;
   line-height: 1.1;
   font-size: 2.986rem;
 }
 
-:is(.h2, h2) :not(.not-content) {
+:not(.not-content) :is(.h2, h2) {
   margin: 1.5rem 0 0.5rem;
   line-height: 1.25;
   font-size: 2.488rem;
 }
 
-:is(.h3, h3) :not(.not-content) {
+:not(.not-content) :is(.h3, h3) {
   margin: 2rem 0 0.5rem;
   line-height: 1.3;
   font-size: 2.074rem;
 }
 
-:is(.h4, h4) :not(.not-content) {
+:not(.not-content) :is(.h4, h4) {
   line-height: 1.4;
   font-size: 1.728rem;
   margin: 2rem 0 1rem;
 }
 
-:is(.h5, h5) :not(.not-content) {
+:not(.not-content) :is(.h5, h5) {
   font-size: 1.44rem;
   line-height: 1.5;
   margin: 2rem 0 1rem;
 }
 
-:is(.h6, h6) :not(.not-content) {
+:not(.not-content) :is(.h6, h6) {
   margin: 2rem 0 1rem;
   line-height: 1.2;
   font-size: 1.2rem;
 }
 
-:is(.p, p) :not(.not-content) {
+:not(.not-content) :is(.p, p) {
   line-height: 1.3;
   font-weight: 400;
   font-size: 1rem;
 }
 
-small :not(.not-content) {
+:not(.not-content) small {
   font-size: 0.833rem;
 }
 
-:is(.h1, h1, .h2, h2) :not(.not-content) {
+:not(.not-content) :is(.h1, h1, .h2, h2) {
   font-weight: 800;
 }
 
-:is(.h3, h3, .h4, h4) :not(.not-content) {
+:not(.not-content) :is(.h3, h3, .h4, h4) {
   font-weight: 700;
 }
 
-:is(.h5, h5, .h6, h6) :not(.not-content) {
+:not(.not-content) :is(.h5, h5, .h6, h6) {
   font-weight: 600;
 }
 
