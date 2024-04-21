@@ -34,11 +34,11 @@
   }
 }
 
-:is(*, *::after, *::before) :not(.not-content) {
+:is(*, *::after, *::before) {
   box-sizing: border-box;
 }
 
-:is(html, body):not(.not-content) {
+:is(html, body) {
   overflow: hidden;
   line-height: 1.5;
   scroll-behavior: smooth;
@@ -53,198 +53,198 @@
   background-color: hsl(var(--white));
 }
 
-:not(.not-content) hr {
+hr {
   height: 0;
   color: inherit;
   border: 1px solid #dadada;
 }
 
-:not(.not-content) :is(b, strong) {
-  font-weight: 800;
-}
-
-:not(.not-content) :is(code, kbd, samp, pre) {
+:is(code, kbd, samp, pre) {
   font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
   font-size: 1em;
   direction: ltr;
 }
 
-:not(.not-content) pre {
+pre {
   padding: 15px 20px;
   border-radius: 10px;
   margin-block: 5px;
 }
 
-:not(.not-content) :is(sub, sup) {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-
-:not(.not-content) sub {
-  bottom: -0.25em;
-}
-
-:not(.not-content) sup {
-  top: -0.5em;
-}
-
-:not(.not-content) :is(button, input, optgroup, select, textarea) {
+:is(button, input, optgroup, select, textarea) {
   font-family: inherit;
   font-size: 100%;
   line-height: 1.15;
   margin: 0;
 }
 
-:not(.not-content) :is(button, [type=button], [type=reset], [type=submit]) {
+:is(button, [type=button], [type=reset], [type=submit]) {
   -webkit-appearance: button;
   appearance: button;
 }
 
-:not(.not-content) :is(button, select) {
+:is(button, select) {
   text-transform: none;
 }
 
-:not(.not-content) :is(img, picture, video, canvas, svg) {
+:is(img, picture, video, canvas, svg) {
   display: block;
   max-width: 100%;
   height: auto;
 }
 
-:not(.not-content) :is(ul[role=list], ol[role=list]) {
-  list-style: none;
-}
-
-:not(.not-content) :is(ul, ol) {
-  margin: 0;
-  padding: 0;
-  list-style-position: inside;
-}
-
-:not(.not-content) blockquote {
-  display: flex;
-  gap: 0.5rem;
-  margin: 1rem;
-}
-:not(.not-content) blockquote::before {
-  border-inline-start: solid 4px hsl(var(--medium));
-  content: "";
-}
-
-:not(.not-content) figcaption {
+figcaption {
   word-break: break-all;
   color: hsl(var(--dark), 0.8);
   font-style: italic;
   margin-top: 1rem;
 }
 
-:not(.not-content) table {
+table {
   width: 100%;
   text-indent: 0;
   border-color: inherit;
   border-collapse: collapse;
   margin-bottom: 1rem;
 }
-:not(.not-content) table thead tr {
+table thead tr {
   border-bottom: 2px solid hsl(var(--light));
 }
-:not(.not-content) table :is(thead, tr:nth-child(2n)) {
+table :is(thead, tr:nth-child(2n)) {
   background-color: hsl(var(--light), 0.25);
 }
-:not(.not-content) table tr {
+table tr {
   background-color: transparent;
   border-top: 1px solid hsl(var(--light));
 }
-:not(.not-content) table :is(td, th) {
+table :is(td, th) {
   border: 1px solid hsl(var(--light));
   padding: 0.75rem;
 }
-:not(.not-content) table :is(td, th):dir(rtl) {
+table :is(td, th):dir(rtl) {
   text-align: right;
 }
-:not(.not-content) table th {
+table th {
   background-color: inherit;
   color: inherit;
   font-weight: 700;
 }
-:not(.not-content) table td {
+table td {
   color: inherit;
 }
 
-:not(.not-content) :is(h1, h2, h3, h4, h5, h6) {
-  text-wrap: balance;
+:is(ul[role=list], ol[role=list]) {
+  list-style: none;
 }
 
-:not(.not-content) p {
-  text-wrap: pretty;
+:is(ul, ol) {
+  margin: 0;
+  padding: 0;
+  list-style-position: inside;
 }
 
-:not(.not-content) a {
+:is(sub, sup) {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+:is(b, strong) {
+  font-weight: 800;
+}
+
+blockquote {
+  display: flex;
+  gap: 0.5rem;
+  margin: 1rem;
+}
+blockquote::before {
+  border-inline-start: solid 4px hsl(var(--medium));
+  content: "";
+}
+
+a {
   color: inherit;
   text-decoration: none;
 }
-:not(.not-content) a:focus-visible {
+a:focus-visible {
   text-decoration: underline;
 }
 
+:is(h1, h2, h3, h4, h5, h6) {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
 /* type scaling based on 1.333 – Perfect Fourth */
-:not(.not-content) :is(.h1, h1) {
+:is(.h1, h1) {
   margin: 3rem 0 0.5rem;
   line-height: 1.1;
   font-size: 2.986rem;
 }
 
-:not(.not-content) :is(.h2, h2) {
+:is(.h2, h2) {
   margin: 1.5rem 0 0.5rem;
   line-height: 1.25;
   font-size: 2.488rem;
 }
 
-:not(.not-content) :is(.h3, h3) {
+:is(.h3, h3) {
   margin: 2rem 0 0.5rem;
   line-height: 1.3;
   font-size: 2.074rem;
 }
 
-:not(.not-content) :is(.h4, h4) {
+:is(.h4, h4) {
   line-height: 1.4;
   font-size: 1.728rem;
   margin: 2rem 0 1rem;
 }
 
-:not(.not-content) :is(.h5, h5) {
+:is(.h5, h5) {
   font-size: 1.44rem;
   line-height: 1.5;
   margin: 2rem 0 1rem;
 }
 
-:not(.not-content) :is(.h6, h6) {
+:is(.h6, h6) {
   margin: 2rem 0 1rem;
   line-height: 1.2;
   font-size: 1.2rem;
 }
 
-:not(.not-content) :is(.p, p) {
+:is(.h1, h1, .h2, h2) {
+  font-weight: 800;
+}
+
+:is(.h3, h3, .h4, h4) {
+  font-weight: 700;
+}
+
+:is(.h5, h5, .h6, h6) {
+  font-weight: 600;
+}
+
+:is(.p, p) {
   line-height: 1.3;
   font-weight: 400;
   font-size: 1rem;
 }
 
-:not(.not-content) small {
+small {
   font-size: 0.833rem;
-}
-
-:not(.not-content) :is(.h1, h1, .h2, h2) {
-  font-weight: 800;
-}
-
-:not(.not-content) :is(.h3, h3, .h4, h4) {
-  font-weight: 700;
-}
-
-:not(.not-content) :is(.h5, h5, .h6, h6) {
-  font-weight: 600;
 }
 
 @media (prefers-reduced-motion: reduce) {
