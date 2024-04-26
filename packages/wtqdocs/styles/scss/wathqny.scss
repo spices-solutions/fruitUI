@@ -41,7 +41,7 @@
     border-radius: 10px;
     border: 1px solid hsl(var(--light));
     box-shadow: 0px 10px 9px -8px rgba(0, 0, 0, 0.1);
-    .dark &{
+    .dark & {
       background-color: hsl(var(--lightest));
       border: 1px solid hsl(var(--light));
     }

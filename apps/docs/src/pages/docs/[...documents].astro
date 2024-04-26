@@ -8,8 +8,7 @@ export async function getStaticPaths() {
 
   return docs.map((doc) => {
     let documentLink =
-      doc.data.category +
-      (doc.data.href ?? "/" + slugify(doc.data.title));
+      doc.data.category + (doc.data.href ?? "/" + slugify(doc.data.title));
     return {
       params: { documents: documentLink },
       props: { doc },
