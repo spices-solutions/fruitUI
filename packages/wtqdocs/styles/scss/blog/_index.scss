@@ -10,6 +10,22 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  figure figcaption {
+    word-break: break-all;
+    color: hsl(var(--dark), 0.8);
+    font-style: italic;
+    margin-top: 1rem;
+  }
 }
 
 .wtq-cover {

@@ -34,14 +34,14 @@
     @extend .sr-not-only;
     outline: none;
     z-index: 9999;
-    margin: .75rem;
+    margin: 0.75rem;
     position: absolute;
     background-color: white;
     padding: 10px 15px;
     border-radius: 10px;
     border: 1px solid hsl(var(--light));
     box-shadow: 0px 10px 9px -8px rgba(0, 0, 0, 0.1);
-    .dark &{
+    .dark & {
       background-color: hsl(var(--lightest));
       border: 1px solid hsl(var(--light));
     }
@@ -62,8 +62,10 @@
 }
 
 .wtq-main-heading {
-  margin-top: 10px;
+  margin-top: 10px !important;
   margin-bottom: 10px;
+  line-height: 1.1;
+  font-size: 2.986rem;
   text-transform: capitalize;
 }
 
