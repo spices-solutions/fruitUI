@@ -196,6 +196,8 @@ I almost forgot to mention links, like [this link to the Tailwind CSS website](h
 
 We even included table styles, check it out:
 
+<div class="wtq-table">
+
 | Wrestler                | Origin       | Finisher           |
 | ----------------------- | ------------ | ------------------ |
 | Bret "The Hitman" Hart  | Calgary, AB  | Sharpshooter       |
@@ -203,6 +205,8 @@ We even included table styles, check it out:
 | Randy Savage            | Sarasota, FL | Elbow Drop         |
 | Vader                   | Boulder, CO  | Vader Bomb         |
 | Razor Ramon             | Chuluota, FL | Razor's Edge       |
+
+</div>
 
 We also need to make sure inline code looks good, like if I wanted to talk about `<span>` elements or tell you the good news about `@tailwindcss/typography`.
 

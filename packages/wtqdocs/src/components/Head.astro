@@ -84,9 +84,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     )
   }
   {pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} />}
-
-  <link href={fruitStyles} rel="stylesheet" crossorigin="anonymous" />
+  
   <link href={MainStyles} rel="stylesheet" crossorigin="anonymous" />
+  <link href={fruitStyles} rel="stylesheet" crossorigin="anonymous" />
 
   <!-- {
     WathqnyConfig?.css?.map(async (stylesheet) => {
