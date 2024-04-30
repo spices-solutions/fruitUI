@@ -20,6 +20,10 @@ export default defineConfig({
   },
   site: "https://fruit-ui.vercel.app/",
   trailingSlash: "ignore",
+  i18n: {
+    defaultLocale: "en",
+    locales: ["en"]
+  },
   integrations: [
     AutoImport({
       imports: [

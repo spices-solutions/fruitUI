@@ -8,12 +8,8 @@ export const docSchema = z
       .max(160, "it can't be more than 160 characters")
       .min(10),
     href: z.string().optional(),
-    OGImage: z.string().default("/og.png"),
-    OGImageAlt: z
-      .string()
-      .default(
-        "fruit UI text with white background design with pinky gradient"
-      ),
+    OGImage: z.string().optional(),
+    OGImageAlt: z.string().optional(),
     keywords: z.union([z.string(), z.array(z.string())]).optional(),
     category: z.string(),
     position: z.number().optional(),
@@ -30,12 +26,8 @@ export const blogSchema = z
       .max(160, "it can't be more than 160 characters")
       .min(10),
     href: z.string().optional(),
-    OGImage: z.string().default("/og.png"),
-    OGImageAlt: z
-      .string()
-      .default(
-        "fruit UI text with white background design with pinky gradient"
-      ),
+    cover: z.string().default("/og.png"),
+    OGImageAlt: z.string().optional(),
     keywords: z.union([z.string(), z.array(z.string())]).optional(),
     position: z.number().optional(),
     authors: reference("authors").optional(),

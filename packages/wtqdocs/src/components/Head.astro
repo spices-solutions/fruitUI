@@ -29,8 +29,8 @@ const { title, keywords, description, OGImage, OGImageAlt } =
 const METATITLE = title
   ? `${title} - ${WathqnyConfig.siteName}`
   : WathqnyConfig.siteName;
-const METAIMAGE = OGImage;
-const METAIMAGEALT = OGImageAlt;
+const METAIMAGE = OGImage ?? WathqnyConfig.OGImage;
+const METAIMAGEALT = OGImageAlt ?? WathqnyConfig.OGImageAlt;
 const METADESCRIPTION = description ?? WathqnyConfig.description;
 const METAKEYWORDS = keywords ?? [...(WathqnyConfig.keywords || [])];
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);

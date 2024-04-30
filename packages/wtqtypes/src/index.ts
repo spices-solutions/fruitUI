@@ -6,11 +6,8 @@ type WathqnyConfig = {
     label: string;
     id?: string;
   }[];
-  image?: string;
-  category?: any;
-  darkMode?: boolean;
-  locale?: string;
-  locale_dir: "ltr" | "rtl";
+  OGImage?: string;
+  OGImageAlt: string;
   css?: string[];
   navbar?: {
     brand: {
