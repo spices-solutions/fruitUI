@@ -439,9 +439,7 @@ body {
   overflow: hidden;
   max-height: 0;
   will-change: height, overflow;
-}
-.wtq-sidebar .sidebar_category .category_collapse.wtq-active {
-  max-height: 100rem;
+  transition: all cubic-bezier(0.79, 0.14, 0.15, 0.86) 500ms;
 }
 .wtq-sidebar .sidebar_category .category_collapse .collapse_item {
   padding-inline-start: 0.6rem;
