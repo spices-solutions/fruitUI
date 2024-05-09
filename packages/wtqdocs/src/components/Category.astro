@@ -15,7 +15,7 @@ const { name, href, isActive } = Astro.props;
   <CategoryToggle name={name} />
   <ul class="category_collapse" class:list={{ "wtq-active": isActive }}>
     <li class="collapse_item">
-      {href ? <LinkItem href={href} name={name} /> : <slot />}
+      {href ? <LinkItem href={href} name={name} /> : <slot /> }
     </li>
-  </ul>
+  </ul> 
 </li>

@@ -38,11 +38,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{METATITLE}</title>
   <meta name="color-scheme" content="dark light" />
   <link rel="sitemap" href="/sitemap-index.xml" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <meta name="generator" content={Astro.generator} />
   <meta name="keywords" content={METAKEYWORDS as string} />
   <meta name="description" content={METADESCRIPTION} />
   <meta property="og:description" content={METADESCRIPTION} />
@@ -58,10 +57,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <meta name="twitter:description" content={METADESCRIPTION} />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="robots" content="index, follow" />
-  <meta
-    name="google-site-verification"
-    content="PVw1xk8LSGGe9WA1CzziS4zL1GXshAvdNn9iksdbmWw"
-  />
   <link rel="canonical" href={canonicalURL} />
   <link
     rel="preload"
@@ -70,6 +65,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     type="font/woff2"
     crossorigin="anonymous"
   />
+  <link href={MainStyles} rel="stylesheet" crossorigin="anonymous" />
+  <link href={fruitStyles} rel="stylesheet" crossorigin="anonymous" />
   {
     pwaAssetsHead.themeColor && (
       <meta name="theme-color" content={pwaAssetsHead.themeColor.content} />
@@ -84,9 +81,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     )
   }
   {pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} />}
-  
-  <link href={MainStyles} rel="stylesheet" crossorigin="anonymous" />
-  <link href={fruitStyles} rel="stylesheet" crossorigin="anonymous" />
+  <meta
+    name="google-site-verification"
+    content="PVw1xk8LSGGe9WA1CzziS4zL1GXshAvdNn9iksdbmWw"
+  />
+  <meta name="generator" content={Astro.generator} />
 
   <!-- {
     WathqnyConfig?.css?.map(async (stylesheet) => {
@@ -98,7 +97,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
   <script src="/src/pwa.ts"></script>
 
-  <title>{METATITLE}</title>
+  
 
   <script>
     const root = document.documentElement;

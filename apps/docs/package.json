@@ -23,7 +23,6 @@
     "astro-compressor": "^0.4.1",
     "astro-icon": "^1.1.0",
     "astro-meta-tags": "^0.2.1",
-    "astro-page-insight": "^0.0.18",
     "astro-purgecss": "^4.1.0",
     "purgecss": "^5.0.0",
     "sass": "^1.71.1",
