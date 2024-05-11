@@ -12,13 +12,13 @@
     "gpa": "pwa-assets-generator"
   },
   "dependencies": {
-    "@astrojs/mdx": "^2.1.1",
+    "@astrojs/mdx": "^3.0.0",
     "@astrojs/rss": "^4.0.5",
-    "@astrojs/sitemap": "^3.1.1",
+    "@astrojs/sitemap": "^3.1.4",
     "@shikijs/transformers": "^1.5.1",
     "@vite-pwa/assets-generator": "^0.2.4",
     "@vite-pwa/astro": "^0.3.0",
-    "astro": "^4.6.2",
+    "astro": "^4.8.2",
     "astro-auto-import": "^0.4.2",
     "astro-compress": "^2.2.3",
     "astro-compressor": "^0.4.1",

@@ -14,10 +14,7 @@ import {
   transformerMetaHighlight,
   transformerNotationWordHighlight,
   transformerNotationErrorLevel,
-  transformerRenderWhitespace,
   transformerMetaWordHighlight,
-  transformerCompactLineOptions,
-  transformerRemoveLineBreak
 } from "@shikijs/transformers";
 
 import Wathqny from "./wathqny.config";
@@ -46,7 +43,7 @@ export default defineConfig({
     mdx({
       optimize: true,
       shikiConfig: {
-        experimentalThemes: {
+        themes: {
           light: "material-theme-lighter",
           dark: "material-theme-darker",
         },
@@ -56,10 +53,7 @@ export default defineConfig({
           transformerMetaHighlight(),
           transformerNotationWordHighlight(),
           transformerNotationErrorLevel(),
-          transformerRenderWhitespace(),
           transformerMetaWordHighlight(),
-          transformerCompactLineOptions(),
-          transformerRemoveLineBreak()
         ],
       },
     }),

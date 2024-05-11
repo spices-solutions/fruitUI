@@ -1,39 +1,59 @@
 ---
-import {
-  type BuiltinLanguage,
-  type BuiltinTheme,
-  type LanguageRegistration,
-  type SpecialLanguage,
-  type ThemeRegistration,
-  type ThemeRegistrationRaw,
-  codeToHtml,
+import type {
+  BuiltinLanguage,
+  BuiltinTheme,
+  LanguageRegistration,
+  SpecialLanguage,
+  ThemeRegistration,
+  ThemeRegistrationRaw,
 } from "shiki";
+import { codeToHtml } from "shiki";
 import { getHighlighter } from "shiki";
+
+type themeType = BuiltinTheme | ThemeRegistration | ThemeRegistrationRaw;
 
 export interface Props {
   code: string;
   lang?: BuiltinLanguage | SpecialLanguage | LanguageRegistration;
-  theme?: BuiltinTheme | ThemeRegistration | ThemeRegistrationRaw;
+  themes?: {
+    light: themeType;
+    dark: themeType;
+  };
 }
 
-const { code, lang = "plaintext", theme = "" } = Astro.props as Props;
+const {
+  code,
+  lang = "plaintext",
+  themes = { light: "material-theme-lighter", dark: "material-theme-darker" },
+} = Astro.props as Props;
 
-const shiki = await getHighlighter({ themes: [theme], langs: [lang] });
+const shiki = await getHighlighter({
+  themes: [themes.light, themes.dark],
+  langs: [lang],
+});
 
 const codeOutput = codeToHtml(code, {
   lang: lang as string,
   themes: {
-    light: "material-theme-lighter",
-    dark: "material-theme-darker",
+    light: themes.light,
+    dark: themes.dark,
   },
 });
 
-const bg = shiki.getTheme(theme).bg;
+const bgLight = shiki.getTheme(themes.light).bg;
+const bgDark = shiki.getTheme(themes.dark).bg;
 ---
 
-<style define:vars={{ bg }}></style>
+<style define:vars={{ bgLight, bgDark }} lang="scss">
+  div {
+    --bg: var(--bgLight);
+    :global(.dark) & {
+      --bg: var(--bgDark) !important;
+    }
+  }
+</style>
 <div
-  style={`font-size: 1em; border-radius: 10px;     box-shadow: 0px 12px 15px -3px #00000035;
+  style={`font-size: 1em; border-radius: 10px; box-shadow: 0px 12px 15px -3px #00000035;
     margin: 20px 0; background: var(--bg); overflow-x: auto;     padding-inline: 20px;`}>
   <div style={`display: flex;  gap: 10px;  padding-top: 20px; `}>
     <span
