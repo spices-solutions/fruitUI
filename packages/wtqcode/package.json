@@ -14,7 +14,7 @@
       "import": "./src/index.ts"
     },
     "./astro": "./src/components/astro/Code.astro",
-    "./style": "./src/code.css"
+    "./styles": "./src/code.css"
   },
   "keywords": [
     "spices",

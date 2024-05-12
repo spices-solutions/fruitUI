@@ -11,8 +11,7 @@ import untypedWathqnyConfig from "/wathqny.config";
 
 const WathqnyConfig: WathqnyConfigType = untypedWathqnyConfig;
 
-import fruitStyles from "/src/docs.scss?url";
-import MainStyles from "../../../wtqdocs/styles/scss/wathqny.scss?url";
+
 
 
 export interface Props {
@@ -40,10 +39,16 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{METATITLE}</title>
-  <meta name="color-scheme" content="dark light" />
   <link rel="sitemap" href="/sitemap-index.xml" />
   <meta name="keywords" content={METAKEYWORDS as string} />
   <meta name="description" content={METADESCRIPTION} />
+  {
+    WathqnyConfig?.css?.map((stylesheet) => {
+      return (
+        <link href={stylesheet} rel="stylesheet" crossorigin="anonymous" />
+      );
+    })
+  }
   <meta property="og:description" content={METADESCRIPTION} />
   <meta property="og:image" content={METAIMAGE} />
   <meta property="og:image:alt" content={METAIMAGEALT} />
@@ -65,8 +70,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     type="font/woff2"
     crossorigin="anonymous"
   />
-  <link href={MainStyles} rel="stylesheet" crossorigin="anonymous" />
-  <link href={fruitStyles} rel="stylesheet" crossorigin="anonymous" />
   {
     pwaAssetsHead.themeColor && (
       <meta name="theme-color" content={pwaAssetsHead.themeColor.content} />
@@ -81,23 +84,14 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     )
   }
   {pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} />}
+  <meta name="color-scheme" content="dark light" />
   <meta
     name="google-site-verification"
     content="PVw1xk8LSGGe9WA1CzziS4zL1GXshAvdNn9iksdbmWw"
   />
   <meta name="generator" content={Astro.generator} />
 
-  <!-- {
-    WathqnyConfig?.css?.map(async (stylesheet) => {
-      return (
-        <link href={stylesheet} rel="stylesheet" crossorigin="anonymous" />
-      );
-    })
-  } -->
-
   <script src="/src/pwa.ts"></script>
-
-  
 
   <script>
     const root = document.documentElement;

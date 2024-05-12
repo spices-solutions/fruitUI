@@ -1,5 +1,9 @@
 import type { WathqnyConfig } from "wtqtypes";
 
+import fruitStyles from "/src/docs.scss?url";
+import ThemeStyles from "wtqdocs/styles?url";
+import CodeStyles from "wtqcode/styles?url";
+
 const Config: WathqnyConfig = {
   siteName: "fruitUI",
   OGImage: "/og.png",
@@ -51,8 +55,9 @@ const Config: WathqnyConfig = {
     ],
   },
   css: [
-    "/src/docs.scss",
-    "wtqdocs/styles" // npm
+    ThemeStyles,
+    CodeStyles,
+    fruitStyles
   ],
 };
 
