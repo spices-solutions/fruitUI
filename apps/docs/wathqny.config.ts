@@ -2,7 +2,8 @@ import type { WathqnyConfig } from "wtqtypes";
 
 const Config: WathqnyConfig = {
   siteName: "fruitUI",
-  image: "/og.png",
+  OGImage: "/og.png",
+  OGImageAlt: "",
   description: "fruit UI a modular styling framework",
   keywords: [
     "fruitUI",
@@ -15,10 +16,6 @@ const Config: WathqnyConfig = {
     "library",
     "components",
   ],
-  locale: "en",
-  locale_dir: "ltr",
-  darkMode: true,
-  category: ["Getting-started", "Components", "Layout", "Utilities"],
   sidebar: [
     {
       label: "Getting started",
@@ -54,7 +51,8 @@ const Config: WathqnyConfig = {
     ],
   },
   css: [
-    "/src/docs.scss"
+    "/src/docs.scss",
+    "wtqdocs/styles" // npm
   ],
 };
 

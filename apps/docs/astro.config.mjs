@@ -6,9 +6,16 @@ import compress from "astro-compress";
 import purgecss from "astro-purgecss";
 import metaTags from "astro-meta-tags";
 import icon from "astro-icon";
-import pageInsight from "astro-page-insight";
 import compressor from "astro-compressor";
 import AutoImport from "astro-auto-import";
+import {
+  transformerNotationDiff,
+  transformerNotationFocus,
+  transformerMetaHighlight,
+  transformerNotationWordHighlight,
+  transformerNotationErrorLevel,
+  transformerMetaWordHighlight,
+} from "@shikijs/transformers";
 
 import Wathqny from "./wathqny.config";
 
@@ -20,19 +27,34 @@ export default defineConfig({
   },
   site: "https://fruit-ui.vercel.app/",
   trailingSlash: "ignore",
+  i18n: {
+    defaultLocale: "en",
+    locales: ["en"],
+  },
   integrations: [
     AutoImport({
       imports: [
         {
           "astro:assets": ["Image"],
-          "wtqcode": ["BrowserBlock", "CodeBlock"],
+          wtqcode: ["BrowserBlock", "CodeBlock"],
         },
       ],
     }),
     mdx({
       optimize: true,
       shikiConfig: {
-        theme: "material-theme",
+        themes: {
+          light: "material-theme-lighter",
+          dark: "material-theme-darker",
+        },
+        transformers: [
+          transformerNotationDiff(),
+          transformerNotationFocus(),
+          transformerMetaHighlight(),
+          transformerNotationWordHighlight(),
+          transformerNotationErrorLevel(),
+          transformerMetaWordHighlight(),
+        ],
       },
     }),
     sitemap(),
@@ -71,7 +93,6 @@ export default defineConfig({
     icon({
       iconDir: "src/assets/icons",
     }),
-    pageInsight(),
     compressor({ gzip: true, brotli: false }),
   ],
 });

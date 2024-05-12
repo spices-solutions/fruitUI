@@ -10,19 +10,19 @@ position: 1
 
 Bootstrap can be a bit of a heavyweight, packing around 15k lines,
 and its grid system alone throws in another 6k lines of code – that's a lot of baggage! Plus,
-Bootstrap tends to go overboard with styles you might not even need, 
+Bootstrap tends to go overboard with styles you might not even need,
 and it's not the most customizable. Now, enter FruitUI – it's modular, so you only grab what you actually want. Just need the grid system or the navbar? No problem, pick and choose with FruitUI!
 
 ## usage
 
 ### via cdn
 
-
-<CodeBlock theme="material-theme" lang="html" code={
+<CodeBlock lang="html" code={
 `<!-- js -->
 <script src="https://cdn.jsdelivr.net/npm/spices-fruitui"></script>
 
 <!-- css -->
+
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/spices-fruitui/style">`} />
 
 ### via npm
@@ -31,25 +31,20 @@ and it's not the most customizable. Now, enter FruitUI – it's modular, so you 
 npm i spices-fruitui
 ```
 
-
  import sass from node_modules
 
 ```scss
 @import "node_modules/fruitUI/src/scss/lib/import/basket";
-
 ```
+
 a better way
 
 ```scss
-@use "~/basket" as * with (
-  $a-var: true, // pass var for sass runtime err
-);
-
+@use "~/basket" as * with ($a-var: true,; // pass var for sass runtime err);
 ```
 
  import javascript
 
 ```js
 import { Navbar } form "spices-fruitui"
-
 ```

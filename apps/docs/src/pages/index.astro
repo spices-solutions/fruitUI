@@ -1,7 +1,8 @@
 ---
 import { Head, Navbar, SkipLink } from "wtqdocs";
 import WathqnyConfig from "/wathqny.config";
-import "../custom.scss"
+import "../custom.scss";
+import { CodeBlock } from "wtqcode";
 ---
 
 <html
@@ -28,6 +29,19 @@ import "../custom.scss"
             <button class="btn primary">Get started</button>
           </a>
         </div>
+        <CodeBlock
+          lang="html"
+          themes={{
+            light: "aurora-x",
+            dark: "dark-plus",
+          }}
+          code={`<!-- js -->
+          <script src="https://cdn.jsdelivr.net/npm/spices-fruitui"></script>
+          
+          <!-- css -->
+          
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/spices-fruitui/style">`}
+        />
       </section>
     </main>
   </body>

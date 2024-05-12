@@ -42,7 +42,7 @@ const { Content } = await post.render();
   title={post.data.title}
   description={post.data.description}
   keywords={post.data.keywords}
-  OGImage={post.data.OGImage}
+  OGImage={post.data.cover}
   OGImageAlt={post.data.OGImageAlt}>
   <Breadcrumbs />
   <article>
@@ -58,7 +58,7 @@ const { Content } = await post.render();
           class="wtq-cover"
           width={960}
           height={540}
-          src={post.data.OGImage}
+          src={post.data.cover}
           formats={["avif", "webp"]}
           loading="eager"
           alt="A description of my image."
