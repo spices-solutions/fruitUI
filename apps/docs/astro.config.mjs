@@ -8,6 +8,14 @@ import metaTags from "astro-meta-tags";
 import icon from "astro-icon";
 import compressor from "astro-compressor";
 import AutoImport from "astro-auto-import";
+import {
+  transformerNotationDiff,
+  transformerNotationFocus,
+  transformerMetaHighlight,
+  transformerNotationWordHighlight,
+  transformerNotationErrorLevel,
+  transformerMetaWordHighlight,
+} from "@shikijs/transformers";
 
 import Wathqny from "./wathqny.config";
 
@@ -21,21 +29,32 @@ export default defineConfig({
   trailingSlash: "ignore",
   i18n: {
     defaultLocale: "en",
-    locales: ["en"]
+    locales: ["en"],
   },
   integrations: [
     AutoImport({
       imports: [
         {
           "astro:assets": ["Image"],
-          "wtqcode": ["BrowserBlock", "CodeBlock"],
+          wtqcode: ["BrowserBlock", "CodeBlock"],
         },
       ],
     }),
     mdx({
       optimize: true,
       shikiConfig: {
-        theme: "material-theme",
+        themes: {
+          light: "material-theme-lighter",
+          dark: "material-theme-darker",
+        },
+        transformers: [
+          transformerNotationDiff(),
+          transformerNotationFocus(),
+          transformerMetaHighlight(),
+          transformerNotationWordHighlight(),
+          transformerNotationErrorLevel(),
+          transformerMetaWordHighlight(),
+        ],
       },
     }),
     sitemap(),
