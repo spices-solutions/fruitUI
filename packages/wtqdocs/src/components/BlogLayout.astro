@@ -22,9 +22,9 @@ const { title, keywords, description, OGImage, OGImageAlt } =
 ---
 
 <html
-  xml:lang={WathqnyConfig.locale}
-  lang={WathqnyConfig.locale}
-  dir={WathqnyConfig.locale_dir}
+  xml:lang={Astro.currentLocale}
+  lang={Astro.currentLocale}
+  dir={Astro.currentLocale == "ar" ? "rtl" : "ltr"}
   class="light">
   <Head {title} {keywords} {description} {OGImage} {OGImageAlt} />
   <body>

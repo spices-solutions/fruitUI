@@ -13,7 +13,7 @@
     ".": {
       "import": "./src/index.ts"
     },
-    "./astro": "./src/components/astro/CodeBlock.astro",
+    "./astro": "./src/components/astro/Code.astro",
     "./style": "./src/code.css"
   },
   "keywords": [

@@ -2,13 +2,13 @@
 import { Head, Navbar, SkipLink } from "wtqdocs";
 import WathqnyConfig from "/wathqny.config";
 import "../custom.scss";
-import { CodeBlock } from "wtqcode";
+import { Code } from "wtqcode";
 ---
 
 <html
-  xml:lang={WathqnyConfig.locale}
-  lang={WathqnyConfig.locale}
-  dir={WathqnyConfig.locale_dir}
+  xml:lang={Astro.currentLocale}
+  lang={Astro.currentLocale}
+  dir={Astro.currentLocale == "ar" ? "rtl" : "ltr"}
   class="light">
   <Head />
   <body>
@@ -29,7 +29,7 @@ import { CodeBlock } from "wtqcode";
             <button class="btn primary">Get started</button>
           </a>
         </div>
-        <CodeBlock
+        <Code
           lang="html"
           themes={{
             light: "aurora-x",
