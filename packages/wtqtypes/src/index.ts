@@ -1,4 +1,5 @@
 type WathqnyConfig = {
+  logo: string;
   siteName?: string;
   description?: string;
   keywords?: string[];
@@ -6,15 +7,13 @@ type WathqnyConfig = {
     label: string;
     id?: string;
   }[];
-  OGImage?: string;
-  OGImageAlt: string;
+  OGImage?: {
+    src: string
+    alt: string
+  }
   css?: string[];
   navbar?: {
-    brand: {
-      name: string;
-      logo: string;
-    };
-    Items: { href?: string; item?: string }[];
+    items: { href?: string; label?: string }[];
   };
 };
 

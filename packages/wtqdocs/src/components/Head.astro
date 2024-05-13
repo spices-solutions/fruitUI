@@ -11,9 +11,6 @@ import untypedWathqnyConfig from "/wathqny.config";
 
 const WathqnyConfig: WathqnyConfigType = untypedWathqnyConfig;
 
-
-
-
 export interface Props {
   title?: string | undefined;
   description?: string | undefined;
@@ -28,8 +25,8 @@ const { title, keywords, description, OGImage, OGImageAlt } =
 const METATITLE = title
   ? `${title} - ${WathqnyConfig.siteName}`
   : WathqnyConfig.siteName;
-const METAIMAGE = OGImage ?? WathqnyConfig.OGImage;
-const METAIMAGEALT = OGImageAlt ?? WathqnyConfig.OGImageAlt;
+const METAIMAGE = OGImage ?? WathqnyConfig.OGImage?.src;
+const METAIMAGEALT = OGImageAlt ?? WathqnyConfig.OGImage?.alt;
 const METADESCRIPTION = description ?? WathqnyConfig.description;
 const METAKEYWORDS = keywords ?? [...(WathqnyConfig.keywords || [])];
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -42,6 +39,16 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <link rel="sitemap" href="/sitemap-index.xml" />
   <meta name="keywords" content={METAKEYWORDS as string} />
   <meta name="description" content={METADESCRIPTION} />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href={canonicalURL} />
+  <link
+    rel="preload"
+    href="/font/GeistVariableVF.woff2"
+    as="font"
+    type="font/woff2"
+    crossorigin="anonymous"
+  />
+
   {
     WathqnyConfig?.css?.map((stylesheet) => {
       return (
@@ -61,15 +68,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <meta name="twitter:image:alt" content={METAIMAGEALT} />
   <meta name="twitter:description" content={METADESCRIPTION} />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href={canonicalURL} />
-  <link
-    rel="preload"
-    href="/font/GeistVariableVF.woff2"
-    as="font"
-    type="font/woff2"
-    crossorigin="anonymous"
-  />
+
   {
     pwaAssetsHead.themeColor && (
       <meta name="theme-color" content={pwaAssetsHead.themeColor.content} />

@@ -67,6 +67,10 @@ body {
   font-size: 1em;
   direction: ltr;
   line-height: 1.3;
+  border: 1px solid #dedee5;
+}
+.dark #main-content > :is(code, kbd, samp, pre) {
+  border-color: rgba(55, 55, 55, 0.5058823529);
 }
 #main-content > pre {
   padding: 15px 20px;
