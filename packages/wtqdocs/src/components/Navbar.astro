@@ -8,9 +8,9 @@ import untypedWathqnyConfig from "/wathqny.config";
 
 const WathqnyConfig: WathqnyConfigType = untypedWathqnyConfig;
 
-const { navbar } = WathqnyConfig;
-
+const { logo, siteName, navbar } = WathqnyConfig;
 ---
+
 <nav class="wtq-navbar" role="navigation">
   <span class="wtq-navbar-overlay"></span>
   <a href="/">
@@ -19,30 +19,29 @@ const { navbar } = WathqnyConfig;
         alt="fruitUI logo, an beautiful orange with a gradient background"
         width={40}
         height={40}
-        src={navbar?.brand.logo as string}
+        src={logo as string}
         loading="eager"
       />
-      <span>{navbar?.brand.name}</span>
+      <span>{siteName}</span>
     </div>
   </a>
-  <button tabindex="0" aria-label="hamburger-menu" class="wtq-toggle"></button>
   <ul class="wtq-links">
     {
-      navbar?.Items.map((Item) => {
+      navbar?.items.map((item) => {
         return (
-          <li>
-            <a href={Item.href}>{Item.item}</a>
+          <li class="link-item">
+            <a href={item.href}>{item.label}</a>
           </li>
         );
       })
     }
-    <li class="wtq-item-button ">
-      <button class="theme-switcher wtq-focusable" aria-label="dark mode toggler">
-        <Icon name={"moon"} class={"dark-mode-moon"} />
-        <Icon name={"sun"} class={"dark-mode-sun"} />
-      </button>
-    </li>
+  <li class="wtq-toggle-wrapper">
+    <button tabindex="0" aria-label="hamburger-menu" class="wtq-toggle"></button>
+    <button class="theme-switcher wtq-focusable" aria-label="dark mode toggler">
+      <Icon name={"moon"} class={"dark-mode-moon"} />
+      <Icon name={"sun"} class={"dark-mode-sun"} />
+    </button>
+  </li>
   </ul>
   <script src="./navbar.ts"></script>
 </nav>
-

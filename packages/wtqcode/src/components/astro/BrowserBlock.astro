@@ -1,36 +1,18 @@
-<div
-  style={{
-    border: "1px solid #e4e4e7",
-    backgroundColor: "#fdfdfd",
-    boxShadow:
-      "0 10px 25px -5px rgb(0 0 0 / 0.05) , 0 8px 10px -6px rgb(0 0 0 / 0.1)",
-    margin: "50px 0",
-    borderRadius: "10px",
-  }}>
-  <div style={{ display: "flex", gap: "10px", padding: "20px 20px 0" }}>
-    <span
-      style={{
-        width: "15px",
-        height: "15px",
-        borderRadius: "50%",
-        backgroundColor: "#ed6b60",
-      }}></span>
-    <span
-      style={{
-        width: "15px",
-        height: "15px",
-        borderRadius: "50%",
-        backgroundColor: "#f5be4f",
-      }}></span>
-    <span
-      style={{
-        width: "15px",
-        height: "15px",
-        borderRadius: "50%",
-        backgroundColor: "#62c554",
-      }}></span>
+---
+export interface Props {
+  padding: boolean;
+}
+
+const { padding } = Astro.props as Props;
+---
+
+<div class="wtq-app-block wtq-browser-block">
+  <div class="head">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
   </div>
-  <div class="p-5">
+  <div class:list={[{ "component-wrapper": padding }]}>
     <slot />
   </div>
 </div>

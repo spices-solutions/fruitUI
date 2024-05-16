@@ -13,7 +13,7 @@ import For from "./For.astro";
 import LinkItem from "./LinkItem.astro";
 import { slugify } from "../utils";
 
-const { sidebar } = WathqnyConfig;
+const { sidebar, navbar } = WathqnyConfig;
 
 const docs = await getCollection("docs");
 
@@ -29,17 +29,44 @@ let currentUrl =
     .filter((url) => url !== "")
     .reverse()[0];
 ---
+
 <aside class="wtq-sidebar">
   <ul class="sidebar_category" role="tablist">
+    <li class="min-nav">
+      <ul role="list">
+        {
+          navbar?.items.map((Item) => {
+            return (
+              <li>
+                <a class="category_toggle wtq-focusable" href={Item.href}>
+                  {Item.label}
+                </a>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </li>
     <For each={sidebar}>
       {
         (item: { label: string; id: any }) => (
           <Category
             name={item.label}
-            isActive={docs.some((doc: { data: { href: string; title: string | undefined; category: any; }; }) => {
-              let documentLink = doc.data.href ?? ("/" + slugify(doc.data.title))
-              return doc.data.category == item.id && currentUrl == documentLink
-            })}>
+            isActive={docs.some(
+              (doc: {
+                data: {
+                  href: string;
+                  title: string | undefined;
+                  category: any;
+                };
+              }) => {
+                let documentLink =
+                  doc.data.href ?? "/" + slugify(doc.data.title);
+                return (
+                  doc.data.category == item.id && currentUrl == documentLink
+                );
+              }
+            )}>
             <For each={docs}>
               {(doc: {
                 data: {

@@ -6,7 +6,8 @@
   "files": [
     "src",
     "./src/components/*",
-    "./src/index.ts"
+    "./src/index.ts",
+    "./styles/scss/wathqny.scss"
   ],
   "module": "./src/index.ts",
   "exports": {
@@ -25,7 +26,6 @@
     }
   },
   "scripts": {
-    "build": "sass styles/scss:styles/css "
   },
   "keywords": [
     "spices",

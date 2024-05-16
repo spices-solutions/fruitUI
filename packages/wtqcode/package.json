@@ -13,8 +13,8 @@
     ".": {
       "import": "./src/index.ts"
     },
-    "./astro": "./src/components/astro/CodeBlock.astro",
-    "./style": "./src/code.css"
+    "./astro": "./src/components/astro/Code.astro",
+    "./styles": "./src/code.css"
   },
   "keywords": [
     "spices",

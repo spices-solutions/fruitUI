@@ -1,9 +1,16 @@
 import type { WathqnyConfig } from "wtqtypes";
 
+import fruitStyles from "/src/docs.scss?url";
+import ThemeStyles from "wtqdocs/styles?url";
+import CodeStyles from "wtqcode/styles?url";
+
 const Config: WathqnyConfig = {
+  logo: "/icon.svg",
   siteName: "fruitUI",
-  OGImage: "/og.png",
-  OGImageAlt: "",
+  OGImage: {
+    src: "/og.png",
+    alt: "",
+  },
   description: "fruit UI a modular styling framework",
   keywords: [
     "fruitUI",
@@ -35,25 +42,18 @@ const Config: WathqnyConfig = {
     },
   ],
   navbar: {
-    brand: {
-      logo: "/icon.svg",
-      name: "fruitUI",
-    },
-    Items: [
+    items: [
       {
-        item: "Docs",
+        label: "Docs",
         href: "/docs/getting-started/overview",
       },
       {
-        item: "Blog",
+        label: "Blog",
         href: "/blog",
       },
     ],
   },
-  css: [
-    "/src/docs.scss",
-    "wtqdocs/styles" // npm
-  ],
+  css: [ThemeStyles, CodeStyles, fruitStyles],
 };
 
 export default Config;

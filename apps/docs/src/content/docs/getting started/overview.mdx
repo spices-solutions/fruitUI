@@ -17,12 +17,11 @@ and it's not the most customizable. Now, enter FruitUI – it's modular, so you 
 
 ### via cdn
 
-<CodeBlock lang="html" code={
+<Code lang="html" code={
 `<!-- js -->
 <script src="https://cdn.jsdelivr.net/npm/spices-fruitui"></script>
 
 <!-- css -->
-
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/spices-fruitui/style">`} />
 
 ### via npm
@@ -40,7 +39,9 @@ npm i spices-fruitui
 a better way
 
 ```scss
-@use "~/basket" as * with ($a-var: true,; // pass var for sass runtime err);
+@use "~/basket" as * with (
+  $a-var: true, // pass var for sass runtime err
+);
 ```
 
  import javascript

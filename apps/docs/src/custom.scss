@@ -10,6 +10,7 @@ main {
     flex-direction: column;
     text-align: center;
     .title {
+      margin: 0;
       background: linear-gradient(
         9deg,
         hsl(var(--darkest)) 53%,
