@@ -36,6 +36,9 @@
   position: relative;
   background-color: hsl(var(--white));
   box-shadow: 0 5px 10px -8px #27272a26;
+  .wtq-toggle-wrapper {
+    display: flex;
+  }
   .dark & {
     background-color: hsl(var(--black), 0.05);
   }
@@ -82,24 +85,6 @@
   }
 
   @media screen and (max-width: 768px) {
-    .wtq-active &-overlay {
-      opacity: 100%;
-      display: block;
-      top: 0;
-      cursor: pointer;
-      left: 0;
-      background-color: #00000070;
-      width: 100%;
-      height: 100vh;
-
-    }
-
-    &.wtq-active {
-      .wtq-links {
-        transform: translateX(100%);
-      }
-    }
-
     .wtq-toggle {
       width: 40px;
       height: 40px;
@@ -129,22 +114,9 @@
       }
     }
     .wtq-links {
-      background-color: hsl(var(--lightest));
-      transition: all 300ms ease;
-      padding: 1rem 0px;
-      transform: translateX(200%);
-      flex-direction: column;
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 50%;
-      height: 100vh;
-      text-align: center;
-      li {
-        padding: 10px;
-      }
-      .wtq-item-button {
-        padding: 0;
+      padding: 0;
+      .link-item {
+        display: none;
       }
     }
   }
