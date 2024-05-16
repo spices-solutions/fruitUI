@@ -25,25 +25,23 @@ const { logo, siteName, navbar } = WathqnyConfig;
       <span>{siteName}</span>
     </div>
   </a>
-  <button tabindex="0" aria-label="hamburger-menu" class="wtq-toggle"></button>
   <ul class="wtq-links">
     {
-      navbar?.items.map((Item) => {
+      navbar?.items.map((item) => {
         return (
-          <li>
-            <a href={Item.href}>{Item.item}</a>
+          <li class="link-item">
+            <a href={item.href}>{item.label}</a>
           </li>
         );
       })
     }
-    <li class="wtq-item-button">
-      <button
-        class="theme-switcher wtq-focusable"
-        aria-label="dark mode toggler">
-        <Icon name={"moon"} class={"dark-mode-moon"} />
-        <Icon name={"sun"} class={"dark-mode-sun"} />
-      </button>
-    </li>
+  <li class="wtq-toggle-wrapper">
+    <button tabindex="0" aria-label="hamburger-menu" class="wtq-toggle"></button>
+    <button class="theme-switcher wtq-focusable" aria-label="dark mode toggler">
+      <Icon name={"moon"} class={"dark-mode-moon"} />
+      <Icon name={"sun"} class={"dark-mode-sun"} />
+    </button>
+  </li>
   </ul>
   <script src="./navbar.ts"></script>
 </nav>

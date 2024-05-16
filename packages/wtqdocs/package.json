@@ -26,7 +26,6 @@
     }
   },
   "scripts": {
-    "build": "sass styles/scss:styles/css "
   },
   "keywords": [
     "spices",
