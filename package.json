@@ -9,10 +9,7 @@
   },
   "scripts": {
     "dev": "turbo run dev",
-    "build": "turbo run build",
-    "sass": "sass -w packages/fruitui/src/scss/build:dev-dest/css",
-    "prod": "sass --style=compressed packages/fruitui/src/scss/build:packages/fruitui/dist/css",
-    "turbo:prod": "turbo run build"
+    "build": "turbo run build"
   },
   "devDependencies": {
     "@biomejs/biome": "1.6.1",
