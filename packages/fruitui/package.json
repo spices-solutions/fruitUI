@@ -8,12 +8,14 @@
     "dist",
     "src"
   ],
-  "main": "./dist/index.iife.js",
   "module": "./dist/index.js",
-  "types": "./dist/types/types.d.ts",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/index.js"
+    },
+    "./iife": {
+      "import": "./dist/index.iife.js"
     },
     "./style": {
       "import": "./dist/css/fruitUI.css"
@@ -38,10 +40,10 @@
     "build": "npm run build:js && npm run build:css"
   },
   "devDependencies": {
-    "sass": "^1.69.5",
-    "typescript": "^5.3.3",
-    "vite": "^5.1.3",
-    "vite-plugin-dts": "^3.5.1"
+    "sass": "^1.77.2",
+    "typescript": "^5.4.5",
+    "vite": "^5.2.11",
+    "vite-plugin-dts": "^3.9.1"
   },
   "bugs": {
     "url": "https://github.com/spices-solutions/fruitUI/issues"
