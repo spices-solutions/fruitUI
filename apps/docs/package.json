@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
+    "lint": "eslint .",
     "build": "astro build",
     "serve": "astro preview",
     "preview": "astro build && astro preview",
@@ -33,6 +34,8 @@
     "workbox-window": "^7.1.0",
     "wtqcode": "workspace:*",
     "wtqdocs": "workspace:*",
-    "wtqtypes": "workspace:*"
+    "wtqtypes": "workspace:*",
+    "@repo/eslint-config": "workspace:*"
+
   }
 }

@@ -1,0 +1,16 @@
+{
+  "name": "@repo/eslint-config",
+  "license": "MIT",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "exports": {
+    ".": "./library.js"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.3.0",
+    "eslint": "9.x",
+    "globals": "^15.3.0",
+    "typescript-eslint": "^7.9.0"
+  }
+}

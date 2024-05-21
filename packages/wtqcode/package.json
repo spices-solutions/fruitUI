@@ -21,11 +21,16 @@
     "code",
     "wathqny"
   ],
+  "scripts": {
+    "lint": "eslint ."
+  },
   "devDependencies": {
     "@astrojs/ts-plugin": "^1.6.0",
     "astro": "^4.4.0",
     "shiki": "^1.5.1",
-    "typescript": "^5.3.3"
+    "typescript": "^5.4.5",
+    "@repo/eslint-config": "workspace:*"
+
   },
   "homepage": "http://fruit-ui.vercel.app",
   "license": "MIT",

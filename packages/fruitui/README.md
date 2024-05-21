@@ -20,8 +20,6 @@ docs https://fruit-ui.vercel.app
 ```bash
 npm i spices-fruitui 
 ```
-
-
 - [ ] full RTL support 0%
 - [x] dark mode 10%
 
