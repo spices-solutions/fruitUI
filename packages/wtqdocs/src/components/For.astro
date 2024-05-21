@@ -1,14 +1,14 @@
 ---
 interface Props {
-  each: string[] | object[] | object | undefined;
+  each: string[] | object[] | undefined;
   self?: boolean;
 }
 
 const { each } = Astro.props as Props;
 
-async function forloop(each) {
+async function forloop(each: string[] | object[] | undefined) {
   let html = "";
-  if (Astro.slots.has("default")) {
+  if (Astro.slots.has("default") && each) {
     for (let i = 0; i < each.length; i++) {
       html += await Astro.slots.render("default", [each[i]]);
     }
