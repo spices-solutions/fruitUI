@@ -122,6 +122,9 @@ importers:
       '@double-great/stylelint-a11y':
         specifier: ^3.0.2
         version: 3.0.2(stylelint@16.5.0)
+      stylelint-config-clean-order:
+        specifier: ^5.4.2
+        version: 5.4.2(stylelint@16.5.0)
       stylelint-config-standard-scss:
         specifier: ^13.1.0
         version: 13.1.0(postcss@8.4.38)(stylelint@16.5.0)
@@ -9133,6 +9136,15 @@ packages:
       postcss: 8.4.38
       postcss-selector-parser: 6.0.16
     dev: true
+
+  /stylelint-config-clean-order@5.4.2(stylelint@16.5.0):
+    resolution: {integrity: sha512-lhPnDUL1gQbZYqG9kQx5dfEfiD/EpyVbb6jOiR7YfKzkIVv7Rw4jSKzvxr4v5PZqmRyCSzM3goc93jqfF+OZbA==}
+    peerDependencies:
+      stylelint: '>=14'
+    dependencies:
+      stylelint: 16.5.0
+      stylelint-order: 6.0.4(stylelint@16.5.0)
+    dev: false
 
   /stylelint-config-recommended-scss@14.0.0(postcss@8.4.38)(stylelint@16.5.0):
     resolution: {integrity: sha512-HDvpoOAQ1RpF+sPbDOT2Q2/YrBDEJDnUymmVmZ7mMCeNiFSdhRdyGEimBkz06wsN+HaFwUh249gDR+I9JR7Onw==}

@@ -3,11 +3,6 @@ export default {
   extends: [
     "stylelint-config-standard",
     "stylelint-config-standard-scss",
-    "stylelint-plugin-defensive-css",
-    "stylelint-order",
-    "@double-great/stylelint-a11y"
+    "stylelint-config-clean-order",
   ],
-  rules: {
-    "block-no-empty": true,
-  },
 };

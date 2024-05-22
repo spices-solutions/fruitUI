@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@double-great/stylelint-a11y": "^3.0.2",
+    "stylelint-config-clean-order": "^5.4.2",
     "stylelint-config-standard-scss": "^13.1.0",
     "stylelint-order": "^6.0.4",
     "stylelint-plugin-defensive-css": "^1.0.4"
