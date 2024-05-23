@@ -29,7 +29,8 @@
     "astro": "^4.4.0",
     "shiki": "^1.5.1",
     "typescript": "^5.4.5",
-    "@repo/eslint-config": "workspace:*"
+    "@repo/eslint-config": "workspace:*",
+    "@repo/stylelint-config": "workspace:*"
 
   },
   "homepage": "http://fruit-ui.vercel.app",

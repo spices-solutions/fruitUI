@@ -35,7 +35,8 @@
     "wtqcode": "workspace:*",
     "wtqdocs": "workspace:*",
     "wtqtypes": "workspace:*",
-    "@repo/eslint-config": "workspace:*"
+    "@repo/eslint-config": "workspace:*",
+    "@repo/stylelint-config": "workspace:*"
 
   }
 }

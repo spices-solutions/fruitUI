@@ -1,8 +1,11 @@
 {
-  "name": "stylelint-config",
+  "name": "@repo/stylelint-config",
   "version": "0.0.1",
-  "main": "index.js",
-  "license": "ISC",
+  "module": "index.mjs",
+  "license": "MIT",
+  "exports": {
+    ".": "./index.js"
+  },
   "dependencies": {
     "stylelint-config-clean-order": "^5.4.2",
     "stylelint-config-standard-scss": "^13.1.0",
