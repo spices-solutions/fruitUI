@@ -44,7 +44,8 @@
     "vite-plugin-dts": "^3.7.3",
     "workbox-window": "^7.1.0",
     "wtqtypes": "workspace:*",
-    "@repo/eslint-config": "workspace:*"
+    "@repo/eslint-config": "workspace:*",
+    "@repo/stylelint-config": "workspace:*"
   },
   "homepage": "http://fruit-ui.vercel.app",
   "license": "MIT",
