@@ -16,10 +16,12 @@
     "@astrojs/mdx": "^3.0.0",
     "@astrojs/rss": "^4.0.5",
     "@astrojs/sitemap": "^3.1.4",
+    "@repo/eslint-config": "workspace:*",
+    "@repo/stylelint-config": "workspace:*",
     "@shikijs/transformers": "^1.5.1",
     "@vite-pwa/assets-generator": "^0.2.4",
     "@vite-pwa/astro": "^0.3.0",
-    "astro": "^4.8.2",
+    "astro": "^4.9.1",
     "astro-auto-import": "^0.4.2",
     "astro-compress": "^2.2.3",
     "astro-compressor": "^0.4.1",
@@ -34,9 +36,6 @@
     "workbox-window": "^7.1.0",
     "wtqcode": "workspace:*",
     "wtqdocs": "workspace:*",
-    "wtqtypes": "workspace:*",
-    "@repo/eslint-config": "workspace:*",
-    "@repo/stylelint-config": "workspace:*"
-
+    "wtqtypes": "workspace:*"
   }
 }
