@@ -1,59 +1,65 @@
 ---
-import { getCollection } from "astro:content";
-import { Icon } from "astro-icon/components";
+import { Icon } from 'astro-icon/components'
+import { getCollection } from 'astro:content'
 
-import WathqnyConfig from "/wathqny.config";
+import WathqnyConfig from '/wathqny.config'
 
-const docs = await getCollection("docs");
+const docs = await getCollection('docs')
 
-const { category } = WathqnyConfig;
+const { category } = WathqnyConfig
 
 docs.sort(
   (a: { data: { position: number } }, b: { data: { position: number } }) =>
     a.data.position > b.data.position ? 1 : -1
-);
+)
 
 let cutUrl =
-  "/" +
+  '/' +
   Astro.url.pathname
-    .split("/")
-    .filter((url) => url !== "")
-    .reverse()[0];
+    .split('/')
+    .filter((url) => url !== '')
+    .reverse()[0]
 ---
 
 <aside class="wtq-sidebar">
   <ul class="wtq-sidebar-category" role="tablist">
     {
       category?.map((category: string) => {
-        let ActiveClass = false;
+        let ActiveClass = false
         docs.map((doc: { data: { href: string; category: any } }) => {
           if (doc.data.href == cutUrl && doc.data.category == category) {
-            ActiveClass = true;
+            ActiveClass = true
           }
-        });
+        })
         return (
-          <li class:list={[{ "wtq-active": ActiveClass }]} role="tab">
+          <li class:list={[{ 'wtq-active': ActiveClass }]} role="tab">
             <button
               aria-expanded="false"
               tabindex="0"
               class:list={[
-                "wtq-sidebar-category-link wtq-focusable",
-                { "wtq-active": ActiveClass },
+                'wtq-sidebar-category-link wtq-focusable',
+                { 'wtq-active': ActiveClass },
               ]}
-              id={`${category.toLowerCase()}-category`}>
-              {category.replace("-", " ")}{" "}
-              <Icon class="arrow-icon" name={"arrow"} />
+              id={`${category.toLowerCase()}-category`}
+            >
+              {category.replace('-', ' ')}{' '}
+              <Icon class="arrow-icon" name={'arrow'} />
             </button>
             <ul
               aria-labelledby={`${category.toLowerCase()}-category`}
               class:list={[
-                "wtq-sidebar-category-collapse ",
-                { "wtq-active": ActiveClass },
+                'wtq-sidebar-category-collapse ',
+                { 'wtq-active': ActiveClass },
               ]}
-              style={`${ActiveClass && "max-height: 0px;"}`}>
+              style={`${ActiveClass && 'max-height: 0px;'}`}
+            >
               {docs.map(
                 (doc: {
-                  data: { category: any; href: string; title: unknown };
+                  data: {
+                    category: any
+                    href: string
+                    title: unknown
+                  }
                 }) => {
                   return (
                     doc.data.category == category && (
@@ -62,25 +68,27 @@ let cutUrl =
                           tabindex="-1"
                           class="wtq-doc-link wtq-focusable"
                           href={
-                            "/docs/" + category.toLowerCase() + doc.data.href
-                          }>
+                            '/docs/' + category.toLowerCase() + doc.data.href
+                          }
+                        >
                           {doc.data.title}
                         </a>
                       </li>
                     )
-                  );
+                  )
                 }
               )}
             </ul>
           </li>
-        );
+        )
       })
     }
   </ul>
   <button
     aria-label="expand sidebar toggle"
     class="wtq-collapse-button wtq-focusable"
-    ><Icon name={"double-arrow"} /></button
   >
+    <Icon name={'double-arrow'} />
+  </button>
 </aside>
 <script src="./sidebar.ts"></script>

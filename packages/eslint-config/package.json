@@ -12,5 +12,10 @@
     "eslint": "9.x",
     "globals": "^15.3.0",
     "typescript-eslint": "^7.10.0"
+  },
+  "dependencies": {
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-astro": "^1.2.0",
+    "eslint-plugin-jsx-a11y": "^6.8.0"
   }
 }

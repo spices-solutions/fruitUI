@@ -4,14 +4,14 @@
   "module": "index.mjs",
   "license": "MIT",
   "exports": {
-    ".": "./index.js"
+    ".": "./index.mjs"
   },
   "dependencies": {
     "stylelint-config-clean-order": "^5.4.2",
+    "stylelint-config-standard": "^36.0.0",
     "stylelint-config-standard-scss": "^13.1.0",
     "stylelint-define-config": "^1.5.0",
     "stylelint-order": "^6.0.4",
-    "stylelint": "^16.5.0",
-    "stylelint-config-standard": "^36.0.0"
+    "stylelint": "^16.5.0"
   }
 }
