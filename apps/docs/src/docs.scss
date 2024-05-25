@@ -24,6 +24,10 @@
 
 @include useShades(900, 50);
 
+body {
+  font-family: Geist, system-ui;
+}
+
 // @include renderFrame("slideRight");
 
 // .showup {

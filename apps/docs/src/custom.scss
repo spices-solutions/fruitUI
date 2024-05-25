@@ -1,30 +1,36 @@
 main {
-  height: 100vh;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  height: 100vh;
+
   .hero {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
     text-align: center;
+
     .title {
       margin: 0;
+      padding-block: 5px;
+
+      font-size: clamp(1rem, 10vw, 4rem);
+      font-weight: 900;
+      color: transparent;
+      letter-spacing: -0.5px;
+
       background: linear-gradient(
         9deg,
         hsl(var(--darkest)) 53%,
         hsl(var(--medium)) 100%
       );
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
       background-clip: text;
-      font-size: clamp(1rem, 10vw, 4rem);
-      color: transparent;
-      font-weight: 900;
-      letter-spacing: -0.5px;
-      padding-block: 5px;
+
+      -webkit-text-fill-color: transparent;
     }
+
     .subtitle {
       margin-bottom: 24px;
       font-size: clamp(1rem, 4vw, 2rem);

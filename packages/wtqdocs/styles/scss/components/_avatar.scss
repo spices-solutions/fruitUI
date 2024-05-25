@@ -1,33 +1,38 @@
-
 .wtq-avatar-contanier {
   display: flex;
-  align-items: center;
   gap: 10px;
+  align-items: center;
 
   .wtq-avatar {
-    @media screen and (max-width: 768px) {
+    border-radius: 50%;
+
+    @media screen and (width <= 768px) {
       width: 40px;
       height: auto;
     }
-    border-radius: 50%;
   }
+
   div {
-    @media screen and (max-width: 768px) {
-      display: none;
-    }
     line-height: 1.2;
+
     .wtq-avatar-name {
-      color: hsl(var(--darkest));
       margin: 0;
-      font-weight: 500;
       font-size: 0.9rem;
+      font-weight: 500;
+      color: hsl(var(--darkest));
     }
+
     .wtq-avatar-role {
       margin: 0;
+
       font-size: 0.8rem;
       font-weight: 300;
-      letter-spacing: 0.5pt;
       color: hsl(var(--dark));
+      letter-spacing: 0.5pt;
+    }
+
+    @media screen and (width <= 768px) {
+      display: none;
     }
   }
 }

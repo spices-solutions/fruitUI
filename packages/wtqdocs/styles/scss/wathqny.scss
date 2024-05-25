@@ -1,46 +1,59 @@
-@import "./base/base";
-@import "./components/navbar";
-@import "./components/breadcrumbs";
-@import "./components/sidebar";
-@import "./components/avatar";
-@import "./blog/index";
+@import './base/base';
+@import './components/navbar';
+@import './components/breadcrumbs';
+@import './components/sidebar';
+@import './components/avatar';
+@import './blog/index';
 
-.sr-only {
+%sr-only {
   position: absolute;
+
+  overflow: hidden;
+
   width: 1px;
   height: 1px;
-  padding: 0;
   margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
+  padding: 0;
+
   white-space: nowrap;
+
+  clip: rect(0, 0, 0, 0);
   border-width: 0;
 }
 
-.sr-not-only {
+%sr-not-only {
   position: static;
+
+  overflow: visible;
+
   width: auto;
   height: auto;
-  padding: 0;
   margin: 0;
-  overflow: visible;
-  clip: auto;
+  padding: 0;
+
   white-space: normal;
+
+  clip: auto;
 }
 
 #skip {
-  @extend .sr-only;
+  @extend %sr-only;
+
   &:focus-visible {
-    @extend .sr-not-only;
-    outline: none;
-    z-index: 9999;
-    margin: 0.75rem;
+    @extend %sr-not-only;
+
     position: absolute;
-    background-color: white;
+    z-index: 9999;
+
+    margin: 0.75rem;
     padding: 10px 15px;
-    border-radius: 10px;
+
+    background-color: white;
     border: 1px solid hsl(var(--light));
-    box-shadow: 0px 10px 9px -8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    outline: none;
+    box-shadow: 0 10px 9px -8px rgb(0 0 0 / 10%);
+
     .dark & {
       background-color: hsl(var(--lightest));
       border: 1px solid hsl(var(--light));
@@ -49,23 +62,24 @@
 }
 
 .wtq-page {
+  contain: layout;
   display: flex;
   height: 100%;
-  contain: layout;
 }
 
 .wtq-container {
-  padding-inline: 15px;
-  margin-inline: auto;
   width: 90%;
   max-width: 1400px;
+  margin-inline: auto;
+  padding-inline: 15px;
 }
 
 .wtq-main-heading {
   margin-top: 10px !important;
   margin-bottom: 10px;
-  line-height: 1.1;
+
   font-size: 2.986rem;
+  line-height: 1.1;
   text-transform: capitalize;
 }
 
@@ -75,52 +89,61 @@
   height: calc(100vh - 50px);
   padding-bottom: 40px;
 }
+
 .wtq-card-container-category {
   display: grid;
-  gap: 1.3rem;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.3rem;
   margin-top: 30px;
-  @media screen and (max-width: 768px) {
+
+  @media screen and (width <= 768px) {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 }
 
 .wtq-card {
-  border: 1px solid hsl(var(--light), 0.5);
-  background-color: hsl(var(--white));
-  border-radius: 20px;
-  transition: all 200ms ease;
   padding: 25px;
+
+  background-color: hsl(var(--white));
+  border: 1px solid hsl(var(--light) 0.5);
+  border-radius: 20px;
+
+  transition: all 200ms ease;
+
   .dark & {
+    background-color: hsl(var(--light) 0.3);
     border-color: hsl(var(--lightest));
-    background-color: hsl(var(--light), 0.3);
   }
+
   &:hover {
     transform: translateY(-5px);
   }
+
   .wtq-card-title {
-    color: hsl(var(--darkest));
+    margin: 0;
+
+    font-size: var(--font-lg);
     font-weight: 600;
     line-height: 1.5;
-    font-size: var(--font-lg);
-    margin: 0;
+    color: hsl(var(--darkest));
   }
 
   .wtq-card-subtitle {
     margin: 0;
-    color: hsl(var(--dark));
-    font-weight: 400;
     font-size: var(--font-xs);
+    font-weight: 400;
+    color: hsl(var(--dark));
   }
 }
 
 .dark {
   :is(.shiki, .astro-code) span,
   :is(.shiki, .astro-code) {
-    color: var(--shiki-dark) !important;
-    background-color: var(--shiki-dark-bg) !important;
-    font-style: var(--shiki-dark-font-style) !important;
     font-weight: var(--shiki-dark-font-weight) !important;
+    font-style: var(--shiki-dark-font-style) !important;
+    color: var(--shiki-dark) !important;
     text-decoration: var(--shiki-dark-text-decoration) !important;
+
+    background-color: var(--shiki-dark-bg) !important;
   }
 }
