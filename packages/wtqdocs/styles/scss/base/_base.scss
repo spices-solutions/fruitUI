@@ -143,7 +143,7 @@ body {
   figure figcaption {
     margin-top: 1rem;
     font-style: italic;
-    color: hsl(var(--dark) 0.8);
+    color: hsl(var(--dark), 0.8);
     word-break: break-all;
   }
 
@@ -168,7 +168,7 @@ body {
       }
 
       :is(thead, tr:nth-child(2n)) {
-        background-color: hsl(var(--light) 0.25);
+        background-color: hsl(var(--light), 0.25);
       }
 
       :is(td, th) {

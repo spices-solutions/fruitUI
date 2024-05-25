@@ -105,13 +105,13 @@
   padding: 25px;
 
   background-color: hsl(var(--white));
-  border: 1px solid hsl(var(--light) 0.5);
+  border: 1px solid hsl(var(--light), 0.5);
   border-radius: 20px;
 
   transition: all 200ms ease;
 
   .dark & {
-    background-color: hsl(var(--light) 0.3);
+    background-color: hsl(var(--light), 0.3);
     border-color: hsl(var(--lightest));
   }
 

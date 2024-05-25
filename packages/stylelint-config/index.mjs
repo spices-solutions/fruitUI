@@ -1,4 +1,6 @@
-export default {
+import defineConfig from 'stylelint-define-config'
+
+export default defineConfig({
   extends: [
     'stylelint-config-standard',
     'stylelint-config-standard-scss',
@@ -10,5 +12,9 @@ export default {
       customSyntax: 'postcss-scss',
     },
   ],
+
+  rules: {
+    "color-function-notation": false
+  },
   cache: true,
-}
+})
