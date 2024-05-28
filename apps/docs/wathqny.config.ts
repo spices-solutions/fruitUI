@@ -56,12 +56,7 @@ const Config: WathqnyConfig = {
   css: [
     ThemeStyles,
     CodeStyles,
-    {
-      href: fruitStyles,
-      rel: 'stylesheet',
-      media: 'print',
-      onload: "this.media = 'all'",
-    },
+    fruitStyles
   ],
 }
 

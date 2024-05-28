@@ -9,6 +9,7 @@
   },
   "scripts": {
     "dev": "turbo run dev",
+    "serve": "turbo run serve",
     "lint": "turbo run lint",
     "build": "turbo run build"
   },

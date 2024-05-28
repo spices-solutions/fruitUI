@@ -62,7 +62,8 @@
 }
 
 .wtq-page {
-  contain: layout;
+  content-visibility: auto;
+  contain-intrinsic-size: 1000px;
   display: flex;
   height: 100%;
 }
