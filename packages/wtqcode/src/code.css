@@ -1,5 +1,7 @@
 .wtq-browser-block {
   background-color: #fdfdfd;
+  filter: blur(8px);
+  transition: all ease 300ms;
 }
 
 .wtq-browser-block .component-wrapper {
@@ -7,6 +9,8 @@
 }
 
 .wtq-app-block {
+  will-change: height;
+
   margin-block: 20px 50px;
   padding: 20px;
   padding-bottom: 0;
