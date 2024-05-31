@@ -4,7 +4,7 @@
   "module": "index.mjs",
   "license": "MIT",
   "exports": {
-    ".": "./index.mjs"
+    ".": "./stylelint.config.mjs"
   },
   "dependencies": {
     "stylelint-config-clean-order": "^5.4.2",
