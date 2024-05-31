@@ -1,13 +1,5 @@
-import { defineConfig } from "astro/config";
-import mdx from "@astrojs/mdx";
-import sitemap from "@astrojs/sitemap";
-import AstroPWA from "@vite-pwa/astro";
-import compress from "astro-compress";
-import purgecss from "astro-purgecss";
-import metaTags from "astro-meta-tags";
-import icon from "astro-icon";
-import compressor from "astro-compressor";
-import AutoImport from "astro-auto-import";
+import mdx from '@astrojs/mdx'
+import sitemap from '@astrojs/sitemap'
 import {
   transformerNotationDiff,
   transformerNotationFocus,
@@ -15,28 +7,30 @@ import {
   transformerNotationWordHighlight,
   transformerNotationErrorLevel,
   transformerMetaWordHighlight,
-} from "@shikijs/transformers";
-
-import Wathqny from "./wathqny.config";
+} from '@shikijs/transformers'
+import AstroPWA from '@vite-pwa/astro'
+import AutoImport from 'astro-auto-import'
+import compressor from 'astro-compressor'
+import icon from 'astro-icon'
+import metaTags from 'astro-meta-tags'
+import purgecss from 'astro-purgecss'
+import { defineConfig } from 'astro/config'
+import Wathqny from './wathqny.config'
 
 // https://astro.build/config
 export default defineConfig({
-  server: {
-    host: "0.0.0.0",
-    port: 8000,
-  },
-  site: "https://fruit-ui.vercel.app/",
-  trailingSlash: "ignore",
+  site: 'https://fruit-ui.vercel.app/',
+  trailingSlash: 'ignore',
   i18n: {
-    defaultLocale: "en",
-    locales: ["en"],
+    defaultLocale: 'en',
+    locales: ['en'],
   },
   integrations: [
     AutoImport({
       imports: [
         {
-          "astro:assets": ["Image"],
-          wtqcode: ["BrowserBlock", "Code"],
+          'astro:assets': ['Image'],
+          wtqcode: ['BrowserBlock', 'Code'],
         },
       ],
     }),
@@ -44,8 +38,8 @@ export default defineConfig({
       optimize: true,
       shikiConfig: {
         themes: {
-          light: "material-theme-lighter",
-          dark: "material-theme-darker",
+          light: 'material-theme-lighter',
+          dark: 'material-theme-darker',
         },
         transformers: [
           transformerNotationDiff(),
@@ -58,13 +52,12 @@ export default defineConfig({
       },
     }),
     sitemap(),
-    compress(),
     purgecss(),
     AstroPWA({
       experimental: {
         directoryAndTrailingSlashHandler: true,
       },
-      registerType: "autoUpdate",
+      registerType: 'autoUpdate',
       devOptions: {
         enabled: false,
       },
@@ -75,24 +68,27 @@ export default defineConfig({
         clientsClaim: true,
         skipWaiting: true,
         cleanupOutdatedCaches: true,
-        navigateFallback: "/404",
-        globPatterns: ["**/*.{css,js,html,svg,png,ico,txt}"],
+        navigateFallback: '/404',
+        globPatterns: ['**/*.{css,js,html,svg,png,ico,txt}'],
       },
       manifest: {
         name: Wathqny.siteName,
         description: Wathqny.description,
-        theme_color: "#18181B",
-        background_color: "#fff",
-        display: "standalone",
-        scope: "/",
-        base: "/",
-        orientation: "portrait",
+        theme_color: '#18181B',
+        background_color: '#fff',
+        display: 'standalone',
+        scope: '/',
+        base: '/',
+        orientation: 'portrait',
       },
     }),
     metaTags(),
     icon({
-      iconDir: "src/assets/icons",
+      iconDir: 'src/assets/icons',
     }),
-    compressor({ gzip: true, brotli: false }),
+    compressor({
+      gzip: true,
+      brotli: false,
+    }),
   ],
-});
+})

@@ -44,15 +44,7 @@
     "sass": "^1.77.2",
     "typescript": "^5.4.5",
     "vite": "^5.2.11",
-    "vite-plugin-dts": "^3.9.1",
-    "@repo/eslint-config": "workspace:*",
-    "@repo/stylelint-config": "workspace:*",
-    "stylelint-config-standard": "^36.0.0",
-    "stylelint-config-clean-order": "^5.4.2",
-    "stylelint-config-standard-scss": "^13.1.0",
-    "stylelint-define-config": "^1.5.0",
-    "stylelint-order": "^6.0.4",
-    "stylelint": "^16.5.0"
+    "vite-plugin-dts": "^3.9.1"
   },
   "bugs": {
     "url": "https://github.com/spices-solutions/fruitUI/issues"

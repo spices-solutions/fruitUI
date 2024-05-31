@@ -24,6 +24,10 @@
 
 @include useShades(900, 50);
 
+body {
+  font-family: Geist, system-ui;
+}
+
 // @include renderFrame("slideRight");
 
 // .showup {
@@ -31,3 +35,7 @@
 // }
 
 // @include renderFrame("slideTop");
+
+.wtq-app-block-load {
+  filter: blur(0);
+}

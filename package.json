@@ -9,16 +9,15 @@
   },
   "scripts": {
     "dev": "turbo run dev",
+    "serve": "turbo run serve",
     "lint": "turbo run lint",
     "build": "turbo run build"
   },
   "devDependencies": {
-    "prettier": "3.2.5",
     "turbo": "^1.13.3"
   },
   "dependencies": {
-    "@trivago/prettier-plugin-sort-imports": "^4.3.0",
-    "prettier-plugin-astro": "^0.13.0",
-    "prettier-plugin-astro-organize-imports": "^0.4.8"
+    "@repo/eslint-config": "workspace:*",
+    "@repo/stylelint-config": "workspace:*"
   }
 }

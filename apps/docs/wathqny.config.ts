@@ -1,59 +1,63 @@
-import type { WathqnyConfig } from "wtqtypes";
+import type { WathqnyConfig } from 'wtqtypes'
 
-import fruitStyles from "/src/docs.scss?url";
-import ThemeStyles from "wtqdocs/styles?url";
-import CodeStyles from "wtqcode/styles?url";
+import CodeStyles from 'wtqcode/styles?url'
+import ThemeStyles from 'wtqdocs/styles?url'
+import fruitStyles from '/src/docs.scss?url'
 
 const Config: WathqnyConfig = {
-  logo: "/icon.svg",
-  siteName: "fruitUI",
+  logo: '/icon.svg',
+  siteName: 'fruitUI',
   OGImage: {
-    src: "/og.png",
-    alt: "",
+    src: '/og.png',
+    alt: '',
   },
-  description: "fruit UI a modular styling framework",
+  description: 'fruit UI a modular styling framework',
   keywords: [
-    "fruitUI",
-    "fruit",
-    "ui",
-    "css",
-    "html",
-    "js",
-    "framework",
-    "library",
-    "components",
+    'fruitUI',
+    'fruit',
+    'ui',
+    'css',
+    'html',
+    'js',
+    'framework',
+    'library',
+    'components',
   ],
   sidebar: [
     {
-      label: "Getting started",
-      id: "getting-started",
+      label: 'Getting started',
+      id: 'getting-started',
     },
     {
-      label: "Components",
-      id: "components",
+      label: 'Components',
+      id: 'components',
     },
     {
-      label: "Layout",
-      id: "layout",
+      label: 'Layout',
+      id: 'layout',
     },
     {
-      label: "Utilities",
-      id: "utilities",
+      label: 'Utilities',
+      id: 'utilities',
     },
   ],
   navbar: {
     items: [
       {
-        label: "Docs",
-        href: "/docs/getting-started/overview",
+        label: 'Docs',
+        href: '/docs/getting-started/overview',
       },
       {
-        label: "Blog",
-        href: "/blog",
+        label: 'Blog',
+        href: '/blog',
       },
     ],
   },
-  css: [ThemeStyles, CodeStyles, fruitStyles],
-};
+  css: [
+    ThemeStyles,
+    CodeStyles,
+    fruitStyles
+  ],
+}
 
-export default Config;
+export default Config
