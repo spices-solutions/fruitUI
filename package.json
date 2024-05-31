@@ -1,5 +1,5 @@
 {
-  "packageManager": "pnpm@8.15.1",
+  "packageManager": "pnpm@9.1.2",
   "name": "runtime",
   "private": true,
   "version": "0.0.0",
@@ -9,13 +9,15 @@
   },
   "scripts": {
     "dev": "turbo run dev",
-    "build": "turbo run build",
-    "sass": "sass -w packages/fruitui/src/scss/build:dev-dest/css",
-    "prod": "sass --style=compressed packages/fruitui/src/scss/build:packages/fruitui/dist/css",
-    "turbo:prod": "turbo run build"
+    "serve": "turbo run serve",
+    "lint": "turbo run lint",
+    "build": "turbo run build"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.6.1",
     "turbo": "^1.13.3"
+  },
+  "dependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/stylelint-config": "workspace:*"
   }
 }

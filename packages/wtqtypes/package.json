@@ -5,17 +5,18 @@
   "type": "module",
   "files": [
     "./src/index.ts",
+    "./dist/index.mjs",
     "./dist/*"
   ],
   "types": "./dist/index.d.ts",
-  "module": "./src/index.ts",
+  "module": "./dist/index.mjs",
   "exports": {
     ".": {
-      "import": "./src/index.ts"
+      "import": "./dist/index.mjs"
     }
   },
   "scripts": {
-    "build": "vite build"
+    "build": "unbuild"
   },
   "keywords": [
     "spices",
@@ -23,10 +24,7 @@
     "wathqny"
   ],
   "devDependencies": {
-    "@astrojs/ts-plugin": "^1.6.0",
-    "typescript": "^5.4.2",
-    "vite": "^5.1.5",
-    "vite-plugin-dts": "^3.7.3"
+    "unbuild": "^2.0.0"
   },
   "homepage": "http://fruit-ui.vercel.app",
   "license": "MIT",

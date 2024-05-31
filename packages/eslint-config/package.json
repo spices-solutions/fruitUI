@@ -1,0 +1,13 @@
+{
+  "name": "@repo/eslint-config",
+  "license": "MIT",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "exports": {
+    ".": "./eslint.config.mjs"
+  },
+  "dependencies": {
+    "@antfu/eslint-config": "^2.19.1"
+  }
+}

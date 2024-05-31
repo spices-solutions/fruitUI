@@ -1,6 +1,5 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "experimentalUI": true,
   "pipeline": {
     "dev": {
       "cache": false,
@@ -10,7 +9,7 @@
       "cache": true
     },
     "build": {
-      "dependsOn": ["lint","^build"],
+      "dependsOn": ["^build"],
       "outputs": ["dist/**"]
     },
     "deploy": {
