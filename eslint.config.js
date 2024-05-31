@@ -1,3 +1,3 @@
-import Config from "@repo/eslint-config"
+import Config from '@repo/eslint-config'
 
-export default Config;
+export default Config

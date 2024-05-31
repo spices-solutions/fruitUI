@@ -1,23 +1,23 @@
 // vite.config.js
-import { resolve } from "path";
-import { defineConfig } from "vite";
-import dts from "vite-plugin-dts";
+import { resolve } from 'node:path'
+import { defineConfig } from 'vite'
+import dts from 'vite-plugin-dts'
 
 /** @type {import('vite').UserConfig} */
 export default defineConfig({
   build: {
     sourcemap: true,
-    outDir: "./dist",
+    outDir: './dist',
     lib: {
       entry: [
-        resolve(__dirname, "./src/index.ts"),
+        resolve(__dirname, './src/index.ts'),
       ],
-      formats: ["es"],
+      formats: ['es'],
     },
   },
   plugins: [
     dts({
       insertTypesEntry: false,
-    }), 
+    }),
   ],
-});
+})
