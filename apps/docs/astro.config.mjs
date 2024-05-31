@@ -1,12 +1,12 @@
 import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
 import {
-  transformerNotationDiff,
-  transformerNotationFocus,
   transformerMetaHighlight,
-  transformerNotationWordHighlight,
-  transformerNotationErrorLevel,
   transformerMetaWordHighlight,
+  transformerNotationDiff,
+  transformerNotationErrorLevel,
+  transformerNotationFocus,
+  transformerNotationWordHighlight,
 } from '@shikijs/transformers'
 import AstroPWA from '@vite-pwa/astro'
 import AutoImport from 'astro-auto-import'
@@ -30,7 +30,7 @@ export default defineConfig({
       imports: [
         {
           'astro:assets': ['Image'],
-          wtqcode: ['BrowserBlock', 'Code'],
+          'wtqcode': ['BrowserBlock', 'Code'],
         },
       ],
     }),

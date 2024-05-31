@@ -1,9 +1,9 @@
 {
-  "packageManager": "pnpm@9.1.2",
   "name": "runtime",
-  "private": true,
-  "version": "0.0.0",
   "type": "module",
+  "version": "0.0.0",
+  "private": true,
+  "packageManager": "pnpm@9.1.2",
   "engines": {
     "node": ">=20.0.0 <22.0.0"
   },
@@ -11,13 +11,14 @@
     "dev": "turbo run dev",
     "serve": "turbo run serve",
     "lint": "turbo run lint",
+    "lint:fix": "turbo run lint:fix",
     "build": "turbo run build"
-  },
-  "devDependencies": {
-    "turbo": "^1.13.3"
   },
   "dependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/stylelint-config": "workspace:*"
+  },
+  "devDependencies": {
+    "turbo": "^1.13.3"
   }
 }

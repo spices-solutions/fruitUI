@@ -1,15 +1,25 @@
 {
   "name": "spices-fruitui",
-  "private": false,
-  "version": "0.3.1",
-  "description": "a modular styling framework",
   "type": "module",
-  "files": [
-    "dist",
-    "src"
+  "version": "0.3.1",
+  "private": false,
+  "description": "a modular styling framework",
+  "license": {
+    "type": "waqf",
+    "url": "https://github.com/ojuba-org/waqf/blob/master/2.0/EN/RAW"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/spices-solutions/fruitUI"
+  },
+  "bugs": {
+    "url": "https://github.com/spices-solutions/fruitUI/issues"
+  },
+  "keywords": [
+    "spices",
+    "UI",
+    "fruitUI"
   ],
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/index.js"
@@ -21,21 +31,15 @@
       "import": "./dist/css/fruitUI.css"
     }
   },
-  "keywords": [
-    "spices",
-    "UI",
-    "fruitUI"
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/spices-solutions/fruitUI"
-  },
-  "license": {
-    "type": "waqf",
-    "url": "https://github.com/ojuba-org/waqf/blob/master/2.0/EN/RAW"
-  },
   "scripts": {
     "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "build:js": "tsc && vite build",
     "build:css": "sass --style=compressed src/scss/build:dist/css",
     "build": "npm run build:js && npm run build:css"
@@ -45,8 +49,5 @@
     "typescript": "^5.4.5",
     "vite": "^5.2.11",
     "vite-plugin-dts": "^3.9.1"
-  },
-  "bugs": {
-    "url": "https://github.com/spices-solutions/fruitUI/issues"
   }
 }

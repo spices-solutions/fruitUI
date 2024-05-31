@@ -1,4 +1,3 @@
-
 // function Alert() {
 //   const alert: NodeListOf<Element> = document.querySelectorAll(".alert");
 //   alert.forEach(everyAlert => {
@@ -32,7 +31,7 @@
 //         setTimeout(() => everyCloseAlert.parentElement?.remove(), 300);
 //       })
 //     })
-//   }) 
+//   })
 // }
 
 // export default Alert;
