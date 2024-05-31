@@ -22,7 +22,8 @@
     "wathqny"
   ],
   "scripts": {
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "devDependencies": {
     "@astrojs/ts-plugin": "^1.6.0",

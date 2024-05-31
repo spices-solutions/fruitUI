@@ -16,7 +16,9 @@
     }
   },
   "scripts": {
-    "build": "unbuild"
+    "build": "unbuild",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "keywords": [
     "spices",

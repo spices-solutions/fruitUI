@@ -6,6 +6,7 @@
     "dev": "astro dev",
     "start": "astro dev",
     "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "build": "astro build",
     "serve": "astro preview",
     "preview": "astro build && astro preview",

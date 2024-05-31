@@ -31,7 +31,8 @@
     }
   },
   "scripts": {
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
 
   "devDependencies": {

@@ -36,6 +36,7 @@
   },
   "scripts": {
     "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "build:js": "tsc && vite build",
     "build:css": "sass --style=compressed src/scss/build:dist/css",
     "build": "npm run build:js && npm run build:css"
