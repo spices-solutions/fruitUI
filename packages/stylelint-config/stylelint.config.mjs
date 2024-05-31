@@ -8,7 +8,7 @@ export default defineConfig({
   ],
 
   rules: {
-    "color-function-notation": null
+    'color-function-notation': null,
   },
   cache: true,
 })

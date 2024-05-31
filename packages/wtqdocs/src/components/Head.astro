@@ -1,35 +1,35 @@
 ---
 // @ts-ignore
-import { pwaInfo } from 'virtual:pwa-info'
+import { pwaInfo } from "virtual:pwa-info";
 // @ts-ignore
-import { pwaAssetsHead } from 'virtual:pwa-assets/head'
+import { pwaAssetsHead } from "virtual:pwa-assets/head";
 
-import type { WathqnyConfig as WathqnyConfigType } from 'wtqtypes'
+import type { WathqnyConfig as WathqnyConfigType } from "wtqtypes";
 
 // @ts-ignore
-import untypedWathqnyConfig from '/wathqny.config'
+import untypedWathqnyConfig from "/wathqny.config";
 
-const WathqnyConfig: WathqnyConfigType = untypedWathqnyConfig
+const WathqnyConfig: WathqnyConfigType = untypedWathqnyConfig;
 
 export interface Props {
-  title?: string | undefined
-  description?: string | undefined
-  OGImage?: string | undefined
-  OGImageAlt?: string | undefined
-  keywords?: string | string[] | undefined
+  title?: string | undefined;
+  description?: string | undefined;
+  OGImage?: string | undefined;
+  OGImageAlt?: string | undefined;
+  keywords?: string | string[] | undefined;
 }
 
 const { title, keywords, description, OGImage, OGImageAlt } =
-  Astro.props as Props
+  Astro.props as Props;
 
 const METATITLE = title
   ? `${title} - ${WathqnyConfig.siteName}`
-  : WathqnyConfig.siteName
-const METAIMAGE = OGImage ?? WathqnyConfig.OGImage?.src
-const METAIMAGEALT = OGImageAlt ?? WathqnyConfig.OGImage?.alt
-const METADESCRIPTION = description ?? WathqnyConfig.description
-const METAKEYWORDS = keywords ?? [...(WathqnyConfig.keywords || [])]
-const canonicalURL = new URL(Astro.url.pathname, Astro.site)
+  : WathqnyConfig.siteName;
+const METAIMAGE = OGImage ?? WathqnyConfig.OGImage?.src;
+const METAIMAGEALT = OGImageAlt ?? WathqnyConfig.OGImage?.alt;
+const METADESCRIPTION = description ?? WathqnyConfig.description;
+const METAKEYWORDS = keywords ?? [...(WathqnyConfig.keywords || [])];
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <head>
@@ -38,25 +38,25 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
   <title>{METATITLE}</title>
 
   <script>
-    const root = document.documentElement
+    const root = document.documentElement;
 
     if (
-      localStorage.theme === 'dark' ||
-      (!('theme' in localStorage) &&
-        window.matchMedia('(prefers-color-scheme: dark)').matches)
+      localStorage.theme === "dark" ||
+      (!("theme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
     ) {
-      root?.classList.replace('light', 'dark')
+      root?.classList.replace("light", "dark");
     } else {
-      root?.classList.replace('dark', 'light')
+      root?.classList.replace("dark", "light");
     }
   </script>
 
   {
     WathqnyConfig?.css?.map((stylesheet) => {
-      if (typeof stylesheet === 'string') {
-        return <link href={stylesheet} rel="stylesheet" />
+      if (typeof stylesheet === "string") {
+        return <link href={stylesheet} rel="stylesheet" />;
       }
-      return <link {...stylesheet} />
+      return <link {...stylesheet} />;
     })
   }
 
@@ -77,8 +77,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
     pwaAssetsHead.links.map(
       (
         link: astroHTML.JSX.IntrinsicAttributes &
-          astroHTML.JSX.LinkHTMLAttributes
-      ) => <link {...link} />
+          astroHTML.JSX.LinkHTMLAttributes,
+      ) => <link {...link} />,
     )
   }
   {pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} />}

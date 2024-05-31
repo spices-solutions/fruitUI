@@ -1,38 +1,10 @@
 {
   "name": "wtqcode",
+  "type": "module",
   "version": "0.1.0",
   "description": "a ",
-  "type": "module",
-  "files": [
-    "dist",
-    "./src/**/*",
-    "./src/index.ts"
-  ],
-  "module": "./src/index.ts",
-  "exports": {
-    ".": {
-      "import": "./src/index.ts"
-    },
-    "./astro": "./src/components/astro/Code.astro",
-    "./styles": "./src/code.css"
-  },
-  "keywords": [
-    "spices",
-    "code",
-    "wathqny"
-  ],
-  "scripts": {
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
-  },
-  "devDependencies": {
-    "@astrojs/ts-plugin": "^1.6.0",
-    "astro": "^4.4.0",
-    "shiki": "^1.5.1",
-    "typescript": "^5.4.5"
-  },
-  "homepage": "http://fruit-ui.vercel.app",
   "license": "MIT",
+  "homepage": "http://fruit-ui.vercel.app",
   "repository": {
     "type": "git",
     "url": "https://github.com/spices-solutions/"
@@ -40,7 +12,35 @@
   "bugs": {
     "url": "https://github.com/spices-solutions/"
   },
+  "keywords": [
+    "spices",
+    "code",
+    "wathqny"
+  ],
+  "exports": {
+    ".": {
+      "import": "./src/index.ts"
+    },
+    "./astro": "./src/components/astro/Code.astro",
+    "./styles": "./src/code.css"
+  },
+  "module": "./src/index.ts",
+  "files": [
+    "./src/**/*",
+    "./src/index.ts",
+    "dist"
+  ],
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
   "dependencies": {
     "@shikijs/transformers": "^1.5.1"
+  },
+  "devDependencies": {
+    "@astrojs/ts-plugin": "^1.6.0",
+    "astro": "^4.4.0",
+    "shiki": "^1.5.1",
+    "typescript": "^5.4.5"
   }
 }

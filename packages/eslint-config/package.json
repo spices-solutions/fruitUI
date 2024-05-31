@@ -1,9 +1,9 @@
 {
   "name": "@repo/eslint-config",
-  "license": "MIT",
   "type": "module",
   "version": "0.0.1",
   "private": true,
+  "license": "MIT",
   "exports": {
     ".": "./eslint.config.mjs"
   },
