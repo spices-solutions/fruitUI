@@ -43,15 +43,7 @@
     "vite": "^5.1.5",
     "vite-plugin-dts": "^3.7.3",
     "workbox-window": "^7.1.0",
-    "wtqtypes": "workspace:*",
-    "@repo/eslint-config": "workspace:*",
-    "@repo/stylelint-config": "workspace:*",
-    "stylelint-config-standard": "^36.0.0",
-    "stylelint-config-clean-order": "^5.4.2",
-    "stylelint-config-standard-scss": "^13.1.0",
-    "stylelint-define-config": "^1.5.0",
-    "stylelint-order": "^6.0.4",
-    "stylelint": "^16.5.0"
+    "wtqtypes": "workspace:*"
   },
   "homepage": "http://fruit-ui.vercel.app",
   "license": "MIT",
