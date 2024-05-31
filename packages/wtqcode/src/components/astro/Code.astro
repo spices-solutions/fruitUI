@@ -1,0 +1,63 @@
+---
+import type {
+  BuiltinLanguage,
+  BuiltinTheme,
+  LanguageRegistration,
+  SpecialLanguage,
+  ThemeRegistration,
+  ThemeRegistrationRaw,
+} from "shiki";
+import { codeToHtml } from "shiki";
+import { getHighlighter } from "shiki";
+
+type themeType = BuiltinTheme | ThemeRegistration | ThemeRegistrationRaw;
+
+export interface Props {
+  code: string;
+  lang?: BuiltinLanguage | SpecialLanguage | LanguageRegistration;
+  themes?: {
+    light: themeType;
+    dark: themeType;
+  };
+}
+
+const {
+  code,
+  lang = "plaintext",
+  themes = { light: "material-theme-lighter", dark: "material-theme-darker" },
+} = Astro.props as Props;
+
+const shiki = await getHighlighter({
+  themes: [themes.light, themes.dark],
+  langs: [lang],
+});
+
+const codeOutput = codeToHtml(code, {
+  lang: lang as string,
+  themes: {
+    light: themes.light,
+    dark: themes.dark,
+  },
+});
+
+const bgLight = shiki.getTheme(themes.light).bg;
+const bgDark = shiki.getTheme(themes.dark).bg;
+---
+
+<style define:vars={{ bgLight, bgDark }} lang="scss">
+  div {
+    --bg: var(--bgLight);
+    :global(.dark) & {
+      --bg: var(--bgDark) !important;
+    }
+  }
+</style>
+
+<div class="wtq-app-block wtq-code-block wtq-app-block-load">
+  <div class="head">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+  <Fragment set:html={codeOutput} />
+</div>

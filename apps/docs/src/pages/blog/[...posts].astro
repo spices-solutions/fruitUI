@@ -4,6 +4,8 @@ import { type CollectionEntry, getCollection, getEntry } from "astro:content";
 import { Breadcrumbs } from "wtqdocs";
 import { BlogLayout, AuthorProfile } from "wtqdocs/blog";
 import { slugify } from "wtqdocs/utils";
+import WathqnyConfig from "../../../wathqny.config";
+
 
 export async function getStaticPaths() {
   let posts = await getCollection("blog");
@@ -42,7 +44,7 @@ const { Content } = await post.render();
   title={post.data.title}
   description={post.data.description}
   keywords={post.data.keywords}
-  OGImage={post.data.OGImage}
+  OGImage={post.data.cover}
   OGImageAlt={post.data.OGImageAlt}>
   <Breadcrumbs />
   <article>
@@ -58,10 +60,10 @@ const { Content } = await post.render();
           class="wtq-cover"
           width={960}
           height={540}
-          src={post.data.OGImage}
+          src={post.data.cover}
           formats={["avif", "webp"]}
           loading="eager"
-          alt="A description of my image."
+          alt={post.data.OGImageAlt ?? WathqnyConfig.OGImage?.alt}
         />
         <figcaption>
           dwaodjwaodjwijdkwahdhjwhgdjwhajdhjwhdwagdkulwdjlkwakldkl;awdiwijdkwahdhjwhgdjwhajdhjwhdwagdkulwdjlkwakldkl;awdiwakdgadhasklg.fendf;jheajgfawjdjagwdnjdcawdjbakwdbjkwabdjb

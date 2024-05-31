@@ -1,14 +1,22 @@
 {
   "name": "wtqdocs",
+  "type": "module",
   "version": "0.1.0",
   "description": "a ",
-  "type": "module",
-  "files": [
-    "src",
-    "./src/components/*",
-    "./src/index.ts"
+  "license": "MIT",
+  "homepage": "http://fruit-ui.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/spices-solutions/"
+  },
+  "bugs": {
+    "url": "https://github.com/spices-solutions/"
+  },
+  "keywords": [
+    "spices",
+    "docs",
+    "wathqny"
   ],
-  "module": "./src/index.ts",
   "exports": {
     ".": {
       "import": "./src/index.ts"
@@ -24,36 +32,30 @@
       "sidebar": "./src/components/sidebar.ts"
     }
   },
-  "scripts": {
-    "dev": "sass -w styles/scss:styles/css",
-    "build": "sass styles/scss:styles/css "
-  },
-  "keywords": [
-    "spices",
-    "docs",
-    "wathqny"
+  "module": "./src/index.ts",
+  "files": [
+    "./src/components/*",
+    "./src/index.ts",
+    "./styles/scss/wathqny.scss",
+    "src"
   ],
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+
+  "dependencies": {
+    "astro-icon": "^1.1.0"
+  },
   "devDependencies": {
     "@astrojs/ts-plugin": "^1.6.0",
     "@vite-pwa/assets-generator": "^0.2.4",
     "@vite-pwa/astro": "^0.3.0",
     "astro": "^4.4.15",
-    "typescript": "^5.4.2",
+    "typescript": "^5.4.5",
     "vite": "^5.1.5",
     "vite-plugin-dts": "^3.7.3",
-    "workbox-window": "^7.0.0",
+    "workbox-window": "^7.1.0",
     "wtqtypes": "workspace:*"
-  },
-  "homepage": "http://fruit-ui.vercel.app",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/spices-solutions/"
-  },
-  "bugs": {
-    "url": "https://github.com/spices-solutions/"
-  },
-  "dependencies": {
-    "astro-icon": "^1.1.0"
   }
 }

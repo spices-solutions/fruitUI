@@ -1,18 +1,18 @@
 // vite.config.js
-import { resolve } from "path";
-import { defineConfig } from "vite";
-import dts from "vite-plugin-dts";
+import { resolve } from 'node:path'
+import { defineConfig } from 'vite'
+import dts from 'vite-plugin-dts'
 
 /** @type {import('vite').UserConfig} */
 export default defineConfig({
   build: {
     sourcemap: true,
-    outDir: "./dist",
+    outDir: './dist',
     lib: {
-      entry: resolve(__dirname, "./src/ts/index.ts"),
+      entry: resolve(__dirname, './src/ts/index.ts'),
       name: 'fruitUI',
-      fileName: "index",
-      formats: ["es", "iife"],
+      fileName: 'index',
+      formats: ['es', 'iife'],
     },
   },
   plugins: [
@@ -20,4 +20,4 @@ export default defineConfig({
       insertTypesEntry: true,
     }),
   ],
-});
+})

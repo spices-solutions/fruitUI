@@ -2,12 +2,12 @@
 
   <img src="https://github.com/spices-solutions/fruitUI/blob/new-docs/apps/docs/public/cover.png"/>
 
-# FruitUI a modular styling framework 
+# FruitUI a modular styling framework
 
 when you use bootstarp for just the grid system or use the responsive navbar component ,
-if you want to use the grid system you have to load about **15k** lines of css code and if you loaded the full bootstarp bundle or if you use the bootstarp grid preset it contains {padding ,margin, etc...} it's about **6k** lines of code I don't want all this stuff so I create this library with it. 
+if you want to use the grid system you have to load about **15k** lines of css code and if you loaded the full bootstarp bundle or if you use the bootstarp grid preset it contains {padding ,margin, etc...} it's about **6k** lines of code I don't want all this stuff so I create this library with it.
 
-So you can import just one component like just the navbar or import just the grid system 
+So you can import just one component like just the navbar or import just the grid system
 
 # License
 
@@ -18,10 +18,8 @@ So you can import just one component like just the navbar or import just the gri
 docs https://fruit-ui.vercel.app
 
 ```bash
-npm i spices-fruitui 
+npm i spices-fruitui
 ```
-
-
 - [ ] full RTL support 0%
 - [x] dark mode 10%
 
@@ -48,17 +46,15 @@ npm i spices-fruitui
 - [ ] dropdown 0%
 - [ ] group 0%
 
-
 ### awesome components
 
 - [x] prototype 100%
-
 
 # experimental
 
 - [x] css mixin 10%
 
-```scss 
+```scss
 div {
   @include css((
     bg: #fff,
@@ -68,12 +64,12 @@ div {
       lg: 6px,
     ),
     items: center,
-    justify: center,    
+    justify: center,
   ));
 }
 ```
 
-output 
+output
 ```css
 div {
   background-color: #fff;
@@ -120,12 +116,12 @@ div {
   }
   ```
 
-# plugins 
+# plugins
 
 - [x] anim 60%
-  
-  it is a built in animation libarray 
+
+  it is a built in animation library
 
 - [x] debug 30%
-  
+
   it is a built in debuging and minimal unit testing  libarray

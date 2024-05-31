@@ -1,99 +1,48 @@
-function SidebarActions() {
-  const categoryItems = document.querySelectorAll(
-    ".wtq-sidebar-category li"
-  ) as NodeListOf<Element>;
-  const sidebarBtn = document.querySelector(".wtq-collapse-button");
-  const sidebar = document.querySelector(".wtq-sidebar") as HTMLElement;
-  const Aside = document.querySelector(".wtq-sidebar-category") as HTMLElement;
+//   sidebarBtn?.addEventListener("click", () => {
+//     if (Aside.classList.contains("wtq-aside-collapse")) {
+//       Aside.classList.remove("wtq-aside-collapse");
+//       sidebar.setAttribute("aria-expanded", "false");
+//       sidebarBtn.setAttribute("aria-expanded", "false");
+//     } else {
+//       Aside.classList.add("wtq-aside-collapse");
+//       sidebar.setAttribute("aria-expanded", "true");
+//       sidebarBtn.setAttribute("aria-expanded", "true");
+//     }
+//   });
+// }
 
-  // biome-ignore lint/complexity/noForEach: <explanation>
-  categoryItems.forEach((categoryItem) => {
-    const categoryItemLinks = categoryItem.querySelectorAll(
-      ".wtq-doc-link"
-    ) as NodeListOf<Element>;
+const sidebar = document.querySelector('.wtq-sidebar') as HTMLElement
+const toggle = document.querySelector('.wtq-toggle') as HTMLElement
 
-    const collapse = categoryItem.querySelector(
-      ".wtq-sidebar-category-collapse"
-    ) as HTMLElement;
-    const icon = categoryItem.querySelector(
-      ".wtq-sidebar-category-link"
-    ) as HTMLElement;
+toggle?.addEventListener('click', () => {
+  sidebar.classList.toggle('wtq-show')
+})
 
-    icon?.addEventListener("click", () => {
-      if (categoryItem.classList.contains("wtq-active")) {
-        // biome-ignore lint/complexity/noForEach: <explanation>
-        categoryItemLinks.forEach((categoryItemLink) => {
-          categoryItemLink.setAttribute("tabindex", "-1");
-        });
-        collapse.style.maxHeight = "0px";
-        icon?.classList.remove("wtq-active");
-        categoryItem?.classList.remove("wtq-active");
-        collapse?.classList.remove("wtq-active");
-      } else {
-        // biome-ignore lint/complexity/noForEach: <explanation>
-        categoryItemLinks.forEach((categoryItemLink) => {
-          categoryItemLink.removeAttribute("tabindex");
-        });
-        collapse?.classList.remove("wtq-active");
-        collapse.style.maxHeight = `${collapse.scrollHeight}px`;
-        icon?.classList.add("wtq-active");
-        categoryItem?.classList.add("wtq-active");
-      }
-    });
-  });
+const categoryItems = sidebar?.querySelectorAll(
+  '.sidebar_category .category_collapse--wrapper',
+)
 
-  // sidebarBtn?.addEventListener("click", () => {
-  // 	Aside?.classList.toggle("wtq-aside-collapse");
-
-  //   sidebar.setAttribute("aria-expanded", "true");
-  //   sidebarBtn.setAttribute("aria-expanded", "true");
-
-  // });
-
-  sidebarBtn?.addEventListener("click", () => {
-    if (Aside.classList.contains("wtq-aside-collapse")) {
-      Aside.classList.remove("wtq-aside-collapse");
-      sidebar.setAttribute("aria-expanded", "false");
-      sidebarBtn.setAttribute("aria-expanded", "false");
-    } else {
-      Aside.classList.add("wtq-aside-collapse");
-      sidebar.setAttribute("aria-expanded", "true");
-      sidebarBtn.setAttribute("aria-expanded", "true");
-    }
-  });
-}
-
-function measurePerformance(callback: Function) {
-  let start = performance.now();
-  callback();
-  let end = performance.now();
-  console.log(`Execution time: ${end - start} ms`);
-}
-
-// SidebarActions();
-function NewSidebarActions() {
-// TODO: refactor looping over all this elements
-const sidebar = document.querySelector(".wtq-sidebar");
-const categoryItems = sidebar?.querySelectorAll(".sidebar_category li");
-
-// biome-ignore lint/complexity/noForEach: <explanation>
 categoryItems?.forEach((categoryItem) => {
-  console.log(categoryItem)
-  const categoryCollapse = categoryItem?.querySelector(".category_collapse");
-  const categoryToggle = categoryItem?.querySelector(".category_toggle");
-  
-  categoryToggle?.addEventListener("click", () => {
-    if (categoryItem.classList.contains("wtq-active")) {
-      categoryItem.classList.remove("wtq-active");
-      categoryCollapse?.classList.remove("wtq-active");
-    } else {
-      categoryItem.classList.add("wtq-active");
-      categoryCollapse?.classList.add("wtq-active");
-    }
-  });
-});
-}
+  const categoryCollapse = categoryItem?.querySelector('.category_collapse')
+  const categoryToggle = categoryItem?.querySelector('.category_toggle')
+  const categoryLinks = categoryItem?.querySelectorAll('.collapse_item--link')
 
-measurePerformance(() => {
-  NewSidebarActions();
-});
+  categoryToggle?.addEventListener('click', () => {
+    if (categoryItem.classList.contains('wtq-active')) {
+      categoryLinks.forEach((categoryItemLink) => {
+        categoryItemLink.setAttribute('tabindex', '-1')
+      })
+      categoryCollapse.style.maxHeight = `0px`
+      categoryItem.classList.remove('wtq-active')
+      categoryCollapse?.classList.remove('wtq-active')
+    }
+    else {
+      categoryLinks.forEach((categoryItemLink) => {
+        categoryItemLink.setAttribute('tabindex', '0')
+      })
+      categoryCollapse.style.maxHeight = `${categoryCollapse.scrollHeight}px`
+      categoryItem.classList.add('wtq-active')
+      categoryCollapse?.classList.add('wtq-active')
+    }
+  })
+})

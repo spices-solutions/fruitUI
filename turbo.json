@@ -9,11 +9,11 @@
       "cache": true
     },
     "build": {
-      "dependsOn": ["lint","^build"],
+      "dependsOn": ["^build"],
       "outputs": ["dist/**"]
     },
     "deploy": {
-      "dependsOn": ["lint","build"]
+      "dependsOn": ["lint", "build"]
     }
   }
 }

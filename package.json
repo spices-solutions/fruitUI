@@ -1,21 +1,24 @@
 {
-  "packageManager": "pnpm@8.15.1",
   "name": "runtime",
-  "private": true,
-  "version": "0.0.0",
   "type": "module",
+  "version": "0.0.0",
+  "private": true,
+  "packageManager": "pnpm@9.1.2",
   "engines": {
     "node": ">=20.0.0 <22.0.0"
   },
   "scripts": {
     "dev": "turbo run dev",
-    "build": "turbo run build",
-    "sass": "sass -w packages/fruitui/src/scss/build:dev-dest/css",
-    "prod": "sass --style=compressed packages/fruitui/src/scss/build:packages/fruitui/dist/css",
-    "turbo:prod": "turbo run build"
+    "serve": "turbo run serve",
+    "lint": "turbo run lint",
+    "lint:fix": "turbo run lint:fix",
+    "build": "turbo run build"
+  },
+  "dependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/stylelint-config": "workspace:*"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.6.1",
-    "turbo": "^1.12.5"
+    "turbo": "^1.13.3"
   }
 }

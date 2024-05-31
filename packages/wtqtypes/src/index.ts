@@ -1,24 +1,28 @@
 type WathqnyConfig = {
-  siteName?: string;
-  description?: string;
-  keywords?: string[];
+  logo: string
+  siteName?: string
+  description?: string
+  keywords?: string[]
   sidebar?: {
-    label: string;
-    id?: string;
-  }[];
-  image?: string;
-  category?: any;
-  darkMode?: boolean;
-  locale?: string;
-  locale_dir: "ltr" | "rtl";
-  css?: string[];
+    label: string
+    id?: string
+  }[]
+  OGImage?: {
+    src: string
+    alt: string
+  }
+  css?:
+    | string
+    | {
+        href: string
+        rel?: string
+        onload?: string
+        media?: string
+        [key: string]: string | undefined
+      }[]
   navbar?: {
-    brand: {
-      name: string;
-      logo: string;
-    };
-    Items: { href?: string; item?: string }[];
-  };
-};
+    items: { href?: string; label?: string }[]
+  }
+}
 
-export type { WathqnyConfig };
+export type { WathqnyConfig }

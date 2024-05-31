@@ -1,40 +1,40 @@
 {
   "name": "wtqtypes",
+  "type": "module",
   "version": "0.1.0",
   "description": "a ",
-  "type": "module",
-  "files": [
-    "./src/index.ts",
-    "./dist/*"
-  ],
-  "types": "./dist/index.d.ts",
-  "module": "./src/index.ts",
-  "exports": {
-    ".": {
-      "import": "./src/index.ts"
-    }
-  },
-  "scripts": {
-    "build": "vite build"
-  },
-  "keywords": [
-    "spices",
-    "typescript",
-    "wathqny"
-  ],
-  "devDependencies": {
-    "@astrojs/ts-plugin": "^1.6.0",
-    "typescript": "^5.4.2",
-    "vite": "^5.1.5",
-    "vite-plugin-dts": "^3.7.3"
-  },
-  "homepage": "http://fruit-ui.vercel.app",
   "license": "MIT",
+  "homepage": "http://fruit-ui.vercel.app",
   "repository": {
     "type": "git",
     "url": "https://github.com/spices-solutions/"
   },
   "bugs": {
     "url": "https://github.com/spices-solutions/"
+  },
+  "keywords": [
+    "spices",
+    "typescript",
+    "wathqny"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs"
+    }
+  },
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "./dist/*",
+    "./dist/index.mjs",
+    "./src/index.ts"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "devDependencies": {
+    "unbuild": "^2.0.0"
   }
 }

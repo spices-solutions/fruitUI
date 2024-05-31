@@ -1,6 +1,6 @@
-export type UIComponent = HTMLElement | Element | null | undefined;
+export type UIComponent = HTMLElement | Element | null | undefined
 
 export interface Component {
-  selector?: UIComponent,
-  
+  selector?: UIComponent
+
 }

@@ -6,12 +6,9 @@ authors: felfel
 position: 3
 ---
 
-import { Image } from "astro:assets";
-import { BrowserBlock } from "wtqcode";
-
 import CardImage from "../../../assets/imgs/img_placeholder.png";
 
-<BrowserBlock>
+<BrowserBlock padding>
   <div class="prototype p-5">
     <div class="prototype-gap my-5">
       <div style={{ width: "286px" }} class="card">
@@ -26,11 +23,9 @@ import CardImage from "../../../assets/imgs/img_placeholder.png";
           <h2 class="title">Heading</h2>
           <p class="text">
             Lorem ipsum <span class="link">dolor</span> sit amet, consectetur
-            adipiscing elit.{" "}
+            adipiscing elit.
           </p>
-          <button style={{ width: "100%" }} class="btn secondary">
-            Read more
-          </button>
+          <button style={{ width: "100%" }} class="btn secondary">Read more</button>
         </div>
       </div>
     </div>
@@ -54,7 +49,7 @@ import CardImage from "../../../assets/imgs/img_placeholder.png";
 
 moving img tag outside body class for another styling
 
-<BrowserBlock>
+<BrowserBlock padding>
   <div class="prototype p-5">
   <div class="prototype-gap my-5">
     <div style={{ width: "252px" }} class="card">

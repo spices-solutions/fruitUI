@@ -6,14 +6,11 @@ authors: felfel
 position: 4
 ---
 
-import {BrowserBlock} from "wtqcode"
-
-
 ## default theme
 
 single input
 
-<BrowserBlock>
+<BrowserBlock padding>
     <input id="username" class="form" type="username" placeholder="Enter your username" />
 </BrowserBlock>
 
@@ -23,7 +20,7 @@ single input
 
 from with labels
 
-<BrowserBlock>
+<BrowserBlock padding>
     <form class="form-group" style={{color: "black"}}>
       <label for="email" class="label">Email</label>
       <input id="email" class="form" type="email" placeholder="Enter your email" />
@@ -43,7 +40,7 @@ from with labels
 
 full form example
 
-<BrowserBlock>
+<BrowserBlock padding>
     <form class="form-group" style={{color: "black"}}>
       <label for="email1" class="label">Email</label>
       <input id="email1" class="form" type="email" placeholder="Enter your email" />
