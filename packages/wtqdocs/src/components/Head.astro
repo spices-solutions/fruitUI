@@ -11,6 +11,7 @@ import untypedWathqnyConfig from "/wathqny.config";
 
 const WathqnyConfig: WathqnyConfigType = untypedWathqnyConfig;
 
+
 export interface Props {
   title?: string | undefined;
   description?: string | undefined;
@@ -52,7 +53,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   </script>
 
   {
-    WathqnyConfig?.css?.map((stylesheet) => {
+    WathqnyConfig?.css?.map((stylesheet: string | URL | (astroHTML.JSX.IntrinsicAttributes & astroHTML.JSX.LinkHTMLAttributes) | null | undefined) => {
       if (typeof stylesheet === "string") {
         return <link href={stylesheet} rel="stylesheet" />;
       }

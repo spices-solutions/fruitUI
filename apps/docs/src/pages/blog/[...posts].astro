@@ -4,8 +4,7 @@ import { type CollectionEntry, getCollection, getEntry } from "astro:content";
 import { Breadcrumbs } from "wtqdocs";
 import { BlogLayout, AuthorProfile } from "wtqdocs/blog";
 import { slugify } from "wtqdocs/utils";
-import WathqnyConfig from "../../../wathqny.config";
-
+import WathqnyConfig from "config";
 
 export async function getStaticPaths() {
   let posts = await getCollection("blog");

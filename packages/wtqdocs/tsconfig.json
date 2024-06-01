@@ -1,3 +1,17 @@
 {
-  "extends": "astro/tsconfigs/strictest"
+  "extends": "astro/tsconfigs/strictest",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "config": [
+        "./wathqny.config"
+      ],
+      "~/components/*": [
+        "src/components/*"
+      ],
+      "~/layouts/*": [
+        "src/layouts/*"
+      ]
+    }
+  }
 }
