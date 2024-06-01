@@ -1,16 +1,18 @@
 ---
 import Head from "./Head.astro";
 import Navbar from "./Navbar.astro";
-import SidebarRefine from "./SidebarRefine.astro";
 import SkipLink from "./SkipLink.astro";
 
 export interface Props {
   title?: string | undefined;
   description?: string | undefined;
-  keywords?: string | undefined;
+  OGImage?: string | undefined;
+  OGImageAlt?: string | undefined;
+  keywords?: string | string[] | undefined;
 }
 
-const { title, keywords, description } = Astro.props as Props;
+const { title, keywords, description, OGImage, OGImageAlt } =
+  Astro.props as Props;
 ---
 
 <html
@@ -18,17 +20,12 @@ const { title, keywords, description } = Astro.props as Props;
   lang={Astro.currentLocale}
   dir={Astro.currentLocale == "ar" ? "rtl" : "ltr"}
   class="light">
-  <Head {title} {keywords} {description} />
+  <Head {title} {keywords} {description} {OGImage} {OGImageAlt} />
   <body>
     <SkipLink />
     <Navbar />
     <div class="wtq-page">
-      <SidebarRefine />
-      <div class="wtq-content">
-        <div class="wtq-container">
-          <slot />
-        </div>
-      </div>
+      <slot />
     </div>
   </body>
 </html>

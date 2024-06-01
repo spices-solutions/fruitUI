@@ -1,6 +1,6 @@
 ---
 import { type CollectionEntry, getCollection } from "astro:content";
-import { Breadcrumbs, Layout } from "wtqdocs";
+import { Breadcrumbs, DocsLayout } from "wtqdocs";
 import { slugify } from "wtqdocs/utils";
 
 export async function getStaticPaths() {
@@ -25,7 +25,7 @@ const { doc } = Astro.props;
 const { Content } = await doc.render();
 ---
 
-<Layout
+<DocsLayout
   title={doc.data.title}
   description={doc.data.description}
   keywords={doc.data.title}>
@@ -34,4 +34,4 @@ const { Content } = await doc.render();
     <h1 class="wtq-main-heading">{doc.data.title}</h1>
     <Content />
   </main>
-</Layout>
+</DocsLayout>

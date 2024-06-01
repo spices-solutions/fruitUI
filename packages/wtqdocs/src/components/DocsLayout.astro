@@ -1,4 +1,5 @@
 ---
+import SidebarRefine from "./SidebarRefine.astro";
 import BaseLayout from "./BaseLayout.astro";
 
 export interface Props {
@@ -14,6 +15,7 @@ const { title, keywords, description, OGImage, OGImageAlt } =
 ---
 
 <BaseLayout {title} {keywords} {description} {OGImage} {OGImageAlt}>
+  <SidebarRefine />
   <div class="wtq-content">
     <div class="wtq-container">
       <slot />
