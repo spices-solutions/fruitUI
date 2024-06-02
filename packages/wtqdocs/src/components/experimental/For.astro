@@ -12,7 +12,7 @@ async function forloop(each, html = "") {
   // let html = "";
   if (Astro.slots.has("default")) {
     for (let i = 0; i < each.length; i++) {
-      if (self && memorySafeCounter < 5) {
+      if (self && memorySafeCounter < each.length) {
         if (Array.isArray(each[i].items)) {
           console.log(each[i].items);
           memorySafeCounter++;

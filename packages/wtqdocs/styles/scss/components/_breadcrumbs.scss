@@ -16,12 +16,6 @@
   li {
     display: flex;
     align-items: center;
-
-    @media screen and (width <= 768px) {
-      &:not(:nth-child(-2)) {
-        display: none !important;
-      }
-    }
   }
 
   .wtq-breadcrumb {
@@ -41,7 +35,14 @@
     border-radius: 8px;
   }
 
-  .arrow-icon {
-    margin-top: 2px;
-  }
+  @media screen and (width <=768px) {
+    li {
+      display: none;
+    }
+
+    .base-breadcrumb {
+        display: flex;
+        align-items: center;
+      }
+    }
 }

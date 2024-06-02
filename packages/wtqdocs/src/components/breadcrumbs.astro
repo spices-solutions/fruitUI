@@ -14,6 +14,7 @@ currentURL = currentURL.filter((url) => url !== "");
   <li
     itemprop="itemListElement"
     itemscope
+    class="base-breadcrumb"
     itemtype="https://schema.org/ListItem">
     <a
       href="/"
@@ -28,6 +29,7 @@ currentURL = currentURL.filter((url) => url !== "");
   {
     currentURL.map((url, index) => (
       <li
+        class:list={[{ "base-breadcrumb": index == currentURL.length - 1 }]}
         itemprop="itemListElement"
         itemscope
         itemtype="https://schema.org/ListItem">
