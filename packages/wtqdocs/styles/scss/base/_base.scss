@@ -42,7 +42,7 @@ $font-xs: 1rem;
     color-scheme: light;
   }
 
-  @media (prefers-color-scheme: dark) {
+  &.dark {
     --darkest: #{$accent-100};
     --dark: #{$accent-300};
     --medium: #{$accent-500};
