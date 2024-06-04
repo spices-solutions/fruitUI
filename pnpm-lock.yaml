@@ -89,6 +89,10 @@ importers:
         version: link:../../packages/wtqtypes
 
   packages/astro-toolkit:
+    dependencies:
+      astro-capo:
+        specifier: ^0.0.1
+        version: 0.0.1(astro@4.9.2(@types/node@20.12.13)(sass@1.77.4)(terser@5.31.0)(typescript@5.4.5))
     devDependencies:
       '@astrojs/ts-plugin':
         specifier: ^1.6.0
@@ -2133,6 +2137,11 @@ packages:
     engines: {node: '>=16.0.0'}
     peerDependencies:
       astro: ^2.0.0 || ^3.0.0-beta || ^4.0.0-beta
+
+  astro-capo@0.0.1:
+    resolution: {integrity: sha512-KyQD1mzgEQnbqrKpYdoIZMAYejkOcIJocdGuQBH9Yzr4KqGzIR8P2DDNbV/FQXaSyq900lCZwWJH45tBIQCG8w==}
+    peerDependencies:
+      astro: '>= 2.8'
 
   astro-compressor@0.4.1:
     resolution: {integrity: sha512-IAgYAlxYRMolaptsFB9quH7RxX4eUeC4UfULCPhT+ILcg7m1kbaxuyUKqGg9Hh+KZ+FNPPDAz7DqUfl+HDWhQg==}
@@ -5416,6 +5425,9 @@ packages:
   ufo@1.5.3:
     resolution: {integrity: sha512-Y7HYmWaFwPUmkoQCUIAYpKqkOf+SbVj/2fJJZ4RJMCfZp0rTGwRbzQD+HghfnhKOjL9E01okqz+ncJskGYfBNw==}
 
+  ultrahtml@1.5.3:
+    resolution: {integrity: sha512-GykOvZwgDWZlTQMtp5jrD4BVL+gNn2NVlVafjcFUJ7taY20tqYdwdoWBFy6GBJsNTZe1GkGPkSl5knQAjtgceg==}
+
   unbox-primitive@1.0.2:
     resolution: {integrity: sha512-61pPlCD9h51VoreyJ0BReideM3MDKMKnh6+V9L08331ipq6Q8OFXZYiqP6n/tbHx4s5I9uRhcye6BrbkizkBDw==}
 
@@ -7852,6 +7864,11 @@ snapshots:
       '@types/node': 18.19.33
       acorn: 8.11.3
       astro: 4.9.2(@types/node@20.12.13)(sass@1.77.4)(terser@5.31.0)(typescript@5.4.5)
+
+  astro-capo@0.0.1(astro@4.9.2(@types/node@20.12.13)(sass@1.77.4)(terser@5.31.0)(typescript@5.4.5)):
+    dependencies:
+      astro: 4.9.2(@types/node@20.12.13)(sass@1.77.4)(terser@5.31.0)(typescript@5.4.5)
+      ultrahtml: 1.5.3
 
   astro-compressor@0.4.1: {}
 
@@ -11985,6 +12002,8 @@ snapshots:
   typescript@5.4.5: {}
 
   ufo@1.5.3: {}
+
+  ultrahtml@1.5.3: {}
 
   unbox-primitive@1.0.2:
     dependencies:

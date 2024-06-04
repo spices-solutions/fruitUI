@@ -39,5 +39,8 @@
     "@astrojs/ts-plugin": "^1.6.0",
     "astro": "^4.4.0",
     "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "astro-capo": "^0.0.1"
   }
 }
