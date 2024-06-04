@@ -1,7 +1,7 @@
 ---
 import { type CollectionEntry, getCollection } from 'astro:content'
 import { DocsLayout } from 'wtqdocs'
-import { slugify } from 'wtqdocs/utils'
+import { slugify } from 'astro-toolkit/utils'
 
 export async function getStaticPaths() {
   const docs = await getCollection('docs')

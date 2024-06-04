@@ -24,7 +24,6 @@
     "./components/Head": "./src/components/Head.astro",
     "./schema": "./src/schema.ts",
     "./blog": "./src/blog.ts",
-    "./utils": "./src/utils.ts",
     "./styles": "./styles/scss/wathqny.scss",
     "./block/styles": "./styles/code.css",
 

@@ -1,7 +1,7 @@
 import rss from '@astrojs/rss'
 import { getCollection } from 'astro:content'
 import Wathqny from '/wathqny.config'
-import { slugify } from 'wtqdocs/utils'
+import { slugify } from 'astro-toolkit/utils'
 
 export async function GET(context) {
   const blog = await getCollection('blog')
