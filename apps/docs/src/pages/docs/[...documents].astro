@@ -1,16 +1,13 @@
 ---
 import { type CollectionEntry, getCollection } from 'astro:content'
 import { DocsLayout } from 'wtqdocs'
-import { slugify } from 'astro-toolkit/utils'
 
 export async function getStaticPaths() {
   const docs = await getCollection('docs')
 
   return docs.map((doc) => {
-    const documentLink
-      = doc.data.category + (doc.data.href ?? `/${slugify(doc.data.title)}`)
     return {
-      params: { documents: documentLink },
+      params: { documents: doc.data.link },
       props: { doc },
     }
   })

@@ -3,17 +3,15 @@ import { Picture } from 'astro:assets'
 import { type CollectionEntry, getCollection, getEntry } from 'astro:content'
 import { Breadcrumbs } from 'wtqdocs'
 import { AuthorProfile, BlogLayout } from 'wtqdocs/blog'
-import { slugify } from 'astro-toolkit/utils'
 import WathqnyConfig from 'config'
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog')
 
   return posts.map((post) => {
-    const postLink = post.data.href ?? `/${slugify(post.data.title)}`
 
     return {
-      params: { posts: postLink },
+      params: { posts: post.data.link },
       props: { post },
     }
   })

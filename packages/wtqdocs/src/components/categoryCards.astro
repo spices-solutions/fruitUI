@@ -1,6 +1,5 @@
 ---
 import { getCollection } from 'astro:content'
-import { slugify } from 'astro-toolkit/utils'
 
 const docs = await getCollection('docs')
 
@@ -27,12 +26,11 @@ filteredDocs.sort(
           href: string
           title: string
           description: string
+          link: string
         }
       }) => {
-        const documentLink
-          = doc.data.category + (doc.data.href ?? `/${slugify(doc.data.title)}`)
         return (
-          <a href={documentLink}>
+          <a href={doc.data.link}>
             <div class="wtq-card wtq-shadow">
               <h2 class="wtq-card-title">{doc.data.title}</h2>
               <h3 class="wtq-card-subtitle">{doc.data.description}</h3>

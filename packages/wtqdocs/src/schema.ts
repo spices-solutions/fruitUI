@@ -1,3 +1,4 @@
+import { slugify } from 'astro-toolkit/utils';
 import { reference, z } from 'astro:content'
 
 export const docSchema = z
@@ -17,6 +18,10 @@ export const docSchema = z
     draft: z.boolean().default(false),
   })
   .strict()
+  .transform((data) => ({
+    ...data,
+    link: `${data.category}${data.href ? data.href : `/${slugify(data.title)}`}`,
+  }));
 
 export const blogSchema = z
   .object({
@@ -35,7 +40,11 @@ export const blogSchema = z
     draft: z.boolean().default(false),
   })
   .strict()
-
+  .transform((data) => ({
+    ...data,
+    link: data.href ?? `/${slugify(data.title)}`,
+  }));
+  
 export function authorSchema({ image }: { image: any }) {
   z.object({
     name: z.string(),
