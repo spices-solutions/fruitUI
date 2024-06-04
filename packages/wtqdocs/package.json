@@ -52,6 +52,7 @@
     "@vite-pwa/assets-generator": "^0.2.4",
     "@vite-pwa/astro": "^0.3.0",
     "astro": "^4.4.15",
+    "astro-toolkit": "workspace:*",
     "typescript": "^5.4.5",
     "vite": "^5.1.5",
     "vite-plugin-dts": "^3.7.3",

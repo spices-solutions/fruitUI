@@ -8,6 +8,9 @@
     ".": "./eslint.config.mjs"
   },
   "dependencies": {
-    "@antfu/eslint-config": "^2.19.1"
+    "@antfu/eslint-config": "^2.19.1",
+    "eslint-plugin-astro": "^1.2.0",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "prettier-plugin-astro": "^0.14.0"
   }
 }

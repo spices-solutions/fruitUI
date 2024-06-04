@@ -1,17 +1,17 @@
 ---
 import { getCollection } from "astro:content";
 import type { WathqnyConfig as WathqnyConfigType } from "wtqtypes";
+import { slugify } from "../../utils";
+import For from "../Flow/For.astro";
 import Category from "./Category.astro";
 import CollapseButton from "./CollapseButton.astro";
 
 // @ts-ignore
 import untypedWathqnyConfig from "/wathqny.config";
 
-const WathqnyConfig: WathqnyConfigType = untypedWathqnyConfig;
-
-import { slugify } from "../../utils";
-import For from "../Flow/For.astro";
 import LinkItem from "./LinkItem.astro";
+
+const WathqnyConfig: WathqnyConfigType = untypedWathqnyConfig;
 
 const { sidebar, navbar } = WathqnyConfig;
 
@@ -22,12 +22,12 @@ docs.sort(
     a.data.position > b.data.position ? 1 : -1,
 );
 
-let currentUrl =
-"/" +
+const currentUrl = `/${
   Astro.url.pathname
     .split("/")
     .filter((url) => url !== "")
-    .reverse()[0];
+    .reverse()[0]
+}`;
 ---
 
 <aside class="wtq-sidebar">
@@ -60,8 +60,8 @@ let currentUrl =
                   category: any;
                 };
               }) => {
-                let documentLink =
-                  doc.data.href ?? "/" + slugify(doc.data.title);
+                const documentLink =
+                  doc.data.href ?? `/${slugify(doc.data.title)}`;
                 return (
                   doc.data.category == item.id && currentUrl == documentLink
                 );
@@ -77,11 +77,9 @@ let currentUrl =
               }) =>
                 doc.data.category == item.id && (
                   <LinkItem
-                    href={
-                      "/docs/" +
-                      doc.data.category +
-                      (doc.data.href ?? "/" + slugify(doc.data.title))
-                    }
+                    href={`/docs/${
+                      doc.data.category
+                    }${doc.data.href ?? `/${slugify(doc.data.title)}`}`}
                     name={doc.data.title}
                   />
                 )
