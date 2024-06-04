@@ -4,7 +4,6 @@ import { pwaInfo } from 'virtual:pwa-info'
 // @ts-ignore
 import { pwaAssetsHead } from 'virtual:pwa-assets/head'
 
-
 export interface Props {
   title?: string | undefined
   description?: string | undefined
@@ -21,9 +20,10 @@ export interface Props {
   robots: string
   vitePWA: boolean
   links: string[] | {}
+  fonts: string[] | {}
 }
 
-const { title, keywords, description, OGImage, sitemap, GSVtoken, robots,vitePWA ,links }
+const { title, keywords, description, OGImage, sitemap, GSVtoken, robots, vitePWA, links, fonts }
   = Astro.props as Props
 
 const METATITLE = title
@@ -41,12 +41,16 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
   {
     links?.map((link) => {
-      if (typeof link === 'string') {
-        return <link href={link} rel="stylesheet" />
-      }
-      return <link {...link} />
+      return typeof link === 'string' ? <link href={link} rel="stylesheet" /> : <link {...link} />
     })
   }
+
+  {
+    fonts?.map((link) => {
+      return typeof link === 'string' ? <link href={link} /> : <link {...link} />
+    })
+  }
+
   {sitemap && <link rel="sitemap" href="/sitemap-index.xml" />}
 
   <meta name="keywords" content={METAKEYWORDS as string} />
@@ -79,6 +83,5 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       </>
     )
   }
-  
   <slot />
 </head>

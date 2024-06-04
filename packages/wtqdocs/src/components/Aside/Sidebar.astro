@@ -1,31 +1,31 @@
 ---
-import { getCollection } from "astro:content";
-import type { WathqnyConfig as WathqnyConfigType } from "wtqtypes";
-import { slugify } from "../../utils";
-import For from "../Flow/For.astro";
-import Category from "./Category.astro";
-import CollapseButton from "./CollapseButton.astro";
+import { getCollection } from 'astro:content'
+import type { WathqnyConfig as WathqnyConfigType } from 'wtqtypes'
+import For from '../experimental/For.astro'
+import { slugify } from '../../utils'
+import Category from './Category.astro'
+import CollapseButton from './CollapseButton.astro'
 
 // @ts-ignore
-import untypedWathqnyConfig from "/wathqny.config";
+import untypedWathqnyConfig from '/wathqny.config'
 
-import LinkItem from "./LinkItem.astro";
+import LinkItem from './LinkItem.astro'
 
-const WathqnyConfig: WathqnyConfigType = untypedWathqnyConfig;
+const WathqnyConfig: WathqnyConfigType = untypedWathqnyConfig
 
-const { sidebar, navbar } = WathqnyConfig;
+const { sidebar, navbar } = WathqnyConfig
 
-const docs = await getCollection("docs");
+const docs = await getCollection('docs')
 
 docs.sort(
   (a: { data: { position: number } }, b: { data: { position: number } }) =>
     a.data.position > b.data.position ? 1 : -1,
-);
+)
 
 const currentUrl = `/${
   Astro.url.pathname
-    .split("/")
-    .filter((url) => url !== "")
+    .split('/')
+    .filter(url => url !== '')
     .reverse()[0]
 }`;
 ---
@@ -42,38 +42,39 @@ const currentUrl = `/${
                   {Item.label}
                 </a>
               </li>
-            );
+            )
           })
         }
       </ul>
     </li>
     <For each={sidebar}>
       {
-        (item: { label: string; id: any }) => (
+        (item: { label: string, id: any }) => (
           <Category
             name={item.label}
             isActive={docs.some(
               (doc: {
                 data: {
-                  href: string;
-                  title: string | undefined;
-                  category: any;
-                };
+                  href: string
+                  title: string | undefined
+                  category: any
+                }
               }) => {
-                const documentLink =
-                  doc.data.href ?? `/${slugify(doc.data.title)}`;
+                const documentLink
+                  = doc.data.href ?? `/${slugify(doc.data.title)}`
                 return (
                   doc.data.category == item.id && currentUrl == documentLink
-                );
+                )
               },
-            )}>
+            )}
+          >
             <For each={docs}>
               {(doc: {
                 data: {
-                  category: string;
-                  href: any;
-                  title: string | undefined;
-                };
+                  category: string
+                  href: any
+                  title: string | undefined
+                }
               }) =>
                 doc.data.category == item.id && (
                   <LinkItem
@@ -82,8 +83,7 @@ const currentUrl = `/${
                     }${doc.data.href ?? `/${slugify(doc.data.title)}`}`}
                     name={doc.data.title}
                   />
-                )
-              }
+                )}
             </For>
           </Category>
         )

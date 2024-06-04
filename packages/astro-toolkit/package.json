@@ -20,6 +20,9 @@
   "exports": {
     ".": {
       "import": "./src/index.ts"
+    },
+    "./flow": {
+      "import": "./src/flow.ts"
     }
   },
   "module": "./src/index.ts",

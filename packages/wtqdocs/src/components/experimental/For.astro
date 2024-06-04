@@ -14,7 +14,6 @@ async function forloop(each, html = "") {
     for (let i = 0; i < each.length; i++) {
       if (self && memorySafeCounter < each.length) {
         if (Array.isArray(each[i].items)) {
-          console.log(each[i].items);
           memorySafeCounter++;
           html += await forloop(each[i].items, html);
         }
