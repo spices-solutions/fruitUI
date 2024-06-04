@@ -1,16 +1,16 @@
 ---
-import BaseLayout from "./BaseLayout.astro";
+import BaseLayout from './BaseLayout.astro'
 
 export interface Props {
-  title?: string | undefined;
-  description?: string | undefined;
-  OGImage?: string | undefined;
-  OGImageAlt?: string | undefined;
-  keywords?: string | string[] | undefined;
+  title?: string | undefined
+  description?: string | undefined
+  OGImage?: string | undefined
+  OGImageAlt?: string | undefined
+  keywords?: string | string[] | undefined
 }
 
-const { title, keywords, description, OGImage, OGImageAlt } =
-  Astro.props as Props;
+const { title, keywords, description, OGImage, OGImageAlt }
+  = Astro.props as Props;
 ---
 
 <BaseLayout {title} {keywords} {description} {OGImage} {OGImageAlt}>

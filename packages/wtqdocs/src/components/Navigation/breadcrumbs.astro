@@ -1,27 +1,30 @@
 ---
-import { Icon } from "astro-icon/components";
+import { Icon } from 'astro-icon/components'
 
-let currentURL: any[] = Astro.url.pathname.split("/");
+let currentURL: any[] = Astro.url.pathname.split('/')
 
-currentURL = currentURL.filter((url) => url !== "");
+currentURL = currentURL.filter(url => url !== '');
 ---
 
 <ul
   class="wtq-breadcrumbs"
   aria-label="Breadcrumb"
   itemscope
-  itemtype="https://schema.org/BreadcrumbList">
+  itemtype="https://schema.org/BreadcrumbList"
+>
   <li
     itemprop="itemListElement"
     itemscope
     class="base-breadcrumb"
-    itemtype="https://schema.org/ListItem">
+    itemtype="https://schema.org/ListItem"
+  >
     <a
       href="/"
       class="wtq-breadcrumb wtq-focusable"
       aria-label="Go to the homepage"
-      itemprop="item">
-      <Icon name={"home"} />
+      itemprop="item"
+    >
+      <Icon name="home" />
       <span itemprop="name">Home</span>
     </a>
     <meta itemprop="position" content="1" />
@@ -29,16 +32,18 @@ currentURL = currentURL.filter((url) => url !== "");
   {
     currentURL.map((url, index) => (
       <li
-        class:list={[{ "base-breadcrumb": index == currentURL.length - 1 }]}
+        class:list={[{ 'base-breadcrumb': index == currentURL.length - 1 }]}
         itemprop="itemListElement"
         itemscope
-        itemtype="https://schema.org/ListItem">
-        <Icon class="arrow-icon" name={"arrow"} />
+        itemtype="https://schema.org/ListItem"
+      >
+        <Icon class="arrow-icon" name="arrow" />
         <a
-          href={"/" + currentURL.slice(0, index + 1).join("/")}
+          href={`/${currentURL.slice(0, index + 1).join('/')}`}
           class="wtq-breadcrumb wtq-focusable"
-          itemprop="item">
-          <span itemprop="name">{url.toLowerCase().replace("-", " ")}</span>
+          itemprop="item"
+        >
+          <span itemprop="name">{url.toLowerCase().replace('-', ' ')}</span>
         </a>
         <meta itemprop="position" content={`${index + 2}`} />
       </li>

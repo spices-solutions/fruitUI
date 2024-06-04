@@ -3,6 +3,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "home": [
+        "src/components/home.astro"
+      ],
       "config": [
         "./wathqny.config"
       ],

@@ -1,6 +1,6 @@
 ---
-import WathqnyConfig from "config";
-import { DocsLayout } from "wtqdocs";
+import WathqnyConfig from 'config'
+import { DocsLayout } from 'wtqdocs'
 
 const { sidebar } = WathqnyConfig;
 ---
@@ -10,12 +10,12 @@ const { sidebar } = WathqnyConfig;
     {
       sidebar?.map((doc) => {
         return (
-          <a href={"/docs/" + doc.id}>
+          <a href={`/docs/${doc.id}`}>
             <div class="wtq-card wtq-shadow">
               <h2 class="wtq-card-title">{doc.label}</h2>
             </div>
           </a>
-        );
+        )
       })
     }
   </div>

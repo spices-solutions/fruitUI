@@ -1,12 +1,12 @@
 ---
-import { Icon } from "astro-icon/components";
-import { Image } from "astro:assets";
-import type { WathqnyConfig as WathqnyConfigType } from "wtqtypes";
+import { Icon } from 'astro-icon/components'
+import { Image } from 'astro:assets'
+import type { WathqnyConfig as WathqnyConfigType } from 'wtqtypes'
 
 // @ts-ignore
-import untypedWathqnyConfig from "/wathqny.config";
+import untypedWathqnyConfig from '/wathqny.config'
 
-const WathqnyConfig: WathqnyConfigType = untypedWathqnyConfig;
+const WathqnyConfig: WathqnyConfigType = untypedWathqnyConfig
 
 const { logo, siteName, navbar } = WathqnyConfig;
 ---
@@ -29,17 +29,21 @@ const { logo, siteName, navbar } = WathqnyConfig;
           <li class="link-item">
             <a href={item.href}>{item.label}</a>
           </li>
-        );
+        )
       })
     }
     <li class="wtq-toggle-wrapper">
-      <button tabindex="0" aria-label="hamburger-menu" class="wtq-toggle"
+      <button
+        tabindex="0"
+        aria-label="hamburger-menu"
+        class="wtq-toggle"
       ></button>
       <button
         class="theme-switcher wtq-focusable"
-        aria-label="dark mode toggler">
-        <Icon name={"moon"} class={"dark-mode-moon"} />
-        <Icon name={"sun"} class={"dark-mode-sun"} />
+        aria-label="dark mode toggler"
+      >
+        <Icon name="moon" class="dark-mode-moon" />
+        <Icon name="sun" class="dark-mode-sun" />
       </button>
     </li>
   </ul>

@@ -1,19 +1,19 @@
 ---
-import SidebarRefine from "../Aside/Sidebar.astro";
-import Breadcrumbs from "../Navigation/breadcrumbs.astro";
-import BaseLayout from "./BaseLayout.astro";
+import SidebarRefine from '../Aside/Sidebar.astro'
+import Breadcrumbs from '../Navigation/breadcrumbs.astro'
+import BaseLayout from './BaseLayout.astro'
 
 export interface Props {
-  title?: string | undefined;
-  description?: string | undefined;
-  OGImage?: string | undefined;
-  OGImageAlt?: string | undefined;
-  keywords?: string | string[] | undefined;
-  heading?: string | undefined;
+  title?: string | undefined
+  description?: string | undefined
+  OGImage?: string | undefined
+  OGImageAlt?: string | undefined
+  keywords?: string | string[] | undefined
+  heading?: string | undefined
 }
 
-const { title, keywords, description, OGImage, OGImageAlt, heading } =
-  Astro.props as Props;
+const { title, keywords, description, OGImage, OGImageAlt, heading }
+  = Astro.props as Props;
 ---
 
 <BaseLayout {title} {keywords} {description} {OGImage} {OGImageAlt}>

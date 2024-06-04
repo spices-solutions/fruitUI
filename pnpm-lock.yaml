@@ -78,9 +78,6 @@ importers:
       workbox-window:
         specifier: ^7.1.0
         version: 7.1.0
-      wtqcode:
-        specifier: workspace:*
-        version: link:../../packages/wtqcode
       wtqdocs:
         specifier: workspace:*
         version: link:../../packages/wtqdocs
@@ -155,30 +152,26 @@ importers:
         specifier: ^6.0.4
         version: 6.0.4(stylelint@16.6.1(typescript@5.4.5))
 
-  packages/wtqcode:
+  packages/wtqdocs:
     dependencies:
       '@shikijs/transformers':
         specifier: ^1.5.1
         version: 1.6.1
-    devDependencies:
-      '@astrojs/ts-plugin':
-        specifier: ^1.6.0
-        version: 1.8.0
       astro:
-        specifier: ^4.4.0
+        specifier: ^4.4.15
         version: 4.9.2(@types/node@20.12.13)(sass@1.77.4)(terser@5.31.0)(typescript@5.4.5)
+      astro-icon:
+        specifier: ^1.1.0
+        version: 1.1.0
+      astro-toolkit:
+        specifier: workspace:*
+        version: link:../astro-toolkit
       shiki:
         specifier: ^1.5.1
         version: 1.6.1
       typescript:
         specifier: ^5.4.5
         version: 5.4.5
-
-  packages/wtqdocs:
-    dependencies:
-      astro-icon:
-        specifier: ^1.1.0
-        version: 1.1.0
     devDependencies:
       '@astrojs/ts-plugin':
         specifier: ^1.6.0
@@ -189,15 +182,6 @@ importers:
       '@vite-pwa/astro':
         specifier: ^0.3.0
         version: 0.3.1(@vite-pwa/assets-generator@0.2.4)(astro@4.9.2(@types/node@20.12.13)(sass@1.77.4)(terser@5.31.0)(typescript@5.4.5))(vite-plugin-pwa@0.19.8(@vite-pwa/assets-generator@0.2.4)(vite@5.2.12(@types/node@20.12.13)(sass@1.77.4)(terser@5.31.0))(workbox-build@7.1.1(@types/babel__core@7.20.5))(workbox-window@7.1.0))
-      astro:
-        specifier: ^4.4.15
-        version: 4.9.2(@types/node@20.12.13)(sass@1.77.4)(terser@5.31.0)(typescript@5.4.5)
-      astro-toolkit:
-        specifier: workspace:*
-        version: link:../astro-toolkit
-      typescript:
-        specifier: ^5.4.5
-        version: 5.4.5
       vite:
         specifier: ^5.1.5
         version: 5.2.12(@types/node@20.12.13)(sass@1.77.4)(terser@5.31.0)

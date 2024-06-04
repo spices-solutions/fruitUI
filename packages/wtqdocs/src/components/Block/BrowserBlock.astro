@@ -1,6 +1,6 @@
 ---
 export interface Props {
-  padding: boolean;
+  padding: boolean
 }
 
 const { padding } = Astro.props as Props;
@@ -12,7 +12,7 @@ const { padding } = Astro.props as Props;
     <span class="dot"></span>
     <span class="dot"></span>
   </div>
-  <div class:list={[{ "component-wrapper": padding }]}>
+  <div class:list={[{ 'component-wrapper': padding }]}>
     <slot />
   </div>
 </div>

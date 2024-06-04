@@ -3,12 +3,12 @@ import {
   Image,
   type LocalImageProps,
   type RemoteImageProps,
-} from "astro:assets";
+} from 'astro:assets'
 
 export interface Props {
-  image: string | LocalImageProps | RemoteImageProps;
-  name: string;
-  role: string;
+  image: string | LocalImageProps | RemoteImageProps
+  name: string
+  role: string
 }
 
 const { image, name, role } = Astro.props;

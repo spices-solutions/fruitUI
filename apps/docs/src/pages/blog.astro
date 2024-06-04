@@ -1,12 +1,13 @@
 ---
-import { Image } from "astro:assets";
-import { getCollection, type CollectionEntry } from "astro:content";
-import { BlogLayout } from "wtqdocs/blog";
-import { formatDate, slugify } from "wtqdocs/utils";
-const blog = await getCollection("blog");
+import { Image } from 'astro:assets'
+import { type CollectionEntry, getCollection } from 'astro:content'
+import { BlogLayout } from 'wtqdocs/blog'
+import { formatDate, slugify } from 'wtqdocs/utils'
+
+const blog = await getCollection('blog')
 
 interface Props {
-  blog: CollectionEntry<"blog">;
+  blog: CollectionEntry<'blog'>
 }
 ---
 
@@ -14,9 +15,9 @@ interface Props {
   <div class="wtq-post-container">
     {
       blog.map((post) => {
-        let postLink = post.data.href ?? "/" + slugify(post.data.title);
+        const postLink = post.data.href ?? `/${slugify(post.data.title)}`
         return (
-          <a href={"/blog" + postLink}>
+          <a href={`/blog${postLink}`}>
             <div class="wtq-card wtq-shadow">
               <h1 class="wtq-card-title">{post.data.title}</h1>
               <span class="wtq-card-subtitle">
@@ -24,17 +25,17 @@ interface Props {
                   {formatDate(post.data.pubDate)}
                 </time>
               </span>
-              <p class="wtq-post-content">{post.body.slice(0, 200) + "..."}</p>
+              <p class="wtq-post-content">{`${post.body.slice(0, 200)}...`}</p>
               <Image
-                class={"wtq-cover wtq-shadow"}
+                class="wtq-cover wtq-shadow"
                 width={640}
                 height={360}
                 src={post.data.cover}
-                alt={"dwad"}
+                alt="dwad"
               />
             </div>
           </a>
-        );
+        )
       })
     }
   </div>

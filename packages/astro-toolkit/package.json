@@ -35,12 +35,12 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
+  "dependencies": {
+    "astro-capo": "^0.0.1"
+  },
   "devDependencies": {
     "@astrojs/ts-plugin": "^1.6.0",
     "astro": "^4.4.0",
     "typescript": "^5.4.5"
-  },
-  "dependencies": {
-    "astro-capo": "^0.0.1"
   }
 }

@@ -1,6 +1,6 @@
 import type { WathqnyConfig } from 'wtqtypes'
 
-import CodeStyles from 'wtqcode/styles?url'
+import CodeStyles from 'wtqdocs/block/styles?url'
 import ThemeStyles from 'wtqdocs/styles?url'
 import fruitStyles from '/src/docs.scss?url'
 
