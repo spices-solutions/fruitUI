@@ -1,6 +1,6 @@
 ---
 import { type CollectionEntry, getCollection } from "astro:content";
-import { Breadcrumbs, CategoryCards, DocsLayout } from "wtqdocs";
+import { CategoryCards, DocsLayout } from "wtqdocs";
 
 export async function getStaticPaths() {
   let docs = await getCollection("docs");
@@ -21,12 +21,8 @@ const { doc } = Astro.props;
 ---
 
 <DocsLayout
-  title={doc.data.category}
+  title={doc.data.category.replace("-", " ")}
   description={doc.data.description}
   keywords={doc.data.title}>
-  <Breadcrumbs />
-  <main class="anim-slide-botto" id="main-content">
-    <h1 class="wtq-main-heading">{doc.data.category.replace("-", " ")}</h1>
-    <CategoryCards />
-  </main>
+  <CategoryCards />
 </DocsLayout>

@@ -1,34 +1,24 @@
 ---
-import { Head, Navbar, SkipLink } from "wtqdocs";
-import WathqnyConfig from "config";
+import { BaseLayout } from "wtqdocs";
 import "../custom.scss";
 ---
 
-<html
-  xml:lang={Astro.currentLocale}
-  lang={Astro.currentLocale}
-  dir={Astro.currentLocale == "ar" ? "rtl" : "ltr"}
-  class="light">
-  <Head />
-  <body>
-    <SkipLink />
-    <Navbar />
-    <main id="main-content">
-      <section class="hero">
-        <h1 class="title">
-          FruitUI a modular <br />
-          styling framework
-        </h1>
-        <h2 class="subtitle">
-          use the components you want, styles you need,
-          <br /> the performance you deserve
-        </h2>
-        <div class="get-started flex gap-5">
-          <a href="/docs/getting-started/overview">
-            <button class="btn primary">Get started</button>
-          </a>
-        </div>
-      </section>
-    </main>
-  </body>
-</html>
+<BaseLayout>
+  <main id="main-content">
+    <section class="hero">
+      <h1 class="title">
+        FruitUI a modular <br />
+        styling framework
+      </h1>
+      <h2 class="subtitle">
+        use the components you want, styles you need,
+        <br /> the performance you deserve
+      </h2>
+      <div class="get-started flex gap-5">
+        <a href="/docs/getting-started/overview">
+          <button class="btn primary">Get started</button>
+        </a>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

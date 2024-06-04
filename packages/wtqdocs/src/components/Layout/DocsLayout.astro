@@ -1,5 +1,6 @@
 ---
 import SidebarRefine from "../Aside/Sidebar.astro";
+import Breadcrumbs from "../Navigation/breadcrumbs.astro";
 import BaseLayout from "./BaseLayout.astro";
 
 export interface Props {
@@ -8,9 +9,10 @@ export interface Props {
   OGImage?: string | undefined;
   OGImageAlt?: string | undefined;
   keywords?: string | string[] | undefined;
+  heading?: string | undefined;
 }
 
-const { title, keywords, description, OGImage, OGImageAlt } =
+const { title, keywords, description, OGImage, OGImageAlt, heading } =
   Astro.props as Props;
 ---
 
@@ -18,7 +20,11 @@ const { title, keywords, description, OGImage, OGImageAlt } =
   <SidebarRefine />
   <div class="wtq-content">
     <div class="wtq-container">
-      <slot />
+      <Breadcrumbs />
+      <main id="main-content">
+        <h1 class="wtq-main-heading">{heading ?? title}</h1>
+        <slot />
+      </main>
     </div>
   </div>
 </BaseLayout>

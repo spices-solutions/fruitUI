@@ -1,27 +1,22 @@
 ---
 import WathqnyConfig from "config";
-import { Breadcrumbs, DocsLayout } from "wtqdocs";
+import { DocsLayout } from "wtqdocs";
 
 const { sidebar } = WathqnyConfig;
 ---
 
-<DocsLayout title="docs" description="main docs page">
-  <Breadcrumbs />
-  <h1 class="wtq-main-heading">Categories</h1>
-
-  <main class="anim-slide-botto" id="main-content">
-    <div class="wtq-card-container-category">
-      {
-        sidebar?.map((doc) => {
-          return (
-            <a href={"/docs/" + doc.id}>
-              <div class="wtq-card wtq-shadow">
-                <h2 class="wtq-card-title">{doc.label}</h2>
-              </div>
-            </a>
-          );
-        })
-      }
-    </div>
-  </main>
+<DocsLayout title="docs" description="main docs page" heading="Categories">
+  <div class="wtq-card-container-category">
+    {
+      sidebar?.map((doc) => {
+        return (
+          <a href={"/docs/" + doc.id}>
+            <div class="wtq-card wtq-shadow">
+              <h2 class="wtq-card-title">{doc.label}</h2>
+            </div>
+          </a>
+        );
+      })
+    }
+  </div>
 </DocsLayout>
