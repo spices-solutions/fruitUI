@@ -1,11 +1,20 @@
 ---
+import type { MarkdownLayoutProps } from 'astro'
 import WathqnyConfig from 'config'
 import { DocsLayout } from 'wtqdocs'
 
-const { sidebar } = WathqnyConfig;
+const { sidebar } = WathqnyConfig
+
+type Props = MarkdownLayoutProps<{
+  title: string
+  description: string
+  heading: string
+}>
+
+const { frontmatter } = Astro.props;
 ---
 
-<DocsLayout title="docs" description="main docs page" heading="Categories">
+<DocsLayout title={frontmatter.title} description={frontmatter.description} heading={frontmatter.heading ?? frontmatter.title}>
   <div class="wtq-card-container-category">
     {
       sidebar?.map((doc) => {

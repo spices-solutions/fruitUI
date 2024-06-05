@@ -86,10 +86,6 @@ importers:
         version: link:../../packages/wtqtypes
 
   packages/astro-toolkit:
-    dependencies:
-      astro-capo:
-        specifier: ^0.0.1
-        version: 0.0.1(astro@4.9.2(@types/node@20.12.13)(sass@1.77.4)(terser@5.31.0)(typescript@5.4.5))
     devDependencies:
       '@astrojs/ts-plugin':
         specifier: ^1.6.0
@@ -105,7 +101,7 @@ importers:
     dependencies:
       '@antfu/eslint-config':
         specifier: ^2.19.1
-        version: 2.19.1(@vue/compiler-sfc@3.4.27)(eslint-plugin-astro@1.2.0(eslint@9.3.0)(typescript@5.4.5))(eslint@9.3.0)(prettier-plugin-astro@0.14.0)(typescript@5.4.5)
+        version: 2.19.1(@vue/compiler-sfc@3.4.27)(eslint-plugin-astro@1.2.0(eslint@9.3.0)(typescript@5.4.5))(eslint-plugin-format@0.1.1(eslint@9.3.0))(eslint@9.3.0)(prettier-plugin-astro@0.14.0)(typescript@5.4.5)
       eslint-plugin-astro:
         specifier: ^1.2.0
         version: 1.2.0(eslint@9.3.0)(typescript@5.4.5)
@@ -115,6 +111,10 @@ importers:
       prettier-plugin-astro:
         specifier: ^0.14.0
         version: 0.14.0
+    devDependencies:
+      eslint-plugin-format:
+        specifier: ^0.1.1
+        version: 0.1.1(eslint@9.3.0)
 
   packages/fruitui:
     devDependencies:
@@ -928,6 +928,15 @@ packages:
     engines: {node: ^14 || ^16 || >=18}
     peerDependencies:
       postcss-selector-parser: ^6.0.13
+
+  '@dprint/formatter@0.2.1':
+    resolution: {integrity: sha512-GCzgRt2o4mhZLy8L47k2A+q9EMG/jWhzZebE29EqKsxmjDrSfv2VisEj/Q+39OOf04jTkEfB/TRO+IZSyxHdYg==}
+
+  '@dprint/markdown@0.16.4':
+    resolution: {integrity: sha512-WjsC4yLybR5/76+d/2s36nOBGjETe+jJR//ddFHohDXKdis+FTUv7dJ00kmd6g0AKQwDITayM1Nid10gFNG0Yg==}
+
+  '@dprint/toml@0.6.2':
+    resolution: {integrity: sha512-Mk5unEANsL/L+WHYU3NpDXt1ARU5bNU5k5OZELxaJodDycKG6RoRnSlZXpW6+7UN2PSnETAFVUdKrh937ZwtHA==}
 
   '@dual-bundle/import-meta-resolve@4.1.0':
     resolution: {integrity: sha512-+nxncfwHM5SgAtrVzgpzJOI1ol0PkumhVo469KCf9lUi21IGcY90G98VuHm9VRrUypmAzawAHO9bs6hqeADaVg==}
@@ -2122,11 +2131,6 @@ packages:
     peerDependencies:
       astro: ^2.0.0 || ^3.0.0-beta || ^4.0.0-beta
 
-  astro-capo@0.0.1:
-    resolution: {integrity: sha512-KyQD1mzgEQnbqrKpYdoIZMAYejkOcIJocdGuQBH9Yzr4KqGzIR8P2DDNbV/FQXaSyq900lCZwWJH45tBIQCG8w==}
-    peerDependencies:
-      astro: '>= 2.8'
-
   astro-compressor@0.4.1:
     resolution: {integrity: sha512-IAgYAlxYRMolaptsFB9quH7RxX4eUeC4UfULCPhT+ILcg7m1kbaxuyUKqGg9Hh+KZ+FNPPDAz7DqUfl+HDWhQg==}
 
@@ -2780,6 +2784,11 @@ packages:
   eslint-flat-config-utils@0.2.5:
     resolution: {integrity: sha512-iO+yLZtC/LKgACerkpvsZ6NoRVB2sxT04mOpnNcEM1aTwKy+6TsT46PUvrML4y2uVBS6I67hRCd2JiKAPaL/Uw==}
 
+  eslint-formatting-reporter@0.0.0:
+    resolution: {integrity: sha512-k9RdyTqxqN/wNYVaTk/ds5B5rA8lgoAmvceYN7bcZMBwU7TuXx5ntewJv81eF3pIL/CiJE+pJZm36llG8yhyyw==}
+    peerDependencies:
+      eslint: '>=8.40.0'
+
   eslint-import-resolver-node@0.3.9:
     resolution: {integrity: sha512-WFj2isz22JahUv+B788TlO3N6zL3nNJGU8CcZbPZvVEkBPaJdCV4vy5wyghty5ROFbCRnm132v8BScu5/1BQ8g==}
 
@@ -2787,6 +2796,9 @@ packages:
     resolution: {integrity: sha512-IvRXXtEajLeyssvW4wJcZ2etxkR9mUf4zpNwgI+m/Uac9RfXHskuJefkHUcawVzePnd6xp24enp5jfgdHzjRdQ==}
     peerDependencies:
       eslint: '*'
+
+  eslint-parser-plain@0.1.0:
+    resolution: {integrity: sha512-oOeA6FWU0UJT/Rxc3XF5Cq0nbIZbylm7j8+plqq0CZoE6m4u32OXJrR+9iy4srGMmF6v6pmgvP1zPxSRIGh3sg==}
 
   eslint-plugin-antfu@2.3.3:
     resolution: {integrity: sha512-TAgYNuc20QyKw8NXtpzR3LeMTTv1qAJVKkjCVzjRSGiSR1EetEY7LRgQVhcgP/C1FnI87isQERAIkKvkYyLq0Q==}
@@ -2815,6 +2827,11 @@ packages:
     engines: {node: '>=6.5.0'}
     peerDependencies:
       eslint: '>=4.19.1'
+
+  eslint-plugin-format@0.1.1:
+    resolution: {integrity: sha512-jzk70D3RbaseNIdMtimMqiJHDPUw9bzZjmZTT9tQ6x3HU9U9bGqnsieQK5H0FIZUpx4qC41CidLDWwVCylICRQ==}
+    peerDependencies:
+      eslint: ^8.40.0 || ^9.0.0
 
   eslint-plugin-import-x@0.5.1:
     resolution: {integrity: sha512-2JK8bbFOLes+gG6tgdnM8safCxMAj4u2wjX8X1BRFPfnY7Ct2hFYESoIcVwABX/DDcdpQFLGtKmzbNEWJZD9iQ==}
@@ -3040,6 +3057,9 @@ packages:
 
   fast-deep-equal@3.1.3:
     resolution: {integrity: sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==}
+
+  fast-diff@1.3.0:
+    resolution: {integrity: sha512-VxPP4NqbUjj6MaAOafWeUn2cXWLcCtljklUtZf0Ind4XQ+QPtmA0b18zZy0jIQx+ExRVCR/ZQpBmik5lXshNsw==}
 
   fast-fifo@1.3.2:
     resolution: {integrity: sha512-/d9sfos4yxzpwkDkuN7k2SqFKtYNmCTzgfEpz82x34IM9/zc8KGxQoXg1liNC/izpRM/MBdt44Nmx41ZWqk+FQ==}
@@ -4613,6 +4633,10 @@ packages:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
 
+  prettier-linter-helpers@1.0.0:
+    resolution: {integrity: sha512-GbK2cP9nraSSUF9N2XwUwqfzlAFlMNYYl+ShE/V+H8a9uNl/oUqB1w2EL54Jh0OlyRSd8RfWYJ3coVS4TROP2w==}
+    engines: {node: '>=6.0.0'}
+
   prettier-plugin-astro@0.14.0:
     resolution: {integrity: sha512-7jRGJsexaRIyUzTk8uzXlP45cw6DQ5Ci4bTe0xCBCcuO1Fff8jJy9oI+kRCQKSdDFTSAArMSg8GpvzlKBtSaZA==}
     engines: {node: ^14.15.0 || >=16.0.0}
@@ -5409,9 +5433,6 @@ packages:
   ufo@1.5.3:
     resolution: {integrity: sha512-Y7HYmWaFwPUmkoQCUIAYpKqkOf+SbVj/2fJJZ4RJMCfZp0rTGwRbzQD+HghfnhKOjL9E01okqz+ncJskGYfBNw==}
 
-  ultrahtml@1.5.3:
-    resolution: {integrity: sha512-GykOvZwgDWZlTQMtp5jrD4BVL+gNn2NVlVafjcFUJ7taY20tqYdwdoWBFy6GBJsNTZe1GkGPkSl5knQAjtgceg==}
-
   unbox-primitive@1.0.2:
     resolution: {integrity: sha512-61pPlCD9h51VoreyJ0BReideM3MDKMKnh6+V9L08331ipq6Q8OFXZYiqP6n/tbHx4s5I9uRhcye6BrbkizkBDw==}
 
@@ -5822,7 +5843,7 @@ snapshots:
       '@jridgewell/gen-mapping': 0.3.5
       '@jridgewell/trace-mapping': 0.3.25
 
-  '@antfu/eslint-config@2.19.1(@vue/compiler-sfc@3.4.27)(eslint-plugin-astro@1.2.0(eslint@9.3.0)(typescript@5.4.5))(eslint@9.3.0)(prettier-plugin-astro@0.14.0)(typescript@5.4.5)':
+  '@antfu/eslint-config@2.19.1(@vue/compiler-sfc@3.4.27)(eslint-plugin-astro@1.2.0(eslint@9.3.0)(typescript@5.4.5))(eslint-plugin-format@0.1.1(eslint@9.3.0))(eslint@9.3.0)(prettier-plugin-astro@0.14.0)(typescript@5.4.5)':
     dependencies:
       '@antfu/install-pkg': 0.3.3
       '@clack/prompts': 0.7.0
@@ -5862,6 +5883,7 @@ snapshots:
       yargs: 17.7.2
     optionalDependencies:
       eslint-plugin-astro: 1.2.0(eslint@9.3.0)(typescript@5.4.5)
+      eslint-plugin-format: 0.1.1(eslint@9.3.0)
       prettier-plugin-astro: 0.14.0
     transitivePeerDependencies:
       - '@vue/compiler-sfc'
@@ -6723,6 +6745,12 @@ snapshots:
   '@csstools/selector-specificity@3.1.1(postcss-selector-parser@6.1.0)':
     dependencies:
       postcss-selector-parser: 6.1.0
+
+  '@dprint/formatter@0.2.1': {}
+
+  '@dprint/markdown@0.16.4': {}
+
+  '@dprint/toml@0.6.2': {}
 
   '@dual-bundle/import-meta-resolve@4.1.0': {}
 
@@ -7849,11 +7877,6 @@ snapshots:
       acorn: 8.11.3
       astro: 4.9.2(@types/node@20.12.13)(sass@1.77.4)(terser@5.31.0)(typescript@5.4.5)
 
-  astro-capo@0.0.1(astro@4.9.2(@types/node@20.12.13)(sass@1.77.4)(terser@5.31.0)(typescript@5.4.5)):
-    dependencies:
-      astro: 4.9.2(@types/node@20.12.13)(sass@1.77.4)(terser@5.31.0)(typescript@5.4.5)
-      ultrahtml: 1.5.3
-
   astro-compressor@0.4.1: {}
 
   astro-eslint-parser@1.0.2(typescript@5.4.5):
@@ -8728,6 +8751,11 @@ snapshots:
       '@types/eslint': 8.56.10
       pathe: 1.1.2
 
+  eslint-formatting-reporter@0.0.0(eslint@9.3.0):
+    dependencies:
+      eslint: 9.3.0
+      prettier-linter-helpers: 1.0.0
+
   eslint-import-resolver-node@0.3.9:
     dependencies:
       debug: 3.2.7
@@ -8739,6 +8767,8 @@ snapshots:
   eslint-merge-processors@0.1.0(eslint@9.3.0):
     dependencies:
       eslint: 9.3.0
+
+  eslint-parser-plain@0.1.0: {}
 
   eslint-plugin-antfu@2.3.3(eslint@9.3.0):
     dependencies:
@@ -8777,6 +8807,17 @@ snapshots:
       escape-string-regexp: 1.0.5
       eslint: 9.3.0
       ignore: 5.3.1
+
+  eslint-plugin-format@0.1.1(eslint@9.3.0):
+    dependencies:
+      '@dprint/formatter': 0.2.1
+      '@dprint/markdown': 0.16.4
+      '@dprint/toml': 0.6.2
+      eslint: 9.3.0
+      eslint-formatting-reporter: 0.0.0(eslint@9.3.0)
+      eslint-parser-plain: 0.1.0
+      prettier: 3.2.5
+      synckit: 0.9.0
 
   eslint-plugin-import-x@0.5.1(eslint@9.3.0)(typescript@5.4.5):
     dependencies:
@@ -9120,6 +9161,8 @@ snapshots:
       - supports-color
 
   fast-deep-equal@3.1.3: {}
+
+  fast-diff@1.3.0: {}
 
   fast-fifo@1.3.2: {}
 
@@ -10992,6 +11035,10 @@ snapshots:
 
   prelude-ls@1.2.1: {}
 
+  prettier-linter-helpers@1.0.0:
+    dependencies:
+      fast-diff: 1.3.0
+
   prettier-plugin-astro@0.14.0:
     dependencies:
       '@astrojs/compiler': 1.8.2
@@ -11986,8 +12033,6 @@ snapshots:
   typescript@5.4.5: {}
 
   ufo@1.5.3: {}
-
-  ultrahtml@1.5.3: {}
 
   unbox-primitive@1.0.2:
     dependencies:

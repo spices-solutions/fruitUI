@@ -1,14 +1,10 @@
 ---
 import { Image } from 'astro:assets'
-import { type CollectionEntry, getCollection } from 'astro:content'
+import { getCollection } from 'astro:content'
 import { BlogLayout } from 'wtqdocs/blog'
 import { formatDate } from 'astro-toolkit/utils'
 
 const blog = await getCollection('blog')
-
-interface Props {
-  blog: CollectionEntry<'blog'>
-}
 ---
 
 <BlogLayout>

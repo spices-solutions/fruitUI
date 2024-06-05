@@ -1,6 +1,15 @@
 ---
+import type { MarkdownLayoutProps } from 'astro'
 import { BaseLayout } from 'wtqdocs'
 import '../custom.scss'
+
+type Props = MarkdownLayoutProps<{
+  title: string
+  subtitle: string
+  description: string
+  sorry: string
+  action: string
+}>
 
 const { frontmatter } = Astro.props;
 ---
