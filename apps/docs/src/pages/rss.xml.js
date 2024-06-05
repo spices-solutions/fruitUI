@@ -1,7 +1,6 @@
 import rss from '@astrojs/rss'
 import { getCollection } from 'astro:content'
-import Wathqny from '/wathqny.config'
-import { slugify } from 'astro-toolkit/utils'
+import Wathqny from 'config'
 
 export async function GET(context) {
   const blog = await getCollection('blog')
@@ -12,8 +11,8 @@ export async function GET(context) {
     items: blog.map(post => ({
       title: post.data.title,
       description: post.data.description,
-      pubDate: post.data.date,
-      link: `/blog/${post.data.href ?? `/${slugify(post.data.title)}`}`,
+      pubDate: post.data.pubDate,
+      link: `/blog/${post.data.link}`,
     })),
   })
 }
