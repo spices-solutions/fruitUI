@@ -181,12 +181,6 @@ importers:
       typescript:
         specifier: ^5.4.5
         version: 5.4.5
-      vite:
-        specifier: ^5.1.5
-        version: 5.2.12(@types/node@20.12.13)(sass@1.77.4)(terser@5.31.0)
-      vite-plugin-dts:
-        specifier: ^3.7.3
-        version: 3.9.1(@types/node@20.12.13)(rollup@4.18.0)(typescript@5.4.5)(vite@5.2.12(@types/node@20.12.13)(sass@1.77.4)(terser@5.31.0))
       workbox-window:
         specifier: ^7.1.0
         version: 7.1.0
@@ -195,7 +189,7 @@ importers:
         version: link:../wtqtypes
 
   packages/wtqtypes:
-    dependencies:
+    devDependencies:
       unbuild:
         specifier: ^2.0.0
         version: 2.0.0(sass@1.77.4)(typescript@5.4.5)(vue-tsc@1.8.27(typescript@5.4.5))

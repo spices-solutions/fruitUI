@@ -58,8 +58,6 @@
     "@vite-pwa/assets-generator": "^0.2.4",
     "@vite-pwa/astro": "^0.3.0",
     "typescript": "^5.4.5",
-    "vite": "^5.1.5",
-    "vite-plugin-dts": "^3.7.3",
     "workbox-window": "^7.1.0",
     "wtqtypes": "workspace:*"
   }
