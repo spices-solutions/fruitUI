@@ -34,7 +34,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
-  "devDependencies": {
+  "dependencies": {
     "unbuild": "^2.0.0"
   }
 }
