@@ -7,13 +7,11 @@
   "exports": {
     ".": "./eslint.config.mjs"
   },
-  "dependencies": {
+  "devDependencies": {
     "@antfu/eslint-config": "^2.19.1",
     "eslint-plugin-astro": "^1.2.0",
+    "eslint-plugin-format": "^0.1.1",
     "eslint-plugin-jsx-a11y": "^6.8.0",
     "prettier-plugin-astro": "^0.14.0"
-  },
-  "devDependencies": {
-    "eslint-plugin-format": "^0.1.1"
   }
 }

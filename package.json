@@ -15,10 +15,10 @@
     "build": "turbo run build"
   },
   "dependencies": {
-    "@repo/eslint-config": "workspace:*",
-    "@repo/stylelint-config": "workspace:*"
+    "turbo": "latest"
   },
   "devDependencies": {
-    "turbo": "^1.13.3"
+    "@repo/eslint-config": "workspace:*",
+    "@repo/stylelint-config": "workspace:*"
   }
 }
