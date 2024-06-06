@@ -1,7 +1,7 @@
 import { slugify } from 'astro-toolkit/utils';
 import { reference, z } from 'astro:content'
 
-export const docSchema = z
+export const docSchema = ({image}) => z
   .object({
     title: z.string().max(60, 'it can\'t be more than 60 characters').min(3),
     description: z
@@ -9,8 +9,7 @@ export const docSchema = z
       .max(160, 'it can\'t be more than 160 characters')
       .min(10),
     href: z.string().optional(),
-    OGImage: z.string().optional(),
-    OGImageAlt: z.string().optional(),
+    image: z.object({ src: z.union([image(), z.string().url()]), alt: z.string()}).optional(),
     keywords: z.union([z.string(), z.array(z.string())]).optional(),
     category: z.string(),
     position: z.number().optional(),
@@ -23,7 +22,7 @@ export const docSchema = z
     link: `${data.href ?? `${data.category}/${slugify(data.title)}`}`,
   }));
 
-export const blogSchema = z
+export const blogSchema = ({image}) => z
   .object({
     title: z.string().max(60, 'it can\'t be more than 60 characters').min(3),
     description: z
@@ -31,8 +30,7 @@ export const blogSchema = z
       .max(160, 'it can\'t be more than 160 characters')
       .min(10),
     href: z.string().optional(),
-    cover: z.string().default('/og.png'),
-    OGImageAlt: z.string().optional(),
+    image: z.object({ src: z.union([image(), z.string().url()]), alt: z.string()}).optional(),
     keywords: z.union([z.string(), z.array(z.string())]).optional(),
     position: z.number().optional(),
     authors: reference('authors').optional(),

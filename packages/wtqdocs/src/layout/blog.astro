@@ -3,6 +3,7 @@ import { Image } from 'astro:assets'
 import { getCollection } from 'astro:content'
 import { BlogLayout } from 'wtqdocs/blog'
 import { formatDate } from 'astro-toolkit/utils'
+import WathqnyConfig from '/wathqny.config'
 
 const blog = await getCollection('blog')
 ---
@@ -25,7 +26,7 @@ const blog = await getCollection('blog')
                 class="wtq-cover wtq-shadow"
                 width={640}
                 height={360}
-                src={post.data.cover}
+                src={post.data.image?.src ?? WathqnyConfig.OGImage?.src }
                 alt="dwad"
               />
             </div>

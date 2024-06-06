@@ -9,7 +9,7 @@ const Config: WathqnyConfig = {
   siteName: 'fruitUI',
   OGImage: {
     src: '/og.png',
-    alt: '',
+    alt: 'An image displaying text “Fruit UI” in a large, bold font above the text “a modular styling framework” in a smaller font. Both texts are centered in the image.',
   },
   description: 'fruit UI a modular styling framework',
   keywords: [

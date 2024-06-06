@@ -1,15 +1,14 @@
 ---
-import { Picture } from 'astro:assets'
 import { type CollectionEntry, getCollection, getEntry } from 'astro:content'
 import { Breadcrumbs } from 'wtqdocs'
 import { AuthorProfile, BlogLayout } from 'wtqdocs/blog'
 import WathqnyConfig from 'config'
+import { Image } from 'astro:assets'
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog')
 
   return posts.map((post) => {
-
     return {
       params: { posts: post.data.link },
       props: { post },
@@ -41,8 +40,7 @@ const { Content } = await post.render();
   title={post.data.title}
   description={post.data.description}
   keywords={post.data.keywords}
-  OGImage={post.data.cover}
-  OGImageAlt={post.data.OGImageAlt}
+  OGImage={post.data.image}
 >
   <Breadcrumbs />
   <article>
@@ -54,18 +52,16 @@ const { Content } = await post.render();
         image={authorData.data.profile}
       />
       <figure>
-        <Picture
+        <Image
           class="wtq-cover"
           width={960}
           height={540}
-          src={post.data.cover}
-          formats={['avif', 'webp']}
           loading="eager"
-          alt={post.data.OGImageAlt ?? WathqnyConfig.OGImage?.alt}
+          src={post.data.image?.src ?? WathqnyConfig.OGImage?.src}
+          alt={post.data.image?.alt ?? WathqnyConfig.OGImage?.alt}
         />
         <figcaption>
-          dwaodjwaodjwijdkwahdhjwhgdjwhajdhjwhdwagdkulwdjlkwakldkl;awdiwijdkwahdhjwhgdjwhajdhjwhdwagdkulwdjlkwakldkl;awdiwakdgadhasklg.fendf;jheajgfawjdjagwdnjdcawdjbakwdbjkwabdjb
-          dwakdgadhasklg.fendf;jheajgfawjdjagwdnjdcawdjbakwdbjkwabdjb
+          {post.data.image?.alt ?? WathqnyConfig.OGImage?.alt}
         </figcaption>
       </figure>
     </span>
