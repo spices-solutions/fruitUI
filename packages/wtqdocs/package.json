@@ -21,7 +21,10 @@
     ".": {
       "import": "./src/index.ts"
     },
-    "./components/Head": "./src/components/Head.astro",
+    "./layout/home": "./src/layout/home.astro",
+    "./layout/docs": "./src/layout/docs.astro",
+    "./layout/blog": "./src/layout/blog.astro",
+    "./layout/404": "./src/layout/404.astro",
     "./schema": "./src/schema.ts",
     "./blog": "./src/blog.ts",
     "./styles": "./styles/scss/wathqny.scss",

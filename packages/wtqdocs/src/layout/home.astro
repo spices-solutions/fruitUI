@@ -1,0 +1,38 @@
+---
+import type { MarkdownLayoutProps } from 'astro'
+import { BaseLayout } from 'wtqdocs'
+import '../../styles/theme.scss'
+
+type Props = MarkdownLayoutProps<{
+  title: string
+  subtitle: string
+  description: string
+  buttons: [{ label: string, href?: string, type?: 'alt' | 'primary' }]
+}>
+
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout>
+  <main id="main-content">
+    <section class="hero">
+      <h1 class="title">
+        {frontmatter.title}
+      </h1>
+      <h2 class="subtitle">
+        {frontmatter.subtitle}
+      </h2>
+      <div class="get-started flex gap-5">
+        {
+          frontmatter.buttons.map((button) => {
+            return (
+              <a href={button.href} class:list={['wtq-btn', { 'wtq-alt': button.type === 'alt' }, { 'wtq-theme-color': button.type === 'primary' }]}>
+                {button.label}
+              </a>
+            )
+          })
+        }
+      </div>
+    </section>
+  </main>
+</BaseLayout>

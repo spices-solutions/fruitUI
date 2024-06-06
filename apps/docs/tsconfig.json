@@ -3,27 +3,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "docs": [
-        "src/components/docs.astro"
-      ],
-      "blog": [
-        "src/components/blog.astro"
-      ],
-      "404": [
-        "src/components/404.astro"
-      ],
-      "home": [
-        "src/components/home.astro"
-      ],
       "config": [
         "./wathqny.config"
       ],
-      "~/components/*": [
-        "src/components/*"
-      ],
-      "~/layouts/*": [
-        "src/layouts/*"
-      ]
     },
     "types": [
       "astro/client",
