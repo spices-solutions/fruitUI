@@ -195,7 +195,7 @@ importers:
         version: link:../wtqtypes
 
   packages/wtqtypes:
-    devDependencies:
+    dependencies:
       unbuild:
         specifier: ^2.0.0
         version: 2.0.0(sass@1.77.4)(typescript@5.4.5)(vue-tsc@1.8.27(typescript@5.4.5))
