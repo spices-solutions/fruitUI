@@ -4,7 +4,17 @@ import { pwaInfo } from 'virtual:pwa-info'
 // @ts-ignore
 import { pwaAssetsHead } from 'virtual:pwa-assets/head'
 
-export interface Props {
+export interface Link extends Omit<HTMLLinkElement, 'sizes'> {
+  prefetch: boolean;
+  crossorigin: string;
+  sizes: string;
+}
+
+export interface Meta extends HTMLMetaElement {
+  property: string;
+}
+
+export type Props = {
   title?: string | undefined
   description?: string | undefined
   OGImage?: {
@@ -19,12 +29,14 @@ export interface Props {
   GSVtoken: string
   robots: string
   vitePWA: boolean
-  links: string[] | {}
-  fonts: string[] | {}
+  extend?: {
+    link?: Partial<Link>[];
+    meta?: Partial<Meta>[];
+  };
 }
 
-const { title, keywords, description, OGImage, sitemap, GSVtoken, robots, vitePWA, links, fonts }
-  = Astro.props as Props
+const { title, keywords, description, OGImage, sitemap, GSVtoken, robots, vitePWA ,extend }
+  = Astro.props
 
 const METATITLE = title
 const METAIMAGE = OGImage?.src
@@ -40,15 +52,15 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <title>{METATITLE}</title>
 
   {
-    fonts?.map((link) => {
-      return typeof link === 'string' ? <link href={link} /> : <link {...link} />
-    })
+    extend?.link?.map((linkTag) => (
+      <link {...linkTag} />
+    ))
   }
 
   {
-    links?.map((link) => {
-      return typeof link === 'string' ? <link href={link} rel="stylesheet" /> : <link {...link} />
-    })
+    extend?.meta?.map((metaTag) => (
+      <meta {...metaTag} />
+    ))
   }
 
   {sitemap && <link rel="sitemap" href="/sitemap-index.xml" />}

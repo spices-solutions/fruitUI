@@ -20,7 +20,7 @@ export const docSchema = z
   .strict()
   .transform((data) => ({
     ...data,
-    link: `${data.category}${data.href ? data.href : `/${slugify(data.title)}`}`,
+    link: `${data.href ?? `${data.category}/${slugify(data.title)}`}`,
   }));
 
 export const blogSchema = z
@@ -44,7 +44,7 @@ export const blogSchema = z
     ...data,
     link: data.href ?? `/${slugify(data.title)}`,
   }));
-  
+
 export function authorSchema({ image }: { image: any }) {
   z.object({
     name: z.string(),

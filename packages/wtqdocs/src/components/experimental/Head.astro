@@ -38,14 +38,19 @@ const METAKEYWORDS = keywords ?? [...(WathqnyConfig.keywords || [])];
   robots="index, follow"
   sitemap
   vitePWA
-  links={WathqnyConfig?.css}
-  fonts={[{
-    href: '/font/GeistVF.woff2',
-    rel: 'preload',
-    as: 'font',
-    type: 'font/woff2',
-    crossorigin: 'anonymous',
-  }]}
+  extend={{
+    link: [
+      {
+        href: '/font/GeistVF.woff2',
+        rel: 'preload',
+        as: 'font',
+        type: 'font/woff2',
+        crossorigin: 'anonymous',
+      },
+      // @ts-expect-error Type '{ href: string; rel?: string; onload?: string; media?: string; as?: string; }[] | undefined' must have a '[Symbol.iterator]()' method that returns an iterator.ts(2488)
+      ...WathqnyConfig.css
+    ],
+  }}
 >
   <script>
     const root = document.documentElement;

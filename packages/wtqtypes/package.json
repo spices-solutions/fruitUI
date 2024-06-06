@@ -17,24 +17,12 @@
     "typescript",
     "wathqny"
   ],
-  "exports": {
-    ".": {
-      "import": "./dist/index.mjs"
-    }
-  },
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
+  "types": "./index.d.ts",
   "files": [
-    "./dist/*",
-    "./dist/index.mjs",
-    "./src/index.ts"
+    "./index.d.ts"
   ],
   "scripts": {
-    "build": "unbuild",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
-  },
-  "devDependencies": {
-    "unbuild": "^2.0.0"
   }
 }

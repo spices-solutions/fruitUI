@@ -54,9 +54,18 @@ const Config: WathqnyConfig = {
     ],
   },
   css: [
-    ThemeStyles,
-    CodeStyles,
-    fruitStyles
+    {
+      href: ThemeStyles,
+      rel: 'stylesheet',
+    },
+    {
+      href: CodeStyles,
+      rel: 'stylesheet',
+    },
+    {
+      href: fruitStyles,
+      rel: 'stylesheet',
+    }
   ],
 }
 

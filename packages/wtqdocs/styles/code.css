@@ -1,7 +1,5 @@
 .wtq-browser-block {
   background-color: #fdfdfd;
-  filter: blur(8px);
-  transition: all ease 300ms;
 }
 
 .wtq-browser-block .component-wrapper {
