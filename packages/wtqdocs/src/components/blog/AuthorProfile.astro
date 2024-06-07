@@ -19,6 +19,7 @@ const { image, name, role } = Astro.props;
     class="wtq-avatar"
     width={48}
     height={48}
+    loading="eager"
     src={image as string}
     alt="user avatar"
   />

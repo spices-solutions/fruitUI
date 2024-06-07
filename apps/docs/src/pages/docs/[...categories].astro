@@ -23,7 +23,7 @@ const { doc } = Astro.props;
 <DocsLayout
   title={doc.data.category.replace('-', ' ')}
   description={doc.data.description}
-  keywords={doc.data.title}
+  keywords={doc.data.keywords}
 >
   <CategoryCards />
 </DocsLayout>

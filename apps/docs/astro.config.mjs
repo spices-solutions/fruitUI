@@ -15,7 +15,7 @@ import icon from 'astro-icon'
 import metaTags from 'astro-meta-tags'
 import purgecss from 'astro-purgecss'
 import { defineConfig } from 'astro/config'
-import Wathqny from './wathqny.config'
+import Wathqny from 'config'
 
 // https://astro.build/config
 export default defineConfig({
