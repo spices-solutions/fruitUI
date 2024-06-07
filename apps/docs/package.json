@@ -33,7 +33,6 @@
     "spices-fruitui": "workspace:*",
     "vite-plugin-pwa": "^0.19.2",
     "workbox-window": "^7.1.0",
-    "wtqdocs": "workspace:*",
-    "wtqtypes": "workspace:*"
+    "wtqdocs": "workspace:*"
   }
 }

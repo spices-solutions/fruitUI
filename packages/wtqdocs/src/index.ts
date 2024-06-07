@@ -11,3 +11,4 @@ export { default as CategoryCards } from './components/categoryCards.astro'
 export { default as Code } from './components/Block/Code.astro'
 export type { Props as CodeType } from './components/Block/Code.astro'
 export { default as BrowserBlock } from './components/Block/BrowserBlock.astro'
+export type { WathqnyConfig } from "./types/config"

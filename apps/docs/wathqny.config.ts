@@ -1,4 +1,4 @@
-import type { WathqnyConfig } from 'wtqtypes'
+import type { WathqnyConfig } from 'wtqdocs'
 
 import CodeStyles from 'wtqdocs/block/styles?url'
 import ThemeStyles from 'wtqdocs/styles?url'
