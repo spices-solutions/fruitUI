@@ -5,14 +5,12 @@
   // Disable the default formatter, use eslint instead
   "prettier.enable": false,
   "editor.formatOnSave": false,
-  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
-  "eslint.format.enable": true,
+
   // Auto fix
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit",
     "source.organizeImports": "never",
-    "source.formatDocument": "always",
-    "source.fixAll": "always"
+    "source.stylelint.fixAll": "always"
   },
 
   // Silent the stylistic rules in you IDE, but still auto fix them
@@ -51,8 +49,5 @@
     "scss",
     "pcss",
     "postcss"
-  ],
-  "[scss]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-  }
+  ]
 }

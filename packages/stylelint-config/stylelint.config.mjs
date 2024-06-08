@@ -1,14 +1,6 @@
-import defineConfig from 'stylelint-define-config'
-
-export default defineConfig({
+/** @type {import('stylelint').Config} */
+export default {
   extends: [
-    'stylelint-config-standard',
-    'stylelint-config-standard-scss',
-    'stylelint-config-clean-order',
+    '@morev/stylelint-config',
   ],
-
-  rules: {
-    'color-function-notation': null,
-  },
-  cache: true,
-})
+}

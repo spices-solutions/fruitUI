@@ -14,11 +14,10 @@
     "lint:fix": "turbo run lint:fix",
     "build": "turbo run build"
   },
-  "dependencies": {
-    "turbo": "latest"
-  },
+
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
-    "@repo/stylelint-config": "workspace:*"
+    "@repo/stylelint-config": "workspace:*",
+    "turbo": "latest"
   }
 }

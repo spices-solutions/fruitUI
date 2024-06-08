@@ -63,7 +63,7 @@ const currentUrl = `/${
                 const documentLink
                   = doc.data.href ?? `/${slugify(doc.data.title)}`
                 return (
-                  doc.data.category == item.id && currentUrl == documentLink
+                  doc.data.category === item.id && currentUrl === documentLink
                 )
               },
             )}
@@ -76,7 +76,7 @@ const currentUrl = `/${
                   title: string | undefined
                 }
               }) =>
-                doc.data.category == item.id && (
+                doc.data.category === item.id && (
                   <LinkItem
                     href={`/docs/${
                       doc.data.category
