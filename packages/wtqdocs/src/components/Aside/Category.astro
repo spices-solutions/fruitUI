@@ -13,8 +13,8 @@ const { name, href, isActive } = Astro.props;
 
 <li role="tab" class="category_collapse--wrapper" class:list={{ 'wtq-active': isActive }}>
   <CategoryToggle name={name} />
-  <ul class="category_collapse" class:list={{ 'wtq-active': isActive }}>
-    <li class="collapse_item">
+  <ul class="category-collapse" class:list={{ 'wtq-active': isActive }}>
+    <li class="collapse-item">
       {href ? <LinkItem href={href} name={name} /> : <slot /> }
     </li>
   </ul>

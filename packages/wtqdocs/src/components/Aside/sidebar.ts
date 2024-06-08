@@ -19,12 +19,12 @@ toggle?.addEventListener('click', () => {
 })
 
 const categoryItems = sidebar?.querySelectorAll(
-  '.sidebar_category .category_collapse--wrapper',
+  '.sidebar-category .category_collapse--wrapper',
 )
 
 categoryItems?.forEach((categoryItem) => {
-  const categoryCollapse = categoryItem?.querySelector('.category_collapse')
-  const categoryToggle = categoryItem?.querySelector('.category_toggle')
+  const categoryCollapse = categoryItem?.querySelector('.category-collapse')
+  const categoryToggle = categoryItem?.querySelector('.category-toggle')
   const categoryLinks = categoryItem?.querySelectorAll('.collapse_item--link')
 
   categoryToggle?.addEventListener('click', () => {
