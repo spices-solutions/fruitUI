@@ -10,7 +10,7 @@
   border-right: solid 1px hsl(var(--darkest), 0.1);
 
   ul {
-    padding: 0;
+    padding: 0px;
     list-style: none;
   }
 
@@ -39,16 +39,16 @@
     }
 
     .category-collapse {
-      will-change: height, overflow;
-      overflow: hidden;
-      max-height: 0;
       transition: all cubic-bezier(0.79, 0.14, 0.15, 0.86) 500ms;
-
-    &.wtq-active {
-      max-height: 100%;
-    }
-
+      display: grid;
+      will-change: grid-template-rows;
+      grid-template-rows: 0fr;
+      &.wtq-active {
+        grid-template-rows: 1fr;
+      }
       .collapse-item {
+        will-change: overflow;
+        overflow: hidden;
         padding-inline-start: 0.6rem;
 
         .collapse_item--link {

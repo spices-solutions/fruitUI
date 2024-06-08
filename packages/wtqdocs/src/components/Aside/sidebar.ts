@@ -11,38 +11,28 @@
 //   });
 // }
 
-const sidebar = document.querySelector('.wtq-sidebar') as HTMLElement
-const toggle = document.querySelector('.wtq-toggle') as HTMLElement
+const sidebar = document.querySelector('.wtq-sidebar') as HTMLElement;
+const toggle = document.querySelector('.wtq-toggle') as HTMLElement;
 
 toggle?.addEventListener('click', () => {
-  sidebar.classList.toggle('wtq-show')
-})
+  sidebar.classList.toggle('wtq-show');
+});
 
 const categoryItems = sidebar?.querySelectorAll(
-  '.sidebar-category .category_collapse--wrapper',
-)
+  '.sidebar-category .category_collapse--wrapper'
+) as NodeListOf<HTMLElement>;
 
 categoryItems?.forEach((categoryItem) => {
-  const categoryCollapse = categoryItem?.querySelector('.category-collapse')
-  const categoryToggle = categoryItem?.querySelector('.category-toggle')
-  const categoryLinks = categoryItem?.querySelectorAll('.collapse_item--link')
+  const categoryCollapse = categoryItem.querySelector('.category-collapse') as HTMLElement;
+  const categoryToggle = categoryItem.querySelector('.category-toggle') as HTMLElement;
+  const categoryLinks = categoryItem.querySelectorAll('.collapse_item--link') as NodeListOf<HTMLElement>;
 
   categoryToggle?.addEventListener('click', () => {
-    if (categoryItem.classList.contains('wtq-active')) {
-      categoryLinks.forEach((categoryItemLink) => {
-        categoryItemLink.setAttribute('tabindex', '-1')
-      })
-      categoryCollapse.style.maxHeight = `0px`
-      categoryItem.classList.remove('wtq-active')
-      categoryCollapse?.classList.remove('wtq-active')
-    }
-    else {
-      categoryLinks.forEach((categoryItemLink) => {
-        categoryItemLink.setAttribute('tabindex', '0')
-      })
-      categoryCollapse.style.maxHeight = `${categoryCollapse.scrollHeight}px`
-      categoryItem.classList.add('wtq-active')
-      categoryCollapse?.classList.add('wtq-active')
-    }
-  })
-})
+    const isActive = categoryItem.classList.contains('wtq-active');
+    categoryLinks.forEach((categoryItemLink) => {
+      categoryItemLink.setAttribute('tabindex', isActive ? '-1' : '0');
+    });
+    categoryItem.classList.toggle('wtq-active');
+    categoryCollapse?.classList.toggle('wtq-active');
+  });
+});
