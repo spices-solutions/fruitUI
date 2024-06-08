@@ -1,0 +1,59 @@
+---
+const { length, currentUrl, currentPage, firstUrl, prevUrl, nextUrl, lastUrl } = Astro.props;
+const paginationList = Array.from({length: `${length}`}, (_, i) => i + 1);
+---
+
+<nav aria-label="Blog pages" class="pagination pagination-default">
+    { firstUrl == currentUrl ? (
+        <span class="pagination__link disabled">
+            <i class="pi-angle-left"></i>
+            <i class="pi-angle-left"></i>
+        </span>
+    ) : (
+        <a href={firstUrl} class="pagination__link">
+            <i class="pi-angle-left"></i>
+            <i class="pi-angle-left"></i>
+        </a>
+    )}
+
+    { prevUrl ? (
+        <a href={prevUrl} class="pagination__link">
+            <i class="pi-angle-left"></i>
+        </a>
+    ) : (
+        <span class="pagination__link disabled">
+            <i class="pi-angle-left"></i>
+        </span>        
+    )}
+    
+    {
+        paginationList.map((num) => (
+            <a href={`${firstUrl}${num == 1 ? "" : '/'+(num)}`} class={`pagination__link ${currentPage == num ? "disabled active" : ""}`}>
+                {num}
+            </a>
+        ))
+    }
+
+    { !nextUrl ? (
+        <span class="pagination__link disabled">
+            <i class="pi-angle-right"></i>
+        </span>
+    ) : (
+        <a href={nextUrl} class="pagination__link">
+            <i class="pi-angle-right"></i>
+        </a>
+    )}
+
+    { lastUrl == currentUrl ? (
+        <span class="pagination__link disabled">
+            <i class="pi-angle-right"></i>
+            <i class="pi-angle-right"></i>
+        </span>
+    ) : (
+        <a href={lastUrl} class="pagination__link">
+            <i class="pi-angle-right"></i>
+            <i class="pi-angle-right"></i>
+        </a>
+    )}
+    
+</nav>
