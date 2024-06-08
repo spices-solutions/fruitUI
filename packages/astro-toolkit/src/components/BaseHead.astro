@@ -1,48 +1,57 @@
 ---
 // @ts-ignore
-import { pwaInfo } from 'virtual:pwa-info'
+import { pwaAssetsHead } from "virtual:pwa-assets/head";
 // @ts-ignore
-import { pwaAssetsHead } from 'virtual:pwa-assets/head'
+import { pwaInfo } from "virtual:pwa-info";
 
-export interface Link extends Omit<HTMLLinkElement, 'sizes'> {
-  prefetch: boolean;
-  crossorigin: string;
-  sizes: string;
+export interface Link extends Omit<HTMLLinkElement, "sizes"> {
+	prefetch: boolean;
+	crossorigin: string;
+	sizes: string;
 }
 
 export interface Meta extends HTMLMetaElement {
-  property: string;
+	property: string;
 }
 
 export type Props = {
-  title?: string | undefined
-  description?: string | undefined
-  OGImage?: {
-    src: string | undefined
-    alt: string | undefined
-  }
-  keywords?: string | string[] | undefined
-  sitemap?: boolean
-  /**
-   * google-site-verification token
-   */
-  GSVtoken: string
-  robots: string
-  vitePWA: boolean
-  extend?: {
-    link?: Partial<Link>[];
-    meta?: Partial<Meta>[];
-  };
-}
+	title?: string | undefined;
+	description?: string | undefined;
+	OGImage?: {
+		src: string | undefined;
+		alt: string | undefined;
+	};
+	keywords?: string | string[] | undefined;
+	sitemap?: boolean;
+	/**
+	 * google-site-verification token
+	 */
+	GSVtoken: string;
+	robots: string;
+	vitePWA: boolean;
+	extend?: {
+		link?: Partial<Link>[];
+		meta?: Partial<Meta>[];
+	};
+};
 
-const { title, keywords, description, OGImage, sitemap, GSVtoken, robots, vitePWA ,extend }
-  = Astro.props
+const {
+	title,
+	keywords,
+	description,
+	OGImage,
+	sitemap,
+	GSVtoken,
+	robots,
+	vitePWA,
+	extend,
+} = Astro.props;
 
-const METATITLE = title
-const METAIMAGE = OGImage?.src
-const METAIMAGEALT = OGImage?.alt
-const METADESCRIPTION = description
-const METAKEYWORDS = keywords
+const METATITLE = title;
+const METAIMAGE = OGImage?.src;
+const METAIMAGEALT = OGImage?.alt;
+const METADESCRIPTION = description;
+const METAKEYWORDS = keywords;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
