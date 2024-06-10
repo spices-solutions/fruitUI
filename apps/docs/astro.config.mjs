@@ -33,7 +33,7 @@ export default defineConfig({
       imports: [
         {
           'astro:assets': ['Image'],
-          'wtqdocs': ['BrowserBlock', 'Code'],
+          wtqdocs: ['BrowserBlock', 'Code'],
         },
       ],
     }),
