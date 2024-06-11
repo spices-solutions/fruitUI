@@ -1,32 +1,25 @@
 ---
-import { BaseHead } from "astro-toolkit";
+import { BaseHead } from 'astro-toolkit'
 
-import type { WathqnyConfig as WathqnyConfigType } from "../types/config";
+import type { WathqnyConfig as WathqnyConfigType } from '../types/config'
 
 // @ts-ignore
-import untypedWathqnyConfig from "/wathqny.config";
+import untypedWathqnyConfig from '/wathqny.config'
+import type { LayoutInterface } from '../types/components'
 
-const WathqnyConfig: WathqnyConfigType = untypedWathqnyConfig;
+const WathqnyConfig: WathqnyConfigType = untypedWathqnyConfig
 
-export interface Props {
-	title?: string | undefined;
-	description?: string | undefined;
-	OGImage?: {
-		src: string;
-		alt: string;
-	};
-	keywords?: string | string[] | undefined;
-}
+export interface Props extends LayoutInterface {}
 
-const { title, keywords, description, OGImage } = Astro.props as Props;
+const { title, keywords, description, OGImage } = Astro.props as Props
 
 const METATITLE = title
-	? `${title} - ${WathqnyConfig.siteName}`
-	: WathqnyConfig.siteName;
-const METAIMAGE = OGImage?.src ?? WathqnyConfig.OGImage?.src;
-const METAIMAGEALT = OGImage?.alt ?? WathqnyConfig.OGImage?.alt;
-const METADESCRIPTION = description ?? WathqnyConfig.description;
-const METAKEYWORDS = keywords ?? [...(WathqnyConfig.keywords || [])];
+  ? `${title} - ${WathqnyConfig.siteName}`
+  : WathqnyConfig.siteName
+const METAIMAGE = OGImage?.src ?? WathqnyConfig.OGImage?.src
+const METAIMAGEALT = OGImage?.alt ?? WathqnyConfig.OGImage?.alt
+const METADESCRIPTION = description ?? WathqnyConfig.description
+const METAKEYWORDS = keywords ?? [...(WathqnyConfig.keywords || [])]
 ---
 
 <BaseHead

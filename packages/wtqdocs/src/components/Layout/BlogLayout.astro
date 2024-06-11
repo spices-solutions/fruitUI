@@ -1,18 +1,10 @@
 ---
+import type { LayoutInterface } from '../../types/components'
 import BaseLayout from './BaseLayout.astro'
 
-export interface Props {
-  title?: string | undefined
-  description?: string | undefined
-  OGImage?: {
-    src: string;
-    alt: string;
-  }
-  keywords?: string | string[] | undefined
-}
+export interface Props extends LayoutInterface {}
 
-const { title, keywords, description, OGImage }
-  = Astro.props as Props;
+const { title, keywords, description, OGImage } = Astro.props as Props
 ---
 
 <BaseLayout {title} {keywords} {description} {OGImage}>

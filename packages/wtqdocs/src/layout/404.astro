@@ -3,7 +3,6 @@ import type { MarkdownLayoutProps } from 'astro'
 import { BaseLayout } from 'wtqdocs'
 import '../../styles/theme.scss'
 
-
 type Props = MarkdownLayoutProps<{
   title: string
   subtitle: string
@@ -12,7 +11,7 @@ type Props = MarkdownLayoutProps<{
   action: string
 }>
 
-const { frontmatter } = Astro.props;
+const { frontmatter } = Astro.props
 ---
 
 <BaseLayout title={frontmatter.title ?? 'Not Found'} description={frontmatter.description}>
