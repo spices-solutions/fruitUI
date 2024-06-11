@@ -148,3 +148,42 @@
     background-color: var(--shiki-dark-bg) !important;
   }
 }
+
+.wtq-btn {
+  box-shadow: 0 6px 4px -5px rgba(0, 0, 0, 0.1882352941);
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.1s ease-in;
+  padding: 10px 25px;
+  line-height: 1;
+}   
+
+.wtq-alt {
+  background-color: white;
+  border: 1px solid hsl(var(--light));
+  .dark & {
+    background-color: hsl(var(--light));
+  }
+}
+
+.wtq-theme-color {
+  background-color: hsl(271, 81%, 56%);
+  border: inherit;
+  color: white;
+  .dark & {
+    background-color: hsl(271, 81%, 56%);
+  }
+}
+
+.wtq-pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .pagination__link {
+    @extend .wtq-btn, .wtq-alt;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

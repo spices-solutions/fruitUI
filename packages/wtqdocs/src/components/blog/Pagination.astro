@@ -1,59 +1,29 @@
 ---
-const { length, currentUrl, currentPage, firstUrl, prevUrl, nextUrl, lastUrl } = Astro.props;
-const paginationList = Array.from({length: `${length}`}, (_, i) => i + 1);
+import { Icon } from 'astro-icon/components'
+
+const { length, currentUrl, currentPage, firstUrl, prevUrl, nextUrl, lastUrl } =
+  Astro.props
+const paginationList = Array.from({ length: `${length}` }, (_, i) => i + 1)
 ---
 
-<nav aria-label="Blog pages" class="pagination pagination-default">
-    { firstUrl == currentUrl ? (
-        <span class="pagination__link disabled">
-            <i class="pi-angle-left"></i>
-            <i class="pi-angle-left"></i>
-        </span>
-    ) : (
-        <a href={firstUrl} class="pagination__link">
-            <i class="pi-angle-left"></i>
-            <i class="pi-angle-left"></i>
-        </a>
-    )}
-
-    { prevUrl ? (
-        <a href={prevUrl} class="pagination__link">
-            <i class="pi-angle-left"></i>
-        </a>
-    ) : (
-        <span class="pagination__link disabled">
-            <i class="pi-angle-left"></i>
-        </span>        
-    )}
-    
+<nav aria-label="Blog pages" class="wtq-pagination">
+    <a href={firstUrl} class:list={["pagination__link", {"disabled": firstUrl == currentUrl}]}>
+      <Icon name="double-arrow" />
+    </a>
+    <a href={prevUrl} class:list={["pagination__link", {"disabled": prevUrl}]}>
+        <Icon name="arrow" />
+    </a>
     {
-        paginationList.map((num) => (
-            <a href={`${firstUrl}${num == 1 ? "" : '/'+(num)}`} class={`pagination__link ${currentPage == num ? "disabled active" : ""}`}>
-                {num}
-            </a>
-        ))
+      paginationList.map((num) => (
+        <a href={`${firstUrl}${num == 1 ? "" : '/'+(num)}`} class:list={`pagination__link ${currentPage == num ? "disabled active" : ""}`}>
+            {num}
+        </a>
+      ))
     }
-
-    { !nextUrl ? (
-        <span class="pagination__link disabled">
-            <i class="pi-angle-right"></i>
-        </span>
-    ) : (
-        <a href={nextUrl} class="pagination__link">
-            <i class="pi-angle-right"></i>
-        </a>
-    )}
-
-    { lastUrl == currentUrl ? (
-        <span class="pagination__link disabled">
-            <i class="pi-angle-right"></i>
-            <i class="pi-angle-right"></i>
-        </span>
-    ) : (
-        <a href={lastUrl} class="pagination__link">
-            <i class="pi-angle-right"></i>
-            <i class="pi-angle-right"></i>
-        </a>
-    )}
-    
+    <a href={nextUrl} class:list={["pagination__link", {"disabled": nextUrl}]} >
+      <Icon name="arrow" />
+    </a>
+    <a href={lastUrl} class:list={["pagination__link", {"disabled": lastUrl == currentUrl}]}>
+      <Icon name="double-arrow" />
+    </a>
 </nav>
