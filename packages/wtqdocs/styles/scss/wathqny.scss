@@ -176,14 +176,3 @@
   }
 }
 
-.wtq-pagination {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  .pagination__link {
-    @extend .wtq-btn, .wtq-alt;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-}

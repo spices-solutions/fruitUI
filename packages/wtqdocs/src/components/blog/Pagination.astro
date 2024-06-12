@@ -3,11 +3,14 @@ import { Icon } from 'astro-icon/components'
 
 const { length, currentUrl, currentPage, firstUrl, prevUrl, nextUrl, lastUrl } =
   Astro.props
-const paginationList = Array.from({ length: `${length}` }, (_, i) => i + 1)
+const paginationList = Array.from({ length: length }, (_, i) => i + 1)
+
+const isFirstPage = firstUrl === currentUrl
+const isLastPage = lastUrl === currentUrl
 ---
 
 <nav aria-label="Blog pages" class="wtq-pagination">
-    <a href={firstUrl} class:list={["pagination__link", {"disabled": firstUrl == currentUrl}]}>
+    <a href={firstUrl} class:list={["pagination__link", {"disabled": isFirstPage}]}>
       <Icon name="double-arrow" />
     </a>
     <a href={prevUrl} class:list={["pagination__link", {"disabled": prevUrl}]}>
@@ -15,7 +18,9 @@ const paginationList = Array.from({ length: `${length}` }, (_, i) => i + 1)
     </a>
     {
       paginationList.map((num) => (
-        <a href={`${firstUrl}${num == 1 ? "" : '/'+(num)}`} class:list={`pagination__link ${currentPage == num ? "disabled active" : ""}`}>
+      
+        <a href={`${firstUrl}${num == 1 ? "" : '/'+(num)}`}
+        class:list={["pagination__link", {"disabled active": currentPage == num }]}>
             {num}
         </a>
       ))
@@ -23,7 +28,8 @@ const paginationList = Array.from({ length: `${length}` }, (_, i) => i + 1)
     <a href={nextUrl} class:list={["pagination__link", {"disabled": nextUrl}]} >
       <Icon name="arrow" />
     </a>
-    <a href={lastUrl} class:list={["pagination__link", {"disabled": lastUrl == currentUrl}]}>
+    <a href={lastUrl} class:list={["pagination__link", {"disabled": isLastPage}]}>
       <Icon name="double-arrow" />
     </a>
 </nav>
+

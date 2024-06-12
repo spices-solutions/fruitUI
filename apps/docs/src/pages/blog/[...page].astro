@@ -1,12 +1,12 @@
 ---
 import { getCollection, type CollectionEntry } from 'astro:content'
 import { For } from 'astro-toolkit/flow'
-import { BlogLayout, PostSummary,Pagination } from 'wtqdocs/blog'
+import { BlogLayout, PostSummary, Pagination } from 'wtqdocs/blog'
 
 export async function getStaticPaths({ paginate }) {
   const blog = await getCollection('blog')
 
-  return paginate(blog, { pageSize: 1 });
+  return paginate(blog, { pageSize: 1/2 });
 }
 
 interface Props {
@@ -17,8 +17,6 @@ interface Props {
 const { page } = Astro.props as Props
 const pathname = new URL(Astro.request.url).pathname.split('/');
 const firstPath = pathname[1];
-
-console.log(page.url)
 ---
 
 <BlogLayout>
@@ -44,4 +42,3 @@ console.log(page.url)
     />
   </div>
 </BlogLayout>
-

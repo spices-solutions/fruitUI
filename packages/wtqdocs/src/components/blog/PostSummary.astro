@@ -27,7 +27,7 @@ const { title, body, date, image, link } = Astro.props;
     </span>
     <p class="wtq-post-content">{`${body.slice(0, 200)}...`}</p>
     <Image
-      class="wtq-cover wtq-shadow"
+      class="wtq-cover"
       width={640}
       height={360}
       src={image?.src ?? WathqnyConfig.OGImage?.src }
