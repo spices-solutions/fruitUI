@@ -1,35 +1,80 @@
 ---
 import { Icon } from 'astro-icon/components'
 
-const { length, currentUrl, currentPage, firstUrl, prevUrl, nextUrl, lastUrl } =
+const { page,length, currentUrl, currentPage, firstUrl, prevUrl, nextUrl, lastUrl } =
   Astro.props
-const paginationList = Array.from({ length: length }, (_, i) => i + 1)
 
 const isFirstPage = firstUrl === currentUrl
 const isLastPage = lastUrl === currentUrl
+
+const getPagination = (currentPage, totalPages) => {
+  const pages = []
+
+  if (totalPages <= 1) return pages
+
+  // Always show the first page
+  pages.push(1)
+
+  if (currentPage > 4) {
+    pages.push(null) // Ellipsis
+  }
+
+  // Determine the range of pages to show around the current page
+  if (currentPage > 3 && currentPage < totalPages - 2) {
+    pages.push(currentPage)
+  }
+
+  const startPage = Math.max(2, currentPage - 1)
+  const endPage = Math.min(totalPages - 1, currentPage + 1)
+
+  for (let i = startPage; i <= endPage; i++) {
+    if (i !== 1 && i !== totalPages ) {
+      pages.push(i)
+    }
+  }
+
+  if (currentPage < totalPages - 3) {
+    pages.push(null) // Ellipsis
+  }
+
+  // Always show the last page
+  if (totalPages > 1) {
+    pages.push(totalPages)
+  }
+
+  return pages
+}
+
+const pagination = getPagination(currentPage, length)
+console.log(pagination)
 ---
 
 <nav aria-label="Blog pages" class="wtq-pagination">
-    <a href={firstUrl} class:list={["pagination__link", {"disabled": isFirstPage}]}>
-      <Icon name="double-arrow" />
-    </a>
-    <a href={prevUrl} class:list={["pagination__link", {"disabled": prevUrl}]}>
-        <Icon name="arrow" />
-    </a>
-    {
-      paginationList.map((num) => (
-      
-        <a href={`${firstUrl}${num == 1 ? "" : '/'+(num)}`}
-        class:list={["pagination__link", {"disabled active": currentPage == num }]}>
-            {num}
-        </a>
-      ))
-    }
-    <a href={nextUrl} class:list={["pagination__link", {"disabled": nextUrl}]} >
-      <Icon name="arrow" />
-    </a>
-    <a href={lastUrl} class:list={["pagination__link", {"disabled": isLastPage}]}>
-      <Icon name="double-arrow" />
-    </a>
+  <a href={prevUrl} class:list={["pagination__link", { disabled: prevUrl }]}>
+    <Icon name="arrow" />
+  </a>
+  {
+    pagination.map((page) => (
+      page ?
+      <a
+        class:list={[
+          "pagination__link",
+          { disabled: isFirstPage },
+          { active: page === currentPage },
+        ]}
+        href={1 == page ? firstUrl : `${firstUrl}/${page}`}
+      >
+        {page}
+      </a> : <span
+        class:list={[
+          "pagination__link",
+        ]}
+      >
+        ...
+      </span>
+    ))
+  }
+  <a href={nextUrl} class:list={["pagination__link", { disabled: nextUrl }]}>
+    <Icon name="arrow" />
+  </a>
 </nav>
-
