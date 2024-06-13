@@ -6,7 +6,7 @@ import { BlogLayout, PostSummary, Pagination } from 'wtqdocs/blog'
 export async function getStaticPaths({ paginate }) {
   const blog = await getCollection('blog')
 
-  return paginate(blog, { pageSize: 1/2 });
+  return paginate(blog, { pageSize: 1 });
 }
 
 interface Props {
