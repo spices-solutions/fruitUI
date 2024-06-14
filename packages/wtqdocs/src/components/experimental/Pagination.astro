@@ -1,0 +1,47 @@
+---
+import { Icon } from 'astro-icon/components'
+import { usePagination } from 'astro-toolkit/utils'
+
+const {
+  page,
+  length,
+  currentUrl,
+  currentPage,
+  firstUrl,
+  prevUrl,
+  nextUrl,
+  lastUrl,
+} = Astro.props
+
+const pagination = usePagination(currentPage, length)
+---
+
+<nav aria-label="Blog pages" class="wtq-pagination">
+  <a href={prevUrl} class:list={["pagination__link", { disabled: prevUrl }]}>
+    <Icon class="first-arrow" name="arrow" />
+  </a>
+  {
+    pagination.map((page) => (
+      page ?
+      <a
+        class:list={[
+          "pagination__link",
+          { disabled: 1 == page },
+          { active: page === currentPage },
+        ]}
+        href={1 == page ? firstUrl : `${firstUrl}/${page}`}
+      >
+        {page}
+      </a> : <span
+        class:list={[
+          "pagination__link",
+        ]}
+      >
+        ...
+      </span>
+    ))
+  }
+  <a href={nextUrl} class:list={["pagination__link", { disabled: nextUrl }]}>
+    <Icon name="arrow" />
+  </a>
+</nav>
