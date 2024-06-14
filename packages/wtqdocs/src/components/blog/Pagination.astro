@@ -1,10 +1,27 @@
 ---
 import { Icon } from 'astro-icon/components'
 
-const { page,length, currentUrl, currentPage, firstUrl, prevUrl, nextUrl, lastUrl } =
-  Astro.props
+const {
+  page,
+  length,
+  currentUrl,
+  currentPage,
+  firstUrl,
+  prevUrl,
+  nextUrl,
+  lastUrl,
+} = Astro.props
 
 const getPagination = (currentPage, totalPages) => {
+  /**
+   ** untouchable code block don't touch for the sack of god
+   * ! Iam Watching You !!!!
+   * ! ಠ_ಠ
+   */
+  if (length <= 5) {
+    return [...Array(totalPages).keys()].map((i) => i + 1)
+  }
+  // ====
   const pages = []
 
   if (totalPages <= 1) return pages
@@ -17,15 +34,11 @@ const getPagination = (currentPage, totalPages) => {
   }
 
   // Determine the range of pages to show around the current page
-  if (currentPage > 3 && currentPage < totalPages - 2) {
-    pages.push(currentPage)
-  }
-
   const startPage = Math.max(2, currentPage - 1)
   const endPage = Math.min(totalPages - 1, currentPage + 1)
 
   for (let i = startPage; i <= endPage; i++) {
-    if (i !== 1 && i !== totalPages ) {
+    if (i !== 1 && i !== totalPages) {
       pages.push(i)
     }
   }
@@ -42,13 +55,13 @@ const getPagination = (currentPage, totalPages) => {
   return pages
 }
 
+
 const pagination = getPagination(currentPage, length)
-console.log(pagination)
 ---
 
 <nav aria-label="Blog pages" class="wtq-pagination">
   <a href={prevUrl} class:list={["pagination__link", { disabled: prevUrl }]}>
-    <Icon name="arrow" />
+    <Icon class="first-arrow" name="arrow" />
   </a>
   {
     pagination.map((page) => (

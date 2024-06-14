@@ -41,11 +41,16 @@
   box-shadow: 0 10px 9px -8px rgb(0 0 0 / 10%);
 }
 
+
+
 .wtq-pagination {
   display: flex;
   justify-content: space-between;
   align-items: center;
   .pagination__link {
+    .first-arrow {
+      transform: scaleX(-1)
+    }
     &.active {
       @extend .wtq-theme-color
     }
