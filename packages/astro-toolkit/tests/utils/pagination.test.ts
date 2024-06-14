@@ -6,15 +6,15 @@ describe('usePagination hook', () => {
     const pagination = usePagination(1, 5)
     expect(pagination).toStrictEqual([1, 2, 3, 4, 5])
   })
-  
+
   it('should return paginated list with mutations when current page is 2 and total pages are greater than 5', () => {
-    const pagination = usePagination(2, 6)
-    expect(pagination).toStrictEqual([1, 2, 3, null, 6])
+    const pagination = usePagination(2, 7)
+    expect(pagination).toStrictEqual([1, 2, 3, null, 7])
   })
   
   it('should return paginated list with mutations when current page is 3 and total pages are greater than 5', () => {
-    const pagination = usePagination(3, 6)
-    expect(pagination).toStrictEqual([1, 2, 3, 4, null, 6])
+    const pagination = usePagination(3, 7)
+    expect(pagination).toStrictEqual([1, 2, 3, 4, null, 7])
   })
   
   it('should return paginated list with mutations when current page is 4 and total pages are 7', () => {
