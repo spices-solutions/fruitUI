@@ -8,7 +8,7 @@ function usePagination(currentPage: number, totalPages: number) {
     return [...Array(totalPages).keys()].map((i) => i + 1)
   }
   // ====
-  const pages = []
+  const pages: number[] | null = []
 
   if (totalPages <= 1) return pages
 
