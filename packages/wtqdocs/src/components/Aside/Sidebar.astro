@@ -32,21 +32,6 @@ const currentUrl = `/${
 
 <aside class="wtq-sidebar">
   <ul class="sidebar-category" role="tablist">
-    <li class="min-nav">
-      <ul role="list">
-        {
-          navbar?.items.map((Item) => {
-            return (
-              <li>
-                <a class="category-toggle wtq-focusable" href={Item.href}>
-                  {Item.label}
-                </a>
-              </li>
-            )
-          })
-        }
-      </ul>
-    </li>
     <For each={sidebar}>
       {
         (item: { label: string, id: any }) => (

@@ -28,6 +28,22 @@ export default defineConfig({
   image: {
     service: passthroughImageService(),
   },
+  markdown: {
+    shikiConfig: {
+      themes: {
+        light: 'material-theme-lighter',
+        dark: 'material-theme-darker',
+      },
+      transformers: [
+        transformerNotationDiff(),
+        transformerNotationFocus(),
+        transformerMetaHighlight(),
+        transformerNotationWordHighlight(),
+        transformerNotationErrorLevel(),
+        transformerMetaWordHighlight(),
+      ],
+    },
+  },
   integrations: [
     AutoImport({
       imports: [

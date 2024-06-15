@@ -8,19 +8,26 @@
   padding-bottom: 50px;
 
   border-right: solid 1px hsl(var(--darkest), 0.1);
-
+  transition: width 400ms ease;
+  &.wtq-aside-collapse {
+    width: 50px;
+    overflow: hidden;
+    flex-direction: row;
+    .collapse-button {
+      padding: 5px 0.3rem;  
+    }
+    ul {
+      display: none;
+    }
+  }
   ul {
     padding: 0px;
     list-style: none;
+    white-space: nowrap;
   }
 
   .sidebar-category {
     margin-top: 15px;
-
-    .min-nav {
-      display: none;
-    }
-
     .category-toggle {
       display: flex;
       align-items: center;
@@ -84,6 +91,7 @@
 
     display: flex;
     justify-content: center;
+    align-items: center;
 
     width: 100%;
     margin-bottom: 10px;
@@ -118,11 +126,7 @@
     background-color: hsl(var(--white), 1);
 
     transition: all 400ms cubic-bezier(0.33, 1, 0.68, 1);
-
-    .sidebar-category .min-nav {
-      display: block;
-    }
-
+    
     .collapse-button {
       display: none;
     }
