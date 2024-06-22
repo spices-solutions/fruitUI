@@ -1,0 +1,26 @@
+---
+import type { LayoutInterface } from '../../types/components'
+import Head from '../Head.astro'
+import Navbar from '../Navigation/Navbar.astro'
+import SkipLink from '../Navigation/SkipLink.astro'
+
+export interface Props extends LayoutInterface {}
+
+const { title, keywords, description, OGImage } = Astro.props as Props
+---
+
+<html
+  xml:lang={Astro.currentLocale}
+  lang={Astro.currentLocale}
+  dir={Astro.currentLocale === 'ar' ? 'rtl' : 'ltr'}
+  class="light"
+>
+  <Head {title} {keywords} {description} {OGImage} />
+  <body>
+    <SkipLink />
+    <Navbar />
+    <div class="wtq-page">
+      <slot />
+    </div>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+---
+export interface Props {
+  padding: boolean
+}
+
+const { padding } = Astro.props as Props;
+---
+
+<div class="wtq-app-block wtq-browser-block wtq-app-block-load">
+  <div class="head">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+  <div class:list={[{ 'component-wrapper': padding }]}>
+    <slot />
+  </div>
+</div>

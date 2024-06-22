@@ -14,7 +14,7 @@ import compressor from 'astro-compressor'
 import icon from 'astro-icon'
 import metaTags from 'astro-meta-tags'
 import purgecss from 'astro-purgecss'
-import { defineConfig } from 'astro/config'
+import { defineConfig, passthroughImageService } from 'astro/config'
 import Wathqny from './wathqny.config'
 
 // https://astro.build/config
@@ -25,12 +25,31 @@ export default defineConfig({
     defaultLocale: 'en',
     locales: ['en'],
   },
+  image: {
+    service: passthroughImageService(),
+  },
+  markdown: {
+    shikiConfig: {
+      themes: {
+        light: 'material-theme-lighter',
+        dark: 'material-theme-darker',
+      },
+      transformers: [
+        transformerNotationDiff(),
+        transformerNotationFocus(),
+        transformerMetaHighlight(),
+        transformerNotationWordHighlight(),
+        transformerNotationErrorLevel(),
+        transformerMetaWordHighlight(),
+      ],
+    },
+  },
   integrations: [
     AutoImport({
       imports: [
         {
           'astro:assets': ['Image'],
-          'wtqcode': ['BrowserBlock', 'Code'],
+          wtqdocs: ['BrowserBlock', 'Code'],
         },
       ],
     }),

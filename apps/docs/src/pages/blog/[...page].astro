@@ -1,0 +1,39 @@
+---
+import { getCollection } from 'astro:content'
+import { For } from 'astro-toolkit/flow'
+import { BlogLayout, PostSummary, Pagination } from 'wtqdocs/blog'
+
+export async function getStaticPaths({ paginate }) {
+  const blog = await getCollection('blog')
+
+  return paginate(blog, { pageSize: 5 });
+}
+
+const { page } = Astro.props
+const pathname = new URL(Astro.request.url).pathname.split('/');
+const firstPath = pathname[1];
+---
+
+<BlogLayout>
+  <div class="wtq-post-container">
+    <For each={page.data}>
+      {(post)=> (
+        <PostSummary 
+          title={post.data.title} 
+          image={post.data.image} 
+          link={post.data.link}
+          date={post.data.pubDate} 
+          body={post.body} />
+      )}
+    </For>
+    <Pagination 
+      length={page.lastPage} 
+      currentUrl={page.url.current} 
+      currentPage={page.currentPage} 
+      firstUrl={`/${firstPath}`} 
+      prevUrl={page.url.prev} 
+      nextUrl={page.url.next} 
+      lastUrl={`/${firstPath}/${page.lastPage}`}
+    />
+  </div>
+</BlogLayout>

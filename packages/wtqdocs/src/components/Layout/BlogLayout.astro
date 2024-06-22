@@ -1,0 +1,16 @@
+---
+import type { LayoutInterface } from '../../types/components'
+import BaseLayout from './BaseLayout.astro'
+
+export interface Props extends LayoutInterface {}
+
+const { title, keywords, description, OGImage } = Astro.props as Props
+---
+
+<BaseLayout {title} {keywords} {description} {OGImage}>
+  <div class="wtq-content">
+    <div class="wtq-container">
+      <slot />
+    </div>
+  </div>
+</BaseLayout>

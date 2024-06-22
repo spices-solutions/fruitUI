@@ -1,0 +1,51 @@
+---
+import { Icon } from 'astro-icon/components'
+import { Image } from 'astro:assets'
+import type { WathqnyConfig as WathqnyConfigType } from '../../types/config'
+
+// @ts-ignore
+import untypedWathqnyConfig from '/wathqny.config'
+
+const WathqnyConfig: WathqnyConfigType = untypedWathqnyConfig
+
+const { logo, siteName, navbar } = WathqnyConfig;
+---
+
+<nav class="wtq-navbar" role="navigation">
+  <a href="/" class="wtq-brand">
+    <Image
+      alt="fruitUI logo, an beautiful orange with a gradient background"
+      width={40}
+      height={40}
+      src={logo as string}
+      loading="eager"
+    />
+    <span>{siteName}</span>
+  </a>
+  <button
+    tabindex="0"
+    aria-label="hamburger-menu"
+    class="wtq-toggle"
+  ></button>
+  <ul class="wtq-links">
+    {
+      navbar?.items.map((item) => {
+        return (
+          <li class="link-item">
+            <a href={item.href}>{item.label}</a>
+          </li>
+        )
+      })
+    }
+    <li class="wtq-toggle-wrapper">
+      <button
+        class="theme-switcher wtq-focusable"
+        aria-label="dark mode toggler"
+      >
+        <Icon name="moon" class="dark-mode-moon" />
+        <Icon name="sun" class="dark-mode-sun" />
+      </button>
+    </li>
+  </ul>
+  <script src="./navbar.ts"></script>
+</nav>

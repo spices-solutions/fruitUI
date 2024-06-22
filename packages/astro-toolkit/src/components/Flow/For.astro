@@ -1,0 +1,20 @@
+---
+export interface Props {
+  each: string[] | object[] | undefined
+  self?: boolean
+}
+
+const { each } = Astro.props as Props
+
+async function forloop(each: string[] | object[] | undefined) {
+  let html = ''
+  if (Astro.slots.has('default') && each) {
+    for (let i = 0; i < each.length; i++) {
+      html += await Astro.slots.render('default', [each[i]])
+    }
+  }
+  return html
+}
+---
+
+<Fragment set:html={forloop(each)} />

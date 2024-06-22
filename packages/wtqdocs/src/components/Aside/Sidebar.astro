@@ -1,0 +1,82 @@
+---
+import { getCollection } from 'astro:content'
+import { For } from 'astro-toolkit/flow'
+import { slugify } from 'astro-toolkit/utils'
+import type { WathqnyConfig as WathqnyConfigType } from '../../types/config'
+import Category from './Category.astro'
+import CollapseButton from './CollapseButton.astro'
+
+// @ts-ignore
+import untypedWathqnyConfig from '/wathqny.config'
+
+import LinkItem from './LinkItem.astro'
+
+const WathqnyConfig: WathqnyConfigType = untypedWathqnyConfig
+
+const { sidebar } = WathqnyConfig
+
+const docs = await getCollection('docs')
+
+docs.sort(
+  (a: { data: { position: number } }, b: { data: { position: number } }) =>
+    a.data.position > b.data.position ? 1 : -1,
+)
+
+const currentUrl = `/${
+  Astro.url.pathname
+    .split('/')
+    .filter(url => url !== '')
+    .reverse()[0]
+}`;
+---
+
+<div class="wtq-sidebar-overlay" aria-hidden></div>
+<aside class="wtq-sidebar">
+  <ul class="sidebar-category" role="tablist">
+    <For each={sidebar}>
+      {
+        (item: { label: string, id: any }) => (
+          <Category
+            name={item.label}
+            isActive={docs.some(
+              (doc: {
+                data: {
+                  href: string
+                  title: string | undefined
+                  category: any
+                }
+              }) => {
+                const documentLink
+                  = doc.data.href ?? `/${slugify(doc.data.title)}`
+                return (
+                  doc.data.category === item.id && currentUrl === documentLink
+                )
+              },
+            )}
+          >
+            <For each={docs}>
+              {(doc: {
+                data: {
+                  category: string
+                  href: any
+                  title: string | undefined
+                }
+              }) =>
+                doc.data.category === item.id && (
+                  <LinkItem
+                    href={`/docs/${
+                      doc.data.category
+                    }${doc.data.href ?? `/${slugify(doc.data.title)}`}`}
+                    name={doc.data.title}
+                  />
+                )}
+            </For>
+          </Category>
+        )
+      }
+    </For>
+  </ul>
+  <CollapseButton />
+</aside>
+
+<script src="./sidebar.ts"></script>

@@ -1,37 +1,31 @@
 ---
-import { type CollectionEntry, getCollection } from "astro:content";
-import { Breadcrumbs, Layout } from "wtqdocs";
-import { slugify } from "wtqdocs/utils";
+import { type CollectionEntry, getCollection } from 'astro:content'
+import { DocsLayout } from 'wtqdocs'
 
 export async function getStaticPaths() {
-  let docs = await getCollection("docs");
+  const docs = await getCollection('docs')
 
   return docs.map((doc) => {
-    let documentLink =
-      doc.data.category + (doc.data.href ?? "/" + slugify(doc.data.title));
     return {
-      params: { documents: documentLink },
+      params: { documents: doc.data.link },
       props: { doc },
-    };
-  });
+    }
+  })
 }
 
 interface Props {
-  doc: CollectionEntry<"docs">;
+  doc: CollectionEntry<'docs'>
 }
 
-const { doc } = Astro.props;
+const { doc } = Astro.props
 
 const { Content } = await doc.render();
 ---
 
-<Layout
+<DocsLayout
   title={doc.data.title}
   description={doc.data.description}
-  keywords={doc.data.title}>
-  <Breadcrumbs />
-  <main class="showup" id="main-content">
-    <h1 class="wtq-main-heading">{doc.data.title}</h1>
-    <Content />
-  </main>
-</Layout>
+  keywords={doc.data.keywords}
+>
+  <Content />
+</DocsLayout>

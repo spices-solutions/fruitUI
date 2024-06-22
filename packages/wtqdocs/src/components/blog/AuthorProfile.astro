@@ -1,0 +1,30 @@
+---
+import {
+  Image,
+  type LocalImageProps,
+  type RemoteImageProps,
+} from 'astro:assets'
+
+export interface Props {
+  image: string | LocalImageProps | RemoteImageProps
+  name: string
+  role: string
+}
+
+const { image, name, role } = Astro.props;
+---
+
+<div class="wtq-avatar-contanier">
+  <Image
+    class="wtq-avatar"
+    width={48}
+    height={48}
+    loading="eager"
+    src={image as string}
+    alt="user avatar"
+  />
+  <div>
+    <p class="wtq-avatar-name">{name}</p>
+    <p class="wtq-avatar-role">{role}</p>
+  </div>
+</div>

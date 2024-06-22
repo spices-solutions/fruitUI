@@ -1,78 +1,44 @@
 ---
-import { Picture } from "astro:assets";
-import { type CollectionEntry, getCollection, getEntry } from "astro:content";
-import { Breadcrumbs } from "wtqdocs";
-import { BlogLayout, AuthorProfile } from "wtqdocs/blog";
-import { slugify } from "wtqdocs/utils";
-import WathqnyConfig from "../../../wathqny.config";
-
+import { type CollectionEntry, getCollection, getEntry } from 'astro:content'
+import { PostPage } from 'wtqdocs/blog'
 
 export async function getStaticPaths() {
-  let posts = await getCollection("blog");
+  const posts = await getCollection('blog')
 
   return posts.map((post) => {
-    let postLink = post.data.href ?? "/" + slugify(post.data.title);
-
     return {
-      params: { posts: postLink },
+      params: { posts: post.data.link },
       props: { post },
-    };
-  });
+    }
+  })
 }
 
 interface Props {
-  post: CollectionEntry<"blog">;
-  authors: CollectionEntry<"authors">;
+  post: CollectionEntry<'blog'>
+  authors: CollectionEntry<'authors'>
 }
 
-const { post } = Astro.props as Props;
+const { post } = Astro.props as Props
 
-const { authors } = post.data;
+const { authors } = post.data
 
-const authorData = (await getEntry("authors", authors?.id!)) as {
+const authorData = (await getEntry('authors', authors?.id)) as {
   data: {
-    name: string;
-    role: string;
-    profile: string;
-  };
-};
+    name: string
+    role: string
+    profile: string
+  }
+}
 
-const { Content } = await post.render();
+const { Content } = await post.render()
 ---
 
-<BlogLayout
+<PostPage
   title={post.data.title}
   description={post.data.description}
   keywords={post.data.keywords}
-  OGImage={post.data.cover}
-  OGImageAlt={post.data.OGImageAlt}>
-  <Breadcrumbs />
-  <article>
-    <span class="wtq-post-head">
-      <h1 class="wtq-main-heading">{post.data.title}</h1>
-      <AuthorProfile
-        name={authorData.data.name}
-        role={authorData.data.role}
-        image={authorData.data.profile}
-      />
-      <figure>
-        <Picture
-          class="wtq-cover"
-          width={960}
-          height={540}
-          src={post.data.cover}
-          formats={["avif", "webp"]}
-          loading="eager"
-          alt={post.data.OGImageAlt ?? WathqnyConfig.OGImage?.alt}
-        />
-        <figcaption>
-          dwaodjwaodjwijdkwahdhjwhgdjwhajdhjwhdwagdkulwdjlkwakldkl;awdiwijdkwahdhjwhgdjwhajdhjwhdwagdkulwdjlkwakldkl;awdiwakdgadhasklg.fendf;jheajgfawjdjagwdnjdcawdjbakwdbjkwabdjb
-          dwakdgadhasklg.fendf;jheajgfawjdjagwdnjdcawdjbakwdbjkwabdjb
-        </figcaption>
-      </figure>
-    </span>
-    <main id="main-content">
-      <Content />
-    </main>
-  </article>
-</BlogLayout>
+  OGImage={post.data.image}
+  author={authorData}
+>
+  <Content />
+</PostPage>

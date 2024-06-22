@@ -1,0 +1,73 @@
+.wtq-btn {
+  box-shadow: 0 6px 4px -5px rgba(0, 0, 0, 0.1882352941);
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.1s ease-in;
+  padding: 10px 25px;
+  line-height: 1;
+}   
+
+.wtq-alt {
+  background-color: white;
+  border: 1px solid hsl(var(--light));
+  .dark & {
+    background-color: hsl(var(--light));
+  }
+}
+
+.wtq-theme-color {
+  background-color: hsl(271, 81%, 56%);
+  border: inherit;
+  color: white;
+  .dark & {
+    background-color: hsl(271, 81%, 56%);
+  }
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100vh;
+
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    .title {
+      max-width: 17ch;
+      margin: 0;
+      padding-block: 5px;
+
+      font-size: clamp(1rem, 10vw, 4rem);
+      font-weight: 900;
+      color: transparent;
+      letter-spacing: -0.5px;
+
+      background: linear-gradient(
+        9deg,
+        hsl(var(--darkest)) 53%,
+        hsl(var(--medium)) 100%
+      );
+      background-clip: text;
+
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      max-width: 33ch;
+      margin-bottom: 24px;
+
+      font-size: clamp(1rem, 3vw, 2rem);
+      font-weight: 500;
+      color: hsl(var(--dark));
+    }
+  }
+}

@@ -21,7 +21,7 @@ $font-xs: 1rem;
   font-family: Geist;
   font-weight: 100 900;
   font-display: swap;
-  src: url('/font/GeistVariableVF.woff2') format('woff2');
+  src: url('/font/GeistVF.woff2') format('woff2');
 }
 
 :root {
@@ -42,7 +42,7 @@ $font-xs: 1rem;
     color-scheme: light;
   }
 
-  @media (prefers-color-scheme: dark) {
+  &.dark {
     --darkest: #{$accent-100};
     --dark: #{$accent-300};
     --medium: #{$accent-500};

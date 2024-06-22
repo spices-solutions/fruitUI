@@ -1,0 +1,53 @@
+.wtq-browser-block {
+  background-color: #fdfdfd;
+}
+
+.wtq-browser-block .component-wrapper {
+  padding-block: 20px;
+}
+
+.wtq-app-block {
+  direction: ltr;
+
+  margin-block: 20px 50px;
+  padding: 20px;
+  padding-bottom: 0;
+
+  border: 1px solid #dedee5;
+  border-radius: 10px;
+  box-shadow:
+    0 10px 25px -5px rgb(0 0 0 / 5%),
+    0 8px 10px -6px rgb(0 0 0 / 10%);
+}
+
+.wtq-code-block {
+  overflow-x: auto;
+  background: var(--bg);
+}
+
+.dark .wtq-code-block {
+  border-color: #37373781;
+}
+
+.wtq-app-block .head {
+  display: flex;
+  gap: 10px;
+}
+
+.wtq-app-block .dot {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+
+.wtq-app-block .dot:first-of-type {
+  background-color: #ed6b60;
+}
+
+.wtq-app-block .dot:nth-of-type(2) {
+  background-color: #f5be4f;
+}
+
+.wtq-app-block .dot:last-of-type {
+  background-color: #62c554;
+}

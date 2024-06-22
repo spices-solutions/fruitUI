@@ -1,0 +1,52 @@
+---
+import { Icon } from 'astro-icon/components'
+
+let currentURL: any[] = Astro.url.pathname.split('/')
+
+currentURL = currentURL.filter(url => url !== '');
+---
+
+<ul
+  class="wtq-breadcrumbs"
+  aria-label="Breadcrumb"
+  itemscope
+  itemtype="https://schema.org/BreadcrumbList"
+>
+  <li
+    itemprop="itemListElement"
+    itemscope
+    class="base-breadcrumb"
+    itemtype="https://schema.org/ListItem"
+  >
+    <a
+      href="/"
+      class="wtq-breadcrumb wtq-focusable"
+      aria-label="Go to the homepage"
+      itemprop="item"
+    >
+      <Icon name="home" />
+      <span itemprop="name">Home</span>
+    </a>
+    <meta itemprop="position" content="1" />
+  </li>
+  {
+    currentURL.map((url, index) => (
+      <li
+        class:list={[{ 'base-breadcrumb': index == currentURL.length - 1 }]}
+        itemprop="itemListElement"
+        itemscope
+        itemtype="https://schema.org/ListItem"
+      >
+        <Icon class="arrow-icon" name="arrow" />
+        <a
+          href={`/${currentURL.slice(0, index + 1).join('/')}`}
+          class="wtq-breadcrumb wtq-focusable"
+          itemprop="item"
+        >
+          <span itemprop="name">{url.toLowerCase().replace('-', ' ')}</span>
+        </a>
+        <meta itemprop="position" content={`${index + 2}`} />
+      </li>
+    ))
+  }
+</ul>

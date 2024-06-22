@@ -1,6 +1,6 @@
-import type { WathqnyConfig } from 'wtqtypes'
+import type { WathqnyConfig } from 'wtqdocs'
 
-import CodeStyles from 'wtqcode/styles?url'
+import CodeStyles from 'wtqdocs/block/styles?url'
 import ThemeStyles from 'wtqdocs/styles?url'
 import fruitStyles from '/src/docs.scss?url'
 
@@ -9,7 +9,7 @@ const Config: WathqnyConfig = {
   siteName: 'fruitUI',
   OGImage: {
     src: '/og.png',
-    alt: '',
+    alt: 'An image displaying text “Fruit UI” in a large, bold font above the text “a modular styling framework” in a smaller font. Both texts are centered in the image.',
   },
   description: 'fruit UI a modular styling framework',
   keywords: [
@@ -54,9 +54,18 @@ const Config: WathqnyConfig = {
     ],
   },
   css: [
-    ThemeStyles,
-    CodeStyles,
-    fruitStyles
+    {
+      href: ThemeStyles,
+      rel: 'stylesheet',
+    },
+    {
+      href: CodeStyles,
+      rel: 'stylesheet',
+    },
+    {
+      href: fruitStyles,
+      rel: 'stylesheet',
+    }
   ],
 }
 

@@ -1,20 +1,19 @@
 ---
-import { getCollection } from "astro:content";
-import { slugify } from "../utils";
+import { getCollection } from 'astro:content'
 
-const docs = await getCollection("docs");
+const docs = await getCollection('docs')
 
-const category = Astro.url.pathname.split("/")[2];
+const category = Astro.url.pathname.split('/')[2]
 
 const filteredDocs = docs.filter(
   (doc: { data: { category: string | undefined } }) => {
-    return doc.data.category == category;
-  }
-);
+    return doc.data.category == category
+  },
+)
 
 filteredDocs.sort(
   (a: { data: { position: number } }, b: { data: { position: number } }) =>
-    a.data.position > b.data.position ? 1 : -1
+    a.data.position > b.data.position ? 1 : -1,
 );
 ---
 
@@ -23,23 +22,22 @@ filteredDocs.sort(
     filteredDocs.map(
       (doc: {
         data: {
-          category: string;
-          href: string;
-          title: string;
-          description: string;
-        };
+          category: string
+          href: string
+          title: string
+          description: string
+          link: string
+        }
       }) => {
-        let documentLink =
-          doc.data.category + (doc.data.href ?? "/" + slugify(doc.data.title));
         return (
-          <a href={documentLink}>
+          <a href={doc.data.link}>
             <div class="wtq-card wtq-shadow">
               <h2 class="wtq-card-title">{doc.data.title}</h2>
               <h3 class="wtq-card-subtitle">{doc.data.description}</h3>
             </div>
           </a>
-        );
-      }
+        )
+      },
     )
   }
 </div>

@@ -1,0 +1,28 @@
+---
+type Props = {
+  each: string[] | object[] | object
+  self?: boolean
+}
+
+const { each, self } = Astro.props as Props
+
+let memorySafeCounter = 0
+
+async function forloop(each, html = '') {
+  // let html = "";
+  if (Astro.slots.has('default')) {
+    for (let i = 0; i < each.length; i++) {
+      if (self && memorySafeCounter < each.length) {
+        if (Array.isArray(each[i].items)) {
+          memorySafeCounter++
+          html += await forloop(each[i].items, html)
+        }
+      }
+      html += await Astro.slots.render('default', [each[i]])
+    }
+  }
+  return html
+}
+---
+
+<Fragment set:html={forloop(each)} />

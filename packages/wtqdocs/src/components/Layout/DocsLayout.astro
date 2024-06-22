@@ -1,0 +1,29 @@
+---
+import type { LayoutInterface } from '../../types/components'
+import SidebarRefine from '../Aside/Sidebar.astro'
+import Breadcrumbs from '../Navigation/breadcrumbs.astro'
+import BaseLayout from './BaseLayout.astro'
+import { Icon } from 'astro-icon/components'
+
+export interface Props extends LayoutInterface {
+  heading?: string | undefined
+}
+
+const { title, keywords, description, OGImage, heading } = Astro.props as Props
+---
+
+<BaseLayout {title} {keywords} {description} {OGImage}>
+  <SidebarRefine />
+  <div class="wtq-content">
+    <div class="wtq-container">
+      <div class="wtq-navigation-container">
+        <Breadcrumbs />
+        <button class="wtq-nav-menu wtq-focusable"><Icon name="sidebar" />sidebar</button>
+      </div>
+      <main id="main-content">
+        <h1 class="wtq-main-heading">{heading ?? title}</h1>
+        <slot />
+      </main>
+    </div>
+  </div>
+</BaseLayout>

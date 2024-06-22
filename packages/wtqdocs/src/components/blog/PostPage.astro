@@ -1,0 +1,51 @@
+---
+import { Image } from 'astro:assets'
+import WathqnyConfig from '/wathqny.config'
+import type { LayoutInterface } from '../../types/components'
+import BlogLayout from '../Layout/BlogLayout.astro'
+import Breadcrumbs from '../Navigation/breadcrumbs.astro'
+import AuthorProfile from './AuthorProfile.astro'
+
+export interface Props extends LayoutInterface {
+  author: {
+    data: {
+      name: string
+      role: string
+      profile: string
+    }
+  }
+}
+
+const { title, keywords, description, OGImage, author } = Astro.props as Props
+---
+
+
+<BlogLayout {title} {description} {keywords} {OGImage}>
+  <Breadcrumbs />
+  <article>
+    <span class="wtq-post-head">
+      <h1 class="wtq-main-heading">{title}</h1>
+      <AuthorProfile
+        name={author.data.name}
+        role={author.data.role}
+        image={author.data.profile}
+      />
+      <figure>
+        <Image
+          class="wtq-cover"
+          width={960}
+          height={540}
+          loading="eager"
+          src={OGImage?.src ?? WathqnyConfig.OGImage?.src}
+          alt={OGImage?.alt ?? WathqnyConfig.OGImage?.alt}
+        />
+        <figcaption>
+          {OGImage?.alt ?? WathqnyConfig.OGImage?.alt}
+        </figcaption>
+      </figure>
+    </span>
+    <main id="main-content">
+      <slot />
+    </main>
+  </article>
+</BlogLayout>

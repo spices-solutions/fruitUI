@@ -14,11 +14,12 @@
     "lint:fix": "turbo run lint:fix",
     "build": "turbo run build"
   },
-  "dependencies": {
-    "@repo/eslint-config": "workspace:*",
-    "@repo/stylelint-config": "workspace:*"
-  },
   "devDependencies": {
-    "turbo": "^1.13.3"
+    "turbo": "latest"
+  },
+  "dependencies": {
+    "@vitest/coverage-v8": "^1.6.0",
+    "biome": "^0.3.3",
+    "vitest": "^1.6.0"
   }
 }

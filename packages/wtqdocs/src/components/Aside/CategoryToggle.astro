@@ -1,0 +1,14 @@
+---
+import { Icon } from 'astro-icon/components'
+
+interface Props {
+  name: string
+}
+
+const { name } = Astro.props as Props;
+---
+
+<button class="wtq-focusable category-toggle">
+  {name}
+  <Icon class="arrow-icon" name="arrow" />
+</button>

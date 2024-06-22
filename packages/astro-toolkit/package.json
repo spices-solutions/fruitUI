@@ -1,0 +1,46 @@
+{
+  "name": "astro-toolkit",
+  "type": "module",
+  "version": "0.1.0",
+  "description": "a ",
+  "license": "MIT",
+  "homepage": "http://fruit-ui.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/spices-solutions/"
+  },
+  "bugs": {
+    "url": "https://github.com/spices-solutions/"
+  },
+  "keywords": [
+    "spices",
+    "code",
+    "wathqny"
+  ],
+  "exports": {
+    ".": {
+      "import": "./src/index.ts"
+    },
+    "./flow": {
+      "import": "./src/flow.ts"
+    },
+    "./utils": {
+      "import": "./src/utils.ts"
+    }
+  },
+  "module": "./src/index.ts",
+  "files": [
+    "./src/**/*",
+    "./src/index.ts",
+    "dist"
+  ],
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "devDependencies": {
+    "@astrojs/ts-plugin": "^1.6.0",
+    "astro": "^4.4.0",
+    "typescript": "^5.4.5"
+  }
+}
