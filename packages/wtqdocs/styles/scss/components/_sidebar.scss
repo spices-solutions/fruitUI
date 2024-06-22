@@ -1,4 +1,17 @@
+.wtq-sidebar-overlay {
+  opacity: 0;
+  transition: opacity ease 400ms;
+  background-color: #00000035;
+}
+
+.wtq-sidebar-overlay.wtq-show {
+  position: absolute;
+  inset: 0;
+  opacity: 1;
+}
+
 .wtq-sidebar {
+  --collapse-item-padding: 5px 0.6rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -7,17 +20,22 @@
   padding: 5px;
   padding-bottom: 50px;
 
-  border-right: solid 1px hsl(var(--darkest), 0.1);
+  border-inline-end: solid 1px hsl(var(--darkest), 0.1);
   transition: width 400ms ease;
-  &.wtq-aside-collapse {
-    width: 50px;
-    overflow: hidden;
-    flex-direction: row;
-    .collapse-button {
-      padding: 5px 0.3rem;  
-    }
-    ul {
-      display: none;
+  
+  
+  @media screen and (width >= 868px) {
+    &.wtq-aside-collapse {
+      .collapse-button {
+        transform: scale(-1);
+        padding: 5px 0.3rem;  
+      }
+      width: 50px;
+      overflow: hidden;
+      flex-direction: row;
+      ul {
+        display: none;
+      }
     }
   }
   ul {
@@ -34,7 +52,7 @@
       justify-content: space-between;
 
       width: 100%;
-      padding: 5px 0.6rem;
+      padding: var(--collapse-item-padding);
 
       color: hsl(var(--darkest));
 
@@ -47,7 +65,6 @@
 
     .category-collapse  {
       transition: all cubic-bezier(0.79, 0.14, 0.15, 0.86) 500ms;
-      display: grid;
       display: grid;
       will-change: grid-template-rows;
       grid-template-rows: 0fr;
@@ -62,7 +79,7 @@
         .collapse_item--link {
           display: block;
 
-          padding: 5px 0.6rem;
+          padding: var(--collapse-item-padding);
 
           font-weight: 400;
           color: hsl(var(--dark));
@@ -105,22 +122,14 @@
   }
 }
 
-.wtq-focusable {
-  &:hover,
-  &:focus-visible {
-    color: var(--darkest) !important;
-    background-color: hsl(var(--medium), 0.1) !important;
-    outline: none !important;
-  }
-}
-
 @media screen and (width <= 868px) {
   .wtq-sidebar {
+    --collapse-item-padding: 8px 1rem;
+
     position: absolute;
     z-index: 1;
     transform: translateX(-100%);
-
-    width: 100%;
+    width: 70%;
     height: 100vh;
 
     background-color: hsl(var(--white), 1);

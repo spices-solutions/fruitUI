@@ -1,22 +1,16 @@
-//   sidebarBtn?.addEventListener("click", () => {
-//     if (Aside.classList.contains("wtq-aside-collapse")) {
-//       Aside.classList.remove("wtq-aside-collapse");
-//       sidebar.setAttribute("aria-expanded", "false");
-//       sidebarBtn.setAttribute("aria-expanded", "false");
-//     } else {
-//       Aside.classList.add("wtq-aside-collapse");
-//       sidebar.setAttribute("aria-expanded", "true");
-//       sidebarBtn.setAttribute("aria-expanded", "true");
-//     }
-//   });
-// }
-
 const sidebar = document.querySelector('.wtq-sidebar') as HTMLElement
+const sidebarOverlay = document.querySelector('.wtq-sidebar-overlay') as HTMLElement
 const sidebarCollapseBtn = sidebar.querySelector('.collapse-button') as HTMLElement
-const toggle = document.querySelector('.wtq-toggle') as HTMLElement
+const toggle = document.querySelector('.wtq-nav-menu') as HTMLElement
 
 toggle?.addEventListener('click', () => {
   sidebar.classList.toggle('wtq-show')
+  sidebarOverlay.classList.toggle('wtq-show')
+})
+
+sidebarOverlay?.addEventListener('click', () => {
+  sidebar.classList.remove('wtq-show')
+  sidebarOverlay.classList.remove('wtq-show')
 })
 
 sidebarCollapseBtn?.addEventListener('click', () => {
