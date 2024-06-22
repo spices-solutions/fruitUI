@@ -14,13 +14,13 @@
     "gpa": "pwa-assets-generator"
   },
   "dependencies": {
-    "@astrojs/mdx": "^3.0.0",
-    "@astrojs/rss": "^4.0.5",
-    "@astrojs/sitemap": "^3.1.4",
+    "@astrojs/mdx": "^3.1.0",
+    "@astrojs/rss": "^4.0.6",
+    "@astrojs/sitemap": "^3.1.5",
     "@shikijs/transformers": "^1.5.1",
     "@vite-pwa/assets-generator": "^0.2.4",
     "@vite-pwa/astro": "^0.3.0",
-    "astro": "^4.9.1",
+    "astro": "^4.10.0",
     "astro-auto-import": "^0.4.2",
     "astro-compressor": "^0.4.1",
     "astro-icon": "^1.1.0",
@@ -30,9 +30,11 @@
     "purgecss": "^6.0.0",
     "sass": "^1.71.1",
     "sharp": "0.32.6",
+    "sharp-ico": "^0.1.5",
     "spices-fruitui": "workspace:*",
     "vite-plugin-pwa": "^0.19.2",
     "workbox-window": "^7.1.0",
     "wtqdocs": "workspace:*"
+
   }
 }

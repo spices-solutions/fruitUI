@@ -75,6 +75,29 @@
   padding-inline: 15px;
 }
 
+.wtq-navigation-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wtq-nav-menu {
+  display: none;
+  @media screen and (width <= 768px) {
+    display: flex;
+    background-color: transparent;
+    gap: .5rem;
+    cursor: pointer;
+    align-items: center;
+    padding: 6px 10px;
+    font-size: .8rem;
+    color: inherit;
+    text-decoration: none;
+    border: 0;
+    border-radius: 8px;
+  }
+}
+
 .wtq-main-heading {
   margin-top: 10px !important;
   margin-bottom: 10px;
@@ -146,5 +169,41 @@
     text-decoration: var(--shiki-dark-text-decoration) !important;
 
     background-color: var(--shiki-dark-bg) !important;
+  }
+}
+
+.wtq-btn {
+  box-shadow: 0 6px 4px -5px rgba(0, 0, 0, 0.1882352941);
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.1s ease-in;
+  padding: 10px 25px;
+  line-height: 1;
+}   
+
+.wtq-alt {
+  background-color: white;
+  border: 1px solid hsl(var(--light));
+  .dark & {
+    background-color: hsl(var(--light));
+  }
+}
+
+.wtq-theme-color {
+  background-color: hsl(271, 81%, 56%);
+  border: inherit;
+  color: white;
+  .dark & {
+    background-color: hsl(271, 81%, 56%);
+  }
+}
+
+.wtq-focusable {
+  &:hover,
+  &:focus-visible {
+    color: var(--darkest) !important;
+    background-color: hsl(var(--medium), 0.1) !important;
+    outline: none !important;
   }
 }

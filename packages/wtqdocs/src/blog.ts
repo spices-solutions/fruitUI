@@ -1,2 +1,5 @@
 export { default as BlogLayout } from './components/Layout/BlogLayout.astro'
+export { default as PostPage } from './components/blog/PostPage.astro'
 export { default as AuthorProfile } from './components/blog/AuthorProfile.astro'
+export { default as PostSummary } from './components/blog/PostSummary.astro'
+export { default as Pagination } from './components/experimental/Pagination.astro'

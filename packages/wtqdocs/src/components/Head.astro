@@ -1,43 +1,51 @@
 ---
-// @ts-ignore
-import { pwaInfo } from 'virtual:pwa-info'
-// @ts-ignore
-import { pwaAssetsHead } from 'virtual:pwa-assets/head'
+import { BaseHead } from 'astro-toolkit'
 
 import type { WathqnyConfig as WathqnyConfigType } from '../types/config'
 
 // @ts-ignore
 import untypedWathqnyConfig from '/wathqny.config'
+import type { LayoutInterface } from '../types/components'
 
 const WathqnyConfig: WathqnyConfigType = untypedWathqnyConfig
 
-export interface Props {
-  title?: string | undefined
-  description?: string | undefined
-  OGImage?: string | undefined
-  OGImageAlt?: string | undefined
-  keywords?: string | string[] | undefined
-}
+export interface Props extends LayoutInterface {}
 
-const { title, keywords, description, OGImage, OGImageAlt }
-  = Astro.props as Props
+const { title, keywords, description, OGImage } = Astro.props as Props
 
 const METATITLE = title
   ? `${title} - ${WathqnyConfig.siteName}`
   : WathqnyConfig.siteName
-const METAIMAGE = OGImage ?? WathqnyConfig.OGImage?.src
-const METAIMAGEALT = OGImageAlt ?? WathqnyConfig.OGImage?.alt
+const METAIMAGE = OGImage?.src ?? WathqnyConfig.OGImage?.src
+const METAIMAGEALT = OGImage?.alt ?? WathqnyConfig.OGImage?.alt
 const METADESCRIPTION = description ?? WathqnyConfig.description
 const METAKEYWORDS = keywords ?? [...(WathqnyConfig.keywords || [])]
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{METATITLE}</title>
-
-  <script>
+<BaseHead
+  title={METATITLE}
+  description={METADESCRIPTION}
+  keywords={METAKEYWORDS}
+  OGImage={{ src: METAIMAGE, alt: METAIMAGEALT }}
+  GSVtoken="PVw1xk8LSGGe9WA1CzziS4zL1GXshAvdNn9iksdbmWw"
+  robots="index, follow"
+  sitemap
+  vitePWA
+  extend={{
+    link: [
+      // @ts-expect-error Type '{ href: string; rel?: string; onload?: string; media?: string; as?: string; }[] | undefined' must have a '[Symbol.iterator]()' method that returns an iterator.ts(2488)
+      ...WathqnyConfig.css,
+      {
+        href: '/font/GeistVF.woff2',
+        rel: 'preload',
+        as: 'font',
+        type: 'font/woff2',
+        crossorigin: 'anonymous',
+      }
+    ],
+  }}
+>
+  <script is:inline>
     const root = document.documentElement;
 
     if (
@@ -50,73 +58,5 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       root?.classList.replace("dark", "light");
     }
   </script>
-
-  {
-    WathqnyConfig?.css?.map(
-      (
-        stylesheet:
-          | string
-          | URL
-          | (astroHTML.JSX.IntrinsicAttributes &
-          astroHTML.JSX.LinkHTMLAttributes)
-          | null
-          | undefined,
-      ) => {
-        if (typeof stylesheet === 'string') {
-          return <link href={stylesheet} rel="stylesheet" />
-        }
-        return <link {...stylesheet} />
-      },
-    )
-  }
-
-  <link
-    rel="preload"
-    href="/font/GeistVF.woff2"
-    as="font"
-    type="font/woff2"
-    crossorigin="anonymous"
-  />
-
-  {
-    pwaAssetsHead.themeColor && (
-      <meta name="theme-color" content={pwaAssetsHead.themeColor.content} />
-    )
-  }
-  {
-    pwaAssetsHead.links.map(
-      (
-        link: astroHTML.JSX.IntrinsicAttributes &
-        astroHTML.JSX.LinkHTMLAttributes,
-      ) => <link {...link} />,
-    )
-  }
-  {pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} />}
-
-  <meta name="color-scheme" content="dark light" />
-  <link rel="sitemap" href="/sitemap-index.xml" />
-  <meta name="keywords" content={METAKEYWORDS as string} />
-  <meta name="description" content={METADESCRIPTION} />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href={canonicalURL} />
-
-  <meta property="og:description" content={METADESCRIPTION} />
-  <meta property="og:image" content={METAIMAGE} />
-  <meta property="og:image:alt" content={METAIMAGEALT} />
-  <meta property="og:title" content={METATITLE} />
-  <meta property="og:site_name" content={METATITLE} />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content={canonicalURL} />
-  <meta name="twitter:title" content={METATITLE} />
-  <meta name="twitter:image" content={METAIMAGE} />
-  <meta name="twitter:image:alt" content={METAIMAGEALT} />
-  <meta name="twitter:description" content={METADESCRIPTION} />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta
-    name="google-site-verification"
-    content="PVw1xk8LSGGe9WA1CzziS4zL1GXshAvdNn9iksdbmWw"
-  />
-  <meta name="generator" content={Astro.generator} />
-
   <slot />
-</head>
+</BaseHead>

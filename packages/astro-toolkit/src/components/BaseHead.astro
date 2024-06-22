@@ -1,17 +1,17 @@
 ---
 // @ts-ignore
-import { pwaInfo } from 'virtual:pwa-info'
-// @ts-ignore
 import { pwaAssetsHead } from 'virtual:pwa-assets/head'
+// @ts-ignore
+import { pwaInfo } from 'virtual:pwa-info'
 
 export interface Link extends Omit<HTMLLinkElement, 'sizes'> {
-  prefetch: boolean;
-  crossorigin: string;
-  sizes: string;
+  prefetch: boolean
+  crossorigin: string
+  sizes: string
 }
 
 export interface Meta extends HTMLMetaElement {
-  property: string;
+  property: string
 }
 
 export type Props = {
@@ -30,26 +30,43 @@ export type Props = {
   robots: string
   vitePWA: boolean
   extend?: {
-    link?: Partial<Link>[];
-    meta?: Partial<Meta>[];
-  };
+    link?: Partial<Link>[]
+    meta?: Partial<Meta>[]
+  }
 }
 
-const { title, keywords, description, OGImage, sitemap, GSVtoken, robots, vitePWA ,extend }
-  = Astro.props
+const {
+  title,
+  keywords,
+  description,
+  OGImage,
+  sitemap,
+  GSVtoken,
+  robots,
+  vitePWA,
+  extend,
+} = Astro.props
 
 const METATITLE = title
-const METAIMAGE = OGImage?.src
+const METAIMAGE =
+typeof OGImage?.src === 'object' ? (OGImage?.src as { src: string }).src : OGImage?.src;
 const METAIMAGEALT = OGImage?.alt
 const METADESCRIPTION = description
 const METAKEYWORDS = keywords
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 ---
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{METATITLE}</title>
+  {
+    vitePWA && (
+      <>
+        <script src="/src/pwa.ts"></script>
+      </>
+    )
+  }
 
   {
     extend?.link?.map((linkTag) => (
@@ -89,9 +106,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     vitePWA && (
       <>
         {pwaAssetsHead.themeColor && <meta name="theme-color" content={pwaAssetsHead.themeColor.content} />}
-        {pwaAssetsHead.links.map(link => <link {...link} />)}
+        {pwaAssetsHead.links.map((link: astroHTML.JSX.IntrinsicAttributes & astroHTML.JSX.LinkHTMLAttributes) => <link {...link} />)}
         {pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} />}
-        <script src="/src/pwa.ts"></script>
         <meta name="color-scheme" content="dark light" />
       </>
     )

@@ -61,15 +61,12 @@
     display: flex;
     gap: 6px;
     align-items: center;
-    justify-content: center;
 
     padding: 3px 5px;
 
     font-size: 1.2rem;
     color: inherit;
     text-decoration: none;
-
-    border-radius: 0.3em;
 
     img {
       width: 30px;
@@ -86,8 +83,6 @@
   }
 
   .wtq-links {
-    will-change: transform;
-
     display: flex;
     gap: 1rem;
     align-items: center;
@@ -109,13 +104,7 @@
     }
   }
 
-  &-overlay {
-    position: absolute;
-    opacity: 0;
-    transition: all 300ms ease;
-  }
-
-  @media screen and (width <= 768px) {
+  @media screen and (width <= 868px) {
     .wtq-toggle {
       cursor: pointer;
 
@@ -136,7 +125,7 @@
 
       &::before,
       &::after {
-        content: '';
+        content: "";
 
         display: block;
 
@@ -153,13 +142,27 @@
         width: 20px;
       }
     }
-
     .wtq-links {
-      padding: 0;
-
-      .link-item {
-        display: none;
+      display: flex;
+      gap: 2rem;
+      position: absolute;
+      top: 50px;
+      left: 0;
+      border-top: 1px solid hsl(var(--lightest));
+      width: 100%;
+      margin: 0;
+      background-color: hsl(var(--white));
+      transition: all ease 400ms;      
+      padding: 1.5rem;
+      height: calc(100vh - 50px);
+      flex-direction: column;
+      transform: translateX(100%);
+      a {
+        padding: 10px;
       }
+    }
+    .wtq-links.wtq-active-links {
+      transform: translateY(0);
     }
   }
 }

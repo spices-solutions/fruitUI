@@ -1,38 +1,23 @@
 ---
-import { Image } from 'astro:assets'
-import { getCollection } from 'astro:content'
-import { BlogLayout } from 'wtqdocs/blog'
-import { formatDate } from 'astro-toolkit/utils'
-import WathqnyConfig from '/wathqny.config'
+import { getCollection } from "astro:content";
+import { For } from "astro-toolkit/flow";
+import { BlogLayout } from "wtqdocs/blog";
+import PostSummary from "../components/blog/PostSummary.astro";
 
-const blog = await getCollection('blog')
+const blog = await getCollection("blog");
 ---
 
 <BlogLayout>
   <div class="wtq-post-container">
-    {
-      blog.map((post) => {
-        return (
-          <a href={`/blog${post.data.link}`}>
-            <div class="wtq-card wtq-shadow">
-              <h1 class="wtq-card-title">{post.data.title}</h1>
-              <span class="wtq-card-subtitle">
-                <time datetime={post.data.pubDate.toISOString()}>
-                  {formatDate(post.data.pubDate)}
-                </time>
-              </span>
-              <p class="wtq-post-content">{`${post.body.slice(0, 200)}...`}</p>
-              <Image
-                class="wtq-cover wtq-shadow"
-                width={640}
-                height={360}
-                src={post.data.image?.src ?? WathqnyConfig.OGImage?.src }
-                alt="dwad"
-              />
-            </div>
-          </a>
-        )
-      })
-    }
+    <For each={blog}>
+      {(post)=> (
+        <PostSummary 
+          title={post.data.title} 
+          image={post.data.image} 
+          link={post.data.link}
+          date={post.data.pubDate} 
+          body={post.body} />
+      )}
+    </For>
   </div>
 </BlogLayout>

@@ -1,9 +1,6 @@
 ---
 import { type CollectionEntry, getCollection, getEntry } from 'astro:content'
-import { Breadcrumbs } from 'wtqdocs'
-import { AuthorProfile, BlogLayout } from 'wtqdocs/blog'
-import WathqnyConfig from 'config'
-import { Image } from 'astro:assets'
+import { PostPage } from 'wtqdocs/blog'
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog')
@@ -25,7 +22,7 @@ const { post } = Astro.props as Props
 
 const { authors } = post.data
 
-const authorData = (await getEntry('authors', authors?.id!)) as {
+const authorData = (await getEntry('authors', authors?.id)) as {
   data: {
     name: string
     role: string
@@ -33,40 +30,15 @@ const authorData = (await getEntry('authors', authors?.id!)) as {
   }
 }
 
-const { Content } = await post.render();
+const { Content } = await post.render()
 ---
 
-<BlogLayout
+<PostPage
   title={post.data.title}
   description={post.data.description}
   keywords={post.data.keywords}
   OGImage={post.data.image}
+  author={authorData}
 >
-  <Breadcrumbs />
-  <article>
-    <span class="wtq-post-head">
-      <h1 class="wtq-main-heading">{post.data.title}</h1>
-      <AuthorProfile
-        name={authorData.data.name}
-        role={authorData.data.role}
-        image={authorData.data.profile}
-      />
-      <figure>
-        <Image
-          class="wtq-cover"
-          width={960}
-          height={540}
-          loading="eager"
-          src={post.data.image?.src ?? WathqnyConfig.OGImage?.src}
-          alt={post.data.image?.alt ?? WathqnyConfig.OGImage?.alt}
-        />
-        <figcaption>
-          {post.data.image?.alt ?? WathqnyConfig.OGImage?.alt}
-        </figcaption>
-      </figure>
-    </span>
-    <main id="main-content">
-      <Content />
-    </main>
-  </article>
-</BlogLayout>
+  <Content />
+</PostPage>

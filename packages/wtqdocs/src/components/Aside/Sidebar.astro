@@ -13,7 +13,7 @@ import LinkItem from './LinkItem.astro'
 
 const WathqnyConfig: WathqnyConfigType = untypedWathqnyConfig
 
-const { sidebar, navbar } = WathqnyConfig
+const { sidebar } = WathqnyConfig
 
 const docs = await getCollection('docs')
 
@@ -30,23 +30,9 @@ const currentUrl = `/${
 }`;
 ---
 
+<div class="wtq-sidebar-overlay" aria-hidden></div>
 <aside class="wtq-sidebar">
-  <ul class="sidebar_category" role="tablist">
-    <li class="min-nav">
-      <ul role="list">
-        {
-          navbar?.items.map((Item) => {
-            return (
-              <li>
-                <a class="category_toggle wtq-focusable" href={Item.href}>
-                  {Item.label}
-                </a>
-              </li>
-            )
-          })
-        }
-      </ul>
-    </li>
+  <ul class="sidebar-category" role="tablist">
     <For each={sidebar}>
       {
         (item: { label: string, id: any }) => (
@@ -63,7 +49,7 @@ const currentUrl = `/${
                 const documentLink
                   = doc.data.href ?? `/${slugify(doc.data.title)}`
                 return (
-                  doc.data.category == item.id && currentUrl == documentLink
+                  doc.data.category === item.id && currentUrl === documentLink
                 )
               },
             )}
@@ -76,7 +62,7 @@ const currentUrl = `/${
                   title: string | undefined
                 }
               }) =>
-                doc.data.category == item.id && (
+                doc.data.category === item.id && (
                   <LinkItem
                     href={`/docs/${
                       doc.data.category
