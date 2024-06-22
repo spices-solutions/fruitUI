@@ -13,7 +13,7 @@ import LinkItem from './LinkItem.astro'
 
 const WathqnyConfig: WathqnyConfigType = untypedWathqnyConfig
 
-const { sidebar, navbar } = WathqnyConfig
+const { sidebar } = WathqnyConfig
 
 const docs = await getCollection('docs')
 
@@ -30,6 +30,7 @@ const currentUrl = `/${
 }`;
 ---
 
+<div class="wtq-sidebar-overlay" aria-hidden></div>
 <aside class="wtq-sidebar">
   <ul class="sidebar-category" role="tablist">
     <For each={sidebar}>

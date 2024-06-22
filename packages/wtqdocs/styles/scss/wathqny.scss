@@ -75,6 +75,29 @@
   padding-inline: 15px;
 }
 
+.wtq-navigation-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wtq-nav-menu {
+  display: none;
+  @media screen and (width <= 768px) {
+    display: flex;
+    background-color: transparent;
+    gap: .5rem;
+    cursor: pointer;
+    align-items: center;
+    padding: 6px 10px;
+    font-size: .8rem;
+    color: inherit;
+    text-decoration: none;
+    border: 0;
+    border-radius: 8px;
+  }
+}
+
 .wtq-main-heading {
   margin-top: 10px !important;
   margin-bottom: 10px;
@@ -176,3 +199,11 @@
   }
 }
 
+.wtq-focusable {
+  &:hover,
+  &:focus-visible {
+    color: var(--darkest) !important;
+    background-color: hsl(var(--medium), 0.1) !important;
+    outline: none !important;
+  }
+}

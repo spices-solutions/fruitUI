@@ -22,6 +22,11 @@ const { logo, siteName, navbar } = WathqnyConfig;
     />
     <span>{siteName}</span>
   </a>
+  <button
+    tabindex="0"
+    aria-label="hamburger-menu"
+    class="wtq-toggle"
+  ></button>
   <ul class="wtq-links">
     {
       navbar?.items.map((item) => {
@@ -33,11 +38,6 @@ const { logo, siteName, navbar } = WathqnyConfig;
       })
     }
     <li class="wtq-toggle-wrapper">
-      <button
-        tabindex="0"
-        aria-label="hamburger-menu"
-        class="wtq-toggle"
-      ></button>
       <button
         class="theme-switcher wtq-focusable"
         aria-label="dark mode toggler"
