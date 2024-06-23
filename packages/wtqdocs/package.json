@@ -25,6 +25,7 @@
     "./page/docs": "./src/pages/docs.astro",
     "./page/docs/categories": "./src/pages/docs/[...categories].astro",
     "./page/docs/documents": "./src/pages/docs/[...documents].astro",
+    "./page/blog": "./src/pages/blog.astro",
     "./page/blog/pages": "./src/pages/blog/[...page].astro",
     "./page/blog/posts": "./src/pages/blog/[...posts].astro",
     "./page/404": "./src/pages/404.astro",

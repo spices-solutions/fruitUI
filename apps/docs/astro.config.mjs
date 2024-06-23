@@ -52,6 +52,7 @@ export default defineConfig({
       'docs': 'wtqdocs/page/docs',
       'docs/[...categories]': 'wtqdocs/page/docs/categories',
       'docs/[...documents]': 'wtqdocs/page/docs/documents',
+      'blog': 'wtqdocs/page/blog',
       'blog/[...page]': 'wtqdocs/page/blog/pages',
       'blog/[...posts]': 'wtqdocs/page/blog/posts',
       '404': 'wtqdocs/page/404',
