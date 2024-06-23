@@ -1,0 +1,54 @@
+---
+import type { MarkdownLayoutProps } from 'astro'
+import BaseLayout from '../components/Layout/BaseLayout.astro'
+import '../../styles/theme.scss'
+
+type Props = MarkdownLayoutProps<{
+  title: string
+  subtitle: string
+  description: string
+  buttons: [{ label: string, href?: string, type?: 'alt' | 'primary' }]
+}>
+
+const data = {
+  "layout": "../layout/home.astro",
+  "title": "FruitUI a modular styling framework",
+  "subtitle": "use the components you want, styles you need, the performance you deserve",
+  "buttons": [
+    {
+      "label": "Getting started",
+      "type": "primary",
+      "href": "/docs/getting-started/overview"
+    },
+    {
+      "label": "components",
+      "type": "alt",
+      "href": "/docs/components"
+    }
+  ]
+}
+---
+
+<BaseLayout>
+  <main id="main-content">
+    <section class="hero">
+      <h1 class="title">
+        {data.title}
+      </h1>
+      <h2 class="subtitle">
+        {data.subtitle}
+      </h2>
+      <div class="get-started flex gap-5">
+        {
+          data.buttons.map((button) => {
+            return (
+              <a href={button.href} class:list={['wtq-btn', { 'wtq-alt': button.type === 'alt' }, { 'wtq-theme-color': button.type === 'primary' }]}>
+                {button.label}
+              </a>
+            )
+          })
+        }
+      </div>
+    </section>
+  </main>
+</BaseLayout>

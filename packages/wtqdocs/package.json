@@ -21,15 +21,17 @@
     ".": {
       "import": "./src/index.ts"
     },
-    "./layout/home": "./src/layout/home.astro",
-    "./layout/docs": "./src/layout/docs.astro",
-    "./layout/blog": "./src/layout/blog.astro",
-    "./layout/404": "./src/layout/404.astro",
+    "./page/home": "./src/pages/index.astro",
+    "./page/docs": "./src/pages/docs.astro",
+    "./page/docs/categories": "./src/pages/docs/[...categories].astro",
+    "./page/docs/documents": "./src/pages/docs/[...documents].astro",
+    "./page/blog/pages": "./src/pages/blog/[...page].astro",
+    "./page/blog/posts": "./src/pages/blog/[...posts].astro",
+    "./page/404": "./src/pages/404.astro",
     "./schema": "./src/schema.ts",
     "./blog": "./src/blog.ts",
     "./styles": "./styles/scss/wathqny.scss",
     "./block/styles": "./styles/code.css",
-
     "./script": {
       "navbar": "./src/components/navbar.ts",
       "sidebar": "./src/components/sidebar.ts"
@@ -46,11 +48,11 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
-
   "peerDependencies": {
     "astro": "^4.4.15"
   },
   "dependencies": {
+    "@inox-tools/custom-routing": "^0.3.1",
     "@shikijs/transformers": "^1.5.1",
     "astro-icon": "^1.1.0",
     "astro-toolkit": "workspace:*",

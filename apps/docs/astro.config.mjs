@@ -16,6 +16,8 @@ import metaTags from 'astro-meta-tags'
 import purgecss from 'astro-purgecss'
 import { defineConfig, passthroughImageService } from 'astro/config'
 import Wathqny from './wathqny.config'
+import { customRouting } from '@inox-tools/custom-routing'
+
 
 // https://astro.build/config
 export default defineConfig({
@@ -45,6 +47,15 @@ export default defineConfig({
     },
   },
   integrations: [
+    customRouting({
+      '/': 'wtqdocs/page/home',
+      'docs': 'wtqdocs/page/docs',
+      'docs/[...categories]': 'wtqdocs/page/docs/categories',
+      'docs/[...documents]': 'wtqdocs/page/docs/documents',
+      'blog/[...page]': 'wtqdocs/page/blog/pages',
+      'blog/[...posts]': 'wtqdocs/page/blog/posts',
+      '404': 'wtqdocs/page/404',
+    }),
     AutoImport({
       imports: [
         {

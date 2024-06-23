@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content'
 import { For } from 'astro-toolkit/flow'
-import { BlogLayout, PostSummary, Pagination } from 'wtqdocs/blog'
+import { BlogLayout, PostSummary, Pagination } from '../../blog'
 
 export async function getStaticPaths({ paginate }) {
   const blog = await getCollection('blog')
