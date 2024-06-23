@@ -1,3 +1,6 @@
+import type { ShikiTransformer } from "shiki"
+type themeType = BuiltinTheme | ThemeRegistration | ThemeRegistrationRaw
+
 type WathqnyConfig = {
   logo: string
   siteName?: string
@@ -21,6 +24,15 @@ type WathqnyConfig = {
   navbar?: {
     items: { href?: string; label?: string }[]
   }
+  highlighter: {
+    shikiConfig: {
+      themes: {
+        light: themeType,
+        dark: themeType,
+      },
+      transformers: ShikiTransformer[],
+    },
+  },
 }
 
 export type { WathqnyConfig }

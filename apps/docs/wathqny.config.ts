@@ -1,4 +1,5 @@
 import type { WathqnyConfig } from 'wtqdocs'
+// import { shikiBaseTransformers } from 'wtqdocs/plugin'
 
 import CodeStyles from 'wtqdocs/block/styles?url'
 import ThemeStyles from 'wtqdocs/styles?url'
@@ -67,6 +68,15 @@ const Config: WathqnyConfig = {
       rel: 'stylesheet',
     }
   ],
+  // highlighter: {
+  //   shikiConfig: {
+  //     themes: {
+  //       light: 'material-theme-lighter',
+  //       dark: 'material-theme-darker',
+  //     },
+  //     transformers: [...shikiBaseTransformers()],
+  //   },
+  // },
 }
 
 export default Config

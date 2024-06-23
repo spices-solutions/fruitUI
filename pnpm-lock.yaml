@@ -24,21 +24,9 @@ importers:
 
   apps/docs:
     dependencies:
-      '@astrojs/mdx':
-        specifier: ^3.1.1
-        version: 3.1.1(astro@4.11.0(@types/node@20.14.8)(sass@1.77.6)(sugarss@4.0.1)(terser@5.31.1)(typescript@5.5.2))
       '@astrojs/rss':
         specifier: ^4.0.6
         version: 4.0.6
-      '@astrojs/sitemap':
-        specifier: ^3.1.6
-        version: 3.1.6
-      '@inox-tools/custom-routing':
-        specifier: ^0.3.1
-        version: 0.3.1
-      '@shikijs/transformers':
-        specifier: ^1.9.0
-        version: 1.9.0
       '@vite-pwa/assets-generator':
         specifier: ^0.2.4
         version: 0.2.4
@@ -48,27 +36,6 @@ importers:
       astro:
         specifier: ^4.11.0
         version: 4.11.0(@types/node@20.14.8)(sass@1.77.6)(sugarss@4.0.1)(terser@5.31.1)(typescript@5.5.2)
-      astro-auto-import:
-        specifier: ^0.4.2
-        version: 0.4.2(astro@4.11.0(@types/node@20.14.8)(sass@1.77.6)(sugarss@4.0.1)(terser@5.31.1)(typescript@5.5.2))
-      astro-compressor:
-        specifier: ^0.4.1
-        version: 0.4.1
-      astro-icon:
-        specifier: ^1.1.0
-        version: 1.1.0
-      astro-meta-tags:
-        specifier: ^0.2.2
-        version: 0.2.2(astro@4.11.0(@types/node@20.14.8)(sass@1.77.6)(sugarss@4.0.1)(terser@5.31.1)(typescript@5.5.2))
-      astro-purgecss:
-        specifier: ^4.1.1
-        version: 4.1.1(astro@4.11.0(@types/node@20.14.8)(sass@1.77.6)(sugarss@4.0.1)(terser@5.31.1)(typescript@5.5.2))(purgecss@6.0.0)
-      astro-toolkit:
-        specifier: workspace:*
-        version: link:../../packages/astro-toolkit
-      purgecss:
-        specifier: ^6.0.0
-        version: 6.0.0
       sass:
         specifier: ^1.77.6
         version: 1.77.6
@@ -120,21 +87,42 @@ importers:
 
   packages/wtqdocs:
     dependencies:
+      '@astrojs/mdx':
+        specifier: ^3.1.1
+        version: 3.1.1(astro@4.10.0(@types/node@20.14.8)(sass@1.77.6)(sugarss@4.0.1)(terser@5.31.1)(typescript@5.4.5))
+      '@astrojs/sitemap':
+        specifier: ^3.1.6
+        version: 3.1.6
       '@inox-tools/custom-routing':
         specifier: ^0.3.1
         version: 0.3.1
       '@shikijs/transformers':
-        specifier: ^1.5.1
-        version: 1.6.1
+        specifier: ^1.9.0
+        version: 1.9.0
       astro:
         specifier: ^4.4.15
         version: 4.10.0(@types/node@20.14.8)(sass@1.77.6)(sugarss@4.0.1)(terser@5.31.1)(typescript@5.4.5)
+      astro-auto-import:
+        specifier: ^0.4.2
+        version: 0.4.2(astro@4.10.0(@types/node@20.14.8)(sass@1.77.6)(sugarss@4.0.1)(terser@5.31.1)(typescript@5.4.5))
+      astro-compressor:
+        specifier: ^0.4.1
+        version: 0.4.1
       astro-icon:
         specifier: ^1.1.0
         version: 1.1.0
+      astro-meta-tags:
+        specifier: ^0.2.2
+        version: 0.2.2(astro@4.10.0(@types/node@20.14.8)(sass@1.77.6)(sugarss@4.0.1)(terser@5.31.1)(typescript@5.4.5))
+      astro-purgecss:
+        specifier: ^4.1.1
+        version: 4.1.1(astro@4.10.0(@types/node@20.14.8)(sass@1.77.6)(sugarss@4.0.1)(terser@5.31.1)(typescript@5.4.5))(purgecss@6.0.0)
       astro-toolkit:
         specifier: workspace:*
         version: link:../astro-toolkit
+      purgecss:
+        specifier: ^6.0.0
+        version: 6.0.0
       shiki:
         specifier: ^1.5.1
         version: 1.6.1
@@ -151,9 +139,6 @@ importers:
       typescript:
         specifier: ^5.4.5
         version: 5.4.5
-      workbox-window:
-        specifier: ^7.1.0
-        version: 7.1.0
 
 packages:
 
@@ -1669,9 +1654,6 @@ packages:
 
   '@shikijs/core@1.9.0':
     resolution: {integrity: sha512-cbSoY8P/jgGByG8UOl3jnP/CWg/Qk+1q+eAKWtcrU3pNoILF8wTsLB0jT44qUBV8Ce1SvA9uqcM9Xf+u3fJFBw==}
-
-  '@shikijs/transformers@1.6.1':
-    resolution: {integrity: sha512-m/h2Dh99XWvTzHL8MUQmEnrB+/gxDljIfgDNR00Zg941KENqORx8Hi9sKpGYjCgXoEJKASZlEMQdPnkHj9/8aQ==}
 
   '@shikijs/transformers@1.9.0':
     resolution: {integrity: sha512-wo8dNbZtFtVhKtw8BnXIT/FDTGMwEdWcQSIRa78ou14JGkMYxSCBN942W5+IRUifP5BwVUWgkXBYX/M3FUFkeg==}
@@ -4973,12 +4955,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/mdx@3.1.1(astro@4.11.0(@types/node@20.14.8)(sass@1.77.6)(sugarss@4.0.1)(terser@5.31.1)(typescript@5.5.2))':
+  '@astrojs/mdx@3.1.1(astro@4.10.0(@types/node@20.14.8)(sass@1.77.6)(sugarss@4.0.1)(terser@5.31.1)(typescript@5.4.5))':
     dependencies:
       '@astrojs/markdown-remark': 5.1.0
       '@mdx-js/mdx': 3.0.1
       acorn: 8.12.0
-      astro: 4.11.0(@types/node@20.14.8)(sass@1.77.6)(sugarss@4.0.1)(terser@5.31.1)(typescript@5.5.2)
+      astro: 4.10.0(@types/node@20.14.8)(sass@1.77.6)(sugarss@4.0.1)(terser@5.31.1)(typescript@5.4.5)
       es-module-lexer: 1.5.3
       estree-util-visit: 2.0.0
       github-slugger: 2.0.0
@@ -6537,10 +6519,6 @@ snapshots:
 
   '@shikijs/core@1.9.0': {}
 
-  '@shikijs/transformers@1.6.1':
-    dependencies:
-      shiki: 1.6.1
-
   '@shikijs/transformers@1.9.0':
     dependencies:
       shiki: 1.9.0
@@ -6634,13 +6612,12 @@ snapshots:
   '@types/node@20.14.8':
     dependencies:
       undici-types: 5.26.5
-    optional: true
 
   '@types/resolve@1.20.2': {}
 
   '@types/sax@1.2.7':
     dependencies:
-      '@types/node': 17.0.45
+      '@types/node': 20.14.8
 
   '@types/tar@6.1.13':
     dependencies:
@@ -6883,11 +6860,11 @@ snapshots:
 
   astring@1.8.6: {}
 
-  astro-auto-import@0.4.2(astro@4.11.0(@types/node@20.14.8)(sass@1.77.6)(sugarss@4.0.1)(terser@5.31.1)(typescript@5.5.2)):
+  astro-auto-import@0.4.2(astro@4.10.0(@types/node@20.14.8)(sass@1.77.6)(sugarss@4.0.1)(terser@5.31.1)(typescript@5.4.5)):
     dependencies:
       '@types/node': 18.19.39
       acorn: 8.12.0
-      astro: 4.11.0(@types/node@20.14.8)(sass@1.77.6)(sugarss@4.0.1)(terser@5.31.1)(typescript@5.5.2)
+      astro: 4.10.0(@types/node@20.14.8)(sass@1.77.6)(sugarss@4.0.1)(terser@5.31.1)(typescript@5.4.5)
 
   astro-compressor@0.4.1: {}
 
@@ -6899,13 +6876,13 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  astro-meta-tags@0.2.2(astro@4.11.0(@types/node@20.14.8)(sass@1.77.6)(sugarss@4.0.1)(terser@5.31.1)(typescript@5.5.2)):
+  astro-meta-tags@0.2.2(astro@4.10.0(@types/node@20.14.8)(sass@1.77.6)(sugarss@4.0.1)(terser@5.31.1)(typescript@5.4.5)):
     dependencies:
-      astro: 4.11.0(@types/node@20.14.8)(sass@1.77.6)(sugarss@4.0.1)(terser@5.31.1)(typescript@5.5.2)
+      astro: 4.10.0(@types/node@20.14.8)(sass@1.77.6)(sugarss@4.0.1)(terser@5.31.1)(typescript@5.4.5)
 
-  astro-purgecss@4.1.1(astro@4.11.0(@types/node@20.14.8)(sass@1.77.6)(sugarss@4.0.1)(terser@5.31.1)(typescript@5.5.2))(purgecss@6.0.0):
+  astro-purgecss@4.1.1(astro@4.10.0(@types/node@20.14.8)(sass@1.77.6)(sugarss@4.0.1)(terser@5.31.1)(typescript@5.4.5))(purgecss@6.0.0):
     dependencies:
-      astro: 4.11.0(@types/node@20.14.8)(sass@1.77.6)(sugarss@4.0.1)(terser@5.31.1)(typescript@5.5.2)
+      astro: 4.10.0(@types/node@20.14.8)(sass@1.77.6)(sugarss@4.0.1)(terser@5.31.1)(typescript@5.4.5)
       purgecss: 6.0.0
 
   astro@4.10.0(@types/node@20.14.8)(sass@1.77.6)(sugarss@4.0.1)(terser@5.31.1)(typescript@5.4.5):

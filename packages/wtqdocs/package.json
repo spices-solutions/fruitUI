@@ -12,15 +12,12 @@
   "bugs": {
     "url": "https://github.com/spices-solutions/"
   },
-  "keywords": [
-    "spices",
-    "docs",
-    "wathqny"
-  ],
+  "keywords": ["spices", "docs", "wathqny"],
   "exports": {
     ".": {
       "import": "./src/index.ts"
     },
+    "./plugin": "./src/integration.ts",
     "./page/home": "./src/pages/index.astro",
     "./page/docs": "./src/pages/docs.astro",
     "./page/docs/categories": "./src/pages/docs/[...categories].astro",
@@ -53,9 +50,16 @@
     "astro": "^4.4.15"
   },
   "dependencies": {
+    "@astrojs/mdx": "^3.1.1",
+    "@astrojs/sitemap": "^3.1.6",
     "@inox-tools/custom-routing": "^0.3.1",
-    "@shikijs/transformers": "^1.5.1",
+    "@shikijs/transformers": "^1.9.0",
+    "astro-auto-import": "^0.4.2",
+    "astro-compressor": "^0.4.1",
     "astro-icon": "^1.1.0",
+    "astro-meta-tags": "^0.2.2",
+    "astro-purgecss": "^4.1.1",
+    "purgecss": "^6.0.0",
     "astro-toolkit": "workspace:*",
     "shiki": "^1.5.1"
   },
@@ -63,7 +67,6 @@
     "@astrojs/ts-plugin": "^1.6.0",
     "@vite-pwa/assets-generator": "^0.2.4",
     "@vite-pwa/astro": "^0.3.0",
-    "typescript": "^5.4.5",
-    "workbox-window": "^7.1.0"
+    "typescript": "^5.4.5"
   }
 }
