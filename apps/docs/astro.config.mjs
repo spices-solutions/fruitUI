@@ -1,5 +1,5 @@
 import { defineConfig, passthroughImageService } from 'astro/config'
-import { wathqnyPlugin } from 'wtqdocs/plugin'
+import { shikiBaseTransformers, wathqnyPlugin } from 'wtqdocs/plugin'
 import WathqnyConfig from './wathqny.config'
 
 // https://astro.build/config
@@ -12,6 +12,15 @@ export default defineConfig({
   },
   image: {
     service: passthroughImageService(),
+  },
+  markdown: {
+    shikiConfig: {
+      themes: {
+        light: 'material-theme-lighter',
+        dark: 'material-theme-darker',
+      },
+      transformers: [...shikiBaseTransformers()],
+    },
   },
   integrations: [...wathqnyPlugin(WathqnyConfig)],
 })

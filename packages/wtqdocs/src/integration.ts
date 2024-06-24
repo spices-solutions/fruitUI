@@ -17,6 +17,15 @@ import metaTags from 'astro-meta-tags'
 import purgecss from 'astro-purgecss'
 import type { WathqnyConfig } from './types/config'
 
+export const shikiBaseTransformers = () => [
+  transformerNotationDiff(),
+  transformerNotationFocus(),
+  transformerMetaHighlight(),
+  transformerNotationWordHighlight(),
+  transformerNotationErrorLevel(),
+  transformerMetaWordHighlight(),
+]
+
 export function wathqnyPlugin(Wathqny: WathqnyConfig) {
   return [
     customRouting({
@@ -44,14 +53,7 @@ export function wathqnyPlugin(Wathqny: WathqnyConfig) {
           light: 'material-theme-lighter',
           dark: 'material-theme-darker',
         },
-        transformers: [
-          transformerNotationDiff(),
-          transformerNotationFocus(),
-          transformerMetaHighlight(),
-          transformerNotationWordHighlight(),
-          transformerNotationErrorLevel(),
-          transformerMetaWordHighlight(),
-        ],
+        transformers: [...shikiBaseTransformers()],
       },
     }),
     icon({
