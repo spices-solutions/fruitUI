@@ -1,39 +1,5 @@
 ---
-// @ts-ignore
-import { pwaAssetsHead } from 'virtual:pwa-assets/head'
-// @ts-ignore
-import { pwaInfo } from 'virtual:pwa-info'
-
-export interface Link extends Omit<HTMLLinkElement, 'sizes'> {
-  prefetch: boolean
-  crossorigin: string
-  sizes: string
-}
-
-export interface Meta extends HTMLMetaElement {
-  property: string
-}
-
-export type Props = {
-  title?: string | undefined
-  description?: string | undefined
-  OGImage?: {
-    src: string | undefined
-    alt: string | undefined
-  }
-  keywords?: string | string[] | undefined
-  sitemap?: boolean
-  /**
-   * google-site-verification token
-   */
-  GSVtoken: string
-  robots: string
-  vitePWA: boolean
-  extend?: {
-    link?: Partial<Link>[]
-    meta?: Partial<Meta>[]
-  }
-}
+import type { Props } from "./types"
 
 const {
   title,
@@ -43,9 +9,8 @@ const {
   sitemap,
   GSVtoken,
   robots,
-  vitePWA,
   extend,
-} = Astro.props
+} = Astro.props as Props
 
 const METATITLE = title
 const METAIMAGE =
@@ -60,13 +25,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{METATITLE}</title>
-  {
-    vitePWA && (
-      <>
-        <script src="/src/pwa.ts"></script>
-      </>
-    )
-  }
 
   {
     extend?.link?.map((linkTag) => (
@@ -101,16 +59,5 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
   <meta name="twitter:card" content="summary_large_image" />
 
   <meta name="google-site-verification" content={GSVtoken} />
-  <meta name="generator" content={Astro.generator} />
-  {
-    vitePWA && (
-      <>
-        {pwaAssetsHead.themeColor && <meta name="theme-color" content={pwaAssetsHead.themeColor.content} />}
-        {pwaAssetsHead.links.map((link: astroHTML.JSX.IntrinsicAttributes & astroHTML.JSX.LinkHTMLAttributes) => <link {...link} />)}
-        {pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} />}
-        <meta name="color-scheme" content="dark light" />
-      </>
-    )
-  }
   <slot />
 <head>
