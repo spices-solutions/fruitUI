@@ -19,7 +19,6 @@
     "sass": "^1.77.6",
     "sharp": "0.32.6",
     "sharp-ico": "^0.1.5",
-    "spices-fruitui": "workspace:*",
     "@vite-pwa/assets-generator": "^0.2.4",
     "@vite-pwa/astro": "^0.4.0",
     "workbox-window": "^7.1.0",

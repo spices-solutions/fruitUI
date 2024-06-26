@@ -1,9 +1,9 @@
 ---
 import { Icon } from 'astro-icon/components'
 
-let currentURL: any[] = Astro.url.pathname.split('/')
+let currentURL: string[] = Astro.url.pathname.split('/')
 
-currentURL = currentURL.filter(url => url !== '');
+currentURL = currentURL.filter((url) => url !== '')
 ---
 
 <ul

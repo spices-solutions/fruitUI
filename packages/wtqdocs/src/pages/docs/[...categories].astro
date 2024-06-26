@@ -1,0 +1,31 @@
+---
+import { type CollectionEntry, getCollection } from 'astro:content'
+import DocsLayout from '../../components/Layout/DocsLayout.astro'
+import CategoryCards from '../../components/categoryCards.astro'
+
+
+export async function getStaticPaths() {
+  const docs = await getCollection('docs')
+
+  return docs.map((doc) => {
+    return {
+      params: { categories: doc.data.category },
+      props: { doc },
+    }
+  })
+}
+
+interface Props {
+  doc: CollectionEntry<'docs'>
+}
+
+const { doc } = Astro.props;
+---
+
+<DocsLayout
+  title={doc.data.category.replace('-', ' ')}
+  description={doc.data.description}
+  keywords={doc.data.keywords}
+>
+  <CategoryCards />
+</DocsLayout>

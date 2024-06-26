@@ -1,0 +1,28 @@
+---
+import type { MarkdownLayoutProps } from 'astro'
+import BaseLayout from '../components/Layout/BaseLayout.astro'
+import '../../styles/theme.scss'
+
+type Props = MarkdownLayoutProps<{
+  title: string
+  subtitle: string
+  description: string
+  sorry: string
+  action: string
+}>
+
+---
+
+<BaseLayout title={"404" ?? 'Not Found'} >
+  <main id="main-content">
+    <section class="hero">
+      <h1 class="title">404</h1>
+      <p>page not found
+        <a
+          style="cursor: pointer;"
+          onclick="window.history.back()"
+        > go back</a>
+      </p>
+    </section>
+  </main>
+</BaseLayout>
