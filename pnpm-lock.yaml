@@ -55,6 +55,36 @@ importers:
         specifier: workspace:*
         version: link:../../packages/wtqdocs
 
+  apps/wathqny:
+    dependencies:
+      '@astrojs/rss':
+        specifier: ^4.0.6
+        version: 4.0.6
+      '@vite-pwa/assets-generator':
+        specifier: ^0.2.4
+        version: 0.2.4
+      '@vite-pwa/astro':
+        specifier: ^0.4.0
+        version: 0.4.0(@vite-pwa/assets-generator@0.2.4)(astro@4.11.0(@types/node@20.14.8)(sass@1.77.6)(sugarss@4.0.1)(terser@5.31.1)(typescript@5.5.2))(vite-plugin-pwa@0.20.0(@vite-pwa/assets-generator@0.2.4)(vite@5.3.1(@types/node@20.14.8)(sass@1.77.6)(sugarss@4.0.1)(terser@5.31.1))(workbox-build@7.1.1(@types/babel__core@7.20.5))(workbox-window@7.1.0))
+      astro:
+        specifier: ^4.11.0
+        version: 4.11.0(@types/node@20.14.8)(sass@1.77.6)(sugarss@4.0.1)(terser@5.31.1)(typescript@5.5.2)
+      sass:
+        specifier: ^1.77.6
+        version: 1.77.6
+      sharp:
+        specifier: 0.32.6
+        version: 0.32.6
+      sharp-ico:
+        specifier: ^0.1.5
+        version: 0.1.5
+      workbox-window:
+        specifier: ^7.1.0
+        version: 7.1.0
+      wtqdocs:
+        specifier: workspace:*
+        version: link:../../packages/wtqdocs
+
   packages/astro-toolkit:
     devDependencies:
       '@astrojs/ts-plugin':
@@ -96,6 +126,12 @@ importers:
       '@shikijs/transformers':
         specifier: ^1.9.0
         version: 1.9.0
+      '@vite-pwa/assets-generator':
+        specifier: ^0.2.4
+        version: 0.2.4
+      '@vite-pwa/astro':
+        specifier: ^0.4.0
+        version: 0.4.0(@vite-pwa/assets-generator@0.2.4)(astro@4.10.0(@types/node@20.14.8)(sass@1.77.6)(sugarss@4.0.1)(terser@5.31.1)(typescript@5.4.5))(vite-plugin-pwa@0.20.0(@vite-pwa/assets-generator@0.2.4)(vite@5.2.12(@types/node@20.14.8)(sass@1.77.6)(sugarss@4.0.1)(terser@5.31.1))(workbox-build@7.1.1(@types/babel__core@7.20.5))(workbox-window@7.1.0))
       astro:
         specifier: ^4.4.15
         version: 4.10.0(@types/node@20.14.8)(sass@1.77.6)(sugarss@4.0.1)(terser@5.31.1)(typescript@5.4.5)
@@ -127,12 +163,6 @@ importers:
       '@astrojs/ts-plugin':
         specifier: ^1.6.0
         version: 1.8.0
-      '@vite-pwa/assets-generator':
-        specifier: ^0.2.4
-        version: 0.2.4
-      '@vite-pwa/astro':
-        specifier: ^0.3.0
-        version: 0.3.1(@vite-pwa/assets-generator@0.2.4)(astro@4.10.0(@types/node@20.14.8)(sass@1.77.6)(sugarss@4.0.1)(terser@5.31.1)(typescript@5.4.5))(vite-plugin-pwa@0.20.0(@vite-pwa/assets-generator@0.2.4)(vite@5.2.12(@types/node@20.14.8)(sass@1.77.6)(sugarss@4.0.1)(terser@5.31.1))(workbox-build@7.1.1(@types/babel__core@7.20.5))(workbox-window@7.1.0))
       typescript:
         specifier: ^5.4.5
         version: 5.4.5
@@ -1759,16 +1789,6 @@ packages:
     resolution: {integrity: sha512-DXyPLPR/IpbZPSpo1amZEPghY/ziIwpTUKNaz0v1xG+ELzCXmrVQhVzEMqr2JLSqRxjc+UzKfGJA/YdUuaao3w==}
     engines: {node: '>=16.14.0'}
     hasBin: true
-
-  '@vite-pwa/astro@0.3.1':
-    resolution: {integrity: sha512-rSzbYnNZU4L4QBzwO7HTDy06WbWnQ/PPOd0rzVTlOxYz/PPzbXXgnOvMY/4yNRCq7Lhc68sq2fRQ2JEAynmESw==}
-    peerDependencies:
-      '@vite-pwa/assets-generator': ^0.2.4
-      astro: ^1.6.0 || ^2.0.0 || ^3.0.0 || ^4.0.0
-      vite-plugin-pwa: '>=0.19.6 <1'
-    peerDependenciesMeta:
-      '@vite-pwa/assets-generator':
-        optional: true
 
   '@vite-pwa/astro@0.4.0':
     resolution: {integrity: sha512-Fw9XCZsS808TRQVCe5nSwiOHGbiUgyXPu8VQBPan7P52JnJpZOomHQsKGBeFGYcwE5RQC6DNXXDGXm9WgYtXuw==}
@@ -6644,7 +6664,7 @@ snapshots:
       sharp-ico: 0.1.5
       unconfig: 0.3.13
 
-  '@vite-pwa/astro@0.3.1(@vite-pwa/assets-generator@0.2.4)(astro@4.10.0(@types/node@20.14.8)(sass@1.77.6)(sugarss@4.0.1)(terser@5.31.1)(typescript@5.4.5))(vite-plugin-pwa@0.20.0(@vite-pwa/assets-generator@0.2.4)(vite@5.2.12(@types/node@20.14.8)(sass@1.77.6)(sugarss@4.0.1)(terser@5.31.1))(workbox-build@7.1.1(@types/babel__core@7.20.5))(workbox-window@7.1.0))':
+  '@vite-pwa/astro@0.4.0(@vite-pwa/assets-generator@0.2.4)(astro@4.10.0(@types/node@20.14.8)(sass@1.77.6)(sugarss@4.0.1)(terser@5.31.1)(typescript@5.4.5))(vite-plugin-pwa@0.20.0(@vite-pwa/assets-generator@0.2.4)(vite@5.2.12(@types/node@20.14.8)(sass@1.77.6)(sugarss@4.0.1)(terser@5.31.1))(workbox-build@7.1.1(@types/babel__core@7.20.5))(workbox-window@7.1.0))':
     dependencies:
       astro: 4.10.0(@types/node@20.14.8)(sass@1.77.6)(sugarss@4.0.1)(terser@5.31.1)(typescript@5.4.5)
       vite-plugin-pwa: 0.20.0(@vite-pwa/assets-generator@0.2.4)(vite@5.2.12(@types/node@20.14.8)(sass@1.77.6)(sugarss@4.0.1)(terser@5.31.1))(workbox-build@7.1.1(@types/babel__core@7.20.5))(workbox-window@7.1.0)

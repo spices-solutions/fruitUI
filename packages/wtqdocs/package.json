@@ -61,12 +61,13 @@
     "astro-purgecss": "^4.1.1",
     "purgecss": "^6.0.0",
     "astro-toolkit": "workspace:*",
-    "shiki": "^1.5.1"
+    "shiki": "^1.5.1",
+    "@vite-pwa/assets-generator": "^0.2.4",
+    "@vite-pwa/astro": "^0.4.0"
   },
   "devDependencies": {
     "@astrojs/ts-plugin": "^1.6.0",
-    "@vite-pwa/assets-generator": "^0.2.4",
-    "@vite-pwa/astro": "^0.3.0",
+
     "typescript": "^5.4.5"
   }
 }
