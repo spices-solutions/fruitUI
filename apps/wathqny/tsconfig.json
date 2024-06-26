@@ -1,0 +1,16 @@
+{
+  "extends": "astro/tsconfigs/strictest",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "config": [
+        "./wathqny.config"
+      ],
+    },
+    "types": [
+      "astro/client",
+      "vite-plugin-pwa/pwa-assets",
+      "vite-plugin-pwa/info"
+    ]
+  }
+}

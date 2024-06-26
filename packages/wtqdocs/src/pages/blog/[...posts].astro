@@ -1,0 +1,44 @@
+---
+import { type CollectionEntry, getCollection, getEntry } from 'astro:content'
+import { PostPage } from '../../blog'
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog')
+
+  return posts.map((post) => {
+    return {
+      params: { posts: post.data.link },
+      props: { post },
+    }
+  })
+}
+
+interface Props {
+  post: CollectionEntry<'blog'>
+  authors: CollectionEntry<'authors'>
+}
+
+const { post } = Astro.props as Props
+
+const { authors } = post.data
+
+const authorData = (await getEntry('authors', authors?.id)) as {
+  data: {
+    name: string
+    role: string
+    profile: string
+  }
+}
+
+const { Content } = await post.render()
+---
+
+<PostPage
+  title={post.data.title}
+  description={post.data.description}
+  keywords={post.data.keywords}
+  OGImage={post.data.image}
+  author={authorData}
+>
+  <Content />
+</PostPage>

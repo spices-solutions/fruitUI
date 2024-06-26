@@ -1,0 +1,23 @@
+---
+import { getCollection } from "astro:content";
+import { For } from "astro-toolkit/flow";
+import { BlogLayout } from "../blog";
+import PostSummary from "../components/blog/PostSummary.astro";
+
+const blog = await getCollection("blog");
+---
+
+<BlogLayout>
+  <div class="wtq-post-container">
+    <For each={blog}>
+      {(post)=> (
+        <PostSummary 
+          title={post.data.title} 
+          image={post.data.image} 
+          link={post.data.link}
+          date={post.data.pubDate} 
+          body={post.body} />
+      )}
+    </For>
+  </div>
+</BlogLayout>

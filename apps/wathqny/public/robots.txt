@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://fruit-ui.vercel.app/sitemap-index.xml

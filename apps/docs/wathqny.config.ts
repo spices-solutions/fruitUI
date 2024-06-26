@@ -65,7 +65,7 @@ const Config: WathqnyConfig = {
     {
       href: fruitStyles,
       rel: 'stylesheet',
-    }
+    },
   ],
 }
 
